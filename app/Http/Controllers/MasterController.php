@@ -26,4 +26,14 @@ class MasterController extends Controller
     {
         return view('master/addkategori');
     }
+
+    public function jenis()
+    {
+        return view('master/jenis');
+    }
+
+    public function addjenis()
+    {
+        return view('master/addjenis');
+    }
 }

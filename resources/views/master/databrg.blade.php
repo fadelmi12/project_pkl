@@ -66,9 +66,8 @@
                                 <div class="pull-left">
                                     <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
                                     <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
-                                    <a href="databarang/addbarang" class="btn btn-success float-right col-mr-3"><i class="fa fa succes"></i>
-                                        Tambah Barang
-                                    </a>
+                                    <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addbrg"> Tambah Data</button>
+
                                     <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
                                 </div>
                                 <div class="clearfix"></div>
@@ -118,9 +117,9 @@
                                                         <td>2011/04/25</td>
                                                         <td>2011/04/25</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash"></i></button>
+                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#infobrg"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrg"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg"><i class="fa fa-trash"></i></button>
                                                             <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                         </td>
                                                     </tr>

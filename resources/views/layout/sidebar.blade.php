@@ -23,6 +23,9 @@
                 <li>
                     <a href="/kategori">Data kategori</a>
                 </li>
+                <li>
+                    <a href="/jenis">Jenis barang</a>
+                </li>
             </ul>
         </li>
         <li>
@@ -48,19 +51,19 @@
             </a>
         </li>
         <li>
-            <a href="peminjaman">
+            <a href="/peminjaman">
                 <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Peminjaman</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
-            <a href="po">
+            <a href="/po">
                 <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Purchase Order</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
-            <a href="administrator/administrator">
+            <a href="/administrator">
                 <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Administrator</span></div>
                 <div class="clearfix"></div>
             </a>
