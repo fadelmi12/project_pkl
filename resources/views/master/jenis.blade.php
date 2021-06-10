@@ -66,8 +66,8 @@
                         <div class="panel panel-default card-view">
                             <div class="panel-heading">
                                 <p>
-                                    <a href="jenis/addjenis" class="btn btn-success">Tambah baru
-                                    </a>
+                                    <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addjenis"> Tambah Data</button>
+
                                 </p>
                                 <div class="clearfix"></div>
                                 <div id="myTable1_wrapper" class="dataTables_wrapper">
@@ -101,13 +101,16 @@
                                                         <td>Baru/Retur</td>
                                                         <td>Baik/rusak</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
+                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editjns"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns"><i class="fa fa-trash-o"></i> </button>
+                                                            @include('master.editjns')
                                                         </td>
                                                     </tr>
-
+                                                    @include('master.addjenis')
                                                 </tbody>
                                             </table>
+                                            @include('master.hapusjenis')
+
                                         </div>
                                     </div>
                                 </div>

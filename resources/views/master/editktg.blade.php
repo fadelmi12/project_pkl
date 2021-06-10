@@ -1,9 +1,9 @@
-<div class="modal fade" id="addktg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+<div class="modal fade" id="editktg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h5 class="modal-title" id="exampleModalLabel1">Tambah</h5>
+                <h5 class="modal-title" id="exampleModalLabel1">Edit</h5>
             </div>
             <div class="modal-body">
                 <!-- <h6 class="mb-15">Apakah anda yakin mengubah status</h6> -->
@@ -20,7 +20,6 @@
                         <label class="control-label mb-10 text-left">Keterangan</label>
                         <input type="passtextword" class="form-control" value="">
                     </div>
-
                 </form>
             </div>
             <div class="modal-footer">

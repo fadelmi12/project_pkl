@@ -65,10 +65,8 @@
                     <div class="col-sm-12">
                         <div class="panel panel-default card-view">
                             <div class="panel-heading">
-                                <p>
-                                    <a href="kategori/addkategori" class="btn btn-success">Tambah baru
-                                    </a>
-                                </p>
+                                <!-- <div class="pull-left"> -->
+                                <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addktg"> Tambah Data</button>
                                 <div class="clearfix"></div>
                                 <div id="myTable1_wrapper" class="dataTables_wrapper">
                                     <div class="dataTables_length" id="myTable1_length"><label>Show <select name="myTable1_length" aria-controls="myTable1" class="">
@@ -103,13 +101,16 @@
                                                         <td>Monitor</td>
                                                         <td>Baik</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
+                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editktg"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusktg"><i class="fa fa-trash-o"></i> </button>
+                                                            @include('master.editktg')
                                                         </td>
+                                                        @include('master.hapusktg')
                                                     </tr>
 
                                                 </tbody>
                                             </table>
+                                            @include('master.addkategori')
                                         </div>
                                     </div>
                                 </div>

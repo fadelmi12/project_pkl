@@ -120,11 +120,14 @@
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#infobrg"><i class="fa fa-edit"></i></button>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrg"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg"><i class="fa fa-trash"></i></button>
+                                                            @include('master.hapusbrg')
                                                             <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                         </td>
+                                                        @include('master.editbrg')
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                            @include('master.addbarang')
                                         </div>
                                     </div>
                                 </div>
