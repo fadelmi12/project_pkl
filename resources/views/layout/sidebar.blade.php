@@ -51,13 +51,20 @@
             </a>
         </li>
         <li>
+            <a href="/pengajuan">
+                <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Pengajuan</span></div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+        <li>
+        <li>
             <a href="/peminjaman">
                 <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Peminjaman</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
-            <a href="/po">
+            <a href="/purchasing">
                 <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Purchase Order</span></div>
                 <div class="clearfix"></div>
             </a>

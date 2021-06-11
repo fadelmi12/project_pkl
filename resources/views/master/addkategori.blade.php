@@ -13,8 +13,11 @@
                         <input type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
-                        <label class="control-label mb-10 text-left" for="example-email">Nama kategori <span class="help"> </span></label>
-                        <input type="text" id="example-email" name="example-email" class="form-control" placeholder="">
+                        <label class="control-label mb-10 text-left">Nama kategori</label>
+                        <select class="form-control">
+                            <option>Hardware</option>
+                            <option>Software</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Keterangan</label>
