@@ -33,7 +33,8 @@ Route::get('brgkeluar', 'App\Http\Controllers\TransaksiController@brgkeluar');
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier');
 Route::get('supplier/addsupplier', 'App\Http\Controllers\SupplierController@add');
 
-Route::get('pengajuan', 'App\Http\Controllers\PengajuanController@index');
+Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@index');
+Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@index2');
 
 Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');
 Route::get('peminjaman/addpinjam', 'App\Http\Controllers\PeminjamanController@addpinjam');

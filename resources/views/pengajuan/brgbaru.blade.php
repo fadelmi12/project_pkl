@@ -53,7 +53,7 @@
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
                             <!-- <li><a href="inventory"></a></li> -->
-                            <li class="active"><span>Data Pengajuan</span></li>
+                            <li class="active"><span>Barang baru</span></li>
                         </ol>
                     </div>
                     <!-- /Breadcrumb -->
@@ -90,7 +90,6 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>No PO</th>
                                                         <th>Nama Barang</th>
                                                         <th>Jenis barang</th>
                                                         <th>Jumlah</th>
@@ -114,7 +113,6 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>sometext</td>
                                                         <td>sometext</td>
                                                         <td>sometext</td>
                                                         <td>sometext</td>

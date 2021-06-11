@@ -51,10 +51,20 @@
             </a>
         </li>
         <li>
-            <a href="/pengajuan">
-                <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Pengajuan</span></div>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuan">
+                <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pengajuan</span></div>
+                <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
                 <div class="clearfix"></div>
             </a>
+            <ul id="pengajuan" class="collapse collapse-level-1">
+                <li>
+                    <a href="/brgbaru">Barang baru</a>
+                </li>
+                <li>
+                    <a href="/brgretur">Barang retur</a>
+                </li>
+
+            </ul>
         </li>
         <li>
         <li>
