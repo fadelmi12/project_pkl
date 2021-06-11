@@ -46,7 +46,7 @@
         </li>
         <li>
             <a href="/supplier">
-                <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Data supplier</span></div>
+                <div class="pull-left"><i class="zmdi zmdi-accounts-alt mr-20"></i><span class="right-nav-text">Data supplier</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
@@ -59,19 +59,19 @@
         <li>
         <li>
             <a href="/peminjaman">
-                <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Peminjaman</span></div>
+                <div class="pull-left"><i class="zmdi zmdi-balance-wallet mr-20"></i><span class="right-nav-text">Peminjaman</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
             <a href="/purchasing">
-                <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Purchase Order</span></div>
+                <div class="pull-left"><i class="zmdi zmdi-shopping-cart mr-20"></i><span class="right-nav-text">Purchase Order</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
             <a href="/administrator">
-                <div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Administrator</span></div>
+                <div class="pull-left"><i class="zmdi zmdi-account   mr-20"></i><span class="right-nav-text">Administrator</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
