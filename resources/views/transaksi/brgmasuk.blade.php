@@ -95,7 +95,7 @@
                                                         <th>Tanggal Transaksi</th>
                                                         <th>Created at</th>
                                                         <th>Jenis Transaksi</th>
-                                                        <th>Instansi</th>
+                                                        <th>Supplier</th>
                                                         <th>Pengirim</th>
                                                         <th>Penerima</th>
                                                         <th>Ekspedisi</th>
@@ -127,12 +127,13 @@
                                                         <td>Sometext</td>
                                                         <td>
                                                             <!-- <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button> -->
-                                                            <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrgmasuk"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash"></i></button>
                                                             <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                         </td>
                                                     </tr>
                                                 </tbody>
+                                                @include('transaksi.editbrgmasuk')
                                             </table>
                                         </div>
                                     </div>
@@ -142,6 +143,7 @@
                     </div>
                 </div>
                 <!-- /Row -->
+                
 
             </div>
 
