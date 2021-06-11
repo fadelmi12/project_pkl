@@ -60,12 +60,7 @@
                     <!-- /Breadcrumb -->
                 </div>
                 <!-- /Title -->
-
-              
-			
-
-
-                
+            
             </div>
             <!-- /#wrapper -->
 

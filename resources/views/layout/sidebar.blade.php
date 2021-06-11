@@ -81,7 +81,7 @@
         </li>
         <li>
             <a href="/administrator">
-                <div class="pull-left"><i class="zmdi zmdi-account   mr-20"></i><span class="right-nav-text">Administrator</span></div>
+                <div class="pull-left"><i class="zmdi zmdi-account mr-20"></i><span class="right-nav-text">Administrator</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
