@@ -66,7 +66,7 @@
                                 <div class="pull-left">
                                     <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
                                     <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
-                                    <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addpengajuan"> Tambah Data</button>
+                                    <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addbrgbaru"> Tambah Data</button>
                                     <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
                                 </div>
 
@@ -121,18 +121,18 @@
                                                         <td>sometext</td>
                                                         <td>sometext</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#dtlpengajuan"><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpengajuan"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspengajuan"></i></button>
-                                                            @include('peminjaman.edit')
+                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrgbaru"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapusbrgbaru"></i></button>
+
+                                                            @include('pengajuan.editbrgbaru')
                                                             <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                         </td>
-                                                        @include('peminjaman.hapus')
+                                                        @include('pengajuan.addbrgbaru')
                                                     </tr>
                                                 </tbody>
                                             </table>
-
-                                            @include('peminjaman.addpinjam')
+                                            @include('pengajuan.hapusbrgbaru')
                                         </div>
                                     </div>
                                 </div>
