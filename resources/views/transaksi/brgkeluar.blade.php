@@ -95,7 +95,7 @@
                                                         <th>Tanggal Transaksi</th>
                                                         <th>Created at</th>
                                                         <th>Jenis Transaksi</th>
-                                                        <th>Instansi</th>
+                                                        <th>Supplier</th>
                                                         <th>Pengirim</th>
                                                         <th>Penerima</th>
                                                         <th>Ekspedisi</th>
@@ -103,16 +103,7 @@
                                                         <th colspan="3">Aksi</th>
                                                     </tr>
                                                 </thead>
-                                                <!-- <tfoot>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                </tr>
-                                            </tfoot> -->
+                                                
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>

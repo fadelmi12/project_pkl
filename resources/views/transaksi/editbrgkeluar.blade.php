@@ -17,7 +17,7 @@
                         <input type="text" class="form-control" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label class="control-label mb-10 text-left">Instansi</label>
+                        <label class="control-label mb-10 text-left">Supplier</label>
                         <input type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
