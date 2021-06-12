@@ -21,4 +21,8 @@ class TransaksiController extends Controller
     {
         return view('transaksi/brgkeluar');
     }
+    public function addkeluar()
+    {
+        return view('transaksi/addkeluar');
+    }
 }

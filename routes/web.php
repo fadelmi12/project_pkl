@@ -29,6 +29,7 @@ Route::get('home', 'App\Http\Controllers\HomeController@index');
 Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@brgmasuk');
 Route::get('brgmasuk/addmasuk', 'App\Http\Controllers\TransaksiController@addmasuk');
 Route::get('brgkeluar', 'App\Http\Controllers\TransaksiController@brgkeluar');
+Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addkeluar');
 
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier');
 Route::get('supplier/addsupplier', 'App\Http\Controllers\SupplierController@add');
