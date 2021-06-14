@@ -7,24 +7,29 @@
             </div>
             <div class="modal-body">
                 <!-- <h6 class="mb-15">Apakah anda yakin mengubah status</h6> -->
-                <form>
-                    <div class="form-group">
+                <form action="master/jenis" method="post">
+                    {{ csrf_field() }}
+                    <!-- <div class="form-group">
                         <label class="control-label mb-10 text-left">Jenis barang</label>
                         <select class="form-control">
-                            <option>Barang baru</option>
-                            <option>Barang retur</option>
+                            <option>Hardware</option>
+                            <option>Software</option>
                         </select>
+                    </div> -->
+                    <div class="form-group">
+                        <label class="control-label mb-10 text-left" for="example-email">Jenis <span class="help"> </span></label>
+                        <input type="text" id="jenis" name="jenis" class="form-control" placeholder="">
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
-                        <input type="text" id="example-email" name="example-email" class="form-control" placeholder="">
+                        <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
                     </div>
 
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Simpan</button>
             </div>
         </div>
     </div>

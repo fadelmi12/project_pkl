@@ -12,13 +12,6 @@
                         <label class="control-label mb-10 text-left">Nama barang</label>
                         <input type="text" class="form-control" name="" id="" value="">
                     </div>
-                    <div class="form-group mt-30 mb-30">
-                        <label class="control-label mb-10 text-left">Jenis barang</label>
-                        <select class="form-control">
-                            <option>Baru</option>
-                            <option>Retur</option>
-                        </select>
-                    </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Jumlah</label>
                         <input type="number" class="form-control" name="" id="" value="">

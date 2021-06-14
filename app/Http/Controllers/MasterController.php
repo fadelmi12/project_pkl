@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Jenis;
 
 class MasterController extends Controller
 {
@@ -29,11 +31,33 @@ class MasterController extends Controller
 
     public function jenis()
     {
-        return view('master/jenis');
+        //mengambil data dr tb jenis
+        $data_jenis = DB::table('data_jenis')->get();
+
+        //mengirim data_jenis ke view
+        return view('master/jenis', ['data_jenis' => $data_jenis]);
     }
 
-    public function addjenis()
+    public function jenisUpdate(Request $request)
     {
+        $jenis = Jenis::find($request->edit_id_jenis);
+        $jenis->id_jenis = $request->edit_id_jenis;
+        $jenis->jenis = $request->edit_jenis;
+        $jenis->keterangan = $request->edit_keterangan;
+        $jenis->save();
+        //mengirim data_jenis ke view
+        return back();
+    }
+
+    public function addjenis(Request $request)
+    {
+        // insert data ke table jenis
+        DB::table('data_jenis')->insert([
+            'jenis' => $request->jenis,
+            'keterangan' => $request->keterangan
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/jenis');
         return view('master/addjenis');
     }
 }

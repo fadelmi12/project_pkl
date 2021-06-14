@@ -92,7 +92,6 @@
                                                         <th>#</th>
                                                         <th>No PO</th>
                                                         <th>Nama Barang</th>
-                                                        <th>Jenis barang</th>
                                                         <th>Jumlah</th>
                                                         <th>Keterangan</th>
                                                         <th>Status</th>
@@ -114,7 +113,6 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>sometext</td>
                                                         <td>sometext</td>
                                                         <td>sometext</td>
                                                         <td>sometext</td>
