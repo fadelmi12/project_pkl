@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Alamat</label>
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left"> No HP <span class="help"> </span></label>
