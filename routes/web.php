@@ -24,6 +24,7 @@ Route::get('/databarang/addbarang', 'App\Http\Controllers\MasterController@addba
 Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
 Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
 Route::get('jenis/addjenis', 'App\Http\Controllers\MasterController@addjenis');
+Route::get('/jenis/delete/{id_jenis}', 'App\Http\Controllers\MasterController@JenisDelete');
 
 Route::get('home', 'App\Http\Controllers\HomeController@index');
 

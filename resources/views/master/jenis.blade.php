@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Inventory</title>
-    <link rel="icon" href="{{asset('template')}}/dist/img/nakulasadewa1.png">
     <meta name="description" content="Doodle is a Dashboard & Admin Site Responsive Template by hencework." />
     <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Doodle Admin, Doodleadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
     <meta name="author" content="hencework" />
@@ -67,8 +66,8 @@
                         <div class="panel panel-default card-view">
                             <div class="panel-heading">
                                 <p>
-                                    <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addjenis"> Tambah Data</button>
-
+                                    <a href="jenis/addjenis" class="btn btn-success">Tambah baru
+                                    </a>
                                 </p>
                                 <div class="clearfix"></div>
                                 <div id="myTable1_wrapper" class="dataTables_wrapper">
@@ -97,23 +96,18 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($data_jenis as $data_jenis)
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>{{ $data_jenis->jenis }}</td>
-                                                        <td>{{ $data_jenis->keterangan }}</td>
+                                                        <td>Baru/Retur</td>
+                                                        <td>Baik/rusak</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editjns" onclick="setEditForm('{{ $data_jenis->id_jenis }}', '{{ $data_jenis->jenis }}', '{{ $data_jenis->keterangan }}')"><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns"><i class="fa fa-trash-o"></i> </button>
-                                                            @include('master.editjns')
+                                                            <button class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
                                                         </td>
                                                     </tr>
-                                                    @endforeach
-                                                    @include('master.addjenis')
+
                                                 </tbody>
                                             </table>
-                                            @include('master.hapusjenis')
-
                                         </div>
                                     </div>
                                 </div>
@@ -125,13 +119,6 @@
                 </div>
                 <!-- /#wrapper -->
 
-<script type="text/javascript">
-    function setEditForm(id_jenis, jenis, keterangan) {
-        document.getElementById('edit_id_jenis').value = id_jenis;
-        document.getElementById('edit_jenis').value = jenis;
-        document.getElementById('edit_keterangan').value = keterangan;
-    }
-</script>
                 @include('layout.javascript')
                 @include('layout.footer')
 </body>

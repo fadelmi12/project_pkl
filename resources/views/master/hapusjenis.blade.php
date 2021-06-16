@@ -5,24 +5,18 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h5 class="modal-title" id="exampleModalLabel1">Hapus</h5>
             </div>
+
+            <!-- <form action="jenis/delete" method="post">
+                {{ csrf_field() }}
+                @method('DELETE') -->
             <div class="modal-body">
                 <h6 class="mb-15">Apakah anda yakin menghapus data ini?</h6>
-                <!-- <div class="radio radio-info">
-                    <input type="radio" name="radio" id="radio1" value="option1" checked="">
-                    <label for="radio1">
-                        Ya
-                    </label>
-                </div>
-                <div class="radio radio-info">
-                    <input type="radio" name="radio" id="radio2" value="option2" checked="">
-                    <label for="radio2">
-                        Tidak
-                    </label>
-                </div> -->
             </div>
+            <!-- </form> -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Ya</button>
+                <button type="submit" class="btn btn-primary">Ya</a>
             </div>
+
         </div>
     </div>
