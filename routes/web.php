@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MasterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layout.master');
-});
+})->name('home');
 
 Route::get('databrg', 'App\Http\Controllers\MasterController@index');
 Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
@@ -25,8 +26,10 @@ Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
 Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
 Route::get('jenis/addjenis', 'App\Http\Controllers\MasterController@addjenis');
 Route::get('/jenis/delete/{id_jenis}', 'App\Http\Controllers\MasterController@JenisDelete');
+// Route::post('/submisi/{id_kategori}', 'HomeController@submisi')->name('submisi');
 Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->name('addjenis2');
 Route::get('home', 'App\Http\Controllers\HomeController@index');
+Route::post('edit', [MasterController::class, 'submisi']);
 
 Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@brgmasuk');
 Route::get('brgmasuk/addmasuk', 'App\Http\Controllers\TransaksiController@addmasuk');
