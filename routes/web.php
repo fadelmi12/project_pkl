@@ -29,11 +29,17 @@ Route::get('home', 'App\Http\Controllers\HomeController@index');
 
 Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@brgmasuk');
 Route::get('brgmasuk/addmasuk', 'App\Http\Controllers\TransaksiController@addmasuk');
+// Route::get('brgmasuk/delete/{id_transaksi}', 'App\Http\Controllers\TransaksiController@delete');
+Route::resource('post','App\Http\Controllers\TransaksiController@destroy' );
+
+
 Route::get('brgkeluar', 'App\Http\Controllers\TransaksiController@brgkeluar');
 Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addkeluar');
 
-Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier');
+Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier')->name('supplier');
 Route::get('supplier/addsupplier', 'App\Http\Controllers\SupplierController@add');
+Route::post('supplier/insert', 'App\Http\Controllers\SupplierController@insert');
+
 
 Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@index');
 Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@index2');
