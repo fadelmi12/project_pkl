@@ -96,11 +96,12 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach($kategori as $kategories)
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>KTG001</td>
-                                                        <td>Monitor</td>
-                                                        <td>Baik</td>
+                                                        <td>{{ $kategories->id_kategori }}</td>
+                                                        <td>{{ $kategories->kode_kategori }}</td>
+                                                        <td>{{ $kategories->kategori }}</td>
+                                                        <td>{{ $kategories->keterangan }}</td>
                                                         <td>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editktg"><i class="fa fa-edit"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusktg"><i class="fa fa-trash-o"></i> </button>
@@ -108,7 +109,7 @@
                                                         </td>
                                                         @include('master.hapusktg')
                                                     </tr>
-
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                             @include('master.addkategori')

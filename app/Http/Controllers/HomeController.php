@@ -11,4 +11,9 @@ class HomeController extends Controller
     {
         return view('dashboard/home');
     }
+
+    public function submisi(Request $request)
+    {
+        dd($request);
+    }
 }

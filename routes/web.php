@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MasterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,35 +16,43 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layout.master');
-});
+})->name('home');
 
+// MASTER DATA
 Route::get('databrg', 'App\Http\Controllers\MasterController@index');
 Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
 Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addkategori');
 Route::get('/databarang/addbarang', 'App\Http\Controllers\MasterController@addbarang');
 Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
-Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
-// Route::get('jenis/editjenis/{id_jenis}', 'App\Http\Controllers\MasterController@editjenis');
+// Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
+Route::post('edit', [MasterController::class, 'jenisUpdate']);
 Route::get('jenis/addjenis', 'App\Http\Controllers\MasterController@addjenis');
 Route::get('/jenis/delete/{id_jenis}', 'App\Http\Controllers\MasterController@JenisDelete');
+// Route::post('/submisi/{id_kategori}', 'HomeController@submisi')->name('submisi');
 Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->name('addjenis2');
 Route::get('home', 'App\Http\Controllers\HomeController@index');
+Route::post('edit', [MasterController::class, 'editSubmisi']);
 
+// TRANSAKSI
 Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@brgmasuk');
 Route::get('brgmasuk/addmasuk', 'App\Http\Controllers\TransaksiController@addmasuk');
 Route::get('brgkeluar', 'App\Http\Controllers\TransaksiController@brgkeluar');
 Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addkeluar');
 
+// SUPPLIER
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier');
 Route::get('supplier/addsupplier', 'App\Http\Controllers\SupplierController@add');
 
 Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@index');
 Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@index2');
 
+// PEMINJAMAN
 Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');
 Route::get('peminjaman/addpinjam', 'App\Http\Controllers\PeminjamanController@addpinjam');
 
+// PO
 Route::get('purchasing', 'App\Http\Controllers\PoController@index');
 
+// ADMINISTRASI
 Route::get('administrator', 'App\Http\Controllers\AdministratorController@index');
 Route::get('administrator/add', 'App\Http\Controllers\AdministratorController@add');

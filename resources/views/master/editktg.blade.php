@@ -7,27 +7,32 @@
             </div>
             <div class="modal-body">
                 <!-- <h6 class="mb-15">Apakah anda yakin mengubah status</h6> -->
-                <form>
+                <form method="POST" action="{{ url('edit') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label class="control-label mb-10 text-left">id<span class="help"> Kategori</span></label>
+                        <input id="id" name="id" type="text" class="form-control" value="{{ $kategories->id_kategori }}" readonly>
+                    </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
-                        <input type="text" class="form-control" value="">
+                        <input id="kode" name="kode" type="text" class="form-control" value="{{ $kategories->kode_kategori }}">
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Nama kategori</label>
-                        <select class="form-control">
-                            <option>Hardware</option>
-                            <option>Software</option>
+                        <select id="nama" name="nama" class="form-control" value="{{ $kategories->kategori }}">
+                            <option value="Hardware">Hardware</option>
+                            <option value="Software">Software</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Keterangan</label>
-                        <input type="passtextword" class="form-control" value="">
+                        <input id="keterangan" name="keterangan" type="text" class="form-control" value="{{ $kategories->keterangan }}">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
             </div>
         </div>
     </div>

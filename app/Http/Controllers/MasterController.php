@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Jenis;
+use App\Models\kategori;
 
 class MasterController extends Controller
 {
@@ -19,9 +20,22 @@ class MasterController extends Controller
         return view('master/addbarang');
     }
 
+    // DATA KATEGORI
+    public function editSubmisi(Request $request)
+    {
+        // dd($request);
+        $kategori = kategori::where('id_kategori', $request->id)->first();
+        $kategori->kode_kategori = $request->kode;
+        $kategori->kategori = $request->nama;
+        $kategori->keterangan = $request->keterangan;
+        $kategori->update();
+
+        return redirect('kategori');
+    }
     public function kategori()
     {
-        return view('master/kategori');
+        $kategori = kategori::all();
+        return view('master/kategori', compact('kategori'));
     }
 
     public function addkategori()
@@ -29,25 +43,27 @@ class MasterController extends Controller
         return view('master/addkategori');
     }
 
+    // DATA JENIS
     public function jenis()
     {
-        //mengambil data dr tb jenis
-        $data_jenis = DB::table('data_jenis')->get();
+        // //mengambil data dr tb jenis
+        // $data_jenis = DB::table('data_jenis')->get();
+        // //mengirim data_jenis ke view
+        // return view('master/jenis', ['data_jenis' => $data_jenis]);
 
-        //mengirim data_jenis ke view
-        return view('master/jenis', ['data_jenis' => $data_jenis]);
+        $data_jenis = jenis::all();
+        return view('master/jenis', compact('data_jenis'));
     }
-
 
     public function jenisUpdate(Request $request)
     {
-        $jenis = Jenis::find($request->id_jenis);
-        $jenis->id_jenis = $request->id_jenis;
-        $jenis->jenis = $request->jenis;
-        $jenis->keterangan = $request->keterangan;
-        $jenis->save();
-        //mengirim data_jenis ke view
-        return back()->with('success', "Data telah terupdate");
+        // dd($request);
+        $data_jenis = jenis::where('id_jenis', $request->id)->first();
+        $data_jenis->jenis = $request->jenis;
+        $data_jenis->keterangan = $request->keterangan;
+        $data_jenis->update();
+
+        return redirect('jenis');
     }
 
     public function addjenis2(Request $request)
@@ -56,12 +72,6 @@ class MasterController extends Controller
             'jenis' => $request->jenis,
             'keterangan' => $request->keterangan
         ]);
-        // // insert data ke table jenis
-        // DB::table('data_jenis')->insert([
-        //     'jenis' => $request->jenis,
-        //     'keterangan' => $request->keterangan
-        // ]);
-        // // alihkan halaman ke halaman pegawai
         return redirect('jenis');
         // return view('master/addjenis');
     }
