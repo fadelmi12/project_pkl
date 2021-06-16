@@ -1,6 +1,6 @@
-git clone
-edit .env
-composer install
-php artisan key:generate
-php artisan migrate:fresh --seed
-send me a coffee
+1. git clone
+2. edit .env
+3. composer install
+4. php artisan key:generate
+5. php artisan migrate:fresh --seed
+6. send me a coffee 
