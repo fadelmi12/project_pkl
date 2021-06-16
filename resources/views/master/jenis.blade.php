@@ -96,16 +96,18 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php $no = 1; ?>
+                                                    @foreach ($data_jenis as $jenis)
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Baru/Retur</td>
-                                                        <td>Baik/rusak</td>
+                                                        <td>{{ $no++ }}</td>
+                                                        <td>{{ $jenis->jenis }}</td>
+                                                        <td>{{ $jenis->keterangan }}</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></button>
+                                                            <a href="jenis/editjenis" class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></a>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
                                                         </td>
                                                     </tr>
-
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

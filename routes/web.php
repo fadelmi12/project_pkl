@@ -23,6 +23,7 @@ Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addka
 Route::get('/databarang/addbarang', 'App\Http\Controllers\MasterController@addbarang');
 Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
 Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
+// Route::get('jenis/editjenis/{id_jenis}', 'App\Http\Controllers\MasterController@editjenis');
 Route::get('jenis/addjenis', 'App\Http\Controllers\MasterController@addjenis');
 Route::get('/jenis/delete/{id_jenis}', 'App\Http\Controllers\MasterController@JenisDelete');
 Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->name('addjenis2');

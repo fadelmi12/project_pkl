@@ -38,12 +38,13 @@ class MasterController extends Controller
         return view('master/jenis', ['data_jenis' => $data_jenis]);
     }
 
+
     public function jenisUpdate(Request $request)
     {
-        $jenis = Jenis::find($request->edit_id_jenis);
-        $jenis->id_jenis = $request->edit_id_jenis;
-        $jenis->jenis = $request->edit_jenis;
-        $jenis->keterangan = $request->edit_keterangan;
+        $jenis = Jenis::find($request->id_jenis);
+        $jenis->id_jenis = $request->id_jenis;
+        $jenis->jenis = $request->jenis;
+        $jenis->keterangan = $request->keterangan;
         $jenis->save();
         //mengirim data_jenis ke view
         return back()->with('success', "Data telah terupdate");
@@ -61,13 +62,13 @@ class MasterController extends Controller
         //     'keterangan' => $request->keterangan
         // ]);
         // // alihkan halaman ke halaman pegawai
-        // return redirect('/jenis');
-        return view('master/addjenis');
+        return redirect('jenis');
+        // return view('master/addjenis');
     }
 
     public function addjenis(Request $request)
     {
-        
+
         return view('master/addjenis');
     }
 
