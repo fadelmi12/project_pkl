@@ -71,27 +71,28 @@
                             <div class="panel-wrapper collapse in ">
                                 <div class="panel-body">
                                     <div class="form-wrap mt-3">
-                                        <form>
+                                        <form action="{{ url('addjenis2') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf 
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
-                                                <input type="text" id="add_jenis" name="add_jenis" class="form-control" placeholder="">
+                                                <input type="text" id="jenis" name="jenis" class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
-                                                <input type="text" id="add_keterangan" name="add_keterangan" class="form-control" placeholder="">
+                                                <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
                                             </div>
-
+                                            <div class="form-group-justified">
+                                                <label class=" col-md-2 control-label"></label>
+                                                <div style=" margin-right:10px; margin-top:30px ">
+                                                    <button class="btn btn-success mr-5" name="submit" type="submit">
+                                                        Simpan
+                                                    </button>
+                                                    <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </form>
-                                        <div class="form-group-justified>
-                                            <label class=" col-md-2 control-label"></label>
-                                            <div style=" margin-right:10px; margin-top:30px ">
-                                                <button class="btn btn-success mr-5" name="submit" type="submit">
-                                                    Simpan
-                                                </button>
-                                                <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                                </button>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

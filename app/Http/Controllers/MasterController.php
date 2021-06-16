@@ -49,8 +49,12 @@ class MasterController extends Controller
         return back()->with('success', "Data telah terupdate");
     }
 
-    public function addjenis(Request $request)
+    public function addjenis2(Request $request)
     {
+        Jenis::create([
+            'jenis' => $request->jenis,
+            'keterangan' => $request->keterangan
+        ]);
         // // insert data ke table jenis
         // DB::table('data_jenis')->insert([
         //     'jenis' => $request->jenis,
@@ -58,6 +62,12 @@ class MasterController extends Controller
         // ]);
         // // alihkan halaman ke halaman pegawai
         // return redirect('/jenis');
+        return view('master/addjenis');
+    }
+
+    public function addjenis(Request $request)
+    {
+        
         return view('master/addjenis');
     }
 
