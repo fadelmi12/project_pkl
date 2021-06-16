@@ -46,18 +46,39 @@ class MasterController extends Controller
         $jenis->keterangan = $request->edit_keterangan;
         $jenis->save();
         //mengirim data_jenis ke view
-        return back();
+        return back()->with('success', "Data telah terupdate");
+    }
+
+    public function addjenis2(Request $request)
+    {
+        Jenis::create([
+            'jenis' => $request->jenis,
+            'keterangan' => $request->keterangan
+        ]);
+        // // insert data ke table jenis
+        // DB::table('data_jenis')->insert([
+        //     'jenis' => $request->jenis,
+        //     'keterangan' => $request->keterangan
+        // ]);
+        // // alihkan halaman ke halaman pegawai
+        // return redirect('/jenis');
+        return view('master/addjenis');
     }
 
     public function addjenis(Request $request)
     {
-        // insert data ke table jenis
-        DB::table('data_jenis')->insert([
-            'jenis' => $request->jenis,
-            'keterangan' => $request->keterangan
-        ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/jenis');
+        
         return view('master/addjenis');
+    }
+
+    public function JenisDelete($id_jenis)
+    {
+        // $jenis = Jenis::find($id_jenis);
+        // dd($jenis);
+        DB::table('data_jenis')->where('id_jenis', $id_jenis)->delete();
+        return back()->with('success', 'Data telah terhapus');
+
+        // Jenis::find($id_jenis)->delete();
+        // return back()->with('success', 'Data berhasil dihapus');
     }
 }
