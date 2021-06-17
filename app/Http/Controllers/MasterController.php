@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Jenis;
 use App\Models\kategori;
 use App\Models\Master;
+use App\Models\User;
 
 class MasterController extends Controller
 {
@@ -80,7 +81,7 @@ class MasterController extends Controller
     {
         $jenis = Jenis::find($request->edit_id_jenis);
         $jenis->id_jenis = $request->edit_id_jenis;
-        $jenis->jenis = $request->edit_jenis;
+        $jenis->jenis_barang = $request->edit_jenis_barang;
         $jenis->keterangan = $request->edit_keterangan;
         $jenis->save();
         //mengirim data_jenis ke view
@@ -90,7 +91,7 @@ class MasterController extends Controller
     public function addjenis2(Request $request)
     {
         Jenis::create([
-            'jenis' => $request->jenis,
+            'jenis_barang' => $request->jenis_barang,
             'keterangan' => $request->keterangan
         ]);
         return redirect('jenis');

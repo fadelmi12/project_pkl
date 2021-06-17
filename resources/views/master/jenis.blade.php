@@ -100,7 +100,7 @@
                                                     @foreach ($data_jenis as $data_jenis)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $data_jenis->jenis }}</td>
+                                                        <td>{{ $data_jenis->jenis_barang }}</td>
                                                         <td>{{ $data_jenis->keterangan }}</td>
                                                         <td>
                                                             <!-- <a href="jenis/editjenis" class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></a> -->
