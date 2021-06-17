@@ -18,7 +18,11 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Jenis</label>
-                        <input type="text" class="form-control" value="">
+                        <select name="jenis" id="jenis" class="form-control select2">
+                            @foreach($jenis as $jen)
+                                <option value="{{ $jen->jenis }}" >{{ $jen->jenis }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Stok</label>
