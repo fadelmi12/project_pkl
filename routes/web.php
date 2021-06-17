@@ -20,7 +20,11 @@ Route::get('/', function () {
 
 // MASTER DATA
 Route::get('databrg', 'App\Http\Controllers\MasterController@index');
+<<<<<<< HEAD
 //KATEGORI
+=======
+Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
+>>>>>>> dc3ddf920c1923328bb30831ef27a04ca01f991d
 Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
 Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addkategori');
 Route::put('update', 'App\Http\Controllers\MasterController@kategoriUpdate');

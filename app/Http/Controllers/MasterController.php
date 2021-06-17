@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Jenis;
 use App\Models\kategori;
+use App\Models\Master;
 
 class MasterController extends Controller
 {
     //
-    public function index()
+   public function index()
     {
         return view('master/databrg');
+    }
+
+    public function barang()
+    {
+        $barang = master::all();
+        return view('master/databrg', compact('databrg'));
     }
 
     public function addbarang()
