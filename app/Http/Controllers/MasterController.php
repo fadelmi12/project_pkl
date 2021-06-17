@@ -42,17 +42,6 @@ class MasterController extends Controller
         //mengirim data_jenis ke view
         return back()->with('success', "Data telah terupdate");
     }
-    // public function editSubmisi(Request $request)
-    // {
-    //     // dd($request);
-    //     $kategori = kategori::where('id_kategori', $request->id)->first();
-    //     $kategori->kode_kategori = $request->kode;
-    //     $kategori->kategori = $request->nama;
-    //     $kategori->keterangan = $request->keterangan;
-    //     $kategori->update();
-
-    //     return redirect('kategori');
-    // }
     
     public function kategori()
     {
