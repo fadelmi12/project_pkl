@@ -18,8 +18,9 @@ class MasterController extends Controller
 
     public function barang()
     {
-        $barang = master::all();
-        return view('master/databrg', compact('databrg'));
+        $barang = Master::all();
+        $jenis = Jenis::all();
+        return view('master/databrg', compact('barang','jenis'));
     }
 
     public function addbarang()
