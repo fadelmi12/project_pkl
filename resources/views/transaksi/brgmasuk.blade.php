@@ -103,35 +103,28 @@
                                                         <th colspan="3">Aksi</th>
                                                     </tr>
                                                 </thead>
-                                                <!-- <tfoot>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                </tr>
-                                            </tfoot> -->
                                                 <tbody>
+                                                <?php $no=1; ?>
+                                                @foreach($transaksi_masuk as $transaksi_masuk)
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Sometext</td>
-                                                        <td>Sometext</td>
-                                                        <td>Sometext</td>
-                                                        <td>Sometext</td>
-                                                        <td>Sometext</td>
-                                                        <td>Sometext</td>
-                                                        <td>Sometext</td>
-                                                        <td>Sometext</td>
-                                                        <td>Sometext</td>
+                                                        <td>{{ $no++ }}</td>
+                                                        <td>{{ $transaksi_masuk->no_transaksi}}</td>
+                                                        <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
+                                                        <td>{{ $transaksi_masuk->created_at }}</td>
+                                                        <td>{{ $transaksi_masuk->jns_transaksi }}</td>
+                                                        <td>{{ $transaksi_masuk->supplier }}</td>
+                                                        <td>{{ $transaksi_masuk->pengirim }}</td>
+                                                        <td>{{ $transaksi_masuk->penerima }}</td>
+                                                        <td>{{ $transaksi_masuk->ekspedisi }}</td>
+                                                        <td>{{ $transaksi_masuk->kondisi }}</td>
                                                         <td>
                                                             <!-- <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button> -->
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrgmasuk"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square"data-toggle="modal" data-target="#hapusbrgmasuk"><i class="fa fa-trash"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square"data-toggle="modal" data-target="#hapus{{$transaksi_masuk->id_transaksi}}"><i class="fa fa-trash"></i></button>
                                                             <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                         </td>
                                                     </tr>
+                                                @endforeach
                                                 </tbody>
                                                 @include('transaksi.editbrgmasuk')
                                             </table>

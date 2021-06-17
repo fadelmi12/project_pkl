@@ -11,6 +11,10 @@ class Jenis extends Model
     
     protected $table = "data_jenis";
     protected $primaryKey = "id_jenis";
-
     protected $fillable = ['id_jenis', 'jenis', 'keterangan'];
+
+    public function master()
+    {
+        return $this->hasMany(Master::class);
+    }
 }

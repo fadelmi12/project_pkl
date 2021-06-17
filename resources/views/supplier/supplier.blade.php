@@ -66,7 +66,8 @@
                                 <div class="pull-left">
                                     <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
                                     <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
-                                    <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addsup"> Tambah Data</button>
+                                    <a class="btn btn-success btn-icon-anim" href="supplier/addsupplier"> Tambah Data</a>
+                                    
 
                                     <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
                                 </div>
@@ -91,6 +92,7 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Kode Supplier</th>
+                                                        <th>Nama Supplier</th>
                                                         <th>Email</th>
                                                         <th>PIC Supplier</th>
                                                         <th>Alamat</th>
@@ -99,22 +101,25 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php $no=1; ?>
+                                                @foreach($data_supplier as $data_supplier)
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>S001</td>
-                                                        <td>email@gmail.com</td>
-                                                        <td>Dinar</td>
-                                                        <td>Ngawi</td>
-                                                        <td>085234088404</td>
+                                                        <td>{{$no++}}</td>
+                                                        <td>{{ $data_supplier->kode_supplier }}</td>
+                                                        <td>{{ $data_supplier->nama_supplier }}</td>
+                                                        <td>{{ $data_supplier->email_supplier }}</td>
+                                                        <td>{{ $data_supplier->pic_supplier }}</td>
+                                                        <td>{{ $data_supplier->alamat_supplier }}</td>
+                                                        <td>{{ $data_supplier->telp_supplier }}</td>
                                                         <td>
                                                             <!-- <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button> -->
-                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editsup"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapussup"><i class="fa fa-trash"></i></button>
+                                                            <button class="btn btn-primary btn-icon-anim btn-square" ><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash"></i></button>
                                                             @include('supplier.edit')
                                                             <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                         </td>
-                                                        @include('supplier.addsupplier')
                                                     </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                             @include('supplier.hapus')
