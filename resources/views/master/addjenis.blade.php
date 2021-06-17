@@ -72,9 +72,9 @@
                                 <div class="panel-body">
                                     <div class="form-wrap mt-3">
                                         <form action="{{ url('addjenis2') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf 
+                                            @csrf
                                             <div class="form-group">
-                                                <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
+                                                <label class="control-label mb-10 text-left" for="example-email">Jenis barang <span class="help"> </span></label>
                                                 <input type="text" id="jenis" name="jenis" class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
@@ -92,7 +92,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        
+
                                     </div>
                                 </div>
                             </div>

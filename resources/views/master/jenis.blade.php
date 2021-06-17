@@ -96,15 +96,20 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php $no = 1; ?>
+                                                    @foreach ($data_jenis as $data_jenis)
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Baru/Retur</td>
-                                                        <td>Baik/rusak</td>
+                                                        <td>{{ $no++ }}</td>
+                                                        <td>{{ $data_jenis->jenis }}</td>
+                                                        <td>{{ $data_jenis->keterangan }}</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
+                                                            <!-- <a href="jenis/editjenis" class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></a> -->
+                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editjns" onclick="setEditForm('{{ $data_jenis->id_jenis }}', '{{ $data_jenis->jenis }}', '{{ $data_jenis->keterangan }}')"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square" href="delete" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
                                                         </td>
                                                     </tr>
+                                                    @include('master.editjns')
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -113,9 +118,18 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Modal -->
+                        
                     <!-- /Main Content -->
-
                 </div>
+                <script type="text/javascript">
+                function setEditForm(id_jenis, jenis, keterangan) {
+                    document.getElementById('edit_id_jenis').value = id_jenis;
+                    document.getElementById('edit_jenis').value = jenis;
+                    document.getElementById('edit_keterangan').value = keterangan;
+                }
+                </script>
                 <!-- /#wrapper -->
 
                 @include('layout.javascript')

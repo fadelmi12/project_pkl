@@ -19,17 +19,32 @@ class MasterController extends Controller
     {
         return view('master/addbarang');
     }
-    public function submisi(Request $request)
-    {
-        // dd($request);
-        $kategori = kategori::where('id_kategori', $request->id)->first();
-        $kategori->kode_kategori = $request->kode;
-        $kategori->kategori = $request->nama;
-        $kategori->keterangan = $request->keterangan;
-    	$kategori->update();
 
-    	return redirect('home');
+
+    // DATA KATEGORI
+    public function kategoriUpdate(Request $request)
+    {
+        $kategori = kategori::find($request->edit_id_kategori);
+        $kategori->id_kategori = $request->edit_id_kategori;
+        $kategori->kode_kategori = $request->edit_kode;
+        $kategori->kategori = $request->edit_nama;
+        $kategori->keterangan = $request->edit_keterangan;
+        $kategori->save();
+        //mengirim data_jenis ke view
+        return back()->with('success', "Data telah terupdate");
     }
+    // public function editSubmisi(Request $request)
+    // {
+    //     // dd($request);
+    //     $kategori = kategori::where('id_kategori', $request->id)->first();
+    //     $kategori->kode_kategori = $request->kode;
+    //     $kategori->kategori = $request->nama;
+    //     $kategori->keterangan = $request->keterangan;
+    //     $kategori->update();
+
+    //     return redirect('kategori');
+    // }
+    
     public function kategori()
     {
         $kategori = kategori::all();
@@ -41,15 +56,18 @@ class MasterController extends Controller
         return view('master/addkategori');
     }
 
+    // DATA JENIS
     public function jenis()
     {
-        //mengambil data dr tb jenis
-        $data_jenis = DB::table('data_jenis')->get();
+        // //mengambil data dr tb jenis
+        // $data_jenis = DB::table('data_jenis')->get();
+        // //mengirim data_jenis ke view
+        // return view('master/jenis', ['data_jenis' => $data_jenis]);
 
-        //mengirim data_jenis ke view
-        return view('master/jenis', ['data_jenis' => $data_jenis]);
+        $data_jenis = jenis::all();
+        return view('master/jenis', compact('data_jenis'));
     }
-
+    
     public function jenisUpdate(Request $request)
     {
         $jenis = Jenis::find($request->edit_id_jenis);
@@ -67,14 +85,8 @@ class MasterController extends Controller
             'jenis' => $request->jenis,
             'keterangan' => $request->keterangan
         ]);
-        // // insert data ke table jenis
-        // DB::table('data_jenis')->insert([
-        //     'jenis' => $request->jenis,
-        //     'keterangan' => $request->keterangan
-        // ]);
-        // // alihkan halaman ke halaman pegawai
-        // return redirect('/jenis');
-        return view('master/addjenis');
+        return redirect('jenis');
+        // return view('master/addjenis');
     }
 
     public function addjenis(Request $request)
@@ -83,7 +95,7 @@ class MasterController extends Controller
         return view('master/addjenis');
     }
 
-    public function JenisDelete($id_jenis)
+    public function jenisDelete($id_jenis)
     {
         // $jenis = Jenis::find($id_jenis);
         // dd($jenis);
@@ -92,5 +104,12 @@ class MasterController extends Controller
 
         // Jenis::find($id_jenis)->delete();
         // return back()->with('success', 'Data berhasil dihapus');
+    }
+    public function destroy($id_jenis)
+    {
+        //fungsi eloquent untuk menghapus data
+        User::find($id_jenis)->delete();
+        return redirect()->route('jenis')
+            ->with('success', 'User Berhasil Dihapus');
     }
 }
