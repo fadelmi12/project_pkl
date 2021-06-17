@@ -103,7 +103,7 @@
                                                         <td>{{ $kategories->kategori }}</td>
                                                         <td>{{ $kategories->keterangan }}</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editktg"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editktg" onclick="setEditForm('{{ $kategories->id_kategori }}', '{{ $kategories->kode_kategori }}', '{{ $kategories->kategori }}', '{{ $kategories->keterangan }}')"><i class="fa fa-edit"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusktg"><i class="fa fa-trash-o"></i> </button>
                                                             @include('master.editktg')
                                                         </td>
@@ -123,7 +123,14 @@
 
                 </div>
                 <!-- /#wrapper -->
-
+                <script type="text/javascript">
+                function setEditForm(id_kategori, kode_kategori, kategori, keterangan) {
+                    document.getElementById('edit_id_kategori').value = id_kategori;
+                    document.getElementById('edit_kode').value = kode_kategori;
+                    document.getElementById('edit_nama').value = kategori;
+                    document.getElementById('edit_keterangan').value = keterangan;
+                }
+                </script>
                 @include('layout.javascript')
                 @include('layout.footer')
 </body>

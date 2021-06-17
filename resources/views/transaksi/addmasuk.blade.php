@@ -87,7 +87,7 @@
 																<!--/span-->
 																<div class="col-md-6">
 																	<div class="form-group">
-																		<label class="control-label mb-10">Barang</label>
+																		<label class="control-label mb-10">Jenis Transaksi</label>
 																		<input type="text" id="barang" class="form-control" placeholder="Pilih Barang">
 																		<!-- <span class="help-block"> This field has error. </span>  -->
 																	</div>
@@ -116,13 +116,7 @@
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label class="control-label mb-10">Supplier</label>
-																		<select class="form-control">
-                                                                            <option>--Pilih Supplier--</option>
-                                                                            <option value="Category 1">Laila</option>
-																			<option value="Category 2">Dinar</option>
-																			<option value="Category 3">Hadafi</option>
-																			<option value="Category 4">Lutfi</option>
-																		</select>
+																		<input type="text" class="form-control" placeholder="">
 																	</div>
 																</div>
 																<!--/span-->
@@ -189,13 +183,7 @@
 													<td>Brincker123</td>
 													<td><span class="label label-danger">admin</span> </td>
 												  </tr>
-												  <tr>
-													<td>2</td>
-													<td>Mark</td>
-													<td>Hay</td>
-													<td>Hay123</td>
-													<td><span class="label label-info">member</span> </td>
-												  </tr>
+												  
 												 
 												</tbody>
 											</table>
