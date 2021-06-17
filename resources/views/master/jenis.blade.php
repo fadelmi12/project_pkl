@@ -104,10 +104,11 @@
                                                         <td>{{ $jenis->keterangan }}</td>
                                                         <td>
                                                             <!-- <a href="jenis/editjenis" class="btn btn-success btn-icon-anim btn-square "><i class="fa fa-edit"></i></a> -->
-                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editjns"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editjns"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
                                                         </td>
                                                     </tr>
+                                                    @include('master.editjns')
                                                     @endforeach
                                                 </tbody>
                                             </table>

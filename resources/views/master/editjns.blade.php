@@ -22,7 +22,7 @@
                         <input id="keterangan" name="keterangan" type="text" class="form-control" value="{{ $jenis->keterangan }}">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-default">Batal</button>
+                        <button type="button" class="btn btn-default" data-toggle="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
