@@ -109,13 +109,14 @@
 													</tr>
 												</tfoot> -->
                                                 <tbody>
+                                                @foreach ($barang as $brg)
                                                     <tr>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>61</td>
-                                                        <td>2011/04/25</td>
-                                                        <td>2011/04/25</td>
+                                                        <td>{{$brg->kode_barang}}</td>
+                                                        <td>{{$brg->nama_barang}}</td>
+                                                        <td>{{$brg->jenis_barang}}</td>
+                                                        <td>{{$brg->stok}}</td>
+                                                        <td>{{$brg->status}}</td>
+                                                        <td>{{$brg->status}}</td>
                                                         <td>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#infobrg"><i class="fa fa-edit"></i></button>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrg"><i class="fa fa-pencil"></i></button>
@@ -125,6 +126,7 @@
                                                         </td>
                                                         @include('master.editbrg')
                                                     </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                             @include('master.addbarang')

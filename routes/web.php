@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 // MASTER DATA
 Route::get('databrg', 'App\Http\Controllers\MasterController@index');
+Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
 Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
 Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addkategori');
 Route::get('/databarang/addbarang', 'App\Http\Controllers\MasterController@addbarang');
