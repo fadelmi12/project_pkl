@@ -66,7 +66,7 @@
                                 <div class="pull-left">
                                     <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
                                     <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
-                                    <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addbrg"> Tambah Data</button>
+                                    <a href="databrg/addbarang" class="btn btn-success"> Tambah Data</a>
 
                                     <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
                                 </div>
@@ -109,7 +109,7 @@
 													</tr>
 												</tfoot> -->
                                                 <tbody>
-                                                @foreach ($barang as $brg)
+                                                    @foreach ($barang as $brg)
                                                     <tr>
                                                         <td>{{$brg->kode_barang}}</td>
                                                         <td>{{$brg->nama_barang}}</td>
@@ -126,10 +126,9 @@
                                                         </td>
                                                         @include('master.editbrg')
                                                     </tr>
-                                                @endforeach
+                                                    @endforeach
                                                 </tbody>
                                             </table>
-                                            @include('master.addbarang')
                                         </div>
                                     </div>
                                 </div>

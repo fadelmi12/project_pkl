@@ -25,17 +25,18 @@ Route::get('databrg', 'App\Http\Controllers\MasterController@index');
 
 Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
 
+//KATEGORI
+Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
 Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
 Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addkategori');
 Route::put('update', 'App\Http\Controllers\MasterController@kategoriUpdate');
-
-Route::get('/databarang/addbarang', 'App\Http\Controllers\MasterController@addbarang');
+Route::get('/databrg/addbarang', 'App\Http\Controllers\MasterController@addbarang');
 //JENIS
 Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
 Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
 
 // Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
-Route::post('edit', [MasterController::class, 'jenisUpdate']);
+// Route::post('edit', [MasterController::class, 'jenisUpdate']);
 Route::get('jenis/addjenis', 'App\Http\Controllers\MasterController@addjenis');
 Route::get('/jenis/delete/{id_jenis}', 'App\Http\Controllers\MasterController@JenisDelete');
 // Route::post('/submisi/{id_kategori}', 'HomeController@submisi')->name('submisi');
@@ -43,13 +44,13 @@ Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->na
 
 
 Route::get('home', 'App\Http\Controllers\HomeController@index');
-Route::post('edit', [MasterController::class, 'editSubmisi']);
+// Route::post('edit', [MasterController::class, 'editSubmisi']);
 
 // TRANSAKSI
 Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@brgmasuk');
 Route::get('brgmasuk/addmasuk', 'App\Http\Controllers\TransaksiController@addmasuk');
 // Route::get('brgmasuk/delete/{id_transaksi}', 'App\Http\Controllers\TransaksiController@delete');
-Route::resource('post','App\Http\Controllers\TransaksiController@destroy' );
+Route::resource('post', 'App\Http\Controllers\TransaksiController@destroy');
 
 
 Route::get('brgkeluar', 'App\Http\Controllers\TransaksiController@brgkeluar');
