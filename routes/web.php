@@ -34,14 +34,9 @@ Route::get('/databrg/addbarang', 'App\Http\Controllers\MasterController@addbaran
 //JENIS
 Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
 Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
-
-// Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
-// Route::post('edit', [MasterController::class, 'jenisUpdate']);
 Route::get('jenis/addjenis', 'App\Http\Controllers\MasterController@addjenis');
 Route::get('/jenis/delete/{id_jenis}', 'App\Http\Controllers\MasterController@JenisDelete');
-// Route::post('/submisi/{id_kategori}', 'HomeController@submisi')->name('submisi');
 Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->name('addjenis2');
-
 
 Route::get('home', 'App\Http\Controllers\HomeController@index');
 // Route::post('edit', [MasterController::class, 'editSubmisi']);
@@ -51,20 +46,19 @@ Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@brgmasuk');
 Route::get('brgmasuk/addmasuk', 'App\Http\Controllers\TransaksiController@addmasuk');
 // Route::get('brgmasuk/delete/{id_transaksi}', 'App\Http\Controllers\TransaksiController@delete');
 Route::resource('post', 'App\Http\Controllers\TransaksiController@destroy');
-
-
 Route::get('brgkeluar', 'App\Http\Controllers\TransaksiController@brgkeluar');
 Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addkeluar');
 
-
+// SUPPLIER
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier')->name('supplier');
 
-// SUPPLIER
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier');
 Route::get('supplier/addsupplier', 'App\Http\Controllers\SupplierController@add');
 Route::post('supplier/insert', 'App\Http\Controllers\SupplierController@insert');
+Route::put('supplier/update', 'App\Http\Controllers\SupplierController@supplierUpdate');
 
 
+// PENGAJUAN
 Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@index');
 Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@index2');
 
