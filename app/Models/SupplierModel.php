@@ -4,20 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-
 
 class SupplierModel extends Model
 {
-    public function allData()
-    {
-        return DB::table('data_supplier')->get();  
-    }
+    use HasFactory;
 
-    public function addData($data)
-    {
-        DB::table('data_supplier')->insert($data);
-        
-    }
+    protected $table = "data_supplier";
+    protected $primaryKey = "id_supplier";
+
+    protected $fillable = ['id_supplier', 'kode_supplier', 'email_supplier', 'pic_supplier', 'alamat_supplier', 'telp_supplier'];
 }
-
