@@ -24,7 +24,7 @@ Route::get('databrg', 'App\Http\Controllers\MasterController@index');
 Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
 Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
 Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addkategori');
-Route::put('update', 'App\Http\Controllers\MasterController@kategoriUpdate');
+Route::put('kategori/update', 'App\Http\Controllers\MasterController@ktgUpdate');
 Route::get('/databrg/addbarang', 'App\Http\Controllers\MasterController@addbarang');
 //JENIS
 Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
