@@ -52,6 +52,16 @@ class MasterController extends Controller
     {
         return view('master/addkategori');
     }
+    public function addkategori2(Request $request)
+    {
+        Kategori::create([
+            'kode_kategori' => $request->kode_kategori,
+            'kategori' => $request->kategori,
+            'keterangan' => $request->keterangan
+        ]);
+        return redirect('kategori');
+        // return view('master/addjenis');
+    }
 
     public function ktgUpdate(Request $request)
     {

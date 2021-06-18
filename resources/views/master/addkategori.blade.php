@@ -71,19 +71,19 @@
                             <div class="panel-wrapper collapse in ">
                                 <div class="panel-body">
                                     <div class="form-wrap mt-3">
-                                        <form action="{{ url('addjenis2') }}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ url('addkategori2') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
-                                                <input type="text" class="form-control" value="">
+                                                <input type="text" class="form-control" id="kode_kategori" name="kode_kategori" value="">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Nama<span class="help"> Kategori</span></label>
-                                                <input type="text" class="form-control" value="">
+                                                <input type="text" class="form-control" id="kategori" name="kategori" value="">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Keterangan</label>
-                                                <input type="passtextword" class="form-control" value="">
+                                                <input type="passtextword" class="form-control" id="keterangan" name="keterangan" value="">
                                             </div>
                                             <div class="form-group">
                                                 <button class="btn btn-primary">Simpan</button>

@@ -24,6 +24,8 @@ Route::get('databrg', 'App\Http\Controllers\MasterController@index');
 //KATEGORI
 
 Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
+Route::post('/addkategori2', 'App\Http\Controllers\MasterController@addkategori2')->name('addkategori2');
+
 
 //KATEGORI
 Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
