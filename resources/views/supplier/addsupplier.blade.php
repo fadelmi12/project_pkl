@@ -82,7 +82,7 @@
                                         <input type="number" id="telp_supplier" name="telp_supplier" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-success mr-5" name="submit" type="submit">>Simpan</button>
+                                        <button class="btn btn-success mr-5" name="submit" type="submit">Simpan</button>
                                         <button class="btn btn-danger  " name="reset" type="reset">Batal
                                         </button>
                                     </div>
