@@ -26,9 +26,31 @@ class MasterController extends Controller
 
     public function addbarang()
     {
-        return view('master/addbarang');
+        $kategori = kategori::all();
+        $jenis = Jenis::all();
+        return view('master/addbarang', compact('jenis', 'kategori'));
     }
 
+
+    public function addbarang2(Request $request)
+    {
+        // dd($request);
+        $kategori = kategori::all();
+        $jenis = Jenis::all();   
+        $namaFile = time().'.'.$request->gambar->extension();
+        $request->gambar->move(public_path('img/logo'), $namaFile);
+        
+        Master::insert([
+            'kode_kategori' => $request->kode_kategori,
+            'nama_barang' => $request->nama_barang,
+            'kode_barang' => $request->kode_barang,
+            'jenis_barang' => $request->jenis_barang,
+            'stok' => $request->stok,
+            'gambar' => $namaFile,
+            'status' => $request->status
+        ]);
+        return view('master/addbarang', compact('jenis', 'kategori'));
+    }
 
     // DATA KATEGORI
     public function kategoriUpdate(Request $request)

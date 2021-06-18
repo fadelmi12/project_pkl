@@ -39,7 +39,7 @@ Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
 Route::get('jenis/addjenis', 'App\Http\Controllers\MasterController@addjenis');
 Route::get('/jenis/delete/{id_jenis}', 'App\Http\Controllers\MasterController@JenisDelete');
 Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->name('addjenis2');
-
+Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 Route::get('home', 'App\Http\Controllers\HomeController@index');
 // Route::post('edit', [MasterController::class, 'editSubmisi']);
 

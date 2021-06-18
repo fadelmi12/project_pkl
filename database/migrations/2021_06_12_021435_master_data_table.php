@@ -15,10 +15,12 @@ class MasterDataTable extends Migration
     {
         Schema::create('master_data', function (Blueprint $table) {
             $table->increments('id_master');
-            $table->string('nama_barang',50);
-            $table->string('kode_barang',50);
-            $table->string('jenis_barang',50);
+            $table->integer('kode_kategori');
+            $table->string('nama_barang');
+            $table->string('kode_barang');
+            $table->string('jenis_barang');
             $table->integer('stok');
+            $table->string('gambar');
             $table->integer('status');
             $table->timestamps();
         });

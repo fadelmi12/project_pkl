@@ -17,5 +17,5 @@ class Jenis extends Model
     {
         return $this->hasMany(Master::class);
     }
-    protected $fillable = ['id_jenis', 'jenis', 'keterangan'];
+    // protected $fillable = ['id_jenis', 'jenis', 'keterangan'];
 }

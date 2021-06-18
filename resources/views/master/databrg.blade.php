@@ -115,7 +115,11 @@
                                                         <td>{{$brg->nama_barang}}</td>
                                                         <td>{{$brg->jenis_barang}}</td>
                                                         <td>{{$brg->stok}}</td>
-                                                        <td>{{$brg->status}}</td>
+                                                        <td>
+                                                            @if($brg->gambar)
+                                                                <img src="{{ url('img/logo') }}/{{ $brg->gambar }}" style="width: 150px; height: 120px;">
+                                                            @endif
+                                                        </td>
                                                         <td>{{$brg->status}}</td>
                                                         <td>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#infobrg"><i class="fa fa-edit"></i></button>

@@ -71,39 +71,48 @@
                             <div class="panel-wrapper collapse in ">
                                 <div class="panel-body">
                                     <div class="form-wrap mt-3">
-                                        <form action="{{ url('addjenis2') }}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ url('addbarang2') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
-                                                <input type="text" class="form-control" value="">
+                                                <select name="kode_kategori" id="kode_kategori" class="form-control select2">
+                                                    @foreach($kategori as $ktg)
+                                                        <option value="{{ $ktg->kode_kategori }}" >{{ $ktg->kode_kategori }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="nama_barang" id="nama_barang">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label mb-10 text-left">Kode Barang</label>
+                                                <input type="text" class="form-control" name="kode_barang" id="kode_barang">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Jenis</label>
                                                 <select name="jenis_barang" id="jenis_barang" class="form-control select2">
                                                     @foreach($jenis as $jen)
-                                                        <option value="{{ $jen->jenis_barang}}" >{{ $jen->jenis_barang }}</option>
+                                                        <option value="{{ $jen->jenis_barang }}" >{{ $jen->jenis_barang }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Stok</label>
-                                                <input type="text" class="form-control" value="">
+                                                <input type="text" class="form-control" name="stok" id="stok">
                                             </div>
                                             <div class="form-group mb-30">
                                                 <label class="control-label mb-10 text-left">File upload</label>
-                                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                                    <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                                                    <span class="input-group-addon fileupload btn btn-info btn-anim btn-file"><i class="fa fa-upload"></i>
-                                                        <span class="fileinput-new btn-text">Select file</span>
-                                                </div>
+                                                <input type="file"  id="gambar" name="gambar">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Status</label>
-                                                <input type="text" class="form-control" value="">
+                                                <select name="status" id="status" class="form-control select2">
+                                                    
+                                                    <option value="1" >1</option>
+                                                    <option value="2" >2</option>
+                                                    <option value="3" >3</option>
+                                                </select>
                                             </div>
                                             <div class="form-group-justified">
                                                 <label class=" col-md-2 control-label"></label>
