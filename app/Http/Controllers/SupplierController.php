@@ -33,4 +33,18 @@ class SupplierController extends Controller
         //mengirim data_jenis ke view
         return back()->with('success', "Data telah terupdate");
     }
+    public function addSupplier(Request $request)
+    {
+        SupplierModel::create([
+            'kode_supplier'     =>  $request->kode_supplier,
+            'nama_supplier'     =>  $request->nama_supplier,
+            'email_supplier'    =>  $request->email_supplier,
+            'pic_supplier'      =>  $request->pic_supplier,
+            'alamat_supplier'   =>  $request->alamat_supplier,
+            'telp_supplier'     =>  $request->telp_supplier
+    
+        ]);
+        return redirect('supplier');
+        // return view('master/addjenis');
+    }
 }
