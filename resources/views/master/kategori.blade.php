@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Inventory</title>
-    <link rel="icon" href="{{asset('template')}}/dist/img/nakulasadewa1.png">
     <meta name="description" content="Doodle is a Dashboard & Admin Site Responsive Template by hencework." />
     <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Doodle Admin, Doodleadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
     <meta name="author" content="hencework" />
@@ -66,8 +65,10 @@
                     <div class="col-sm-12">
                         <div class="panel panel-default card-view">
                             <div class="panel-heading">
-                                <!-- <div class="pull-left"> -->
-                                <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addktg"> Tambah Data</button>
+                                <p>
+                                    <a href="kategori/addkategori" class="btn btn-success">Tambah baru
+                                    </a>
+                                </p>
                                 <div class="clearfix"></div>
                                 <div id="myTable1_wrapper" class="dataTables_wrapper">
                                     <div class="dataTables_length" id="myTable1_length"><label>Show <select name="myTable1_length" aria-controls="myTable1" class="">
@@ -89,48 +90,50 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Kode</th>
-                                                        <th>Nama kategori</th>
+                                                        <th>Kode kategori</th>
+                                                        <th>Kategori</th>
                                                         <th>Keterangan</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($kategori as $kategories)
+                                                    <?php $no = 1; ?>
+                                                    @foreach ($data_kategori as $data_kategori)
                                                     <tr>
-                                                        <td>{{ $kategories->id_kategori }}</td>
-                                                        <td>{{ $kategories->kode_kategori }}</td>
-                                                        <td>{{ $kategories->kategori }}</td>
-                                                        <td>{{ $kategories->keterangan }}</td>
+                                                        <td>{{ $no++ }}</td>
+                                                        <td>{{ $data_kategori->kode_kategori }}</td>
+                                                        <td>{{ $data_kategori->kategori }}</td>
+                                                        <td>{{ $data_kategori->keterangan }}</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editktg" onclick="setEditForm('{{ $kategories->id_kategori }}', '{{ $kategories->kode_kategori }}', '{{ $kategories->kategori }}', '{{ $kategories->keterangan }}')"><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusktg"><i class="fa fa-trash-o"></i> </button>
-                                                            @include('master.editktg')
+                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editktg" onclick="setEditForm('{{ $data_kategori->id_kategori }}', '{{ $data_kategori->kode_kategori }}', '{{ $data_kategori->kategori }}', '{{ $data_kategori->keterangan }}')"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
                                                         </td>
-                                                        @include('master.hapusktg')
                                                     </tr>
+                                                    @include('master.editktg')
                                                     @endforeach
                                                 </tbody>
                                             </table>
-                                            @include('master.addkategori')
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /Main Content -->
 
+                    <!-- Modal -->
+
+                    <!-- /Main Content -->
                 </div>
-                <!-- /#wrapper -->
                 <script type="text/javascript">
-                function setEditForm(id_kategori, kode_kategori, kategori, keterangan) {
-                    document.getElementById('edit_id_kategori').value = id_kategori;
-                    document.getElementById('edit_kode').value = kode_kategori;
-                    document.getElementById('edit_nama').value = kategori;
-                    document.getElementById('edit_keterangan').value = keterangan;
-                }
+                    function setEditForm(id_kategori, kode_kategori, kategori, keterangan) {
+                        document.getElementById('edit_id_ktg').value = id_kategori;
+                        document.getElementById('edit_kode').value = kode_kategori;
+                        document.getElementById('edit_kategori').value = kategori;
+                        document.getElementById('edit_keterangan').value = keterangan;
+                    }
                 </script>
+                <!-- /#wrapper -->
+
                 @include('layout.javascript')
                 @include('layout.footer')
 </body>

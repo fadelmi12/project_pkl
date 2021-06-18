@@ -1,57 +1,50 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\SupplierModel;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
     //
-
-    public function __construct()
-    {
-        $this->SupplierModel = new SupplierModel();
-    }
-    
     public function supplier()
     {
-        $data = [
-          'data_supplier' => $this->SupplierModel->allData(), 
-        ];
-        return view('supplier.supplier', $data);
+        $data_supplier = SupplierModel::all();
+        return view('supplier/supplier', compact('data_supplier'));
+        // return view('supplier/supplier');
     }
-
-    // public function supplier()
-    // {
-    //     return view('supplier/supplier');
-    // }
 
     public function add()
     {
         return view('supplier/addsupplier');
     }
-    public function insert()
+
+    public function supplierUpdate(Request $request)
     {
-        Request()->validate([
-            'kode_supplier' => 'required|unique:data_supplier,kode_supplier',
-            'nama_supplier' => 'required',
-            'email_supplier' => 'required',
-            'pic_supplier' => 'required',
-            'alamat_supplier' => 'required',
-            'telp_supplier' => 'required',
+        $data_supplier = SupplierModel::find($request->edit_id_sup);
+        $data_supplier->id_supplier = $request->edit_id_sup;
+        $data_supplier->kode_supplier = $request->edit_kode;
+        $data_supplier->email_supplier = $request->edit_email;
+        $data_supplier->alamat_supplier = $request->edit_alamat;
+        $data_supplier->pic_supplier = $request->edit_pic;
+        $data_supplier->telp_supplier = $request->edit_no;
+        $data_supplier->save();
+        //mengirim data_jenis ke view
+        return back()->with('success', "Data telah terupdate");
+    }
+    public function addSupplier(Request $request)
+    {
+        SupplierModel::create([
+            'kode_supplier'     =>  $request->kode_supplier,
+            'nama_supplier'     =>  $request->nama_supplier,
+            'email_supplier'    =>  $request->email_supplier,
+            'pic_supplier'      =>  $request->pic_supplier,
+            'alamat_supplier'   =>  $request->alamat_supplier,
+            'telp_supplier'     =>  $request->telp_supplier
+    
         ]);
-
-        $data = [
-            'kode_supplier' => Request()->kode_supplier,
-            'nama_supplier' => Request()->nama_supplier,
-            'email_supplier' => Request()->email_supplier,
-            'pic_supplier' => Request()->pic_supplier,
-            'alamat_supplier' => Request()->alamat_supplier,
-            'telp_supplier' => Request()->telp_supplier,
-        ];
-
-        $this->SupplierModel->addData($data);
-        return redirect()->route('supplier')->with('pesan','Data berhasil ditambah');
-
+        return redirect('supplier');
+        // return view('master/addjenis');
     }
 }

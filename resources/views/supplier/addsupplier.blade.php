@@ -55,55 +55,58 @@
                     <div class="col-sm-12">
                         <div class="panel panel-default card-view">
                             <div class="panel-heading">
-                    <form action="/supplier/insert" method="post">
-                        <div class="form-group">
-                            <label class="control-label mb-10 text-left">Kode<span class="help"> Supplier</span></label>
-                            <input type="text" id="kode_supplier" name="kode_supplier"class="form-control" value="">
+                                <form action="{{ url('addSupplier') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left">Kode<span class="help"> Supplier</span></label>
+                                        <input type="text" id="kode_supplier" name="kode_supplier" class="form-control" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left" for="example-email">Nama <span class="help"> </span></label>
+                                        <input type="text" id="nama_supplier" name="nama_supplier" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left" for="example-email">Email <span class="help"> </span></label>
+                                        <input type="email" id="email_supplier" name="email_supplier" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left">PIC Supplier</label>
+                                        <input type="text" id="pic_supplier" name="pic_supplier" class="form-control" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left">Alamat</label>
+                                        <textarea id="alamat_supplier" name="alamat_supplier" class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left"> No HP <span class="help"> </span></label>
+                                        <input type="number" id="telp_supplier" name="telp_supplier" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-success mr-5" name="submit" type="submit">Simpan</button>
+                                        <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                        </button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <!-- /Row -->
                         </div>
-                        <div class="form-group">
-                            <label class="control-label mb-10 text-left" for="example-email">Nama <span class="help"> </span></label>
-                            <input type="text" id="nama_supplier" name="nama_supplier" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label mb-10 text-left" for="example-email">Email <span class="help"> </span></label>
-                            <input type="email" id="email_supplier" name="email_supplier" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label mb-10 text-left">PIC Supplier</label>
-                            <input type="text" id="pic_supplier" name="pic_supplier" class="form-control" value="">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label mb-10 text-left">Alamat</label>
-                            <textarea id="alamat_supplier" name="alamat_supplier" class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label mb-10 text-left"> No HP <span class="help"> </span></label>
-                            <input type="number" id="telp_supplier" name="telp_supplier" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group">
-                        <button class="btn btn-primary">Simpan</button>
-                        </div>
-                        
-                    </form>
-                    
+                    </div>
+
+                    <!-- Footer -->
+                    @include('layout.footer')
+                    <!-- /Footer -->
+
                 </div>
-                <!-- /Row -->
-                 </div>
+                <!-- /Main Content -->
+
             </div>
+            <!-- /#wrapper -->
 
-            <!-- Footer -->
-            @include('layout.footer')
-            <!-- /Footer -->
+            <!-- JavaScript -->
 
-        </div>
-        <!-- /Main Content -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- JavaScript -->
-
-    @include('layout.javascript')
+            @include('layout.javascript')
 </body>
 
 </html>
@@ -147,7 +150,7 @@
             </div>
             <div class="modal-body">
                 <!-- <h6 class="mb-15">Apakah anda yakin mengubah status</h6> -->
-                <!-- <form action="supplier" method="POST">
+<!-- <form action="supplier" method="POST">
                     <div class="form-group">
                         <label class="control-label mb-10 text-left">Kode<span class="help"> Supplier</span></label>
                         <input type="text" id="kode_supplier" name="kode_supplier"class="form-control" value="">
