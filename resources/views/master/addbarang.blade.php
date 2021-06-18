@@ -78,12 +78,15 @@
                                                 <input type="text" class="form-control" value="">
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label mb-10 text-left" for="example-email">Nama barang <span class="help"> </span></label>
-                                                <input type="text" id="example-email" name="example-email" class="form-control" placeholder="">
+                                                <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
+                                                <input type="text" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Jenis</label>
-                                                <select name="jenis" id="jenis" class="form-control select2">
+                                                <select name="jenis_barang" id="jenis_barang" class="form-control select2">
+                                                    @foreach($jenis as $jen)
+                                                        <option value="{{ $jen->jenis_barang}}" >{{ $jen->jenis_barang }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">

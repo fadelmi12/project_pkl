@@ -15,7 +15,7 @@ class DataJenisTable extends Migration
     {
         Schema::create('data_jenis', function (Blueprint $table) {
             $table->increments('id_jenis');
-            $table->string('jenis',50);
+            $table->string('jenis_barang',50);
             $table->string('keterangan',50);
             $table->timestamps();
         });

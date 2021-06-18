@@ -100,7 +100,7 @@
                                                     @foreach ($data_jenis as $data_jenis)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $data_jenis->jenis }}</td>
+                                                        <td>{{ $data_jenis->jenis_barang }}</td>
                                                         <td>{{ $data_jenis->keterangan }}</td>
                                                         <td>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editjns" onclick="setEditForm('{{ $data_jenis->id_jenis }}', '{{ $data_jenis->jenis }}', '{{ $data_jenis->keterangan }}')"><i class="fa fa-edit"></i></button>
