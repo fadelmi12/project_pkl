@@ -89,6 +89,7 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Kode supplier</th>
+                                                        <th>Nama Supplier</th>
                                                         <th>Email supplier</th>
                                                         <th>Alamat supplier</th>
                                                         <th>PIC supplier</th>
@@ -103,6 +104,7 @@
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
                                                         <td>{{ $data_supplier->kode_supplier }}</td>
+                                                        <td>{{ $data_supplier->nama_supplier }}</td>
                                                         <td>{{ $data_supplier->email_supplier }}</td>
                                                         <td>{{ $data_supplier->alamat_supplier }}</td>
                                                         <td>{{ $data_supplier->pic_supplier }}</td>

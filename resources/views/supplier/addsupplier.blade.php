@@ -55,7 +55,8 @@
                     <div class="col-sm-12">
                         <div class="panel panel-default card-view">
                             <div class="panel-heading">
-                                <form action="/supplier/insert" method="post">
+                                <form action="{{ url('addSupplier') }}" method="post" enctype="multipart/form-data">
+                                @csrf
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Kode<span class="help"> Supplier</span></label>
                                         <input type="text" id="kode_supplier" name="kode_supplier" class="form-control" value="">
@@ -81,7 +82,7 @@
                                         <input type="number" id="telp_supplier" name="telp_supplier" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary">Simpan</button>
+                                        <button class="btn btn-success mr-5" name="submit" type="submit">>Simpan</button>
                                         <button class="btn btn-danger  " name="reset" type="reset">Batal
                                         </button>
                                     </div>

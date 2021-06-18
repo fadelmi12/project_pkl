@@ -20,6 +20,11 @@ Route::get('/', function () {
 
 // MASTER DATA
 Route::get('databrg', 'App\Http\Controllers\MasterController@index');
+
+//KATEGORI
+
+Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
+
 //KATEGORI
 Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
 Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
@@ -46,6 +51,8 @@ Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addk
 
 // SUPPLIER
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier')->name('supplier');
+Route::post('/addSupplier', 'App\Http\Controllers\SupplierController@addSupplier')->name('addSupplier');
+
 
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier');
 Route::get('supplier/addsupplier', 'App\Http\Controllers\SupplierController@add');
