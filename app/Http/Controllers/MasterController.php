@@ -30,7 +30,7 @@ class MasterController extends Controller
         $barang = Master::all();
         $kategori = kategori::all();
         $jenis = Jenis::all();
-        return view('master/databrg', compact('barang', 'jenis', 'kategori'));
+        return view('master/addbarang', compact('barang', 'jenis', 'kategori'));
     }
 
 
@@ -110,6 +110,17 @@ class MasterController extends Controller
         $data_kategori->save();
         //mengirim data_ktg ke view
         return back()->with('success', "Data telah terupdate");
+    }
+
+    public function deletebarang($id_master)
+    {
+        // dd($id_master);
+        // $data_kategori = Master::find($request->id_master);
+        $barang = Master::where('id_master', $id_master)->first();
+        // dd($barang);
+        $barang->delete();
+        //mengirim data_ktg ke view
+        return back()->with('success', "Data telah terhapus");
     }
 
     // DATA JENIS
