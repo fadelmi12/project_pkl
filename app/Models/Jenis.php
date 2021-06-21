@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Jenis extends Model
 {
@@ -17,5 +18,11 @@ class Jenis extends Model
     {
         return $this->hasMany(Master::class);
     }
-    // protected $fillable = ['id_jenis', 'jenis', 'keterangan'];
+
+    public function editJenis($id_jenis, $data_jenis)
+    {
+        DB::table('data_jenis')
+            ->where('id_jenis', $id_jenis)
+            ->update($data_jenis);
+    }
 }

@@ -81,15 +81,10 @@
                                                 <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
                                                 <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
                                             </div>
-                                            <div class="form-group-justified">
-                                                <label class=" col-md-2 control-label"></label>
-                                                <div style=" margin-right:10px; margin-top:30px ">
-                                                    <button class="btn btn-success mr-5" name="submit" type="submit">
-                                                        Simpan
-                                                    </button>
-                                                    <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                                    </button>
-                                                </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary">Simpan</button>
+                                                <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                                </button>
                                             </div>
                                         </form>
 

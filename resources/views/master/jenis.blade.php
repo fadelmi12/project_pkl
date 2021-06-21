@@ -103,11 +103,10 @@
                                                         <td>{{ $data_jenis->jenis_barang }}</td>
                                                         <td>{{ $data_jenis->keterangan }}</td>
                                                         <td>
-                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editjns" onclick="setEditForm('{{ $data_jenis->id_jenis }}', '{{ $data_jenis->jenis }}', '{{ $data_jenis->keterangan }}')"><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
+                                                            <a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}" class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button>
+                                                                <a href="#" class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </a>
                                                         </td>
                                                     </tr>
-                                                    @include('master.editjns')
                                                     @endforeach
                                                 </tbody>
                                             </table>
