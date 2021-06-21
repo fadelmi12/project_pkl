@@ -129,6 +129,7 @@ class MasterController extends Controller
                 'jenis_barang' => $request->jenis_barang,
                 'keterangan' => $request->keterangan
             ]);
+        
         return redirect()->back();
     }
 

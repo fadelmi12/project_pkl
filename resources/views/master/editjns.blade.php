@@ -71,7 +71,7 @@
                             <div class="panel-wrapper collapse in ">
                                 <div class="panel-body">
                                     <div class="form-wrap mt-3">
-                                        <form action="jenis/updateJenis/{{ $data_jenis->id_jenis }}" method="post" role="form" autocomplete="off">
+                                        <form action="{{url('updateJenis') }}" method="post" role="form" autocomplete="off">
                                             {{ csrf_field() }}
                                             <div class="modal-body">
                                                 <div class="form-group">
