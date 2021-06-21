@@ -18,6 +18,9 @@ class Jenis extends Model
     {
         return $this->hasMany(Master::class);
     }
+<<<<<<< HEAD
+    
+=======
 
     public function editJenis($id_jenis, $data_jenis)
     {
@@ -25,4 +28,5 @@ class Jenis extends Model
             ->where('id_jenis', $id_jenis)
             ->update($data_jenis);
     }
+>>>>>>> f088472091aeca96924c183508bfa6641e8324a6
 }

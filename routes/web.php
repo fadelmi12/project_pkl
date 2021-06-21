@@ -21,18 +21,18 @@ Route::get('/', function () {
 // MASTER DATA
 Route::get('databrg', 'App\Http\Controllers\MasterController@index');
 
-//KATEGORI
-
+//BARANG
 Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
-Route::post('/addkategori2', 'App\Http\Controllers\MasterController@addkategori2')->name('addkategori2');
-
+Route::get('/databrg/addbarang', 'App\Http\Controllers\MasterController@addbarang');
+Route::delete('/databrg/delete', 'App\Http\Controllers\MasterController@delete');
 
 //KATEGORI
-Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
 Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
 Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addkategori');
+Route::post('/addkategori2', 'App\Http\Controllers\MasterController@addkategori2')->name('addkategori2');
 Route::put('kategori/update', 'App\Http\Controllers\MasterController@ktgUpdate');
-Route::get('/databrg/addbarang', 'App\Http\Controllers\MasterController@addbarang');
+
+
 //JENIS
 Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
 // Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
@@ -42,8 +42,8 @@ Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->na
 Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 Route::get('home', 'App\Http\Controllers\HomeController@index');
 Route::get('jenis/editJenis/{id_jenis}', [MasterController::class, 'editJenis']);
-// Route::post('jenis/updateJenis/{id_jenis}', [MasterController::class, 'updateJenis']);
-Route::post('/updateJenis', 'App\Http\Controllers\MasterController@updateJenis')->name('updateJenis');
+Route::post('jenis/updateJenis/{id_jenis}', [MasterController::class, 'updateJenis']);
+// Route::post('/updateJenis', 'App\Http\Controllers\MasterController@updateJenis')->name('updateJenis');
 
 
 // TRANSAKSI
