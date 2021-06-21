@@ -45,7 +45,7 @@ Route::get('jenis/editJenis/{id_jenis}', [MasterController::class, 'editJenis'])
 Route::post('jenis/updateJenis/{id_jenis}', [MasterController::class, 'updateJenis']);
 // Route::post('/updateJenis', 'App\Http\Controllers\MasterController@updateJenis')->name('updateJenis');
 
-
+Route::delete('delete/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
 // TRANSAKSI
 Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@brgmasuk');
 Route::get('brgmasuk/addmasuk', 'App\Http\Controllers\TransaksiController@addmasuk');
