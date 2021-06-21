@@ -35,13 +35,16 @@ Route::put('kategori/update', 'App\Http\Controllers\MasterController@ktgUpdate')
 Route::get('/databrg/addbarang', 'App\Http\Controllers\MasterController@addbarang');
 //JENIS
 Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
-Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
+// Route::put('jenis/update', 'App\Http\Controllers\MasterController@jenisUpdate');
 Route::get('jenis/addjenis', 'App\Http\Controllers\MasterController@addjenis');
 Route::get('/jenis/delete/{id_jenis}', 'App\Http\Controllers\MasterController@JenisDelete');
 Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->name('addjenis2');
 Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 Route::get('home', 'App\Http\Controllers\HomeController@index');
-// Route::post('edit', [MasterController::class, 'editSubmisi']);
+Route::get('jenis/editJenis/{id_jenis}', [MasterController::class, 'editJenis']);
+// Route::post('jenis/updateJenis/{id_jenis}', [MasterController::class, 'updateJenis']);
+Route::post('/updateJenis', 'App\Http\Controllers\MasterController@updateJenis')->name('updateJenis');
+
 
 // TRANSAKSI
 Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@brgmasuk');
