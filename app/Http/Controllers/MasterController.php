@@ -8,6 +8,7 @@ use App\Models\Jenis;
 use App\Models\kategori;
 use App\Models\Master;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class MasterController extends Controller
 {
@@ -35,6 +36,7 @@ class MasterController extends Controller
     public function addbarang2(Request $request)
     {
         // dd($request);
+        $barang = Master::all();
         $kategori = kategori::all();
         $jenis = Jenis::all();   
         $namaFile = time().'.'.$request->gambar->extension();
@@ -49,7 +51,18 @@ class MasterController extends Controller
             'gambar' => $namaFile,
             'status' => $request->status
         ]);
-        return view('master/addbarang', compact('jenis', 'kategori'));
+        return view('master/databrg', compact('barang', 'jenis', 'kategori'));
+    }
+
+    public function delete($id)
+    {
+        $barang = Master::where('id_master', $id)->first();
+        // dd($barang);
+        $barang->delete();
+
+        return redirect('databrg');
+
+        
     }
 
     // DATA KATEGORI
