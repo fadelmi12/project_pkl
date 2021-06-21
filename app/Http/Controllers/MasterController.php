@@ -53,7 +53,6 @@ class MasterController extends Controller
             'status' => $request->status
         ]);
         return view('master/databrg', compact('barang', 'jenis', 'kategori'));
-<<<<<<< HEAD
     }
 
     public function delete($id)
@@ -65,8 +64,6 @@ class MasterController extends Controller
         return redirect('databrg');
 
         
-=======
->>>>>>> f088472091aeca96924c183508bfa6641e8324a6
     }
 
     // DATA KATEGORI

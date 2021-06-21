@@ -124,7 +124,7 @@
                                                         <td>
                                                             <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" ><i class="fa fa-trash"></i></button>                                                           -->
 
-                                                            <form action="{{ url('delete') }}" method="post" class="d-inline">
+                                                            <form action="{{ url('/databrg/delete') }}" method="post" class="d-inline">
                                                                 @method('delete')
                                                                 @csrf
                                                                 <button  href="master/hapusbrg" class="btn btn-danger btn-icon-anim btn-square"> <i class="fa fa-trash"></i></button>
@@ -132,7 +132,7 @@
 
                                                             <!--<button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" ><i class="fa fa-trash"></i></button> -->                                                          
                                                             <!-- <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#infobrg"><i class="fa fa-edit"></i></button> -->
-                                                            <!-- <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrg"><i class="fa fa-pencil"></i></button> -->
+                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrg"><i class="fa fa-pencil"></i></button>
                                                             @include('master.hapusbrg')
                                                             <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                         </td>
