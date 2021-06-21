@@ -52,7 +52,7 @@ class MasterController extends Controller
             'gambar' => $namaFile,
             'status' => $request->status
         ]);
-        return view('master/databrg', compact('barang', 'jenis', 'kategori'));
+        return redirect('databrg');
     }
 
     public function delete($id)
