@@ -15,7 +15,7 @@ class MasterDataTable extends Migration
     {
         Schema::create('master_data', function (Blueprint $table) {
             $table->increments('id_master');
-            $table->integer('kode_kategori');
+            $table->string('kode_kategori');
             $table->string('nama_barang');
             $table->string('kode_barang');
             $table->string('jenis_barang');

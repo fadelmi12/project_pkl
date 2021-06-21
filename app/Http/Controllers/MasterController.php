@@ -27,9 +27,10 @@ class MasterController extends Controller
 
     public function addbarang()
     {
+        $barang = Master::all();
         $kategori = kategori::all();
         $jenis = Jenis::all();
-        return view('master/addbarang', compact('jenis', 'kategori'));
+        return view('master/databrg', compact('barang', 'jenis', 'kategori'));
     }
 
 
@@ -38,10 +39,10 @@ class MasterController extends Controller
         // dd($request);
         $barang = Master::all();
         $kategori = kategori::all();
-        $jenis = Jenis::all();   
-        $namaFile = time().'.'.$request->gambar->extension();
+        $jenis = Jenis::all();
+        $namaFile = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('img/logo'), $namaFile);
-        
+
         Master::insert([
             'kode_kategori' => $request->kode_kategori,
             'nama_barang' => $request->nama_barang,
@@ -52,6 +53,7 @@ class MasterController extends Controller
             'status' => $request->status
         ]);
         return view('master/databrg', compact('barang', 'jenis', 'kategori'));
+<<<<<<< HEAD
     }
 
     public function delete($id)
@@ -63,6 +65,8 @@ class MasterController extends Controller
         return redirect('databrg');
 
         
+=======
+>>>>>>> f088472091aeca96924c183508bfa6641e8324a6
     }
 
     // DATA KATEGORI
@@ -118,15 +122,29 @@ class MasterController extends Controller
         return view('master/jenis', compact('data_jenis'));
     }
 
-    public function jenisUpdate(Request $request)
+    public function editJenis($id_jenis)
     {
-        $jenis = Jenis::find($request->edit_id_jenis);
-        $jenis->id_jenis = $request->edit_id_jenis;
-        $jenis->jenis_barang = $request->edit_jenis_barang;
-        $jenis->keterangan = $request->edit_keterangan;
-        $jenis->save();
-        //mengirim data_jenis ke view
-        return back()->with('success', "Data telah terupdate");
+
+        $data_jenis = Jenis::find($id_jenis);
+        return view('master/editjns', compact('data_jenis'));
+    }
+
+    public function updateJenis(Request $request)
+    {
+        // $jenis = Jenis::find($request->edit_id_jenis);
+        // $jenis->id_jenis = $request->edit_id_jenis;
+        // $jenis->jenis_barang = $request->edit_jenis_barang;
+        // $jenis->keterangan = $request->edit_keterangan;
+        // $jenis->save();
+        // //mengirim data_jenis ke view
+        // return back()->with('success', "Data telah terupdate");
+
+        Jenis::where('id_jenis', $request->id_jenis)
+            ->update([
+                'jenis_barang' => $request->jenis_barang,
+                'keterangan' => $request->keterangan
+            ]);
+        return redirect()->back();
     }
 
     public function addjenis2(Request $request)
@@ -136,7 +154,6 @@ class MasterController extends Controller
             'keterangan' => $request->keterangan
         ]);
         return redirect('jenis');
-        // return view('master/addjenis');
     }
 
     public function addjenis(Request $request)
