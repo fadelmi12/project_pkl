@@ -136,19 +136,18 @@
                                                             @include('master.hapusbrg')
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#infobrg"><i class="fa fa-edit"></i></button>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrg"><i class="fa fa-pencil"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" onclick="setEditForm({{ url('delete') }}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button>
-                                                            
-                                                            <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
+                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" onclick="setEditForm( {{url('delete')}}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button>
                                                         </td>
-                                                        @include('master.hapusbrg')
+                                                        @include('master.hapusbrg') 
                                                         @include('master.editbrg')
                                                     </tr>
                                                     @endforeach
+                                
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
