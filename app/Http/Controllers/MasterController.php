@@ -54,6 +54,7 @@ class MasterController extends Controller
         ]);
         return redirect('databrg');
     }
+    
 
     public function delete($id)
     {
@@ -62,7 +63,6 @@ class MasterController extends Controller
         $barang->delete();
 
         return redirect('databrg');
-
         
     }
 
