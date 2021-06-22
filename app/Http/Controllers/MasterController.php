@@ -53,6 +53,7 @@ class MasterController extends Controller
             'status' => $request->status
         ]);
         return view('master/databrg', compact('barang', 'jenis', 'kategori'));
+        return redirect('databrg');
     }
 
     public function delete($id)
@@ -73,6 +74,7 @@ class MasterController extends Controller
         $barang->delete();
         //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
+        
     }
 
     // DATA KATEGORI
