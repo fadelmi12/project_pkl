@@ -53,7 +53,6 @@ class MasterController extends Controller
             'status' => $request->status
         ]);
         return view('master/databrg', compact('barang', 'jenis', 'kategori'));
-<<<<<<< HEAD
     }
 
     public function delete($id)
@@ -63,10 +62,17 @@ class MasterController extends Controller
         $barang->delete();
 
         return redirect('databrg');
+    }
 
-        
-=======
->>>>>>> f088472091aeca96924c183508bfa6641e8324a6
+    public function deletebarang($id_master)
+    {
+        // dd($id_master);
+        // $data_kategori = Master::find($request->id_master);
+        $barang = Master::where('id_master', $id_master)->first();
+        // dd($barang);
+        $barang->delete();
+        //mengirim data_ktg ke view
+        return back()->with('success', "Data telah terhapus");
     }
 
     // DATA KATEGORI
@@ -115,16 +121,7 @@ class MasterController extends Controller
         return back()->with('success', "Data telah terupdate");
     }
 
-    public function deletebarang($id_master)
-    {
-        // dd($id_master);
-        // $data_kategori = Master::find($request->id_master);
-        $barang = Master::where('id_master', $id_master)->first();
-        // dd($barang);
-        $barang->delete();
-        //mengirim data_ktg ke view
-        return back()->with('success', "Data telah terhapus");
-    }
+
 
     // DATA JENIS
     public function jenis()
@@ -155,7 +152,7 @@ class MasterController extends Controller
                 'jenis_barang' => $request->jenis_barang,
                 'keterangan' => $request->keterangan
             ]);
-        return redirect()->back();
+        return redirect('jenis');
     }
 
     public function addjenis2(Request $request)

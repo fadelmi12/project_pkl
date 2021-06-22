@@ -11,29 +11,18 @@
                 <div class="container">
                     <h6 class="mb-15">Apakah anda yakin menghapus data ini?</h6>
                 </div>
-                
+
                 {{-- <div class="form-group">
                     <input type="hidden" id="id_master" name="id_master">
                     <label class="control-label mb-10 text-left" for="example-email">Kode kategori <span class="help"> </span></label>
                     <input type="text" id="id_master" name="id_master" class="form-control" placeholder="">
                 </div> --}}
-                <!-- <div class="radio radio-info">
-                    <input type="radio" name="radio" id="radio1" value="option1" checked="">
-                    <label for="radio1">
-                        Ya
-                    </label>
-                </div>
-                <div class="radio radio-info">
-                    <input type="radio" name="radio" id="radio2" value="option2" checked="">
-                    <label for="radio2">
-                        Tidak
-                    </label>
-                </div> -->
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary" >Ya</button>
+                    <button type="submit" class="btn btn-primary">Ya</button>
                 </div>
             </form>
-            
+
         </div>
     </div>
