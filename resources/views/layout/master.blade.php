@@ -38,13 +38,8 @@
                 <div class="nav-header pull-left">
                     <div class="logo-wrap">
                         <a href="index.html">
-<<<<<<< HEAD
                             <img class="brand-img" src="{{asset('template')}}/dist/img/logo.png" alt="brand" />
                             <span class="brand-text">Inventory</span>
-=======
-                            <img class="brand-img" src="{{asset('template')}}/dist/img/nakulasadewa.png" alt="brand" />
-                            <span class="brand-text">inventory</span>
->>>>>>> 1cc2e35cb8bf388a03707fd37b4f0b7080aa5773
                         </a>
                     </div>
                 </div>

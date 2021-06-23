@@ -163,12 +163,13 @@ class MasterController extends Controller
 
     public function deletejenis($id_jenis)
     {
+        // dd($id_jenis);
         // dd($id_master);
         // $data_kategori = Master::find($request->id_master);
         $jenis = Jenis::where('id_jenis', $id_jenis)->first();
-        // dd($barang);
+        // // dd($barang);
         $jenis->delete();
-        //mengirim data_ktg ke view
+        // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
 }

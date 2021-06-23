@@ -46,7 +46,7 @@ Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->na
 Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 Route::get('home', 'App\Http\Controllers\HomeController@index');
 Route::get('jenis/editJenis/{id_jenis}', [MasterController::class, 'editJenis']);
-Route::delete('delete/{id_jenis}', 'App\Http\Controllers\MasterController@deletejenis');
+Route::delete('deletejenis/{id_jenis}', 'App\Http\Controllers\MasterController@deletejenis');
 Route::post('/updateJenis', 'App\Http\Controllers\MasterController@updateJenis')->name('updateJenis');
 
 // TRANSAKSI
