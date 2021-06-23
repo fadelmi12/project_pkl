@@ -146,9 +146,8 @@ class MasterController extends Controller
 
         return redirect()->back();
     }
-
     public function addjenis2(Request $request)
-    {
+    {   
         Jenis::create([
             'jenis_barang' => $request->jenis_barang,
             'keterangan' => $request->keterangan

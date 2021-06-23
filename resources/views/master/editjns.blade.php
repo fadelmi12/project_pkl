@@ -5,6 +5,13 @@
 <!-- Main Content -->
 <div class="page-wrapper">
     <div class="container-fluid">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximu m-scale=1.0, user-scalable=no" />
+    <title>Inventory</title>
+    <meta name="description" content="Doodle is a Dashboard & Admin Site Responsive Template by hencework." />
+    <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Doodle Admin, Doodleadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+    <meta name="author" content="hencework" />
 
         <head>
             <meta charset="UTF-8" />
@@ -38,6 +45,8 @@
                         <!-- <div class="panel-heading">
                                 <div class="clearfix"></div>
                             </div> -->
+                   
+                           
                         <div class="panel-wrapper collapse in ">
                             <div class="panel-body">
                                 <div class="form-wrap mt-3">
@@ -58,6 +67,12 @@
                                                 <button class="btn btn-danger  " name="reset" type="reset">Batal
                                                 </button>
                                             </div>
+                                        </form>
+
+                                    </div>
+                                   
+                                </form>
+
                                     </form>
                                 </div>
                             </div>
