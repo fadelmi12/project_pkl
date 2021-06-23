@@ -39,7 +39,7 @@
                     <div class="logo-wrap">
                         <a href="index.html">
                             <img class="brand-img" src="{{asset('template')}}/dist/img/logo.png" alt="brand" />
-                            <span class="brand-text">doodle</span>
+                            <span class="brand-text">Inventory</span>
                         </a>
                     </div>
                 </div>

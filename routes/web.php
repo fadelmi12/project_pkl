@@ -24,7 +24,7 @@ Route::get('databrg', 'App\Http\Controllers\MasterController@index');
 //BARANG
 Route::get('databrg', 'App\Http\Controllers\MasterController@barang');
 Route::get('/databrg/addbarang', 'App\Http\Controllers\MasterController@addbarang');
-Route::delete('/databrg/delete', 'App\Http\Controllers\MasterController@delete');
+// Route::delete('/databrg/delete', 'App\Http\Controllers\MasterController@delete');
 Route::delete('delete/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
 Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 
@@ -46,7 +46,7 @@ Route::post('/addjenis2', 'App\Http\Controllers\MasterController@addjenis2')->na
 Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 Route::get('home', 'App\Http\Controllers\HomeController@index');
 Route::get('jenis/editJenis/{id_jenis}', [MasterController::class, 'editJenis']);
-// Route::delete('delete/{id_jenis}', 'App\Http\Controllers\MasterController@deletejenis');
+Route::delete('delete/{id_jenis}', 'App\Http\Controllers\MasterController@deletejenis');
 Route::post('/updateJenis', 'App\Http\Controllers\MasterController@updateJenis')->name('updateJenis');
 
 // TRANSAKSI
