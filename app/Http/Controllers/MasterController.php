@@ -74,22 +74,9 @@ class MasterController extends Controller
         $barang->delete();
         //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
-        
     }
 
     // DATA KATEGORI
-    public function kategoriUpdate(Request $request)
-    {
-        $kategori = kategori::find($request->edit_id_kategori);
-        $kategori->id_kategori = $request->edit_id_kategori;
-        $kategori->kode_kategori = $request->edit_kode;
-        $kategori->kategori = $request->edit_nama;
-        $kategori->keterangan = $request->edit_keterangan;
-        $kategori->save();
-        //mengirim data_jenis ke view
-        return back()->with('success', "Data telah terupdate");
-    }
-
     public function kategori()
     {
         $data_kategori = kategori::all();
@@ -111,17 +98,11 @@ class MasterController extends Controller
         // return view('master/addjenis');
     }
 
-    public function ktgUpdate(Request $request)
+    public function editktg()
     {
-        $data_kategori = Kategori::find($request->edit_id_ktg);
-        $data_kategori->id_kategori = $request->edit_id_ktg;
-        $data_kategori->kode_kategori = $request->edit_kode;
-        $data_kategori->kategori = $request->edit_kategori;
-        $data_kategori->keterangan = $request->edit_keterangan;
-        $data_kategori->save();
-        //mengirim data_ktg ke view
-        return back()->with('success', "Data telah terupdate");
+        return view('master/editktg');
     }
+
 
 
 
@@ -141,18 +122,10 @@ class MasterController extends Controller
 
     public function updateJenis(Request $request)
     {
-        // $jenis = Jenis::find($request->edit_id_jenis);
-        // $jenis->id_jenis = $request->edit_id_jenis;
-        // $jenis->jenis_barang = $request->edit_jenis_barang;
-        // $jenis->keterangan = $request->edit_keterangan;
-        // $jenis->save();
-        // //mengirim data_jenis ke view
-        // return back()->with('success', "Data telah terupdate");
-
-        Jenis::where('id_jenis', $request->id_jenis)
+        Jenis::where('id_jenis', $request->edit_id_jenis)
             ->update([
-                'jenis_barang' => $request->jenis_barang,
-                'keterangan' => $request->keterangan
+                'jenis_barang' => $request->edit_jenis,
+                'keterangan' => $request->edit_keterangan
             ]);
         return redirect('jenis');
     }
