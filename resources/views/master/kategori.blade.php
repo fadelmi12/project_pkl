@@ -67,11 +67,10 @@
                                                 <td>{{ $data_kategori->kategori }}</td>
                                                 <td>{{ $data_kategori->keterangan }}</td>
                                                 <td>
-                                                    <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editktg" onclick="setEditForm('{{ $data_kategori->id_kategori }}', '{{ $data_kategori->kode_kategori }}', '{{ $data_kategori->kategori }}', '{{ $data_kategori->keterangan }}')"><i class="fa fa-edit"></i></button>
+                                                    <a href="/kategori/editKategori/{{ $data_kategori->id_kategori }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                     <button class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </button>
                                                 </td>
                                             </tr>
-                                            @include('master.editktg')
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -81,9 +80,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Modal -->
-
             <!-- /Main Content -->
         </div>
         @endsection

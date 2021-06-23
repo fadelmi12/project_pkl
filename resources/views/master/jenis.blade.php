@@ -65,10 +65,11 @@
                                                 <td>{{ $data_jenis->jenis_barang }}</td>
                                                 <td>{{ $data_jenis->keterangan }}</td>
                                                 <td>
-                                                    <button class="btn btn-success btn-icon-anim btn-square"><a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}"><i class="fa fa-edit"></i></a></button>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square"><a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}"><i class="fa fa-trash"></i></a></button>
+                                                    <a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
+                                                    <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns" onclick="setEditForm( {{url('delete')}}/{{ $data_jenis->id_jenis }})"><i class="fa fa-trash"></i></button> -->
                                                 </td>
                                             </tr>
+                                            <!-- @include('master.hapusjenis') -->
                                             @endforeach
                                         </tbody>
                                     </table>

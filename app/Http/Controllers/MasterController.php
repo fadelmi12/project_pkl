@@ -52,9 +52,9 @@ class MasterController extends Controller
             'gambar' => $namaFile,
             'status' => $request->status
         ]);
-        return view('master/databrg', compact('barang', 'jenis', 'kategori'));
         return redirect('databrg');
     }
+
 
     public function delete($id)
     {
@@ -98,9 +98,24 @@ class MasterController extends Controller
         // return view('master/addjenis');
     }
 
-    public function editktg()
+    public function editKategori($id_kategori)
     {
-        return view('master/editktg');
+
+        $data_kategori = Kategori::find($id_kategori);
+        return view('master/editktg', compact('data_kategori'));
+    }
+
+    public function updateKategori(Request $request)
+    {
+        Kategori::where('id_kategori', $request->edit_id_ktg)
+            ->update([
+                'kode_kategori' => $request->edit_kode,
+                'kategori' => $request->edit_kategori,
+                'keterangan' => $request->edit_keterangan
+            ]);
+        return redirect('kategori');
+
+        return redirect()->back();
     }
 
 
@@ -127,12 +142,9 @@ class MasterController extends Controller
                 'jenis_barang' => $request->edit_jenis,
                 'keterangan' => $request->edit_keterangan
             ]);
-<<<<<<< HEAD
         return redirect('jenis');
-=======
-        
+
         return redirect()->back();
->>>>>>> 91fc19f3a9063d56449bf2c3c08f93fdb6c3b0c2
     }
 
     public function addjenis2(Request $request)
@@ -148,16 +160,5 @@ class MasterController extends Controller
     {
 
         return view('master/addjenis');
-    }
-
-    public function jenisDelete($id_jenis)
-    {
-        // $jenis = Jenis::find($id_jenis);
-        // dd($jenis);
-        DB::table('data_jenis')->where('id_jenis', $id_jenis)->delete();
-        return back()->with('success', 'Data telah terhapus');
-
-        // Jenis::find($id_jenis)->delete();
-        // return back()->with('success', 'Data berhasil dihapus');
     }
 }
