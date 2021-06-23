@@ -85,6 +85,87 @@
                                         </tbody>
                                     </table>
                                 </div>
+<<<<<<< HEAD
+=======
+                                <div class="clearfix"></div>
+                                <div id="myTable1_wrapper" class="dataTables_wrapper">
+                                    <div class="dataTables_length" id="myTable1_length"><label>Show <select name="myTable1_length" aria-controls="myTable1" class="">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> entries</label></div>
+                                    <div id="myTable1_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="myTable1"></label></div>
+                                    <table id="myTable1" class="table table-hover display dataTable dtr-inline" role="grid" aria-describedby="myTable1_info" style="width: 1253px;">
+                                </div>
+                            </div>
+                            <div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+                                    <div class="table-wrap">
+                                        <div class="">
+                                            <table id="myTable1" class="table table-bordered display  pb-30">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Kode</th>
+                                                        <th>Nama Barang</th>
+                                                        <th>Jenis</th>
+                                                        <th>Stok</th>
+                                                        <th>Gambar</th>
+                                                        <th>Status</th>
+                                                        <th colspan="3">Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <!-- <tfoot>
+													<tr>
+														<th>Name</th>
+														<th>Position</th>
+														<th>Office</th>
+														<th>Age</th>
+														<th>Start date</th>
+														<th>Salary</th>
+													</tr>
+												</tfoot> -->
+                                                <tbody>
+                                                    @foreach ($barang as $brg)
+                                                    <tr>
+                                                        <td>{{$brg->kode_barang}}</td>
+                                                        <td>{{$brg->nama_barang}}</td>
+                                                        <td>{{$brg->jenis_barang}}</td>
+                                                        <td>{{$brg->stok}}</td>
+                                                        <td>
+                                                            @if($brg->gambar)
+                                                                <img src="{{ url('img/logo') }}/{{ $brg->gambar }}" style="width: 150px; height: 120px;">
+                                                            @endif
+                                                        </td>
+                                                        <td>{{$brg->status}}</td>
+                                                        <td>
+                                                            <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" ><i class="fa fa-trash"></i></button>                                                           -->
+
+                                                            <form action="{{ url('/databrg/delete') }}" method="post" class="d-inline">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button  href="master/hapusbrg" class="btn btn-danger btn-icon-anim btn-square"> <i class="fa fa-trash"></i></button>
+                                                            </form> 
+
+                                                            <!--<button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" ><i class="fa fa-trash"></i></button> -->                                                          
+                                                            <!-- <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#infobrg"><i class="fa fa-edit"></i></button> -->
+                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrg"><i class="fa fa-pencil"></i></button>
+                                                            @include('master.hapusbrg')
+                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#infobrg"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrg"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" onclick="setEditForm( {{url('delete')}}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button>
+                                                        </td>
+                                                        @include('master.hapusbrg') 
+                                                        @include('master.editbrg')
+                                                    </tr>
+                                                    @endforeach
+                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div> 
+>>>>>>> 91fc19f3a9063d56449bf2c3c08f93fdb6c3b0c2
                             </div>
                         </div>
                     </div>

@@ -2,9 +2,19 @@
 @section('title', 'Data Jenis')
 @section('content')
 
+<<<<<<< HEAD
 <!-- Main Content -->
 <div class="page-wrapper">
     <div class="container-fluid">
+=======
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximu m-scale=1.0, user-scalable=no" />
+    <title>Inventory</title>
+    <meta name="description" content="Doodle is a Dashboard & Admin Site Responsive Template by hencework." />
+    <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Doodle Admin, Doodleadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+    <meta name="author" content="hencework" />
+>>>>>>> 91fc19f3a9063d56449bf2c3c08f93fdb6c3b0c2
 
         <!-- Title -->
         <div class="row heading-bg">
@@ -45,6 +55,29 @@
                                             <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
                                             <input type="text" value="{{ $data_jenis->keterangan }}" name="edit_keterangan" class="form-control" placeholder="">
                                         </div>
+                            <div class="panel-wrapper collapse in ">
+                                <div class="panel-body">
+                                    <div class="form-wrap mt-3">
+                                        <form action="{{url('updateJenis') }}" method="post" role="form" autocomplete="off">
+                                            {{ csrf_field() }}
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <input type="hidden" value="{{ $data_jenis->id_jenis }}" name="edit_id_jenis">
+                                                    <label class="control-label mb-10 text-left" for="example-email">Jenis <span class="help"> </span></label>
+                                                    <input type="text" value="{{ $data_jenis->jenis_barang }}" name="edit_jenis" class="form-control" placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
+                                                    <input type="text" value="{{ $data_jenis->keterangan }}" name="edit_keterangan" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary">Simpan</button>
+                                                <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                                </button>
+                                            </div>
+                                        </form>
+
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary">Simpan</button>

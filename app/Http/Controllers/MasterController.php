@@ -127,7 +127,12 @@ class MasterController extends Controller
                 'jenis_barang' => $request->edit_jenis,
                 'keterangan' => $request->edit_keterangan
             ]);
+<<<<<<< HEAD
         return redirect('jenis');
+=======
+        
+        return redirect()->back();
+>>>>>>> 91fc19f3a9063d56449bf2c3c08f93fdb6c3b0c2
     }
 
     public function addjenis2(Request $request)
