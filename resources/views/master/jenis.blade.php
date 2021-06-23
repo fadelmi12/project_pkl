@@ -104,7 +104,7 @@
                                                         <td>{{ $data_jenis->keterangan }}</td>
                                                         <td>
                                                             <a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}" class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button>
-                                                                <a href="#" class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </a>
+                                                            <a href="#" class="btn btn-danger btn-icon-anim btn-square" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> </a>
                                                         </td>
                                                     </tr>
                                                     @endforeach
