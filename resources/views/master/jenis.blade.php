@@ -5,7 +5,7 @@
 <!-- Main Content -->
 <div class="page-wrapper">
     <div class="container-fluid">
-
+        
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -31,7 +31,14 @@
                             <a href="jenis/addjenis" class="btn btn-success">Tambah baru
                             </a>
                         </p>
-                        <div class="clearfix"></div>
+                        {{-- @if(Session::has('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ Session('success') }}
+                            </div> 
+                            @endif --}}
+                        <div class="clearfix">
+                            
+                        </div>
                         <div id="myTable1_wrapper" class="dataTables_wrapper">
                             <div class="dataTables_length" id="myTable1_length"><label>Show <select name="myTable1_length" aria-controls="myTable1" class="">
                                         <option value="10">10</option>
@@ -66,10 +73,10 @@
                                                 <td>{{ $data_jenis->keterangan }}</td>
                                                 <td>
                                                     <a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns" onclick="setEditForm( {{url('delete')}}/{{ $data_jenis->id_jenis }})"><i class="fa fa-trash"></i></button> -->
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns" onclick="setEditForm( {{url('deletejenis')}}/{{ $data_jenis->id_jenis }})"><i class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
-                                            <!-- @include('master.hapusjenis') -->
+                                            @include('master.hapusjenis')
                                             @endforeach
                                         </tbody>
                                     </table>

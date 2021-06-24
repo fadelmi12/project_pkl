@@ -56,14 +56,14 @@ class MasterController extends Controller
     }
 
 
-    public function delete($id)
-    {
-        $barang = Master::where('id_master', $id)->first();
-        // dd($barang);
-        $barang->delete();
+    // public function delete($id)
+    // {
+    //     $barang = Master::where('id_master', $id)->first();
+    //     // dd($barang);
+    //     $barang->delete();
 
-        return redirect('databrg');
-    }
+    //     return redirect('databrg');
+    // }
 
     public function deletebarang($id_master)
     {
@@ -159,5 +159,17 @@ class MasterController extends Controller
     {
 
         return view('master/addjenis');
+    }
+
+    public function deletejenis($id_jenis)
+    {
+        // dd($id_jenis);
+        // dd($id_master);
+        // $data_kategori = Master::find($request->id_master);
+        $jenis = Jenis::where('id_jenis', $id_jenis)->first();
+        // // dd($barang);
+        $jenis->delete();
+        // //mengirim data_ktg ke view
+        return back()->with('success', "Data telah terhapus");
     }
 }

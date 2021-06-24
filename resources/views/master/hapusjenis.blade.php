@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h5 class="modal-title" id="exampleModalLabel1">Hapus</h5>
             </div>
-            <form action="{{ url('delete') }}/{{ $data_jenis->id_jenis }}" class="modal-body" method="post">
+            <form action="{{ url('deletejenis') }}/{{ $data_jenis->id_jenis }}" class="modal-body" method="post">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <div class="container">
