@@ -76,9 +76,9 @@
                                                 <td>{{ $data_supplier->pic_supplier }}</td>
                                                 <td>{{ $data_supplier->telp_supplier }}</td>
                                                 <td>
-                                                    <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#editsup" onclick="setEditForm('{{ $data_supplier->id_supplier }}','{{ $data_supplier->kode_supplier }}', '{{ $data_supplier->email_supplier }}', '{{ $data_supplier->alamat_supplier }}', '{{ $data_supplier->pic_supplier }}', '{{ $data_supplier->telp_supplier }}')"><i class="fa fa-edit"></i></button>
+                                                    <a href="/supplier/editSup/{{ $data_supplier->id_supplier }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                     <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class=" fa fa-trash-o"></i> </button> </a>
-                                                    @include('supplier.edit')
+
                                                 </td>
                                             </tr>
                                             @endforeach
