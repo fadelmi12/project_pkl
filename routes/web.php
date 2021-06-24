@@ -35,7 +35,7 @@ Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addka
 Route::post('/addkategori2', 'App\Http\Controllers\MasterController@addkategori2')->name('addkategori2');
 Route::get('kategori/editKategori/{id_kategori}', [MasterController::class, 'editKategori']);
 Route::post('/updateKategori', 'App\Http\Controllers\MasterController@updateKategori')->name('updateKategori');
-// Route::delete('/databrg/delete', 'App\Http\Controllers\MasterController@delete');
+Route::delete('deletektg/{id_kategori}', 'App\Http\Controllers\MasterController@deletektg');
 
 
 //JENIS
@@ -59,12 +59,11 @@ Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addk
 // SUPPLIER
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier')->name('supplier');
 Route::post('/addSupplier', 'App\Http\Controllers\SupplierController@addSupplier')->name('addSupplier');
-
-
 Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier');
 Route::get('supplier/addsupplier', 'App\Http\Controllers\SupplierController@add');
 Route::post('supplier/insert', 'App\Http\Controllers\SupplierController@insert');
-Route::put('supplier/update', 'App\Http\Controllers\SupplierController@supplierUpdate');
+Route::get('supplier/editSup/{id_supplier}', [SupplierController::class, 'editSup']);
+Route::post('/updateSup', 'App\Http\Controllers\SupplierController@updateSup')->name('updateSup');
 
 
 // PENGAJUAN

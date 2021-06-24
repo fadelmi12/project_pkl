@@ -118,6 +118,17 @@ class MasterController extends Controller
         return redirect()->back();
     }
 
+    public function deletektg($id_kategori)
+    {
+        // dd($id_jenis);
+        // dd($id_master);
+        // $data_kategori = Master::find($request->id_master);
+        $kategori = Kategori::where('id_kategori', $id_kategori)->first();
+        // // dd($barang);
+        $kategori->delete();
+        // //mengirim data_ktg ke view
+        return back()->with('success', "Data telah terhapus");
+    }
 
 
 
@@ -146,8 +157,9 @@ class MasterController extends Controller
 
         return redirect()->back();
     }
+
     public function addjenis2(Request $request)
-    {   
+    {
         Jenis::create([
             'jenis_barang' => $request->jenis_barang,
             'keterangan' => $request->keterangan

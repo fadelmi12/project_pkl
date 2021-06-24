@@ -1,11 +1,11 @@
-<div class="modal fade" id="hapusbrg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+<div class="modal fade" id="hapusktg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h5 class="modal-title" id="exampleModalLabel1">Hapus</h5>
             </div>
-            <form action="{{ url('delete') }}/{{ $brg->id_master }}" class="modal-body" method="post">
+            <form action="{{ url('deletektg') }}/{{ $data_kategori->id_kategori }}" class="modal-body" method="post">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <div class="container">
