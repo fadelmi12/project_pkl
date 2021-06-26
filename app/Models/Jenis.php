@@ -18,6 +18,7 @@ class Jenis extends Model
     {
         return $this->hasMany(Master::class);
     }
+    
 
     public function editJenis($id_jenis, $data_jenis)
     {
