@@ -56,4 +56,16 @@ class SupplierController extends Controller
         return redirect('supplier');
         // return view('master/addjenis');
     }
+
+    public function deletesup($id_supplier)
+    {
+        // dd($id_jenis);
+        // dd($id_master);
+        // $data_kategori = Master::find($request->id_master);
+        $data_supplier = SupplierModel::where('id_supplier', $id_supplier)->first();
+        // // dd($barang);
+        $data_supplier->delete();
+        // //mengirim data_ktg ke view
+        return back()->with('success', "Data telah terhapus");
+    }
 }
