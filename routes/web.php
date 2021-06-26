@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*

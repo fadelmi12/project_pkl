@@ -69,7 +69,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label mb-10 text-left">Alamat</label>
-                                                    <textarea value="{{ $data_supplier->alamat_supplier }}" name="edit_alamat" class="form-control" rows="3"></textarea>
+                                                    <textarea type="text" name="edit_alamat" class="form-control" rows="3">{{ $data_supplier->alamat_supplier }}</textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label mb-10 text-left" for="example-email">PIC Supplier <span class="help"> </span></label>
