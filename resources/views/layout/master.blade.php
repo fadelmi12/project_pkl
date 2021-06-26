@@ -865,7 +865,15 @@
             </ul>
         </div>
         <!-- /Right Sidebar Menu -->
-
+        <!-- Footer -->
+        <!-- <footer class="footer container-fluid pl-30 pr-30">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>2017 &copy; Doodle. Pampered by Hencework</p>
+                </div>
+            </div>
+        </footer> -->
+        <!-- /Footer -->
         <!-- Main Content CONTENT -->
         @yield('content')
         <!-- /Main Content -->
@@ -876,7 +884,7 @@
     <!-- JavaScript -->
 
     <!-- jQuery -->
-    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>o 
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

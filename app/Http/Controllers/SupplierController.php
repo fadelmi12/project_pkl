@@ -22,7 +22,6 @@ class SupplierController extends Controller
 
     public function editSup($id_supplier)
     {
-
         $supplier = SupplierModel::find($id_supplier);
         return view('supplier/edit', compact('data_supplier'));
     }
