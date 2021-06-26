@@ -15,15 +15,15 @@ class PengajuanTable extends Migration
     {
         Schema::create('pengajuan', function (Blueprint $table) {
             $table->increments('id_pengajuan');
-            $table->string('noPO',50);
+            $table->string('noPO',50)->nullable();
             $table->string('namaBarang',50);
             $table->string('jenisBarang',50);
             $table->integer('jmlBarang');
-            $table->string('status',50);
-            $table->string('keterangan',50);
-            $table->string('pic_teknisi',50);
-            $table->string('pic_marketing',50);
-            $table->string('pic_warehouse',50);
+            $table->integer('status')->nullable();
+            $table->string('keterangan',50)->nullable();
+            $table->string('pic_teknisi',50)->nullable();
+            $table->string('pic_marketing',50)->nullable();
+            $table->string('pic_warehouse',50)->nullable();
             $table->timestamps();
         });
     }
