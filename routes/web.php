@@ -67,8 +67,23 @@ Route::post('/updateSup', 'App\Http\Controllers\SupplierController@updateSup')->
 
 
 // PENGAJUAN
-Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@index');
-Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@index2');
+// Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@index');
+// Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@index2');
+// PENGAJUAN
+//----------------------------- BARU -----------------------------------------------
+Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@tabelBaru');
+Route::get('/addbaru', 'App\Http\Controllers\PengajuanController@addbaru');
+Route::post('/addbaru2', 'App\Http\Controllers\PengajuanController@addbaru2')->name('addbaru2');
+Route::get('pengajuan/editBaru/{id_pengajuan}', [PengajuanController::class, 'editBaru']);
+Route::post('/updateBaru', 'App\Http\Controllers\PengajuanController@updateBaru')->name('updateBaru');
+Route::delete('deletebaru/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@deletebaru');
+//----------------------------- RETUR -----------------------------------------------
+Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@tabelRetur');
+Route::get('/addretur', 'App\Http\Controllers\PengajuanController@addretur');
+Route::post('/addretur2', 'App\Http\Controllers\PengajuanController@addretur2')->name('addretur2');
+Route::get('pengajuan/editRetur/{id_pengajuan}', [PengajuanController::class, 'editRetur']);
+Route::post('/updateRetur', 'App\Http\Controllers\PengajuanController@updateRetur')->name('updateRetur');
+Route::delete('deleteretur/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@deleteretur');
 
 // PEMINJAMAN
 Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');

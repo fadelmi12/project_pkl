@@ -9,11 +9,11 @@ use Symfony\Component\Console\Input\Input;
 
 class PengajuanController extends Controller
 {
-//-----------------------------------------baru---------------------------------------------------------------//    
+    //-----------------------------------------baru---------------------------------------------------------------//    
 
     public function tabelBaru(Request $request)
-    { 
-        $data_baru = Pengajuan::all();
+    {
+        $data_baru = Pengajuan::all()->where('jenisBarang', '', 'Baru');
         return view('pengajuan/brgbaru', compact('data_baru'));
     }
 
@@ -24,14 +24,15 @@ class PengajuanController extends Controller
 
     public function addbaru2(Request $request)
     {
-        $baru='Baru';
+        $baru = 'Baru';
         Pengajuan::create(
             [
-            'namaBarang' => $request->namaBarang,
-            'jmlBarang' => $request->jmlBarang,
-            'keterangan' => $request->keterangan,
-            'jenisBarang' => $baru
-        ]);
+                'namaBarang' => $request->namaBarang,
+                'jmlBarang' => $request->jmlBarang,
+                'keterangan' => $request->keterangan,
+                'jenisBarang' => $baru
+            ]
+        );
         return redirect('/brgbaru');
     }
     public function editBaru($id_pengajuan)
@@ -61,10 +62,10 @@ class PengajuanController extends Controller
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
-//-----------------------------------------retur---------------------------------------------------------------//    
-        public function tabelRetur(Request $request)
-    { 
-        $data_baru = Pengajuan::all()->where('jenisBarang','','Retur');
+    //-----------------------------------------retur---------------------------------------------------------------//    
+    public function tabelRetur(Request $request)
+    {
+        $data_baru = Pengajuan::all()->where('jenisBarang', '', 'Retur');
         return view('pengajuan/brgretur', compact('data_baru'));
     }
 
@@ -75,16 +76,17 @@ class PengajuanController extends Controller
 
     public function addretur2(Request $request)
     {
-        $retur='Retur';
+        $retur = 'Retur';
         Pengajuan::create(
             [
-            'noPO' => $request->noPO,
-            'namaBarang' => $request->namaBarang,
-            'namaBarang' => $request->namaBarang,
-            'jmlBarang' => $request->jmlBarang,
-            'keterangan' => $request->keterangan,
-            'jenisBarang' => $retur
-        ]);
+                'noPO' => $request->noPO,
+                'namaBarang' => $request->namaBarang,
+                'namaBarang' => $request->namaBarang,
+                'jmlBarang' => $request->jmlBarang,
+                'keterangan' => $request->keterangan,
+                'jenisBarang' => $retur
+            ]
+        );
         return redirect('/brgretur');
     }
     public function editRetur($id_pengajuan)
@@ -116,4 +118,3 @@ class PengajuanController extends Controller
         return back()->with('success', "Data telah terhapus");
     }
 }
-
