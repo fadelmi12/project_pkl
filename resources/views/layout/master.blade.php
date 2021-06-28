@@ -441,8 +441,16 @@
                         <div class="clearfix"></div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('logout') }}">
+                        <div class="pull-left"><i class="zmdi zmdi-power-setting mr-20"></i><span class="right-nav-text">Logout</span></div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
             </ul>
         </div>
+
+    
         <!-- /Left Sidebar Menu -->
 
         <!-- Right Sidebar Menu -->
