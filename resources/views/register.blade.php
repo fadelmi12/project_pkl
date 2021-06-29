@@ -12,7 +12,7 @@
         <div class="col-md-4 offset-md-4 mt-5">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-center">Form Register</h3>
+                    <h3 class="text-center">Register</h3>
                 </div>
                 <form action="{{ route('register') }}" method="post">
                 @csrf
