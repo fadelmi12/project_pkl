@@ -366,6 +366,7 @@
                         <div class="clearfix"></div>
                     </a>
                 </li>
+                @if (auth()->user()->divisi == "warehouse")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr">
                         <div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Master data</span></div>
@@ -406,6 +407,7 @@
                         <div class="clearfix"></div>
                     </a>
                 </li>
+                @endif
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuan">
                         <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pengajuan</span></div>

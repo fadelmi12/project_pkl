@@ -14,7 +14,7 @@
                 <div class="card-header">
                     <h3 class="text-center">Login</h3>
                 </div>
-                <form action="{{ route('login') }}" method="post">
+                <form action="{{ route('postlogin') }}" method="post">
                 @csrf
                 <div class="card-body">
                     @if(session('errors'))
