@@ -423,6 +423,20 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuanmarketing">
+                        <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pengajuan Marketing</span></div>
+                        <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="pengajuanmarketing" class="collapse collapse-level-1">
+                        <li>
+                            <a href="/mktbrgbaru">Barang baru</a>
+                        </li>
+                        <li>
+                            <a href="/mktbrgretur">Barang retur</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="/peminjaman">
                         <div class="pull-left"><i class="zmdi zmdi-balance-wallet mr-20"></i><span class="right-nav-text">Peminjaman</span></div>
@@ -450,7 +464,7 @@
             </ul>
         </div>
 
-    
+
         <!-- /Left Sidebar Menu -->
 
         <!-- Right Sidebar Menu -->
@@ -892,7 +906,7 @@
     <!-- JavaScript -->
 
     <!-- jQuery -->
-    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>o 
+    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>o
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

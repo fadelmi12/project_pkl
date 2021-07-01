@@ -58,7 +58,6 @@ class AuthController extends Controller
             Session::flash('error', 'Email atau password salah');
             return redirect()->route('login');
         }
-  
     }
   
     public function showFormRegister()
