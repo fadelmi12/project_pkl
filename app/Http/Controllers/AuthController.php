@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
-use Validator;
-use Hash;
-use Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 
 class AuthController extends Controller
@@ -21,7 +21,7 @@ class AuthController extends Controller
         return view('login');
     }
   
-    public function login(Request $request)
+    public function postlogin(Request $request)
     {
         $rules = [
             'email'                 => 'required|email',
@@ -46,11 +46,10 @@ class AuthController extends Controller
             'password'  => $request->input('password'),
         ];
   
-        Auth::attempt($data);
+        // Auth::attempt($data);
   
-        if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
-            //Login Success
-            return redirect()->route('home');
+        if(Auth::attempt($request->only('email','password'))){
+            return redirect('/home');
   
         } else { // false
   
