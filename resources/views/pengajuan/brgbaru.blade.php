@@ -108,7 +108,7 @@
     </div>
     @endif
 
-    @if (auth()->user()->divisi == "warehouse"||"admin"||"marketing")
+    @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin"||auth()->user()->divisi == "marketing")
 <!-- Main Content -->
 <div class="page-wrapper">
         <div class="container-fluid">
