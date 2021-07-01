@@ -108,9 +108,9 @@
     </div>
     @endif
 
-    @if (auth()->user()->divisi == "warehouse"||"admin"||"marketing")
-<!-- Main Content -->
-<div class="page-wrapper">
+    @if (auth()->user()->divisi == "warehouse")
+    <!-- Main Content -->
+    <div class="page-wrapper">
         <div class="container-fluid">
 
             <!-- Title -->
@@ -169,151 +169,53 @@
                                             </thead>
                                             <tbody>
                                                 <?php $no = 1; ?>
-<!-------------------------------------------------------------- Warehouse ------------------------------------------------------->
                                                 @foreach ($data_baru as $data_baru)
-                                                    <tr>
-                                                    @if (auth()->user()->divisi == "warehouse")
-                                                        @if($data_baru->status >= 1 )
-                                                            <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->namaBarang}}</td>
-                                                            <td>{{ $data_baru->jmlBarang}}</td>
-                                                            <td>
-                                                                @if($data_baru->status === 1 )
-                                                                Pengajuan disetujui Marketing
-                                                                @elseif ($data_baru->status === 2 )
-                                                                Pengajuan ditolak Marketing
-                                                                @elseif ($data_baru->status === 3 )
-                                                                Pengajuan disetujui Warehouse
-                                                                @elseif ($data_baru->status === 4 )
-                                                                Pengajuan ditolak Warehouse
-                                                                @elseif ($data_baru->status === 5 )
-                                                                Pengajuan disetujui Admin dan dalam proses pembelian
-                                                                @elseif ($data_baru->status === 6 )
-                                                                Pengajuan ditolak Admin
-                                                                @elseif ($data_baru->status === 7 )
-                                                                Barang telah dibeli dan akan segera dikirim
-                                                                @else
-                                                                Pengajuan diproses Marketing
-                                                            @endif
-                                                            </td>
-                                                            <td>{{ $data_baru->keterangan}}</td>
-                                                            <td>{{ $data_baru->created_at}}</td>
-                                                            <td>
-                                                                <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-check"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
-                                                                <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $data_baru->namaBarang}}</td>
+                                                    <td>{{ $data_baru->jmlBarang}}</td>
+                                                    <td>
+                                                        @if($data_baru->status === 1 )
+                                                        Pengajuan disetujui Marketing
+                                                        @elseif ($data_baru->status === 2 )
+                                                        Pengajuan ditolak Marketing
+                                                        @elseif ($data_baru->status === 3 )
+                                                        Pengajuan disetujui Warehouse
+                                                        @elseif ($data_baru->status === 4 )
+                                                        Pengajuan ditolak Warehouse
+                                                        @elseif ($data_baru->status === 5 )
+                                                        Pengajuan disetujui Admin dan dalam proses pembelian
+                                                        @elseif ($data_baru->status === 6 )
+                                                        Pengajuan ditolak Admin
+                                                        @elseif ($data_baru->status === 7 )
+                                                        Barang telah dibeli dan akan segera dikirim
+                                                        @else
+                                                        Pengajuan diproses Marketing
                                                         @endif
-<!-------------------------------------------------------------- ADMIN ------------------------------------------------------------>
-                                                    @elseif (auth()->user()->divisi == "admin")
-                                                        @if ($data_baru->status >= 3 )
-                                                        <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->namaBarang}}</td>
-                                                            <td>{{ $data_baru->jmlBarang}}</td>
-                                                            <td>
-                                                                @if($data_baru->status === 1 )
-                                                                Pengajuan disetujui Marketing
-                                                                @elseif ($data_baru->status === 2 )
-                                                                Pengajuan ditolak Marketing
-                                                                @elseif ($data_baru->status === 3 )
-                                                                Pengajuan disetujui Warehouse
-                                                                @elseif ($data_baru->status === 4 )
-                                                                Pengajuan ditolak Warehouse
-                                                                @elseif ($data_baru->status === 5 )
-                                                                Pengajuan disetujui Admin dan dalam proses pembelian
-                                                                @elseif ($data_baru->status === 6 )
-                                                                Pengajuan ditolak Admin
-                                                                @elseif ($data_baru->status === 7 )
-                                                                Barang telah dibeli dan akan segera dikirim
-                                                                @else
-                                                                Pengajuan diproses Marketing
-                                                                @endif
-                                                            </td>
-                                                            <td>{{ $data_baru->keterangan}}</td>
-                                                            <td>{{ $data_baru->created_at}}</td>
-                                                            <td>
-                                                                <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-check"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
-                                                                <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
-                                                        @endif
-<!-------------------------------------------------------------- PURCHASING ------------------------------------------------------------>
-                                                    @elseif (auth()->user()->divisi == "purchasing")
-                                                        @if ($data_baru->status >= 5 )
-                                                            <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->namaBarang}}</td>
-                                                            <td>{{ $data_baru->jmlBarang}}</td>
-                                                            <td>
-                                                                @if($data_baru->status === 1 )
-                                                                Pengajuan disetujui Marketing
-                                                                @elseif ($data_baru->status === 2 )
-                                                                Pengajuan ditolak Marketing
-                                                                @elseif ($data_baru->status === 3 )
-                                                                Pengajuan disetujui Warehouse
-                                                                @elseif ($data_baru->status === 4 )
-                                                                Pengajuan ditolak Warehouse
-                                                                @elseif ($data_baru->status === 5 )
-                                                                Pengajuan disetujui Admin dan dalam proses pembelian
-                                                                @elseif ($data_baru->status === 6 )
-                                                                Pengajuan ditolak Admin
-                                                                @elseif ($data_baru->status === 7 )
-                                                                Barang telah dibeli dan akan segera dikirim
-                                                                @else
-                                                                Pengajuan diproses Marketing
-                                                                @endif
-                                                            </td>
-                                                            <td>{{ $data_baru->keterangan}}</td>
-                                                            <td>{{ $data_baru->created_at}}</td>
-                                                            <td>
-                                                                <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-check"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
-                                                                <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
-                                                        @endif
-<!-------------------------------------------------------------- MARKETING ------------------------------------------------------------>
-                                                    @elseif (auth()->user()->divisi == "marketing")
-                                                            <td>{{ $data_baru->namaBarang}}</td>
-                                                            <td>{{ $data_baru->jmlBarang}}</td>
-                                                            <td>
-                                                                @if($data_baru->status === 1 )
-                                                                Pengajuan disetujui Marketing
-                                                                @elseif ($data_baru->status === 2 )
-                                                                Pengajuan ditolak Marketing
-                                                                @elseif ($data_baru->status === 3 )
-                                                                Pengajuan disetujui Warehouse
-                                                                @elseif ($data_baru->status === 4 )
-                                                                Pengajuan ditolak Warehouse
-                                                                @elseif ($data_baru->status === 5 )
-                                                                Pengajuan disetujui Admin dan dalam proses pembelian
-                                                                @elseif ($data_baru->status === 6 )
-                                                                Pengajuan ditolak Admin
-                                                                @elseif ($data_baru->status === 7 )
-                                                                Barang telah dibeli dan akan segera dikirim
-                                                                @else
-                                                                Pengajuan diproses Marketing
-                                                                @endif
-                                                            </td>
-                                                            <td>{{ $data_baru->keterangan}}</td>
-                                                            <td>{{ $data_baru->created_at}}</td>
-                                                            <td>
-                                                                <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-check"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
-                                                                <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
-                                                    @endif
-                                                    </tr>
-                                            @include('pengajuan.hapusbrgbaru')
-                                            @endforeach
-                                        </tbody>
+                                                    </td>
+                                                    <td>{{ $data_baru->keterangan}}</td>
+                                                    <td>{{ $data_baru->created_at}}</td>
+                                                    <td>
+                                                        <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                        <a href="#"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-check"></i></button></a>
+                                                        <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
+                                                        <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
+                                                </tr>
+                                                @include('pengajuan.hapusbrgbaru')
+                                                @endforeach
+                                            </tbody>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- /Main Content -->
         </div>
-        <!-- /Main Content -->
-    </div>
-@endif
+        @endif
+
+
+
         <!-- /#wrapper -->
-@endsection
+        @endsection
