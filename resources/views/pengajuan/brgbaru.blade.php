@@ -202,7 +202,6 @@
                                                                 <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
                                                                 <a href="#"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-check"></i></button></a>
                                                                 <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
-                                                                <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
                                                         @endif
 <!-------------------------------------------------------------- ADMIN ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "admin")
