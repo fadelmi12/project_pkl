@@ -93,6 +93,7 @@
                                                 <td>
                                                     <a href="pengajuan/editBaru/{{ $data_baru->id_pengajuan }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                     <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button>
+                                                </td>
                                             </tr>
                                             @include('pengajuan.hapusbrgbaru')
                                             @endforeach
