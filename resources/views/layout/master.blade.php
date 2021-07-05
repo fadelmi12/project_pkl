@@ -366,7 +366,7 @@
                         <div class="clearfix"></div>
                     </a>
                 </li>
-                @if (auth()->user()->divisi == "warehouse")
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "office")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr">
                         <div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Master data</span></div>
@@ -385,6 +385,8 @@
                         </li>
                     </ul>
                 </li>
+                @endif
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "office")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr">
                         <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Transaksi</span></div>
@@ -401,6 +403,8 @@
 
                     </ul>
                 </li>
+                @endif
+                @if (auth()->user()->divisi == "warehouse")
                 <li>
                     <a href="/supplier">
                         <div class="pull-left"><i class="zmdi zmdi-accounts-alt mr-20"></i><span class="right-nav-text">Data supplier</span></div>
@@ -408,6 +412,7 @@
                     </a>
                 </li>
                 @endif
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "admin")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuan">
                         <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pengajuan</span></div>
@@ -424,39 +429,31 @@
 
                     </ul>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuanmarketing">
-                        <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pengajuan Marketing</span></div>
-                        <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
-                        <div class="clearfix"></div>
-                    </a>
-                    <ul id="pengajuanmarketing" class="collapse collapse-level-1">
-                        <li>
-                            <a href="/mktbrgbaru">Barang baru</a>
-                        </li>
-                        <li>
-                            <a href="/mktbrgretur">Barang retur</a>
-                        </li>
-                    </ul>
-                </li>
+                @endif
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi")
                 <li>
                     <a href="/peminjaman">
                         <div class="pull-left"><i class="zmdi zmdi-balance-wallet mr-20"></i><span class="right-nav-text">Peminjaman</span></div>
                         <div class="clearfix"></div>
                     </a>
                 </li>
+                @endif
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "marketing"||auth()->user()->divisi == "purchasing" ||auth()->user()->divisi == "admin" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="/purchasing">
                         <div class="pull-left"><i class="zmdi zmdi-shopping-cart mr-20"></i><span class="right-nav-text">Purchase Order</span></div>
                         <div class="clearfix"></div>
                     </a>
                 </li>
+                @endif
+                @if (auth()->user()->divisi == "admin")
                 <li>
                     <a href="/administrator">
                         <div class="pull-left"><i class="zmdi zmdi-account mr-20"></i><span class="right-nav-text">Administrator</span></div>
                         <div class="clearfix"></div>
                     </a>
                 </li>
+                @endif
                 <li>
                     <a href="{{ route('logout') }}">
                         <div class="pull-left"><i class="zmdi zmdi-power-setting mr-20"></i><span class="right-nav-text">Logout</span></div>
