@@ -48,10 +48,6 @@
                                         <input type="text" class="form-control" name="nama_barang" id="nama_barang">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label mb-10 text-left">Kode Barang</label>
-                                        <input type="text" class="form-control" name="kode_barang" id="kode_barang">
-                                    </div>
-                                    <div class="form-group">
                                         <label class="control-label mb-10 text-left">Jenis</label>
                                         <select name="jenis_barang" id="jenis_barang" class="form-control select2">
                                             @foreach($jenis as $jen)
