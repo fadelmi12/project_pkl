@@ -56,7 +56,7 @@
                                             <div class="form-group">
                                                 <input type="hidden" value="{{ $brg->id_master }}" name="edit_id_brg">
                                                 <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
-                                                <select name="edit_kode_kategori" value="{{ $brg->kode_kategori }}" class="form-control select2">
+                                                <select name="edit_kode_kategori" value="{{ $brg->kode_kategori }}" class="form-control select2" readonly>
                                                     [@foreach($kategori as $ktg)
                                                     <option value="{{ $ktg->kode_kategori }}">{{ $ktg->kode_kategori }}</option>
                                                     @endforeach]

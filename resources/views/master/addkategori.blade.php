@@ -35,10 +35,7 @@
                             <div class="form-wrap mt-3">
                                 <form action="{{ url('addkategori2') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="form-group">
-                                        <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
-                                        <input type="text" class="form-control" id="kode_kategori" name="kode_kategori" value="">
-                                    </div>
+
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Nama<span class="help"> Kategori</span></label>
                                         <input type="text" class="form-control" id="kategori" name="kategori" value="">

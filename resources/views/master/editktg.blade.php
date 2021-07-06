@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <input type="hidden" value="{{ $data_kategori->id_kategori }}" name="edit_id_ktg">
                                         <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
-                                        <input type="text" class="form-control" value="{{ $data_kategori->kode_kategori }}" name="edit_kode">
+                                        <input type="text" class="form-control" value="{{ $data_kategori->kode_kategori }}" name="edit_kode" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Nama<span class="help"> Kategori</span></label>
