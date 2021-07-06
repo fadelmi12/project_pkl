@@ -57,7 +57,7 @@
                                                 <div class="form-group">
                                                     <input type="hidden" value="{{ $data_supplier->id_supplier }}" name="edit_id_sup">
                                                     <label class="control-label mb-10 text-left" for="example-email">Kode Supplier <span class="help"> </span></label>
-                                                    <input type="text" value="{{ $data_supplier->kode_supplier }}" name="edit_kode" class="form-control" placeholder="">
+                                                    <input type="text" value="{{ $data_supplier->kode_supplier }}" name="edit_kode" class="form-control" placeholder="" readonly>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label mb-10 text-left" for="example-email">Nama Supplier <span class="help"> </span></label>

@@ -41,11 +41,12 @@ class MasterController extends Controller
         $jenis = Jenis::all();
         $namaFile = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('img/logo'), $namaFile);
-        
+
+        //Kode barang
         $kode = strtoupper(substr($request->nama_barang, 0, 3));
         $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check+1);
-        $kode_barang = $kode."".$angka;
+        $angka = sprintf("%03d", (int)$check + 1);
+        $kode_barang = $kode . "" . $angka;
 
         Master::insert([
             'kode_kategori' => $request->kode_kategori,

@@ -75,7 +75,7 @@
                                                 <td>
                                                     <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
                                                     <a href="/databrg/editBarang/{{ $brg->id_master }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" onclick="setEditForm( {{url('delete')}}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" action="( {{url('delete')}}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button>
                                                 </td>
                                                 @include('master.hapusbrg')
                                             </tr>
