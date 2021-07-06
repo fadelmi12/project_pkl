@@ -44,8 +44,14 @@ class SupplierController extends Controller
 
     public function addSupplier(Request $request)
     {
+        //Kode supp
+        $kode = strtoupper(substr("SUPPLIER", 0, 3));
+        $check = count(SupplierModel::where('kode_supplier', 'like', "%$kode%")->get()->toArray());
+        $angka = sprintf("%03d", (int)$check + 1);
+        $kode_supplier = $kode . "" . $angka;
+
         SupplierModel::create([
-            'kode_supplier'     =>  $request->kode_supplier,
+            'kode_supplier'     =>  $kode_supplier,
             'nama_supplier'     =>  $request->nama_supplier,
             'email_supplier'    =>  $request->email_supplier,
             'pic_supplier'      =>  $request->pic_supplier,
