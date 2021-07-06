@@ -33,7 +33,6 @@ class MasterController extends Controller
         return view('master/addbarang', compact('barang', 'jenis', 'kategori'));
     }
 
-
     public function addbarang2(Request $request)
     {
         // dd($request);
@@ -42,11 +41,16 @@ class MasterController extends Controller
         $jenis = Jenis::all();
         $namaFile = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('img/logo'), $namaFile);
+        
+        $kode = strtoupper(substr($request->nama_barang, 0, 3));
+        $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
+        $angka = sprintf("%03d", (int)$check+1);
+        $kode_barang = $kode."".$angka;
 
         Master::insert([
             'kode_kategori' => $request->kode_kategori,
             'nama_barang' => $request->nama_barang,
-            'kode_barang' => $request->kode_barang,
+            'kode_barang' => $kode_barang,
             'jenis_barang' => $request->jenis_barang,
             'stok' => $request->stok,
             'gambar' => $namaFile,
@@ -64,6 +68,31 @@ class MasterController extends Controller
 
     //     return redirect('databrg');
     // }
+
+    public function editBarang($id_master)
+    {
+
+        $brg = Master::find($id_master);
+        return view('master/editbrg', compact('brg'));
+    }
+
+    public function updateBarang(Request $request)
+    {
+        Master::where('id_master', $request->edit_id_brg)
+            ->update([
+                'kode_kategori' => $request->edit_kode_kategori,
+                'nama_barang' => $request->edit_nama_barang,
+                'kode_barang' => $request->edit_kode_barang,
+                'jenis_barang' => $request->edit_jenis_barang,
+                'kode_kategori' => $request->edit_kode_kategori,
+                'stok' => $request->edit_stok,
+                'gambar' => $request->edit_kode_kategori,
+                'status' => $request->edit_status
+            ]);
+        return redirect('databrg');
+
+        return redirect()->back();
+    }
 
     public function deletebarang($id_master)
     {
