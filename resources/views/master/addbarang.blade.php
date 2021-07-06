@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Kode Barang</label>
-                                        <input type="text" class="form-control" name="kode_barang" id="kode_barang">
+                                        <input type="text" class="form-control" name="kode_barang" id="kode_barang" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Jenis</label>
