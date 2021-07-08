@@ -79,12 +79,11 @@
                                                     <i class="fa fa-trash"></i></button>
                                                     <!-- <a data-toggle="modal" id="smallButton" data-target="#hapusbrg" data-attr="{{ route('delete', $brg->id_master) }}" title="Delete Project"><i class="fas fa-trash text-danger  fa-lg"></i> </a> -->
                                                 </td>
-                                                @include('master.hapusbrg')
+                                                <!-- @include('master.hapusbrg') -->
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-
                                     
                                     <!-- Small Modal -->
                                     <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
@@ -95,7 +94,7 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body" id="smallBody"> 
+                                                <div class="modal-body" id="smallBody">
                                                     <div>
                                                         <!-- the result to be displayed apply here -->
                                                     </div>

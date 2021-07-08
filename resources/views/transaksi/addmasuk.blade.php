@@ -88,13 +88,13 @@
 																<input type="text" class="form-control" placeholder="Pengirim">
 															</div>
 														</div>
-													
+
 													</div>
 													<!-- /Row -->
-														<!--/span-->
+													<!--/span-->
 
-														
-														<!--/span-->	
+
+													<!--/span-->
 
 													<!-- /Row -->
 
@@ -110,7 +110,7 @@
 													<!--/span-->
 													<div class="col-md-6">
 														<div class="form-actions mt-20">
-															<button type="submit" class="btn btn-primary ">+ Tambah Data</button>
+															<button type="submit" class="btn btn-primary ">Tambah Data</button>
 														</div>
 													</div>
 													<!--/span-->
@@ -126,84 +126,6 @@
 			</div>
 		</div>
 		<!-- /Row -->
-		<div class="row">
-			<!-- Basic Table -->
-			<div class="col-md-12">
-						<div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">Basic Table</h6>
-								</div>
-							<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="text-muted">Add class <code>table</code> in table tag.</p>
-									<div class="table-wrap mt-40">
-										<div class="table-responsive">
-											<table class="table mb-0">
-												<thead>
-												  <tr>
-													<th>#</th>
-													<th>First Name</th>
-													<th>Last Name</th>
-													<th>Username</th>
-													<th>Role</th>
-												  </tr>
-												</thead>
-												<tbody>
-												  <tr>
-													<td>1</td>
-													<td>Jens</td>
-													<td>Brincker</td>
-													<td>Brincker123</td>
-													<td><span class="label label-danger">admin</span> </td>
-												  </tr>
-												  <tr>
-													<td>2</td>
-													<td>Mark</td>
-													<td>Hay</td>
-													<td>Hay123</td>
-													<td><span class="label label-info">member</span> </td>
-												  </tr>
-												  <tr>
-													<td>3</td>
-													<td>Anthony</td>
-													<td>Davie</td>
-													<td>Davie123</td>
-													<td><span class="label label-warning">developer</span> </td>
-												  </tr>
-												  <tr>
-													<td>4</td>
-													<td>David</td>
-													<td>Perry</td>
-													<td>Perry123</td>
-													<td><span class="label label-success">supporter</span> </td>
-												  </tr>
-												  <tr>
-													<td>5</td>
-													<td>Anthony</td>
-													<td>Davie</td>
-													<td>Davie123</td>
-													<td><span class="label label-info">member</span> </td>
-												  </tr>
-												  <tr>
-													<td>6</td>
-													<td>Alan</td>
-													<td>Gilchrist</td>
-													<td>Gilchrist123</td>
-													<td><span class="label label-success">supporter</span> </td>
-												  </tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /Basic Table -->
-		</div>
 		<!-- /Row -->
 		<!-- /Main Content -->
 	</div>

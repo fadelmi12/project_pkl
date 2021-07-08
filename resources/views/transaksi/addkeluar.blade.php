@@ -118,56 +118,6 @@
 			</div>
 		</div>
 		<!-- /Row -->
-		<div class="row">
-			<!-- Basic Table -->
-			<div class="col-sm-12">
-				<div class="panel panel-default card-view">
-					<div class="panel-heading">
-						<div class="pull-left">
-							<h6 class="panel-title txt-dark">Barang Keluar</h6>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="panel-wrapper collapse in">
-						<div class="panel-body">
-							<div class="table-wrap mt-40">
-								<div class="table-responsive">
-									<table class="table mb-0">
-										<thead>
-											<tr>
-												<th>Kode</th>
-												<th>Barang</th>
-												<th>Jumlah</th>
-												<th>#</th>
-												<th>#</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Jens</td>
-												<td>Brincker</td>
-												<td>Brincker123</td>
-												<td><span class="label label-danger">admin</span> </td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Mark</td>
-												<td>Hay</td>
-												<td>Hay123</td>
-												<td><span class="label label-info">member</span> </td>
-											</tr>
-
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /Basic Table -->
-		</div>
 		<!-- /Main Content -->
 	</div>
 	<!-- /#wrapper -->

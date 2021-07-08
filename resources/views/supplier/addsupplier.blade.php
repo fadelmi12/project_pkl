@@ -18,10 +18,7 @@
                     <div class="panel-heading">
                         <form action="{{ url('addSupplier') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label class="control-label mb-10 text-left">Kode<span class="help"> Supplier</span></label>
-                                <input type="text" id="kode_supplier" name="kode_supplier" class="form-control" value="">
-                            </div>
+
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left" for="example-email">Nama <span class="help"> </span></label>
                                 <input type="text" id="nama_supplier" name="nama_supplier" class="form-control" placeholder="">
