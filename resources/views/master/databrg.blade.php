@@ -74,26 +74,78 @@
                                                 <td>{{$brg->status}}</td>
                                                 <td>
                                                     <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
-                                                    <a href="#"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" action="( {{url('delete')}}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button>
+                                                    <a href="/databrg/editBarang/{{ $brg->id_master }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" id="smallButton" data-toggle="modal" data-target="#hapusbrg" data-attr="{{ route('delete', $brg->id_master) }}" title="Delete Project">
+                                                    <i class="fa fa-trash"></i></button>
+                                                    <!-- <a data-toggle="modal" id="smallButton" data-target="#hapusbrg" data-attr="{{ route('delete', $brg->id_master) }}" title="Delete Project"><i class="fas fa-trash text-danger  fa-lg"></i> </a> -->
                                                 </td>
                                                 @include('master.hapusbrg')
                                             </tr>
                                             @endforeach
-
                                         </tbody>
                                     </table>
+
+                                    
+                                    <!-- Small Modal -->
+                                    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-sm" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body" id="smallBody"> 
+                                                    <div>
+                                                        <!-- the result to be displayed apply here -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        // display a modal (small modal)
+                                        $(document).on('click', '#smallButton', function(event) {
+                                            event.preventDefault();
+                                            let href = $(this).attr('data-attr');
+                                            $.ajax({
+                                                url: href
+                                                , beforeSend: function() {
+                                                    $('#loader').show();
+                                                },
+                                                // return the result
+                                                success: function(result) {
+                                                    $('#hapusbrg').modal("show");
+                                                    $('#smallBody').html(result).show();
+                                                }
+                                                , complete: function() {
+                                                    $('#loader').hide();
+                                                }
+                                                , error: function(jqXHR, testStatus, error) {
+                                                    console.log(error);
+                                                    alert("Page " + href + " cannot open. Error:" + error);
+                                                    $('#loader').hide();
+                                                }
+                                                , timeout: 8000
+                                            })
+                                        });
+
+                                    </script>
+
+
+
                                 </div>
                             </div>
 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /Row -->
     </div>
+    <!-- /Row -->
+</div>
 </div>
 <!-- /Main Content -->
 </div>
