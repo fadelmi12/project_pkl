@@ -91,10 +91,12 @@ class MasterController extends Controller
         $brg = Master::find($id_master);
         // dd($barang);
         // $barang->delete();
+        // return redirect()->back();
         //mengirim data_ktg ke view
-        return view('master/databrg', compact('brg'));
+        return redirect('/databrg');
+        // return view('master/databrg', compact('brg'));
 
-        // return back()->with('success', "Data telah terhapus");
+        return back()->with('success', "Data telah terhapus");
     }
 
     // DATA KATEGORI
