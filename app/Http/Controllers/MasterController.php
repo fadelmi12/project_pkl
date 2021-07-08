@@ -15,11 +15,14 @@ class MasterController extends Controller
     //
     public function index()
     {
+
         return view('master/databrg');
     }
 
     public function barang()
     {
+
+
         $barang = Master::all();
         $jenis = Jenis::all();
         return view('master/databrg', compact('barang', 'jenis'));

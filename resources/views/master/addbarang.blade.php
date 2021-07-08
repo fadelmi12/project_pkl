@@ -66,31 +66,28 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Status</label>
                                         <select name="status" id="status" class="form-control select2">
-
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                         </select>
                                     </div>
                                     <div class="form-group-justified">
-                                        <label class=" col-md-2 control-label"></label>
-                                        <div style=" margin-right:10px; margin-top:30px ">
-                                            <button class="btn btn-success mr-5" name="submit" type="submit">
-                                                Simpan
-                                            </button>
-                                            <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                            </button>
-                                        </div>
+                                        <button class="btn btn-success mr-5" name="submit" type="submit">
+                                            Simpan
+                                        </button>
+                                        <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                        </button>
                                     </div>
-                                </form>
-
                             </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /Row -->
-        <!-- /Main Content -->
     </div>
-    <!-- /#wrapper -->
-    @endsection
+    <!-- /Row -->
+    <!-- /Main Content -->
+</div>
+<!-- /#wrapper -->
+@endsection
