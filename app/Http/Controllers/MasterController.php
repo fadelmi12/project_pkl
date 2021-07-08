@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 class MasterController extends Controller
 {
     //
-    public function index()
+    public function index() 
     {
         return view('master/databrg');
     }

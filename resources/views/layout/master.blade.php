@@ -905,7 +905,7 @@
     <!-- JavaScript -->
 
     <!-- jQuery -->
-    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>o
+    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
