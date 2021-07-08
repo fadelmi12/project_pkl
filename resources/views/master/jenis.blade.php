@@ -73,10 +73,39 @@
                                                 <td>{{ $data_jenis->keterangan }}</td>
                                                 <td>
                                                     <a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns" onclick="setEditForm( {{url('deletejenis')}}/{{ $data_jenis->id_jenis }})"><i class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns{{ $data_jenis->id_jenis }}" onclick="setEditForm( {{url('deletejenis')}}/{{ $data_jenis->id_jenis }})"><i class="fa fa-trash"></i></button>
+                                                    <div class="modal fade" id="hapusjns{{ $data_jenis->id_jenis }}" role="dialog" aria-labelledby="exampleModalLabel1">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                    <h5 class="modal-title" id="exampleModalLabel1">Hapus</h5>
+                                                                </div>
+                                                                <form action="{{ url('deletejenis') }}/{{ $data_jenis->id_jenis }}" class="modal-body" method="post">
+                                                                    {{ csrf_field() }}
+                                                                    {{ method_field('DELETE') }}
+                                                                    <div class="container">
+                                                                        <h6 class="mb-15">{{ $data_jenis->id_jenis }}</h6>
+                                                                    </div>
+                                                    
+                                                                    {{-- <div class="form-group">
+                                                                        <input type="hidden" id="id_master" name="id_master">
+                                                                        <label class="control-label mb-10 text-left" for="example-email">Kode kategori <span class="help"> </span></label>
+                                                                        <input type="text" id="id_master" name="id_master" class="form-control" placeholder="">
+                                                                    </div> --}}
+                                                    
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                                    </div>
+                                                                </form>
+                                                    
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
-                                            @include('master.hapusjenis')
+                                            
                                             @endforeach
                                         </tbody>
                                     </table>

@@ -44,12 +44,11 @@ class MasterController extends Controller
         $jenis = Jenis::all();
         $namaFile = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('img/logo'), $namaFile);
-
-        //Kode barang
+        
         $kode = strtoupper(substr($request->nama_barang, 0, 3));
         $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
-        $kode_barang = $kode . "" . $angka;
+        $angka = sprintf("%03d", (int)$check+1);
+        $kode_barang = $kode."".$angka;
 
         Master::insert([
             'kode_kategori' => $request->kode_kategori,
@@ -62,16 +61,6 @@ class MasterController extends Controller
         ]);
         return redirect('databrg');
     }
-
-
-    // public function delete($id)
-    // {
-    //     $barang = Master::where('id_master', $id)->first();
-    //     // dd($barang);
-    //     $barang->delete();
-
-    //     return redirect('databrg');
-    // }
 
     public function editBarang($id_master)
     {
@@ -98,15 +87,17 @@ class MasterController extends Controller
         return redirect()->back();
     }
 
-    public function deletebarang($id_master)
+    public function deletebrg($id_master)
     {
         // dd($id_master);
         // $data_kategori = Master::find($request->id_master);
-        $barang = Master::where('id_master', $id_master)->first();
+        $brg = Master::find($id_master);
         // dd($barang);
-        $barang->delete();
+        // $barang->delete();
         //mengirim data_ktg ke view
-        return back()->with('success', "Data telah terhapus");
+        return view('master/databrg', compact('brg'));
+
+        // return back()->with('success', "Data telah terhapus");
     }
 
     // DATA KATEGORI
@@ -122,14 +113,8 @@ class MasterController extends Controller
     }
     public function addkategori2(Request $request)
     {
-        //Kode kategori
-        $kode = strtoupper(substr("KTG", 0, 3));
-        $check = count(Kategori::where('kode_kategori', 'like', "%$kode%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
-        $kode_kategori = $kode . "" . $angka;
-
         Kategori::create([
-            'kode_kategori' => $kode_kategori,
+            'kode_kategori' => $request->kode_kategori,
             'kategori' => $request->kategori,
             'keterangan' => $request->keterangan
         ]);
