@@ -75,14 +75,70 @@
                                                 <td>
                                                     <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
                                                     <a href="/databrg/editBarang/{{ $brg->id_master }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" action="( {{url('delete')}}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg" action="( {{url('delete')}}/{{ $brg->id_master }})" >
+                                                    <i class="fa fa-trash"></i></button>
                                                 </td>
-                                                @include('master.hapusbrg')
+                                                <!-- @include('master.hapusbrg') -->
                                             </tr>
                                             @endforeach
-
                                         </tbody>
                                     </table>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="hapusbrg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h5 class="modal-title" id="exampleModalLabel1">Hapus</h5>
+                                                </div>
+                                                <form action="{{ url('delete') }}/{{ $brg->id_master }}" class="modal-body" method="post">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+                                                    <div class="container">
+                                                        <h6 class="mb-15">Apakah anda yakin menghapus data ini?</h6>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        // display a modal (small modal)
+                                        $(document).on('click', '#hapusbrg', function(event) {
+                                            event.preventDefault();
+                                            let href = $(this).attr('data-attr');
+                                            $.ajax({
+                                                url: href
+                                                , beforeSend: function() {
+                                                    $('#loader').show();
+                                                },
+                                                // return the result
+                                                success: function(result) {
+                                                    $('#smallModal').modal("show");
+                                                    $('#smallBody').html(result).show();
+                                                }
+                                                , complete: function() {
+                                                    $('#loader').hide();
+                                                }
+                                                , error: function(jqXHR, testStatus, error) {
+                                                    console.log(error);
+                                                    alert("Page " + href + " cannot open. Error:" + error);
+                                                    $('#loader').hide();
+                                                }
+                                                , timeout: 8000
+                                            })
+                                        });
+
+                                    </script>
+
+
+
                                 </div>
                             </div>
 

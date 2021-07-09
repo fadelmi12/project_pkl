@@ -48,7 +48,9 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     // Route::delete('/databrg/delete', 'App\Http\Controllers\MasterController@delete');
     Route::get('databrg/editBarang/{id_master}', [MasterController::class, 'editBarang']);
     Route::post('/updateBarang', 'App\Http\Controllers\MasterController@updateBarang')->name('updateBarang');
-    Route::delete('delete/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
+    // Route::delete('delete/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
+    Route::get('master/hapusbrg/{id_master}', [MasterController::class, 'delete'])->name('deletebrg');
+    // Route::delete('delete/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
     Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 
 
