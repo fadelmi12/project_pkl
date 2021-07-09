@@ -47,7 +47,7 @@ class MasterController extends Controller
 
         $messages = [
             'nama_barang.required'=> 'nama barang tidak boleh kosong',
-            'stok.required'=> 'stok tidak boleh kosong',
+            'stok.required'=>' *stok tidak boleh kosong',
             'gambar.required'=> 'gambar tidak boleh kosong',
 
         ];
@@ -97,7 +97,7 @@ class MasterController extends Controller
 
         $messages = [
             'nama_barang.required'=> 'nama barang tidak boleh kosong',
-            'stok.required'=> 'stok tidak boleh kosong',
+            'stok.required'=> ' *stok tidak boleh kosong',
             'gambar.required'=> 'gambar tidak boleh kosong',
 
         ];
