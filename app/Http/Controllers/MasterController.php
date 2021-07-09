@@ -15,11 +15,14 @@ class MasterController extends Controller
     //
     public function index()
     {
+
         return view('master/databrg');
     }
 
     public function barang()
     {
+
+
         $barang = Master::all();
         $jenis = Jenis::all();
         return view('master/databrg', compact('barang', 'jenis'));
@@ -41,11 +44,11 @@ class MasterController extends Controller
         $jenis = Jenis::all();
         $namaFile = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('img/logo'), $namaFile);
-        
+
         $kode = strtoupper(substr($request->nama_barang, 0, 3));
         $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check+1);
-        $kode_barang = $kode."".$angka;
+        $angka = sprintf("%03d", (int)$check + 1);
+        $kode_barang = $kode . "" . $angka;
 
         Master::insert([
             'kode_kategori' => $request->kode_kategori,
@@ -84,18 +87,14 @@ class MasterController extends Controller
         return redirect()->back();
     }
 
-    public function deletebrg($id_master)
+    public function deletebarang($id_master)
     {
         // dd($id_master);
         // $data_kategori = Master::find($request->id_master);
-        $brg = Master::find($id_master);
-        // dd($barang);
-        // $barang->delete();
-        // return redirect()->back();
-        //mengirim data_ktg ke view
-        return redirect('/databrg');
-        // return view('master/databrg', compact('brg'));
-
+        $brg = Master::where('id_master', $id_master)->first();
+        // // dd($barang);
+        $brg->delete();
+        // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
 
@@ -112,8 +111,13 @@ class MasterController extends Controller
     }
     public function addkategori2(Request $request)
     {
+        $kode = strtoupper(substr("KTG", 0, 3));
+        $check = count(Kategori::where('kode_kategori', 'like', "%$kode%")->get()->toArray());
+        $angka = sprintf("%03d", (int)$check + 1);
+        $kode_kategori = $kode . "" . $angka;
+
         Kategori::create([
-            'kode_kategori' => $request->kode_kategori,
+            'kode_kategori' => $kode_kategori,
             'kategori' => $request->kategori,
             'keterangan' => $request->keterangan
         ]);
@@ -141,7 +145,7 @@ class MasterController extends Controller
         return redirect()->back();
     }
 
-    public function deletektg($id_kategori)
+    public function deletekategori($id_kategori)
     {
         // dd($id_jenis);
         // dd($id_master);
@@ -152,7 +156,6 @@ class MasterController extends Controller
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
-
 
 
     // DATA JENIS

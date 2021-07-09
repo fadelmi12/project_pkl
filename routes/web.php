@@ -49,8 +49,8 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('databrg/editBarang/{id_master}', [MasterController::class, 'editBarang']);
     Route::post('/updateBarang', 'App\Http\Controllers\MasterController@updateBarang')->name('updateBarang');
     // Route::delete('delete/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
-    Route::get('master/hapusbrg/{id_master}', [MasterController::class, 'delete'])->name('deletebrg');
-    // Route::delete('delete/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
+    // Route::get('master/hapusbrg/{id_master}', [MasterController::class, 'delete'])->name('deletebrg');
+    Route::delete('delete/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
     Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 
 
@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::post('/addkategori2', 'App\Http\Controllers\MasterController@addkategori2')->name('addkategori2');
     Route::get('kategori/editKategori/{id_kategori}', [MasterController::class, 'editKategori']);
     Route::post('/updateKategori', 'App\Http\Controllers\MasterController@updateKategori')->name('updateKategori');
-    Route::delete('deletektg/{id_kategori}', 'App\Http\Controllers\MasterController@deletektg');
+    Route::delete('deletekategori/{id_kategori}', 'App\Http\Controllers\MasterController@deletekategori');
 
 
     //JENIS
@@ -89,7 +89,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::post('supplier/insert', 'App\Http\Controllers\SupplierController@insert');
     Route::get('supplier/editSup/{id_supplier}', [SupplierController::class, 'editSup']);
     Route::post('/updateSup', 'App\Http\Controllers\SupplierController@updateSup')->name('updateSup');
-    Route::delete('deletesup/{id_supplier}', 'App\Http\Controllers\SupplierController@deletesup');
+    Route::delete('deletesupplier/{id_supplier}', 'App\Http\Controllers\SupplierController@deletesupplier');
 
 
     // PENGAJUAN

@@ -77,12 +77,14 @@
                                                     <a href="/databrg/editBarang/{{ $brg->id_master }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                     <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg{{ $brg->id_master }}" action="( {{url('deletebarang')}}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button>
 
+                                                   
                                                 </td>
                                             @include('master.hapusbrg')
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
 
