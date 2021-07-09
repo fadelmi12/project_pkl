@@ -87,17 +87,13 @@ class MasterController extends Controller
         return redirect()->back();
     }
 
-    public function deletebrg($id_master)
+    public function deletebarang($id_master)
     {
-        // dd($id_master);
-        // $data_kategori = Master::find($request->id_master);
-        $brg = Master::find($id_master);
-        // dd($barang);
-        // $barang->delete();
-        //mengirim data_ktg ke view
-        return view('master/databrg', compact('brg'));
-
-        // return back()->with('success', "Data telah terhapus");
+        $brg = Master::where('id_master', $id_master)->first();
+        // // dd($barang);
+        $brg->delete();
+        // //mengirim data_brg ke view
+        return back()->with('success', "Data telah terhapus");
     }
 
     // DATA KATEGORI
