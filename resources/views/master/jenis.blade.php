@@ -58,7 +58,7 @@
                                 <table id="myTable1" class="table table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>NO</th>
                                             <th>Jenis barang</th>
                                             <th>Keterangan</th>
                                             <th>Aksi</th>

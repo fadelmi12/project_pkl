@@ -63,7 +63,7 @@ class SupplierController extends Controller
         // return view('master/addjenis');
     }
 
-    public function deletesup($id_supplier)
+    public function deletesupplier($id_supplier)
     {
         // dd($id_jenis);
         // dd($id_master);

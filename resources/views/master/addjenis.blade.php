@@ -38,15 +38,20 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Jenis barang <span class="help"> </span></label>
                                         <input type="text" id="jenis_barang" name="jenis_barang" class="form-control" placeholder="">
+                                    @error('jenis_barang')
+                                        <div class="alert alert-danger">{{$message}}</div>
+                                    @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
                                         <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
+                                    @error('keterangan')
+                                        <div class="alert alert-danger">{{$message}}</div>
+                                    @enderror
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary">Simpan</button>
-                                        <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                        </button>
+                                        <button class="btn btn-danger  " name="reset" type="reset">Batal</button>
                                     </div>
                                 </form>
 

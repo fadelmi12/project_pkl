@@ -8,6 +8,7 @@ use App\Models\Jenis;
 use App\Models\kategori;
 use App\Models\Master;
 use App\Models\User;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Storage;
 
 class MasterController extends Controller
@@ -38,6 +39,20 @@ class MasterController extends Controller
 
     public function addbarang2(Request $request)
     {
+        $rules = [
+            'nama_barang'=>'required|nama_barang',
+            'stok'=>'required|stok',
+            'gambar'=>'required|gambar',
+        ]; 
+
+        $messages = [
+            'nama_barang.required'=> '*nama barang tidak boleh kosong',
+            'stok.required'=> '*stok tidak boleh kosong',
+            'gambar.required'=> '*gambar tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         // dd($request);
         $barang = Master::all();
         $kategori = kategori::all();
@@ -66,11 +81,59 @@ class MasterController extends Controller
     {
 
         $brg = Master::find($id_master);
-        return view('master/editbrg', compact('brg'));
+        // $barang = Master::all();
+        $kategori = kategori::all();
+        $jenis = Jenis::all();
+        return view('master/editbrg', compact('brg', 'kategori', 'jenis'));
     }
 
     public function updateBarang(Request $request)
     {
+        $rules = [
+            'nama_barang'=>'required|nama_barang',
+            'stok'=>'required|stok',
+            'gambar'=>'required|gambar',
+        ]; 
+
+        $messages = [
+            'nama_barang.required'=> 'nama barang tidak boleh kosong',
+            'stok.required'=> 'stok tidak boleh kosong',
+            'gambar.required'=> 'gambar tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+        // $namaFile = $request->hidden_gambar;
+        // $image = $request->file('img/logo');
+
+        // if ($image != '') {
+        //     $request->validate([
+        //         'kode_kategori' => 'required',
+        //         'nama_barang' =>  'required',
+        //         'kode_barang' =>  'required',
+        //         'jenis_barang' =>  'required',
+        //         'stok' =>  'required',
+        //         'gambar' =>  'required|image|mimes:jpeg,png,jpg|max:2048',
+        //         'status' =>  'required'
+        //     ]);
+        //     $image_name = $namaFile;
+        //     $image->move(public_path('img/logo'), $image_name);
+        // } else {
+        //     $request->validate([
+        //         'kode_kategori' => 'required',
+        //         'nama_barang' =>  'required',
+        //         'kode_barang' =>  'required',
+        //         'jenis_barang' =>  'required',
+        //         'stok' =>  'required',
+        //         'status' =>  'required'
+        //     ]);
+
+        //     $image_name = $namaFile;
+        // }
+
+        // $data = Master::find($id_master);
+        // $data->update($data_barang);
+
+
         Master::where('id_master', $request->edit_id_brg)
             ->update([
                 'kode_kategori' => $request->edit_kode_kategori,
@@ -79,7 +142,7 @@ class MasterController extends Controller
                 'jenis_barang' => $request->edit_jenis_barang,
                 'kode_kategori' => $request->edit_kode_kategori,
                 'stok' => $request->edit_stok,
-                'gambar' => $request->edit_kode_kategori,
+                // 'gambar' => $image_name,
                 'status' => $request->edit_status
             ]);
         return redirect('databrg');
@@ -87,17 +150,13 @@ class MasterController extends Controller
         return redirect()->back();
     }
 
-    public function deletebrg($id_master)
+    public function deletebarang($id_master)
     {
-        // dd($id_master);
-        // $data_kategori = Master::find($request->id_master);
-        $brg = Master::find($id_master);
-        // dd($barang);
-        // $barang->delete();
-        //mengirim data_ktg ke view
-        return view('master/databrg', compact('brg'));
-
-        // return back()->with('success', "Data telah terhapus");
+        $brg = Master::where('id_master', $id_master)->first();
+        // // dd($barang);
+        $brg->delete();
+        // //mengirim data_brg ke view
+        return back()->with('success', "Data telah terhapus");
     }
 
     // DATA KATEGORI
@@ -113,6 +172,19 @@ class MasterController extends Controller
     }
     public function addkategori2(Request $request)
     {
+
+        $rules = [
+            'kategori'=>'required|kategori',
+            'keterangan'=>'required|keterangan',
+        ]; 
+
+        $messages = [
+            'kategori.required'=> '*kategori tidak boleh kosong',
+            'keterangan.required'=> '*keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         $kode = strtoupper(substr("KTG", 0, 3));
         $check = count(Kategori::where('kode_kategori', 'like', "%$kode%")->get()->toArray());
         $angka = sprintf("%03d", (int)$check + 1);
@@ -124,7 +196,6 @@ class MasterController extends Controller
             'keterangan' => $request->keterangan
         ]);
         return redirect('kategori');
-        // return view('master/addjenis');
     }
 
     public function editKategori($id_kategori)
@@ -176,6 +247,18 @@ class MasterController extends Controller
 
     public function updateJenis(Request $request)
     {
+        $rules = [
+            'jenis_barang'=>'required|jenis_barang',
+            'keterangan'=>'required|keterangan',
+        ]; 
+
+        $messages = [
+            'jenis_barang.required'=> 'Jenis Barang tidak boleh kosong',
+            'keterangan.required'=> 'Keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         Jenis::where('id_jenis', $request->edit_id_jenis)
             ->update([
                 'jenis_barang' => $request->edit_jenis,
@@ -188,6 +271,18 @@ class MasterController extends Controller
 
     public function addjenis2(Request $request)
     {
+        $rules = [
+            'jenis_barang'=>'required|jenis_barang',
+            'keterangan'=>'required|keterangan',
+        ]; 
+
+        $messages = [
+            'jenis_barang.required'=> 'Jenis Barang tidak boleh kosong',
+            'keterangan.required'=> 'Keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         Jenis::create([
             'jenis_barang' => $request->jenis_barang,
             'keterangan' => $request->keterangan

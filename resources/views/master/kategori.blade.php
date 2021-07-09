@@ -51,7 +51,7 @@
                                     <table id="myTable1" class="table table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <th>NO</th>
                                                 <th>Kode kategori</th>
                                                 <th>Kategori</th>
                                                 <th>Keterangan</th>

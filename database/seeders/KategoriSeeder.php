@@ -16,8 +16,8 @@ class KategoriSeeder extends Seeder
     {
         $kategori = Kategori::create([
             'kode_kategori' => '123',
-            'kategori' => 'I AM SHIRO',
-            'keterangan' => 'isenono seng akeh',
+            'kategori' => 'Hardware',
+            'keterangan' => 'Baru',
             ]);
         $kategori->save();
     }

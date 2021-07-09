@@ -56,11 +56,11 @@
                                             <div class="form-group">
                                                 <input type="hidden" value="{{ $brg->id_master }}" name="edit_id_brg">
                                                 <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
-                                                <select name="edit_kode_kategori" value="{{ $brg->kode_kategori }}" class="form-control select2" readonly>
+                                                <select name="edit_kode_kategori" value="{{ $brg->kode_kategori }}" class="form-control select2">
                                                     [@foreach($kategori as $ktg)
                                                     <option value="{{ $ktg->kode_kategori }}">{{ $ktg->kode_kategori }}</option>
                                                     @endforeach]
-                                                </select>g
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Kode Barang</label>
-                                                <input type="text" value="{{ $brg->kode_barang }}" class="form-control" name="edit_kode_barang">
+                                                <input type="text" value="{{ $brg->kode_barang }}" class="form-control" name="edit_kode_barang" readonly>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Jenis</label>
@@ -77,27 +77,32 @@
                                                     <option value="{{ $jen->jenis_barang }}">{{ $jen->jenis_barang }}</option>
                                                     @endforeach
                                                 </select>
-                                                <!-- </div> -->
-                                                <div class="form-group">
-                                                    <label class="control-label mb-10 text-left">Stok</label>
-                                                    <input type="text" class="form-control" name="edit_stok" value="{{ $brg->stok }}">
-                                                </div>
-                                                <div class="form-group mb-30">
-                                                    <label class="control-label mb-10 text-left">File upload</label>
-                                                    <input type="file" id="gambar" name="gambar">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label mb-10 text-left">Status</label>
-                                                    <select name="edit_status" value="{{ $brg->status }}" class="form-control select2">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <button class="btn btn-primary">Simpan</button>
-                                                    <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                                    </button>
-                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label mb-10 text-left">Stok</label>
+                                                <input type="text" class="form-control" name="edit_stok" value="{{ $brg->stok }}">
+                                            </div>
+                                            <div class="form-group mb-30">
+                                                <label class="control-label mb-10 text-left">File upload</label>
+                                                <input type="file" id="gambar" name="gambar">
+                                                <h10>(Kosongkan jika tidak ingin diubah)</h10><br>
+                                                @if($brg->gambar)
+                                                <img src="{{ url('img/logo') }}/{{ $brg->gambar }}" style="width: 150px; height: 150px;">
+                                                @endif
+                                                <input type="hidden" class="form-control-file" id="hidden_gambar" name="hidden_gambar" value="{{ $brg->gambar }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label mb-10 text-left">Status</label>
+                                                <select name="edit_status" value="{{ $brg->status }}" class="form-control select2">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary">Simpan</button>
+                                                <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                                </button>
+                                            </div>
                                         </form>
                                     </div>
                                     </form>

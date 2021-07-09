@@ -41,7 +41,7 @@
                                         <option value="25">25</option>
                                         <option value="50">50</option>
                                         <option value="100">100</option>
-                                </select> entries </label>
+                                    </select> entries </label>
                             </div>
                             <div id="myTable1_filter" class="dataTables_filter"><label>Search:<input type="search" aria-controls="myTable1"></label></div>
                             <table id="myTable1" class="table table-hover display dataTable dtr-inline" role="grid" aria-describedby="myTable1_info" style="width: 1253px;"></table>
@@ -110,7 +110,7 @@
     </div>
     @endif
 
-    @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin"||auth()->user()->divisi == "marketing")
+    @if (auth()->user()->divisi == "warehouse")
     <!-- Main Content -->
     <div class="page-wrapper">
         <div class="container-fluid">
@@ -313,15 +313,11 @@
             </div>
             <!-- /Main Content -->
         </div>
-<<<<<<< HEAD
         <!-- /Main Content -->
     </div>
-@endif
+    @endif
 
 
 
-=======
-        @endif
->>>>>>> eb16afe28ca1b22bc23ba70b44c509a17320665a
-        <!-- /#wrapper -->
-        @endsection
+    <!-- /#wrapper -->
+    @endsection
