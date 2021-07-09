@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class MasterController extends Controller
 {
     //
-    public function index()
+    public function index() 
     {
 
         return view('master/databrg');
@@ -157,6 +157,19 @@ class MasterController extends Controller
     }
     public function addkategori2(Request $request)
     {
+
+        $rules = [
+            'kategori'=>'required|kategori',
+            'keterangan'=>'required|keterangan',
+        ]; 
+
+        $messages = [
+            'kategori.required'=> '*kategori tidak boleh kosong',
+            'keterangan.required'=> '*keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         $kode = strtoupper(substr("KTG", 0, 3));
         $check = count(Kategori::where('kode_kategori', 'like', "%$kode%")->get()->toArray());
         $angka = sprintf("%03d", (int)$check + 1);

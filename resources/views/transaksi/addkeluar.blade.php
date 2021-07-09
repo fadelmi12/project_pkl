@@ -96,8 +96,8 @@
 														</div>
 														<!--/span-->
 
-														<div class="form-actions mt-10">
-															<button type="submit" class="btn btn-primary ">+ Tambah Data</button>
+														<div class="form-actions mt-10 ml-30">
+															<button type="submit" class="btn btn-primary ">Tambah Data</button>
 														</div>
 														<!--/span-->
 													</div>
@@ -118,6 +118,76 @@
 			</div>
 		</div>
 		<!-- /Row -->
+		<div class="">
+			<!-- Basic Table -->
+			<div class="col-sm-12">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h6 class="panel-title txt-dark">Barang Keluar</h6>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body">
+						<div class="" x-data="handler()">
+							<div class="col">
+							<table class="table table-bordered align-items-center table-sm">
+							<thead class="thead-light">
+							<tr>
+								<th>NO Transaksi</th>
+								<th>Barang</th>                            
+								<th>Jumlah</th>
+								<th>Supplier</th>
+								<th>Pengirim</th>
+								<th>Remove</th>
+								</tr>
+							</thead>
+							<tbody>
+								<template x-for="(field, index) in fields" :key="index">
+								<tr>
+								<td x-text="index + 1"></td>
+								<td><input x-model="field.txt1" type="text" name="txt1[]" class="form-control"></td>
+								<td><input x-model="field.txt2" type="text" name="txt2[]" class="form-control"></td>
+								<td><input x-model="field.txt3" type="text" name="txt3[]" class="form-control"></td>
+								<td><input x-model="field.txt4" type="text" name="txt4[]" class="form-control"></td>
+								<td><button type="button" class="btn btn-danger btn-small" @click="removeField(index)">&times;</button></td>
+								</tr>
+							</template>
+							</tbody>
+							<tfoot>
+								<tr>
+								<td colspan="9
+								" class="text-right"><button type="button" class="btn btn-info" @click="addNewField()">+ Add Row</button></td>
+								</tr>
+							</tfoot>
+							</table>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Basic Table -->
+		</div>
+		<!-- <script>
+		function handler() {
+			return {
+			fields: [],
+			addNewField() {
+				this.fields.push({
+					txt1: '',
+					txt2: '',
+					txt3: '',
+					txt4: ''
+				});
+				},
+				removeField(index) {
+				this.fields.splice(index, 1);
+				}
+			}
+		}
+		</script> -->
 		<!-- /Main Content -->
 	</div>
 	<!-- /#wrapper -->

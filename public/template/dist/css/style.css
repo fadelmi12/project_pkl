@@ -5441,6 +5441,9 @@ button.btn-small.btn-select.fc-agendaWeek-button, .btn-small.btn-select.fc-prev-
   stroke-width: 1px;
 }
 
+.tulisan{
+  color:red;
+}
 .ct-label {
   color: #878787;
   fill: #fff;

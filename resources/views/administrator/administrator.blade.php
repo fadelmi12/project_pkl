@@ -53,7 +53,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nama</th>
-                                                <th>Username</th>
+                                                <th>Email</th>
                                                 <th>Level</th>
                                                 <th>last login</th>
                                                 <th>last login IP</th>
@@ -61,16 +61,7 @@
                                                 <th colspan="3">Aksi</th>
                                             </tr>
                                         </thead>
-                                        <!-- <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot> -->
+                                        
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
