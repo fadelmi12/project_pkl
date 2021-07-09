@@ -77,7 +77,7 @@
                                                 <td>{{ $data_supplier->telp_supplier }}</td>
                                                 <td>
                                                     <a href="/supplier/editSup/{{ $data_supplier->id_supplier }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapussup" onclick="setEditForm( {{url('deletesup')}}/{{ $data_supplier->id_supplier }})"><i class="fa fa-trash"></i></></button>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapussup{{ $data_supplier->id_supplier }}" action="( {{url('deletesupplier')}}/{{ $data_supplier->id_supplier }})"><i class="fa fa-trash"></i></button>
 
                                                 </td>
                                             </tr>

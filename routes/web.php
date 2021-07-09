@@ -89,7 +89,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::post('supplier/insert', 'App\Http\Controllers\SupplierController@insert');
     Route::get('supplier/editSup/{id_supplier}', [SupplierController::class, 'editSup']);
     Route::post('/updateSup', 'App\Http\Controllers\SupplierController@updateSup')->name('updateSup');
-    Route::delete('deletesup/{id_supplier}', 'App\Http\Controllers\SupplierController@deletesup');
+    Route::delete('deletesupplier/{id_supplier}', 'App\Http\Controllers\SupplierController@deletesupplier');
 
 
     // PENGAJUAN
