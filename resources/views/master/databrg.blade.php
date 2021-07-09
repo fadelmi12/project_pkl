@@ -75,15 +75,15 @@
                                                 <td>
                                                     <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
                                                     <a href="/databrg/editBarang/{{ $brg->id_master }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <a class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" id="smallButton" data-target="#smallModal" data-attr="{{ route('master.delete', $brg->id_master) }}" >
-                                                    <i class="fa fa-trash"></i></a>
+                                                    <a class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" id="smallButton" data-target="#smallModal" data-attr="{{ route('master.delete', $brg->id_master) }}">
+                                                        <i class="fa fa-trash"></i></a>
                                                 </td>
                                                 <!-- @include('master.hapusbrg') -->
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    
+
                                     <!-- Modal -->
                                     <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-sm" role="document">
@@ -108,27 +108,26 @@
                                             event.preventDefault();
                                             let href = $(this).attr('data-attr');
                                             $.ajax({
-                                                url: href
-                                                , beforeSend: function() {
+                                                url: href,
+                                                beforeSend: function() {
                                                     $('#loader').show();
                                                 },
                                                 // return the result
                                                 success: function(result) {
                                                     $('#smallModal').modal("show");
                                                     $('#smallBody').html(result).show();
-                                                }
-                                                , complete: function() {
+                                                },
+                                                complete: function() {
                                                     $('#loader').hide();
-                                                }
-                                                , error: function(jqXHR, testStatus, error) {
+                                                },
+                                                error: function(jqXHR, testStatus, error) {
                                                     console.log(error);
                                                     alert("Page " + href + " cannot open. Error:" + error);
                                                     $('#loader').hide();
-                                                }
-                                                , timeout: 8000
+                                                },
+                                                timeout: 8000
                                             })
                                         });
-
                                     </script>
 
 

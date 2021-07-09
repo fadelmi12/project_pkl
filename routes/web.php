@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::post('/addkategori2', 'App\Http\Controllers\MasterController@addkategori2')->name('addkategori2');
     Route::get('kategori/editKategori/{id_kategori}', [MasterController::class, 'editKategori']);
     Route::post('/updateKategori', 'App\Http\Controllers\MasterController@updateKategori')->name('updateKategori');
-    Route::delete('deletektg/{id_kategori}', 'App\Http\Controllers\MasterController@deletektg');
+    Route::delete('deletekategori/{id_kategori}', 'App\Http\Controllers\MasterController@deletekategori');
 
 
     //JENIS
