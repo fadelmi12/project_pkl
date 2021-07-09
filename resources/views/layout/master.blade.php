@@ -905,11 +905,7 @@
     <!-- JavaScript -->
 
     <!-- jQuery -->
-<<<<<<< HEAD
-    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>
-=======
     <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>  
->>>>>>> f8b75a81d142e08b3864fbb522b773fd4a590a79
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

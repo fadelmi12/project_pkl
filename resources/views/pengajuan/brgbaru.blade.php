@@ -94,12 +94,7 @@
                                                 <td>{{ $data_baru->created_at}}</td>
                                                 <td>
                                                     <a href="pengajuan/editBaru/{{ $data_baru->id_pengajuan }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-<<<<<<< HEAD
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button>
-                                                </td>
-=======
                                                     <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" action="( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button>
->>>>>>> f8b75a81d142e08b3864fbb522b773fd4a590a79
                                             </tr>
                                             @include('pengajuan.hapusbrgbaru')
                                             @endforeach
@@ -115,15 +110,9 @@
     </div>
     @endif
 
-<<<<<<< HEAD
-@if (auth()->user()->divisi == "warehouse")
-<!-- Main Content -->
-<div class="page-wrapper">
-=======
     @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin"||auth()->user()->divisi == "marketing")
     <!-- Main Content -->
     <div class="page-wrapper">
->>>>>>> eb16afe28ca1b22bc23ba70b44c509a17320665a
         <div class="container-fluid">
 
             <!-- Title -->
