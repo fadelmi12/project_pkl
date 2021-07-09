@@ -81,7 +81,10 @@ class MasterController extends Controller
     {
 
         $brg = Master::find($id_master);
-        return view('master/editbrg', compact('brg'));
+        // $barang = Master::all();
+        $kategori = kategori::all();
+        $jenis = Jenis::all();
+        return view('master/editbrg', compact('brg', 'kategori', 'jenis'));
     }
 
     public function updateBarang(Request $request)
@@ -99,6 +102,37 @@ class MasterController extends Controller
 
         ];
         $this->validate($request,$rules,$messages);
+        // $namaFile = $request->hidden_gambar;
+        // $image = $request->file('img/logo');
+
+        // if ($image != '') {
+        //     $request->validate([
+        //         'kode_kategori' => 'required',
+        //         'nama_barang' =>  'required',
+        //         'kode_barang' =>  'required',
+        //         'jenis_barang' =>  'required',
+        //         'stok' =>  'required',
+        //         'gambar' =>  'required|image|mimes:jpeg,png,jpg|max:2048',
+        //         'status' =>  'required'
+        //     ]);
+        //     $image_name = $namaFile;
+        //     $image->move(public_path('img/logo'), $image_name);
+        // } else {
+        //     $request->validate([
+        //         'kode_kategori' => 'required',
+        //         'nama_barang' =>  'required',
+        //         'kode_barang' =>  'required',
+        //         'jenis_barang' =>  'required',
+        //         'stok' =>  'required',
+        //         'status' =>  'required'
+        //     ]);
+
+        //     $image_name = $namaFile;
+        // }
+
+        // $data = Master::find($id_master);
+        // $data->update($data_barang);
+
 
         Master::where('id_master', $request->edit_id_brg)
             ->update([
@@ -108,7 +142,7 @@ class MasterController extends Controller
                 'jenis_barang' => $request->edit_jenis_barang,
                 'kode_kategori' => $request->edit_kode_kategori,
                 'stok' => $request->edit_stok,
-                'gambar' => $request->edit_kode_kategori,
+                // 'gambar' => $image_name,
                 'status' => $request->edit_status
             ]);
         return redirect('databrg');
@@ -149,7 +183,6 @@ class MasterController extends Controller
             'keterangan' => $request->keterangan
         ]);
         return redirect('kategori');
-        // return view('master/addjenis');
     }
 
     public function editKategori($id_kategori)

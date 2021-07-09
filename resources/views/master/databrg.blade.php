@@ -68,7 +68,7 @@
                                                 <td>{{$brg->stok}}</td>
                                                 <td>
                                                     @if($brg->gambar)
-                                                    <img src="{{ url('img/logo') }}/{{ $brg->gambar }}" style="width: 150px; height: 120px;">
+                                                    <img src="{{ url('img/logo') }}/{{ $brg->gambar }}" style="width: 150px; height: 150px;">
                                                     @endif
                                                 </td>
                                                 <td>{{$brg->status}}</td>
