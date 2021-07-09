@@ -37,7 +37,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Jenis barang <span class="help"> </span></label>
-                                        <input type="text" id="jenis_barang" name="jenis_barang" class="form-control" placeholder="">
+                                        <input type="text" id="jenis_barang" name="jenis_barang" class="form-control" placeholder="" required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
