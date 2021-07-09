@@ -9,14 +9,14 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">tambah jenis barang</h5>
+                <h5 class="txt-dark">tambah data barang</h5>
             </div>
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="index.html">master data</a></li>
                     <li><a href="#"><span>jenis barang</span></a></li>
-                    <li class="active"><span>tambah jenis barang</span></li>
+                    <li class="active"><span>tambah data barang</span></li>
                 </ol>
             </div>
             <!-- /Breadcrumb -->
@@ -43,14 +43,14 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" >
                                         <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
                                         <input type="text" class="form-control" name="nama_barang" id="nama_barang">
+                                    @error('nama_barang')
+                                        <div class="tulisan">{{$message}}</div>
+                                    @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label mb-10 text-left">Kode Barang</label>
-                                        <input type="text" class="form-control" name="kode_barang" id="kode_barang" readonly>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Jenis</label>
                                         <select name="jenis_barang" id="jenis_barang" class="form-control select2">
@@ -62,39 +62,42 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Stok</label>
                                         <input type="text" class="form-control" name="stok" id="stok">
+                                    @error('stok')
+                                        <div class="tulisan">{{$message}}</div>
+                                    @enderror
                                     </div>
                                     <div class="form-group mb-30">
                                         <label class="control-label mb-10 text-left">File upload</label>
                                         <input type="file" id="gambar" name="gambar">
+                                    @error('gambar')
+                                        <div class="tulisan">{{$message}}</div>
+                                    @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Status</label>
                                         <select name="status" id="status" class="form-control select2">
-
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                         </select>
                                     </div>
                                     <div class="form-group-justified">
-                                        <label class=" col-md-2 control-label"></label>
-                                        <div style=" margin-right:10px; margin-top:30px ">
-                                            <button class="btn btn-success mr-5" name="submit" type="submit">
-                                                Simpan
-                                            </button>
-                                            <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                            </button>
-                                        </div>
+                                        <button class="btn btn-success mr-5" name="submit" type="submit">
+                                            Simpan
+                                        </button>
+                                        <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                        </button>
                                     </div>
-                                </form>
-
                             </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /Row -->
-        <!-- /Main Content -->
     </div>
-    <!-- /#wrapper -->
-    @endsection
+    <!-- /Row -->
+    <!-- /Main Content -->
+</div>
+<!-- /#wrapper -->
+@endsection
