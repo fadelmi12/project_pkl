@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class MasterController extends Controller
 {
     //
-    public function index() 
+    public function index()
     {
 
         return view('master/databrg');
@@ -159,16 +159,16 @@ class MasterController extends Controller
     {
 
         $rules = [
-            'kategori'=>'required|kategori',
-            'keterangan'=>'required|keterangan',
-        ]; 
+            'kategori' => 'required|kategori',
+            'keterangan' => 'required|keterangan',
+        ];
 
         $messages = [
-            'kategori.required'=> '*kategori tidak boleh kosong',
-            'keterangan.required'=> '*keterangan tidak boleh kosong',
+            'kategori.required' => '*kategori tidak boleh kosong',
+            'keterangan.required' => '*keterangan tidak boleh kosong',
 
         ];
-        $this->validate($request,$rules,$messages);
+        $this->validate($request, $rules, $messages);
 
         $kode = strtoupper(substr("KTG", 0, 3));
         $check = count(Kategori::where('kode_kategori', 'like', "%$kode%")->get()->toArray());
@@ -233,13 +233,13 @@ class MasterController extends Controller
     public function updateJenis(Request $request)
     {
         $rules = [
-            'jenis_barang' => 'required|jenis_barang',
-            'keterangan' => 'required|keterangan',
+            'edit_jenis' => 'required',
+            'edit_keterangan' => 'required'
         ];
 
         $messages = [
-            'jenis_barang.required' => 'Jenis Barang tidak boleh kosong',
-            'keterangan.required' => 'Keterangan tidak boleh kosong',
+            'edit_jenis.required' => 'Jenis Barang tidak boleh kosong',
+            'edit_keterangan.required' => 'Keterangan tidak boleh kosong'
 
         ];
         $this->validate($request, $rules, $messages);
@@ -257,8 +257,8 @@ class MasterController extends Controller
     public function addjenis2(Request $request)
     {
         $rules = [
-            'jenis_barang' => 'required|jenis_barang',
-            'keterangan' => 'required|keterangan',
+            'jenis_barang' => 'required',
+            'keterangan' => 'required',
         ];
 
         $messages = [

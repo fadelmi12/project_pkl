@@ -38,13 +38,16 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Jenis barang <span class="help"> </span></label>
                                         <input type="text" id="jenis_barang" name="jenis_barang" class="form-control" placeholder="" required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);">
+                                        @if ($errors->has('jenis_barang'))
+                                        <div class="alert alert-danger">{{$errors->first('jenis_barang')}}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
                                         <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
-                                    @error('keterangan')
-                                        <div class="alert alert-danger">{{$message}}</div>
-                                    @enderror
+                                        @if ($errors->has('keterangan'))
+                                        <div class="alert alert-danger">{{$errors->first('keterangan')}}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary">Simpan</button>
