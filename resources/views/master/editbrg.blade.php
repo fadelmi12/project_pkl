@@ -51,8 +51,9 @@
                             <div class="panel-wrapper collapse in ">
                                 <div class="panel-body">
                                     <div class="form-wrap mt-3">
-                                        <form action="{{ url('updateBarang') }}" method="post" role="form" autocomplete="off">
+                                        <form action="{{ url('updateBarang') }}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
                                             {{ csrf_field() }}
+                                            {{ method_field('PUT') }}
                                             <div class="form-group">
                                                 <input type="hidden" value="{{ $brg->id_master }}" name="edit_id_brg">
                                                 <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
@@ -65,6 +66,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
                                                 <input type="text" value="{{ $brg->nama_barang }}" class="form-control" name="edit_nama_barang">
+                                                @if ($errors->has('nama_barang'))
+                                                <div class="alert alert-danger">{{$errors->first('nama_barang')}}</div>
+                                                @endif
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Kode Barang</label>
@@ -81,6 +85,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Stok</label>
                                                 <input type="text" class="form-control" name="edit_stok" value="{{ $brg->stok }}">
+                                                @if ($errors->has('stok'))
+                                                <div class="alert alert-danger">{{$errors->first('stok')}}</div>
+                                                @endif
                                             </div>
                                             <div class="form-group mb-30">
                                                 <label class="control-label mb-10 text-left">File upload</label>

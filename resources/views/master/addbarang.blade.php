@@ -43,14 +43,14 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group" >
+                                    <div class="form-group">
                                         <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
                                         <input type="text" class="form-control" name="nama_barang" id="nama_barang">
-                                    @error('nama_barang')
-                                        <div class="alert alert-danger">{{$message}}</div>
-                                    @enderror
+                                        @if ($errors->has('nama_barang'))
+                                        <div class="alert alert-danger">{{$errors->first('nama_barang')}}</div>
+                                        @endif
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Jenis</label>
                                         <select name="jenis_barang" id="jenis_barang" class="form-control select2">
@@ -62,16 +62,16 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Stok</label>
                                         <input type="text" class="form-control" name="stok" id="stok">
-                                    @error('stok')
-                                        <div class="alert alert-danger">{{$message}}</div>
-                                    @enderror
+                                        @if ($errors->has('stok'))
+                                        <div class="alert alert-danger">{{$errors->first('stok')}}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group mb-30">
                                         <label class="control-label mb-10 text-left">File upload</label>
                                         <input type="file" id="gambar" name="gambar">
-                                    @error('gambar')
-                                        <div class="alert alert-danger">{{$message}}</div>
-                                    @enderror
+                                        @if ($errors->has('gambar'))
+                                        <div class="alert alert-danger">{{$errors->first('gambar')}}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Status</label>
