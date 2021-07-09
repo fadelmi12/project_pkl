@@ -8,6 +8,7 @@ use App\Models\Jenis;
 use App\Models\kategori;
 use App\Models\Master;
 use App\Models\User;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Storage;
 
 class MasterController extends Controller
@@ -38,6 +39,20 @@ class MasterController extends Controller
 
     public function addbarang2(Request $request)
     {
+        $rules = [
+            'nama_barang'=>'required|nama_barang',
+            'stok'=>'required|stok',
+            'gambar'=>'required|gambar',
+        ]; 
+
+        $messages = [
+            'nama_barang.required'=> 'nama barang tidak boleh kosong',
+            'stok.required'=> 'stok tidak boleh kosong',
+            'gambar.required'=> 'gambar tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         // dd($request);
         $barang = Master::all();
         $kategori = kategori::all();
@@ -71,6 +86,20 @@ class MasterController extends Controller
 
     public function updateBarang(Request $request)
     {
+        $rules = [
+            'nama_barang'=>'required|nama_barang',
+            'stok'=>'required|stok',
+            'gambar'=>'required|gambar',
+        ]; 
+
+        $messages = [
+            'nama_barang.required'=> 'nama barang tidak boleh kosong',
+            'stok.required'=> 'stok tidak boleh kosong',
+            'gambar.required'=> 'gambar tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         Master::where('id_master', $request->edit_id_brg)
             ->update([
                 'kode_kategori' => $request->edit_kode_kategori,
@@ -89,12 +118,10 @@ class MasterController extends Controller
 
     public function deletebarang($id_master)
     {
-        // dd($id_master);
-        // $data_kategori = Master::find($request->id_master);
         $brg = Master::where('id_master', $id_master)->first();
         // // dd($barang);
         $brg->delete();
-        // //mengirim data_ktg ke view
+        // //mengirim data_brg ke view
         return back()->with('success', "Data telah terhapus");
     }
 
@@ -174,6 +201,18 @@ class MasterController extends Controller
 
     public function updateJenis(Request $request)
     {
+        $rules = [
+            'jenis_barang'=>'required|jenis_barang',
+            'keterangan'=>'required|keterangan',
+        ]; 
+
+        $messages = [
+            'jenis_barang.required'=> 'Jenis Barang tidak boleh kosong',
+            'keterangan.required'=> 'Keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         Jenis::where('id_jenis', $request->edit_id_jenis)
             ->update([
                 'jenis_barang' => $request->edit_jenis,
@@ -186,6 +225,18 @@ class MasterController extends Controller
 
     public function addjenis2(Request $request)
     {
+        $rules = [
+            'jenis_barang'=>'required|jenis_barang',
+            'keterangan'=>'required|keterangan',
+        ]; 
+
+        $messages = [
+            'jenis_barang.required'=> 'Jenis Barang tidak boleh kosong',
+            'keterangan.required'=> 'Keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         Jenis::create([
             'jenis_barang' => $request->jenis_barang,
             'keterangan' => $request->keterangan
