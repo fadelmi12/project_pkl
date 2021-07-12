@@ -2,7 +2,6 @@
 @section('title', 'Data Pengajuan')
 @section('content')
 
-
 <!-- Main Content -->
 <div class="page-wrapper">
     <div class="container-fluid">

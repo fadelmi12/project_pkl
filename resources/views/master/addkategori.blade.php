@@ -39,10 +39,16 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Nama<span class="help"> Kategori</span></label>
                                         <input type="text" class="form-control" id="kategori" name="kategori" value="">
+                                        @error('kategori')
+                                        <div class="tulisan">{{$message}}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Keterangan</label>
                                         <input type="passtextword" class="form-control" id="keterangan" name="keterangan" value="">
+                                        @error('keterangan')
+                                            <div class="tulisan">{{$message}}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary">Simpan</button>

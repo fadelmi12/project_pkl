@@ -949,7 +949,21 @@
     <script src="{{asset('template')}}/dist/js/init.js"></script>
     <script src="{{asset('template')}}/dist/js/dashboard-data.js"></script>
 
-
+    <script>
+        function InvalidMsg(textbox) {
+            
+            if (textbox.value == '') {
+                textbox.setCustomValidity('Jenis Tidak Boleh Kosong');
+            }
+            else if(textbox.validity.typeMismatch){
+                textbox.setCustomValidity('please enter a valid email address');
+            }
+            else {
+                textbox.setCustomValidity('');
+            }
+            return true;
+        }
+        </script>
     
 
 

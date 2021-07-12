@@ -8,13 +8,14 @@ use App\Models\Jenis;
 use App\Models\kategori;
 use App\Models\Master;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Storage;
 
 class MasterController extends Controller
 {
     //
-    public function index()
+    public function index() 
     {
 
         return view('master/databrg');
@@ -49,8 +50,13 @@ class MasterController extends Controller
             'nama_barang.required'=> 'nama barang tidak boleh kosong',
             'stok.required'=>' *stok tidak boleh kosong',
             'gambar.required'=> 'gambar tidak boleh kosong',
+            'nama_barang.required'=> '*nama barang tidak boleh kosong',
+            'stok.required'=> '*stok tidak boleh kosong',
+            'gambar.required'=> '*gambar tidak boleh kosong',
 
         ];
+        // $validator = Validator::make($request->all(), $rules, $messages);
+
         $this->validate($request,$rules,$messages);
 
         // dd($request);
@@ -172,6 +178,19 @@ class MasterController extends Controller
     }
     public function addkategori2(Request $request)
     {
+
+        $rules = [
+            'kategori'=>'required|kategori',
+            'keterangan'=>'required|keterangan',
+        ]; 
+
+        $messages = [
+            'kategori.required'=> '*kategori tidak boleh kosong',
+            'keterangan.required'=> '*keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request,$rules,$messages);
+
         $kode = strtoupper(substr("KTG", 0, 3));
         $check = count(Kategori::where('kode_kategori', 'like', "%$kode%")->get()->toArray());
         $angka = sprintf("%03d", (int)$check + 1);

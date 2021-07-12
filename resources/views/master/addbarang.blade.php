@@ -41,13 +41,13 @@
                                             @foreach($kategori as $ktg)
                                             <option value="{{ $ktg->kode_kategori }}">{{ $ktg->kode_kategori }}</option>
                                             @endforeach
-                                        </select>
+                                        </select> 
                                     </div>
                                     <div class="form-group" >
                                         <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
                                         <input type="text" class="form-control" name="nama_barang" id="nama_barang">
                                     @error('nama_barang')
-                                        <div class="alert alert-danger">{{$message}}</div>
+                                        <div class="tulisan">{{$message}}</div>
                                     @enderror
                                     </div>
                                     
@@ -63,14 +63,14 @@
                                         <label class="control-label mb-10 text-left">Stok</label>
                                         <input type="text" class="form-control" name="stok" id="stok">
                                     @error('stok')
-                                        <div >{{$message}}</div>
+                                         <div class="tulisan">{{$message}}</div>
                                     @enderror
                                     </div>
                                     <div class="form-group mb-30">
                                         <label class="control-label mb-10 text-left">File upload</label>
                                         <input type="file" id="gambar" name="gambar">
                                     @error('gambar')
-                                        <div class="alert alert-danger">{{$message}}</div>
+                                        <div class="tulisan">{{$message}}</div>
                                     @enderror
                                     </div>
                                     <div class="form-group">
