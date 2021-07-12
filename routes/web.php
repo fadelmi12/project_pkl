@@ -5,6 +5,7 @@ use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdministratorController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -119,6 +120,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('purchasing', 'App\Http\Controllers\PoController@index');
 
     // ADMINISTRASI
-    Route::get('administrator', 'App\Http\Controllers\AdministratorController@index');
+    Route::get('administrator', 'App\Http\Controllers\AdministratorController@users');
+    //Route::get('administrator', 'App\Http\Controllers\AdministratorController@index');
     Route::get('administrator/add', 'App\Http\Controllers\AdministratorController@add');
 });
