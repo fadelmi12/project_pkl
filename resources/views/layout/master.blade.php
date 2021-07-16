@@ -33,7 +33,7 @@
     <!-- /Preloader -->
     <div class="wrapper theme-1-active box-layout pimary-color-red">
         <!-- Top Menu Items Navbar/Header -->
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar  navbar-inverse navbar-fixed-top">
             <div class="mobile-only-brand pull-left">
                 <div class="nav-header pull-left">
                     <div class="logo-wrap">
@@ -55,6 +55,8 @@
                     </div>
                 </form>
             </div>
+
+        
             <div id="mobile_only_nav" class="mobile-only-nav pull-right">
                 <ul class="nav navbar-right top-nav pull-right">
                     <li>
@@ -357,7 +359,7 @@
         <div class="fixed-sidebar-left">
             <ul class="nav navbar-nav side-nav nicescroll-bar"> 
                 <li class="navigation-header">
-                    <span>Main</span>
+                    <span><strong>{{ Auth::user()->name }}</strong></span>
                     <i class="zmdi zmdi-more"></i>
                 </li>
                 <li>

@@ -23,8 +23,6 @@ class MasterController extends Controller
 
     public function barang()
     {
-
-
         $barang = Master::all();
         $jenis = Jenis::all();
         return view('master/databrg', compact('barang', 'jenis'));
@@ -50,7 +48,6 @@ class MasterController extends Controller
             'nama_barang.required' => 'nama barang tidak boleh kosong',
             'stok.required' => 'stok tidak boleh kosong',
             'gambar.required' => 'gambar tidak boleh kosong',
-
         ];
         $this->validate($request, $rules, $messages);
 

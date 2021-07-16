@@ -63,13 +63,15 @@
                                         </thead>
                                         
                                         <tbody>
+                                        <?php $no = 1; ?>
+                                        @foreach($users as $users)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Dinar</td>
-                                                <td>dinarnr</td>
-                                                <td>Admin</td>
-                                                <td>terakhir login</td>
-                                                <td>terakhir login ip</td>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $users->name }}</td>
+                                                <td>{{ $users->email }}</td>
+                                                <td>{{ $users->divisi }}</td>
+                                                <td>-</td>
+                                                <td>-</td>
                                                 <td>
                                                     <!-- <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button> -->
                                                     <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#exampleModal"> Aktif</button>
@@ -86,6 +88,7 @@
 
                                                 @include('administrator.hapus')
                                             </tr>
+                                        @endforeach 
                                         </tbody>
                                     </table>
 
