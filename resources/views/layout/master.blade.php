@@ -959,7 +959,7 @@
                 textbox.setCustomValidity('please enter a valid email address');
             }
             else {
-                textbox.setCustomValidity('');
+                textbox.setCustomValidity(''); 
             }
             return true;
         }
