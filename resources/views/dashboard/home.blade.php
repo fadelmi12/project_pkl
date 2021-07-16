@@ -5,8 +5,10 @@
 <!-- Main Content -->
 <div class="page-wrapper">
 	<div class="container-fluid pt-25">
-
-
+	<div class="alert alert-success alert-dismissable">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<h5 class="txt-light">Selamat datang, <strong>{{ Auth::user()->name }}</strong></h5> 
+	</div>
 		<!-- Row -->
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
