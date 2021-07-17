@@ -156,8 +156,8 @@ class MasterController extends Controller
     {
 
         $rules = [
-            'kategori' => 'required|kategori',
-            'keterangan' => 'required|keterangan',
+            'kategori' => 'required',
+            'keterangan' => 'required',
         ];
 
         $messages = [
