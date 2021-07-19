@@ -59,7 +59,7 @@ class MasterController extends Controller
 
         $kode = strtoupper(substr($request->nama_barang, 0, 3));
         $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
+        $angka = sprintf("%03d", (int)$check + 1); 
         $kode_barang = $kode . "" . $angka;
 
         Master::insert([

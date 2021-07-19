@@ -50,7 +50,7 @@
                                     <table id="myTable1" class="table table-bordered display  pb-30">
                                         <thead>
                                             <tr>
-                                                <th>Kode</th>
+                                                <th>Kode Barang</th>
                                                 <th>Nama Barang</th>
                                                 <th>Jenis</th>
                                                 <th>Stok</th>
