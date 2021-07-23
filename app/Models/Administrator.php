@@ -10,6 +10,6 @@ class Administrator extends Model
     use HasFactory;
     protected $table = "users";
     protected $primaryKey = "id";
-    protected $fillable = ['id', 'name', 'divisi', 'email'];
+    protected $fillable = ['id', 'name', 'divisi', 'email', 'password'];
     
 }
