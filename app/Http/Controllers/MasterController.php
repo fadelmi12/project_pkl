@@ -57,10 +57,10 @@ class MasterController extends Controller
         $namaFile = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('img/logo'), $namaFile);
 
-        $kode = strtoupper(substr($request->nama_barang, 0, 3));
-        $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
-        $kode_barang = $kode . "" . $angka;
+       $kode = strtoupper(substr($request->nama_barang, 0, 3));
+       $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
+       $angka = sprintf("%03d", (int)$check + 1);
+       $kode_barang = $kode . "" . $angka;
 
         Master::insert([
             'kode_kategori' => $request->kode_kategori,
