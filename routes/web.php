@@ -122,5 +122,6 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     // ADMINISTRASI
     Route::get('administrator', 'App\Http\Controllers\AdministratorController@users');
     //Route::get('administrator', 'App\Http\Controllers\AdministratorController@index');
-    Route::get('administrator/add', 'App\Http\Controllers\AdministratorController@add');
+    Route::get('administrator/addadmin', 'App\Http\Controllers\AdministratorController@addadmin');
+    Route::post('/addadmin2', 'App\Http\Controllers\AdministratorController@addadmin2')->name('addadmin2');
 });
