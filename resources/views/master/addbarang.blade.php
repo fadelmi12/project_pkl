@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
                                         <select name="kode_kategori" id="kode_kategori" class="form-control select2">
-                                            @foreach($kategori as $ktg)
+                                            @foreach($kategori as $ktg) 
                                             <option value="{{ $ktg->kode_kategori }}">{{ $ktg->kode_kategori }}</option>
                                             @endforeach
                                         </select> 
