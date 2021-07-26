@@ -16,10 +16,11 @@
 					<div class="refresh-container">
 						<div class="la-anim-1"></div>
 					</div>
-					<div class="panel-heading">
+
+					<!--  <div class="panel-heading">
 						<div class="pull-left">
 							<h6 class="panel-title txt-dark">Data Stok Barang</h6>
-						</div>
+						</div> 
 						<div class="pull-right">
 							<a href="#" class="pull-left inline-block refresh mr-15">
 								<i class="zmdi zmdi-replay"></i>
@@ -34,8 +35,36 @@
 							</div>
 						</div>
 						<div class="clearfix"></div>
+					</div> -->
+
+					<div id="piechart"></div>
+						<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+						<script type="text/javascript">
+							// Load google charts
+							google.charts.load('current', {'packages':['corechart']});
+							google.charts.setOnLoadCallback(drawChart);
+
+							// Draw the chart and set the chart values
+							function drawChart() {
+							var data = google.visualization.arrayToDataTable([
+							['Task', 'Hours per Day'],
+							['Work', 8],
+							['Eat', 2],
+							['TV', 4],
+							['Gym', 2],
+							['Sleep', 8]
+							]);
+
+							// Optional; add a title and set the width and height of the chart
+							var options = {'title':'Data Barang', 'width':550, 'height':400};
+
+							// Display the chart inside the <div> element with id="piechart"
+							var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+							chart.draw(data, options);
+							}
+						</script>
 					</div>
-					<div class="panel-wrapper collapse in">
+					<!-- <div class="panel-wrapper collapse in">
 						<div class="panel-body">
 							<div>
 								<canvas id="chart_6" height="191"></canvas>
@@ -68,7 +97,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">

@@ -951,7 +951,7 @@
     <script src="{{asset('template')}}/dist/js/init.js"></script>
     <script src="{{asset('template')}}/dist/js/dashboard-data.js"></script>
 
-    <script>
+    <!-- <script>
         function InvalidMsg(textbox) {
             
             if (textbox.value == '') {
@@ -965,7 +965,7 @@
             }
             return true;
         }
-        </script>
+        </script> -->
     
 
 
