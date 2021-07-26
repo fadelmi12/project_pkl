@@ -16,7 +16,7 @@
 				<ol class="breadcrumb">
 					<!-- <li><a href="index.html">master data</a></li> -->
 					<li><a href="#"><span>transaksi</span></a></li>
-					<li class="active"><span>tambah barang masuk</span></li>
+					<li class="active"><span>tambah data</span></li>
 				</ol>
 			</div>
 			<!-- /Breadcrumb -->
@@ -77,7 +77,12 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Supplier</label>
-															<input type="text" class="form-control" placeholder="Supplier">
+															<!-- <input type="text" class="form-control" placeholder="Supplier"> -->
+															<select name="nama_supplier" id="nama_supplier" class="form-control select2">
+																@foreach($supplier as $sup)
+																<option value="{{ $sup->nama_supplier }}">{{ $sup->nama_supplier }}</option>
+																@endforeach
+															</select>
 														</div>
 													</div>
 													<!--/span-->
@@ -88,28 +93,29 @@
 																<input type="text" class="form-control" placeholder="Pengirim">
 															</div>
 														</div>
-
 													</div>
-													<!-- /Row -->
-													<!--/span-->
-
-
-													<!--/span-->
-
-													<!-- /Row -->
-
 												</div>
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Nama barang</label>
-															<input type="text" id="nama_barang" class="form-control" placeholder="Nama Barang">
-															<!-- <span class="help-block"> This is inline help </span>  -->
+															<!-- <input type="text" id="nama_barang" class="form-control" placeholder="Nama Barang"> -->
+															<select name="nama_barang" id="nama_barang" class="form-control select2">
+																@foreach($barang as $brg)
+																<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }}</option>
+																@endforeach
+															</select>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Penerima</label>
+															<input type="text" class="form-control" placeholder="Penerima">
 														</div>
 													</div>
 													<!--/span-->
 													<div class="col-md-6">
-														<div class="form-actions mt-20">
+														<div class="form-actions mt-5">
 															<button type="submit" class="btn btn-primary ">Tambah Data</button>
 														</div>
 													</div>

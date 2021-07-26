@@ -28,7 +28,7 @@
                             <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
                             <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
                             <a href="brgmasuk/addmasuk" class="btn btn-success float-right col-mr-3"><i class="fa fa succes"></i>
-                                Tambah Barang Masuk
+                                Tambah Data
                             </a>
                             <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
                         </div>
@@ -57,10 +57,10 @@
                                                 <th>Created at</th>
                                                 <th>Jenis Transaksi</th>
                                                 <th>Supplier</th>
-                                                <th>Pengirim</th>
-                                                <th>Penerima</th>
-                                                <th>Ekspedisi</th>
-                                                <th>Kondisi</th>
+                                                <!-- <th>Pengirim</th> -->
+                                                <!-- <th>Penerima</th>/ -->
+                                                <!-- <th>Ekspedisi</th> -->
+                                                <!-- <th>Kondisi</th> -->
                                                 <th colspan="3">Aksi</th>
                                             </tr>
                                         </thead>
@@ -73,16 +73,16 @@
                                                 <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
                                                 <td>{{ $transaksi_masuk->created_at }}</td>
                                                 <td>{{ $transaksi_masuk->jns_transaksi }}</td>
-                                                <td>{{ $transaksi_masuk->supplier }}</td>
-                                                <td>{{ $transaksi_masuk->pengirim }}</td>
-                                                <td>{{ $transaksi_masuk->penerima }}</td>
-                                                <td>{{ $transaksi_masuk->ekspedisi }}</td>
-                                                <td>{{ $transaksi_masuk->kondisi }}</td>
+                                                <td>{{ $transaksi_masuk->instansi }}</td>
+                                                <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
+                                                <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->
+                                                <!-- <td>{{ $transaksi_masuk->ekspedisi }}</td> -->
+                                                <!-- <td>{{ $transaksi_masuk->kondisi }}</td> -->
                                                 <td>
-                                                    <!-- <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button> -->
-                                                    <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editbrgmasuk"><i class="fa fa-pencil"></i></button>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapus{{$transaksi_masuk->id_transaksi}}"><i class="fa fa-trash"></i></button>
-                                                    <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
+                                                    <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
+                                                    <a href="#"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#" action="#"><i class="fa fa-trash"></i></button>
+
                                                 </td>
                                             </tr>
                                             @endforeach
