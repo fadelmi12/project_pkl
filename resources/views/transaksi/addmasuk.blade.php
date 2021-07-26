@@ -102,7 +102,7 @@
 															<!-- <input type="text" id="nama_barang" class="form-control" placeholder="Nama Barang"> -->
 															<select name="nama_barang" id="nama_barang" class="form-control select2">
 																@foreach($barang as $brg)
-																<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }}</option>
+																<option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
 																@endforeach
 															</select>
 														</div>
