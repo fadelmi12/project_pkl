@@ -18,24 +18,24 @@
                         </div>
 
                         <!--  <div class="panel-heading">
-              <div class="pull-left">
-               <h6 class="panel-title txt-dark">Data Stok Barang</h6>
-              </div>
-              <div class="pull-right">
-               <a href="#" class="pull-left inline-block refresh mr-15">
-                <i class="zmdi zmdi-replay"></i>
-               </a>
-               <div class="pull-left inline-block dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="zmdi zmdi-more-vert"></i></a>
-                <ul class="dropdown-menu bullet dropdown-menu-right" role="menu">
-                 <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-reply" aria-hidden="true"></i>Devices</a></li>
-                 <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i>General</a></li>
-                 <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-trash" aria-hidden="true"></i>Referral</a></li>
-                </ul>
-               </div>
-              </div>
-              <div class="clearfix"></div>
-             </div> -->
+                            <div class="pull-left">
+                            <h6 class="panel-title txt-dark">Data Stok Barang</h6>
+                            </div>
+                            <div class="pull-right">
+                            <a href="#" class="pull-left inline-block refresh mr-15">
+                            <i class="zmdi zmdi-replay"></i>
+                            </a>
+                            <div class="pull-left inline-block dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="zmdi zmdi-more-vert"></i></a>
+                            <ul class="dropdown-menu bullet dropdown-menu-right" role="menu">
+                                <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-reply" aria-hidden="true"></i>Devices</a></li>
+                                <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i>General</a></li>
+                                <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-trash" aria-hidden="true"></i>Referral</a></li>
+                            </ul>
+                            </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            </div> -->
 
                         <div id="piechart"></div>
                         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -45,16 +45,19 @@
                                 'packages': ['corechart']
                             });
                             google.charts.setOnLoadCallback(drawChart);
-                            var nama_barang = @json($nama_barang);
-                            var stok = @json($stok);
+
 
                             // Draw the chart and set the chart values
                             function drawChart() {
-                                var data = google.visualization.arrayToDataTable([
+                                const nama_barang = @json($nama_barang);
+                                const stok = @json($stok);
+                                var value = [
                                     ['Task', 'Speakers'],
-                                    [nama_barang[0], stok[0]],
-                                    [nama_barang[1], stok[1]],
-                                ]);
+                                ];
+                                for (let i = 0; i < stok.length; i++) {
+                                    value.push([nama_barang[i], stok[i]]);
+                                };
+                                var data = google.visualization.arrayToDataTable(value);
 
                                 // Optional; add a title and set the width and height of the chart
                                 var options = {
@@ -70,39 +73,39 @@
                         </script>
                     </div>
                     <!-- <div class="panel-wrapper collapse in">
-              <div class="panel-body">
-               <div>
-                <canvas id="chart_6" height="191"></canvas>
-               </div>
-               <hr class="light-grey-hr row mt-10 mb-15" />
-               <div class="label-chatrs">
-                <div class="">
-                 <span class="clabels clabels-lg inline-block bg-blue mr-10 pull-left"></span>
-                 <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">44.46% organic</span><span class="block txt-grey">356 visits</span></span>
-                 <div id="sparkline_1" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
-                 <div class="clearfix"></div>
-                </div>
-               </div>
-               <hr class="light-grey-hr row mt-10 mb-15" />
-               <div class="label-chatrs">
-                <div class="">
-                 <span class="clabels clabels-lg inline-block bg-green mr-10 pull-left"></span>
-                 <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">5.54% Refrral</span><span class="block txt-grey">36 visits</span></span>
-                 <div id="sparkline_2" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
-                 <div class="clearfix"></div>
-                </div>
-               </div>
-               <hr class="light-grey-hr row mt-10 mb-15" />
-               <div class="label-chatrs">
-                <div class="">
-                 <span class="clabels clabels-lg inline-block bg-yellow mr-10 pull-left"></span>
-                 <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">50% Other</span><span class="block txt-grey">245 visits</span></span>
-                 <div id="sparkline_3" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
-                 <div class="clearfix"></div>
-                </div>
-               </div>
-              </div>
-             </div> -->
+                        <div class="panel-body">
+                        <div>
+                        <canvas id="chart_6" height="191"></canvas>
+                        </div>
+                        <hr class="light-grey-hr row mt-10 mb-15" />
+                        <div class="label-chatrs">
+                        <div class="">
+                            <span class="clabels clabels-lg inline-block bg-blue mr-10 pull-left"></span>
+                            <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">44.46% organic</span><span class="block txt-grey">356 visits</span></span>
+                            <div id="sparkline_1" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        </div>
+                        <hr class="light-grey-hr row mt-10 mb-15" />
+                        <div class="label-chatrs">
+                        <div class="">
+                            <span class="clabels clabels-lg inline-block bg-green mr-10 pull-left"></span>
+                            <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">5.54% Refrral</span><span class="block txt-grey">36 visits</span></span>
+                            <div id="sparkline_2" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        </div>
+                        <hr class="light-grey-hr row mt-10 mb-15" />
+                        <div class="label-chatrs">
+                        <div class="">
+                            <span class="clabels clabels-lg inline-block bg-yellow mr-10 pull-left"></span>
+                            <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">50% Other</span><span class="block txt-grey">245 visits</span></span>
+                            <div id="sparkline_3" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        </div>
+                        </div>
+                        </div> -->
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
