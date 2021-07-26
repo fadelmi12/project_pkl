@@ -790,7 +790,7 @@
     <script src="{{asset('template')}}/dist/js/init.js"></script>
     <script src="{{asset('template')}}/dist/js/dashboard-data.js"></script>
 
-    <script>
+    <!-- <script>
         function InvalidMsg(textbox) {
             
             if (textbox.value == '') {
@@ -800,11 +800,11 @@
                 textbox.setCustomValidity('please enter a valid email address');
             }
             else {
-                textbox.setCustomValidity('');
+                textbox.setCustomValidity(''); 
             }
             return true;
         }
-        </script>
+        </script> -->
     
 
 

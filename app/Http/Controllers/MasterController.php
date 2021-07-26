@@ -8,6 +8,7 @@ use App\Models\Jenis;
 use App\Models\kategori;
 use App\Models\Master;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Storage;
 
@@ -189,6 +190,19 @@ class MasterController extends Controller
 
     public function updateKategori(Request $request)
     {
+        $rules = [
+            'edit_kategori' => 'required',
+            'edit_keterangan' => 'required',
+        ];
+
+        $messages = [
+            'edit_kategori.required' => '*kategori tidak boleh kosong',
+            'edit_keterangan.required' => '*keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request, $rules, $messages);
+        
+        
         Kategori::where('id_kategori', $request->edit_id_ktg)
             ->update([
                 'kode_kategori' => $request->edit_kode,
@@ -212,12 +226,38 @@ class MasterController extends Controller
         return back()->with('success', "Data telah terhapus");
     }
 
-
     // DATA JENIS
     public function jenis()
     {
         $data_jenis = jenis::all();
         return view('master/jenis', compact('data_jenis'));
+    }
+
+    public function addjenis()
+    {
+
+        return view('master/addjenis');
+    }
+
+    public function addjenis2(Request $request)
+    {
+        $rules = [
+            'jenis_barang' => 'required',
+            'keterangan' => 'required',
+        ];
+
+        $messages = [
+            'jenis_barang.required' => 'Jenis Barang tidak boleh kosong',
+            'keterangan.required' => 'Keterangan tidak boleh kosong',
+
+        ];
+        $this->validate($request, $rules, $messages);
+
+        Jenis::create([
+            'jenis_barang' => $request->jenis_barang,
+            'keterangan' => $request->keterangan
+        ]);
+        return redirect('jenis');
     }
 
     public function editJenis($id_jenis)
@@ -249,33 +289,6 @@ class MasterController extends Controller
         return redirect('jenis');
 
         return redirect()->back();
-    }
-
-    public function addjenis2(Request $request)
-    {
-        $rules = [
-            'jenis_barang' => 'required',
-            'keterangan' => 'required',
-        ];
-
-        $messages = [
-            'jenis_barang.required' => 'Jenis Barang tidak boleh kosong',
-            'keterangan.required' => 'Keterangan tidak boleh kosong',
-
-        ];
-        $this->validate($request, $rules, $messages);
-
-        Jenis::create([
-            'jenis_barang' => $request->jenis_barang,
-            'keterangan' => $request->keterangan
-        ]);
-        return redirect('jenis');
-    }
-
-    public function addjenis(Request $request)
-    {
-
-        return view('master/addjenis');
     }
 
     public function deletejenis($id_jenis)
