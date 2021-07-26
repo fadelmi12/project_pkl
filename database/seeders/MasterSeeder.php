@@ -22,7 +22,18 @@ class MasterSeeder extends Seeder
             'stok' => '200',
             'gambar' => 'aaa.jpg',
             'status' => '2',
-            ]);
+        ]);
+        $Master->save();
+
+        $Master = Master::create([
+            'kode_kategori' => '124',
+            'nama_barang' => 'Keyboard',
+            'kode_barang' => '112',
+            'jenis_barang' => 'Baru',
+            'stok' => '100',
+            'gambar' => 'aaa.jpg',
+            'status' => '2',
+        ]);
         $Master->save();
     }
 }
