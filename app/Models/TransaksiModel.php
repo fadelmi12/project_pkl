@@ -8,8 +8,17 @@ use Illuminate\Support\Facades\DB;
 
 class TransaksiModel extends Model
 {
-    public function allData()
+    use HasFactory;
+
+    protected $table = "transaksi_masuk";
+    protected $primaryKey = "id_transaksi";
+
+    protected $fillable = [
+        'id_transaksi', 'no_transaksi', 'tgl_transaksi', 'jns_transaksi', 'kondisi', 'instansi', 'pengirim', 'penerima', 'ekspedisi', 'created_at', 'updated_at'
+    ];
+
+    public function supplier()
     {
-        return DB::table('transaksi_masuk')->get();  
+        return $this->belongsTo(SupplierModel::class);
     }
 }
