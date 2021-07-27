@@ -26,6 +26,21 @@ class TransaksiController extends Controller
         return view('transaksi/addmasuk', compact('supplier', 'barang'));
     }
 
+    public function addmasuk2(Request $request)
+    {
+        TransaksiModel::create([
+            'no_transaksi' => $request->no_transaksi,
+            'jns_transaksi' => $request->jns_transaksi,
+            'tgl_transaksi' => $request->tgl_transaksi,
+            'jml' => $request->jml,
+            'nama_supplier' => $request->nama_supplier,
+            'pengirim' => $request->pengirim,
+            'nama_barang' => $request->nama_barang,
+            'penerima' => $request->penerima,
+        ]);
+        return redirect('transaksi/brgmasuk');
+    }
+
     public function brgkeluar()
     {
         return view('transaksi/brgkeluar');
