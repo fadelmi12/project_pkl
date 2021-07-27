@@ -41,7 +41,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">No. Transaksi</label>
-															<input type="text" id="no_transaksi" class="form-control" placeholder="No. Transaksi">
+															<input type="text" id="no_transaksi" name="no_transaksi" class="form-control">
 															<!-- <span class="help-block"> This is inline help </span>  -->
 														</div>
 													</div>
@@ -49,7 +49,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Jenis Transaksi</label>
-															<input type="text" id="barang" class="form-control" placeholder="Pilih Barang">
+															<input type="text" id="jns_transaksi" name="jns_transaksi" class="form-control">
 															<!-- <span class="help-block"> This field has error. </span>  -->
 														</div>
 													</div>
@@ -60,14 +60,14 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Tanggal Masuk</label>
-															<input type="date" class="form-control" placeholder="dd/mm/yyyy">
+															<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control">
 														</div>
 													</div>
 													<!--/span-->
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Jumlah Masuk</label>
-															<input type="text" class="form-control" placeholder="Jumlah">
+															<input type="number" class="form-control" name="jml" id="jml">
 														</div>
 													</div>
 													<!--/span-->
@@ -77,10 +77,9 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Supplier</label>
-															<!-- <input type="text" class="form-control" placeholder="Supplier"> -->
 															<select name="nama_supplier" id="nama_supplier" class="form-control select2">
 																@foreach($supplier as $sup)
-																<option value="{{ $sup->nama_supplier }}">{{ $sup->nama_supplier }}</option>
+																<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
 																@endforeach
 															</select>
 														</div>
@@ -90,7 +89,7 @@
 														<div class="col-md-6">
 															<div class="form-group">
 																<label class="control-label mb-10">Pengirim</label>
-																<input type="text" class="form-control" placeholder="Pengirim">
+																<input type="text" name="pengirim" id="pengirim" class="form-control">
 															</div>
 														</div>
 													</div>
@@ -99,7 +98,6 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Nama barang</label>
-															<!-- <input type="text" id="nama_barang" class="form-control" placeholder="Nama Barang"> -->
 															<select name="nama_barang" id="nama_barang" class="form-control select2">
 																@foreach($barang as $brg)
 																<option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
@@ -110,13 +108,13 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Penerima</label>
-															<input type="text" class="form-control" placeholder="Penerima">
+															<input type="text" name="penerima" id="penerima" class="form-control">
 														</div>
 													</div>
 													<!--/span-->
 													<div class="col-md-6">
 														<div class="form-actions mt-5">
-															<button type="submit" class="btn btn-primary ">Tambah Data</button>
+															<button type="submit" name="submit" class="btn btn-primary ">Tambah Data</button>
 														</div>
 													</div>
 													<!--/span-->
