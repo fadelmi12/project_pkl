@@ -18,18 +18,5 @@ class HomeController extends Controller
         return view('dashboard/home', compact(['nama_barang', 'stok']));
     }
 
-    public function PieChart()
-    {
-        $result = DB::select(DB::raw("select count(*) as stok, nama_barang from master_data group by nama_barang"));
-        // dd($result);
-        $chartData = "";
-        foreach ($result as $list) {
-            $chartData .= "['" . $list->nama_barang . "',  " . $list->stok . "],";
-        }
-        $chartData = rtrim($chartData, ",");
-        echo $chartData;
-        // return view('dashboard/home');
-
-
-    }
+    
 }
