@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
 
 class PengajuanController extends Controller
@@ -24,13 +24,15 @@ class PengajuanController extends Controller
 
     public function addbaru2(Request $request)
     {
+        $user = Auth::user();
         $baru = 'Baru';
         Pengajuan::create(
             [
                 'namaBarang' => $request->namaBarang,
                 'jmlBarang' => $request->jmlBarang,
                 'keterangan' => $request->keterangan,
-                'jenisBarang' => $baru
+                'jenisBarang' => $baru,
+                'pic_teknisi' => $user->name
             ]
         );
         return redirect('/brgbaru');
@@ -116,5 +118,62 @@ class PengajuanController extends Controller
         $baru->delete();
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
+    }
+
+    public function Confirm(Request $request)
+    {
+        $user = Auth::user();
+        if (Auth::user()->divisi == "marketing"){
+            Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
+                ->update([
+                    'noPO' => $request->edit_noPO,
+                    'pic_marketing' => $user->name,
+                    'status' => '2'
+                ]);
+        }
+        elseif (Auth::user()->divisi == "warehouse"){
+            Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
+                ->update([
+                    'pic_warehouse' => $user->name,
+                    'status' => '4'
+                ]);
+        }
+        elseif (Auth::user()->divisi == "admin"){
+            Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
+                ->update([
+                    'pic_admin' => $user->name,
+                    'status' => '6'
+                ]);
+        }
+        
+        return redirect('/brgbaru')->with('success', "Data telah diperbarui");
+    }
+
+    public function Reject(Request $request)
+    {
+        $user = Auth::user();
+        if (Auth::user()->divisi == "marketing"){
+            Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
+                ->update([
+                    'pic_marketing' => $user->name,
+                    'status' => '1'
+                ]);
+        }
+        elseif (Auth::user()->divisi == "warehouse"){
+            Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
+                ->update([
+                    'pic_warehouse' => $user->name,
+                    'status' => '3'
+                ]);
+        }
+        elseif (Auth::user()->divisi == "admin"){
+            Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
+                ->update([
+                    'pic_admin' => $user->name,
+                    'status' => '5'
+                ]);
+        }
+        
+        return redirect('/brgbaru')->with('success', "Data telah diperbarui");
     }
 }

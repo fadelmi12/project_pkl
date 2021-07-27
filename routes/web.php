@@ -111,6 +111,10 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('pengajuan/editRetur/{id_pengajuan}', [PengajuanController::class, 'editRetur']);
     Route::post('/updateRetur', 'App\Http\Controllers\PengajuanController@updateRetur')->name('updateRetur');
     Route::delete('deleteretur/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@deleteretur');
+        //----------------------------------- confirm//reject ---------------------------------------------------
+    Route::post('Confirm/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Confirm');
+    Route::post('Reject/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Reject'); 
+
 
     // PEMINJAMAN
     Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');
