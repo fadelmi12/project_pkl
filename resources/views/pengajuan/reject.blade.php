@@ -10,12 +10,11 @@
                 <div class="container">
                     <h6 class="mb-15">Apakah anda yakin menyetujui pengajuan ini</h6>
                 </div>
-                <div class="form-group">
-                    <input type="hidden" value="{{ $data_baru->id_pengajuan }}" name="edit_id_pengajuan">
-                    @if (auth()->user()->divisi == "marketing")
-                    <label class="control-label mb-10 text-left" for="example-email">po <span class="help"> </span></label>
-                    <input type="text" id="edit_noPO" name="edit_noPO" class="form-control" placeholder="">
-                    @endif
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input class="form-control" type="hidden" value="{{ $data_baru->id_pengajuan }}" name="edit_id_pengajuan">
+                    </div>
                 </div>
 
                 <div class="modal-footer">
@@ -26,3 +25,4 @@
 
         </div>
     </div>
+</div>
