@@ -73,7 +73,7 @@
                                                 <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
                                                 <td>{{ $transaksi_masuk->created_at }}</td>
                                                 <td>{{ $transaksi_masuk->jns_transaksi }}</td>
-                                                <td>{{ $transaksi_masuk->instansi }}</td>
+                                                <td>{{ $transaksi_masuk->nama_supplier }}</td>
                                                 <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->ekspedisi }}</td> -->

@@ -54,7 +54,6 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::delete('deletebarang/{id_master}', 'App\Http\Controllers\MasterController@deletebarang');
     Route::post('/addbarang2', 'App\Http\Controllers\MasterController@addbarang2')->name('addbarang2');
 
-
     //KATEGORI
     Route::get('kategori', 'App\Http\Controllers\MasterController@kategori');
     Route::get('/kategori/addkategori', 'App\Http\Controllers\MasterController@addkategori');
@@ -62,7 +61,6 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('kategori/editKategori/{id_kategori}', [MasterController::class, 'editKategori']);
     Route::post('/updateKategori', 'App\Http\Controllers\MasterController@updateKategori')->name('updateKategori');
     Route::delete('deletekategori/{id_kategori}', 'App\Http\Controllers\MasterController@deletekategori');
-
 
     //JENIS
     Route::get('jenis', 'App\Http\Controllers\MasterController@jenis');
@@ -93,7 +91,6 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::post('/updateSup', 'App\Http\Controllers\SupplierController@updateSup')->name('updateSup');
     Route::delete('deletesupplier/{id_supplier}', 'App\Http\Controllers\SupplierController@deletesupplier');
 
-
     // PENGAJUAN
     // Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@index');
     // Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@index2');
@@ -115,7 +112,6 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
         //----------------------------------- confirm//reject ---------------------------------------------------
     Route::post('Confirm/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Confirm');
     Route::post('Reject/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Reject'); 
-
 
     // PEMINJAMAN
     Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');

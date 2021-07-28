@@ -33,7 +33,8 @@
 							<div class="row">
 								<div class="col-sm-12 col-xs-12">
 									<div class="form-wrap">
-										<form action="#">
+										<form action="{{ url('addmasuk2') }}" method="POST" enctype="multipart/form-data">
+											@csrf
 											<div class="form-body">
 												<!-- <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>Person's Info</h6>
 															<hr class="light-grey-hr"/> -->
@@ -59,7 +60,7 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label class="control-label mb-10">Tanggal Masuk</label>
+															<label class="control-label mb-10">Tanggal Transaksi</label>
 															<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control">
 														</div>
 													</div>
@@ -67,7 +68,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Jumlah Masuk</label>
-															<input type="number" class="form-control" name="jml" id="jml">
+															<input type="number" class="form-control" name="jumlah" id="jumlah">
 														</div>
 													</div>
 													<!--/span-->
@@ -85,35 +86,45 @@
 														</div>
 													</div>
 													<!--/span-->
+													<!-- <div class="row"> -->
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Pengirim</label>
+															<input type="text" name="pengirim" id="pengirim" class="form-control">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="control-label mb-10">Nama barang</label>
+														<select name="nama_barang" id="nama_barang" class="form-control select2">
+															@foreach($barang as $brg)
+															<option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
+															@endforeach
+														</select>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="control-label mb-10">Penerima</label>
+														<input type="text" name="penerima" id="penerima" class="form-control">
+													</div>
 													<div class="row">
-														<div class="col-md-6">
+														<div class="col-md-12">
 															<div class="form-group">
-																<label class="control-label mb-10">Pengirim</label>
-																<input type="text" name="pengirim" id="pengirim" class="form-control">
+																<label class="control-label mb-10">Kondisi</label>
+																<input type="text" id="kondisi" name="kondisi" class="form-control">
+																<!-- <span class="help-block"> This is inline help </span>  -->
 															</div>
 														</div>
 													</div>
 												</div>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label mb-10">Nama barang</label>
-															<select name="nama_barang" id="nama_barang" class="form-control select2">
-																@foreach($barang as $brg)
-																<option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
-																@endforeach
-															</select>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label mb-10">Penerima</label>
-															<input type="text" name="penerima" id="penerima" class="form-control">
-														</div>
-													</div>
-													<!--/span-->
-													<div class="col-md-6">
-														<div class="form-actions mt-5">
+												<!--/span-->
+												<!-- <div class="row"> -->
+													<div class="col-md-10">
+														<div class="form-actions mt-5 mr-10">
 															<button type="submit" name="submit" class="btn btn-primary ">Tambah Data</button>
 														</div>
 													</div>

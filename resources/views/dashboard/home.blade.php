@@ -2,7 +2,6 @@
 @section('title', 'Home')
 @section('content')
 
-<<<<<<< HEAD
 <!-- Main Content -->
 <div class="page-wrapper">
     <div class="container-fluid pt-25">
@@ -17,22 +16,6 @@
                     <div class="refresh-container">
                         <div class="la-anim-1"></div>
                     </div>
-=======
-    <!-- Main Content -->
-    <div class="page-wrapper">
-        <div class="container-fluid pt-25">
-            <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h5 class="txt-light">Selamat datang, <strong>{{ Auth::user()->name }}</strong></h5>
-            </div>
-            <!-- Row -->
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="refresh-container">
-                            <div class="la-anim-1"></div>
-                        </div>
->>>>>>> 21fa4ce9b3e22ed6bf7aa94f5dbeb28a8c35af58
 
                     <!--  <div class="panel-heading">
                             <div class="pull-left">
@@ -76,14 +59,12 @@
                             };
                             var data = google.visualization.arrayToDataTable(value);
 
-<<<<<<< HEAD
                             // Optional; add a title and set the width and height of the chart
                             var options = {
                                 'title': 'Data Barang',
                                 'width': 550,
                                 'height': 400
                             };
-=======
                                 // Optional; add a title and set the width and height of the chart
                                 var options = {
                                     'title': 'Data Barang',
@@ -91,7 +72,6 @@
                                     'height': 400
 									
                                 };
->>>>>>> 21fa4ce9b3e22ed6bf7aa94f5dbeb28a8c35af58
 
                             // Display the chart inside the <div> element with id="piechart"
                             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
