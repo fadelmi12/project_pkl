@@ -279,17 +279,8 @@
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                             <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-<<<<<<< HEAD
-                                                                @if ($data_baru->status >= 7)
-                                                                <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
-                                                                <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
-                                                                @else
-                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button>
-                                                                <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_baru->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-times"></i></button>
-=======
                                                                 @if ($data_baru->status === 6)
                                                                 <a href="pengajuan/editBaru/{{ $data_baru->id_pengajuan }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
->>>>>>> 9c82898b19a352bddd5e1e295807fc4598a3d2f0
                                                                 @endif
                                                         @endif
 <!-------------------------------------------------------------- MARKETING ------------------------------------------------------------>
@@ -319,11 +310,7 @@
                                                             <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
-<<<<<<< HEAD
-                                                                <a href="/pengajuan/detailbaru/{{ $data_baru->id_pengajuan }}"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-=======
-                                                                <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
->>>>>>> 9c82898b19a352bddd5e1e295807fc4598a3d2f0
+                                                                <a href="/pengajuan/detailbaru/{{$data_baru->id_pengajuan}}"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
                                                                 @if ($data_baru->status >= 1)
                                                                 <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
                                                                 <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>

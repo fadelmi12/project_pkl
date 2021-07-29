@@ -109,6 +109,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('/addretur', 'App\Http\Controllers\PengajuanController@addretur');
     Route::post('/addretur2', 'App\Http\Controllers\PengajuanController@addretur2')->name('addretur2');
     Route::get('pengajuan/editRetur/{id_pengajuan}', [PengajuanController::class, 'editRetur']);
+    Route::get('pengajuan/detailbaru/{id_pengajuan}', [PengajuanController::class, 'detailbaru']);
     Route::post('/updateRetur', 'App\Http\Controllers\PengajuanController@updateRetur')->name('updateRetur');
     Route::delete('deleteretur/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@deleteretur');
         //----------------------------------- confirm//reject ---------------------------------------------------
