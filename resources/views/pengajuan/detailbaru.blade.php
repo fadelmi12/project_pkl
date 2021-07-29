@@ -75,6 +75,7 @@
                                 </tr>
                             </table>
                         <div>
+                            <a href="/brgbaru"> <button class="btn btn-primary btn-icon-anim btn-square">back<i class="fa-arrow-rotate-left"></i></button></a>
                             @if ($data_baru->status >= 1)
                                 <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
                                 <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
