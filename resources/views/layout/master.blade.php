@@ -253,7 +253,7 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "admin")
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "admin"||auth()->user()->divisi == "purchasing")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuan">
                         <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pengajuan</span></div>
@@ -264,10 +264,11 @@
                         <li>
                             <a href="/brgbaru">Barang baru</a>
                         </li>
+                        @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing")
                         <li>
                             <a href="/brgretur">Barang retur</a>
                         </li>
-
+                        @endif
                     </ul>
                 </li>
                 @endif
