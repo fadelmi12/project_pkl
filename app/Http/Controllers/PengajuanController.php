@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembelian;
 use App\Models\Pengajuan;
 use App\Models\Pembelian;
 use Illuminate\Http\Request;

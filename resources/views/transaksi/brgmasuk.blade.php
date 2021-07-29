@@ -53,10 +53,10 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>No transaksi</th>
+                                                <th>Supplier</th>
+                                                <th>Jenis transaksi</th>
                                                 <th>Tanggal Transaksi</th>
                                                 <th>Created at</th>
-                                                <th>Jenis Transaksi</th>
-                                                <th>Supplier</th>
                                                 <!-- <th>Pengirim</th> -->
                                                 <!-- <th>Penerima</th>/ -->
                                                 <!-- <th>Ekspedisi</th> -->
@@ -70,10 +70,10 @@
                                             <tr>
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $transaksi_masuk->no_transaksi}}</td>
+                                                <td>{{ $transaksi_masuk->nama_supplier }}</td>
+                                                <td>{{ $transaksi_masuk->jns_transaksi }}</td>
                                                 <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
                                                 <td>{{ $transaksi_masuk->created_at }}</td>
-                                                <td>{{ $transaksi_masuk->jns_transaksi }}</td>
-                                                <td>{{ $transaksi_masuk->nama_supplier }}</td>
                                                 <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->ekspedisi }}</td> -->

@@ -31,11 +31,10 @@ class TransaksiController extends Controller
     {
 
 
-        $kode = strtoupper(substr($request->tgl_transaksi, 0, 4));
+        $kode = strtoupper(substr($request->tgl_transaksi, 0, 10));
         $check = count(TransaksiModel::where('no_transaksi', 'like', "%$kode%")->get()->toArray());
         $angka = sprintf("%03d", (int)$check + 1);
-        $char = "TRK-";
-        $no_transaksi = $char . $kode . "-" . $angka;
+        $no_transaksi = "TRK-" . $kode . "-" . $angka;
 
         // $kode = strtoupper(substr("SUPPLIER", 0, 3));
         // $check = count(SupplierModel::where('kode_supplier', 'like', "%$kode%")->get()->toArray());
