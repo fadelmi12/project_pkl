@@ -2,6 +2,22 @@
 @section('title', 'Home')
 @section('content')
 
+<<<<<<< HEAD
+    <!-- Main Content -->
+    <div class="page-wrapper">
+        <div class="container-fluid pt-25">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h5 class="txt-light">Selamat datang, <strong>{{ Auth::user()->name }}</strong></h5>
+            </div>
+            <!-- Row -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="refresh-container">
+                            <div class="la-anim-1"></div>
+                        </div>
+=======
 <!-- Main Content -->
 <div class="page-wrapper">
     <div class="container-fluid pt-25">
@@ -16,6 +32,7 @@
                     <div class="refresh-container">
                         <div class="la-anim-1"></div>
                     </div>
+>>>>>>> 9c82898b19a352bddd5e1e295807fc4598a3d2f0
 
                     <!--  <div class="panel-heading">
                             <div class="pull-left">
@@ -59,18 +76,20 @@
                             };
                             var data = google.visualization.arrayToDataTable(value);
 
+<<<<<<< HEAD
+=======
                             // Optional; add a title and set the width and height of the chart
                             var options = {
                                 'title': 'Data Barang',
                                 'width': 550,
                                 'height': 400
                             };
+>>>>>>> 9c82898b19a352bddd5e1e295807fc4598a3d2f0
                                 // Optional; add a title and set the width and height of the chart
                                 var options = {
                                     'title': 'Data Barang',
                                     'width': 600,
                                     'height': 400
-									
                                 };
 
                             // Display the chart inside the <div> element with id="piechart"

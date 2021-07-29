@@ -102,6 +102,8 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('pengajuan/editBaru/{id_pengajuan}', [PengajuanController::class, 'editBaru']);
     Route::post('/updateBaru', 'App\Http\Controllers\PengajuanController@updateBaru')->name('updateBaru');
     Route::delete('deletebaru/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@deletebaru');
+    Route::get('pengajuan/detailbaru/{id_pengajuan}', [PengajuanController::class, 'detailbaru']);
+
     //----------------------------- RETUR -----------------------------------------------
     Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@tabelRetur');
     Route::get('/addretur', 'App\Http\Controllers\PengajuanController@addretur');

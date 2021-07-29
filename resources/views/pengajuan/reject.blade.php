@@ -3,18 +3,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h5 class="modal-title" id="exampleModalLabel1">Confirm</h5>
+                <h5 class="modal-title" id="exampleModalLabel1">Reject</h5>
             </div>
             <form action="{{ url('Confirm') }}/{{ $data_baru->id_pengajuan }}" class="modal-body" method="post">
                 {{ csrf_field() }}
                 <div class="container">
-                    <h6 class="mb-15">Apakah anda yakin menyetujui pengajuan ini</h6>
+                    <h6 class="mb-15">Apakah anda yakin menolak pengajuan ini</h6>
                 </div>
-
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input class="form-control" type="hidden" value="{{ $data_baru->id_pengajuan }}" name="edit_id_pengajuan">
-                    </div>
+                <div class="form-group">
+                    <input type="hidden" value="{{ $data_baru->id_pengajuan }}" name="edit_id_pengajuan">
                 </div>
 
                 <div class="modal-footer">
