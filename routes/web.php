@@ -5,6 +5,7 @@ use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\AdministratorController;
 
 use Illuminate\Support\Facades\Route;
@@ -92,9 +93,6 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::delete('deletesupplier/{id_supplier}', 'App\Http\Controllers\SupplierController@deletesupplier');
 
     // PENGAJUAN
-    // Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@index');
-    // Route::get('/brgretur', 'App\Http\Controllers\PengajuanController@index2');
-    // PENGAJUAN
     //----------------------------- BARU -----------------------------------------------
     Route::get('/brgbaru', 'App\Http\Controllers\PengajuanController@tabelBaru');
     Route::get('/addbaru', 'App\Http\Controllers\PengajuanController@addbaru');
@@ -114,6 +112,9 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
         //----------------------------------- confirm//reject ---------------------------------------------------
     Route::post('Confirm/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Confirm');
     Route::post('Reject/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Reject'); 
+
+    //PEMBELIAN
+    Route::get('pembelian/addpembelian/{noPO}', [PembelianController::class, 'addpembelian']);
 
     // PEMINJAMAN
     Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');
