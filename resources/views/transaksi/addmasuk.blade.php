@@ -42,7 +42,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">No. Transaksi</label>
-															<input type="text" id="no_transaksi" name="no_transaksi" class="form-control">
+															<input type="text" id="no_transaksi" name="no_transaksi" class="form-control" readonly>
 															<!-- <span class="help-block"> This is inline help </span>  -->
 														</div>
 													</div>
@@ -54,85 +54,85 @@
 															<!-- <span class="help-block"> This field has error. </span>  -->
 														</div>
 													</div>
-													<!--/span-->
 												</div>
-												<!-- /Row -->
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label mb-10">Tanggal Transaksi</label>
-															<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control">
-														</div>
-													</div>
-													<!--/span-->
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label mb-10">Jumlah Masuk</label>
-															<input type="number" class="form-control" name="jumlah" id="jumlah">
-														</div>
-													</div>
-													<!--/span-->
-												</div>
-												<!-- /Row -->
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label mb-10">Supplier</label>
-															<select name="nama_supplier" id="nama_supplier" class="form-control select2">
-																@foreach($supplier as $sup)
-																<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
-																@endforeach
-															</select>
-														</div>
-													</div>
-													<!--/span-->
-													<!-- <div class="row"> -->
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label mb-10">Pengirim</label>
-															<input type="text" name="pengirim" id="pengirim" class="form-control">
-														</div>
-													</div>
-												</div>
+												<!--/span-->
 											</div>
+											<!-- /Row -->
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="control-label mb-10">Nama barang</label>
-														<select name="nama_barang" id="nama_barang" class="form-control select2">
-															@foreach($barang as $brg)
-															<option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
+														<label class="control-label mb-10">Tanggal Transaksi</label>
+														<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control">
+													</div>
+												</div>
+												<!--/span-->
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="control-label mb-10">Jumlah Masuk</label>
+														<input type="number" class="form-control" name="jumlah" id="jumlah">
+													</div>
+												</div>
+												<!--/span-->
+											</div>
+											<!-- /Row -->
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="control-label mb-10">Supplier</label>
+														<select name="nama_supplier" id="nama_supplier" class="form-control select2">
+															@foreach($supplier as $sup)
+															<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
 															@endforeach
 														</select>
 													</div>
 												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="control-label mb-10">Penerima</label>
-														<input type="text" name="penerima" id="penerima" class="form-control">
-													</div>
-													<div class="row">
-														<div class="col-md-12">
-															<div class="form-group">
-																<label class="control-label mb-10">Kondisi</label>
-																<input type="text" id="kondisi" name="kondisi" class="form-control">
-																<!-- <span class="help-block"> This is inline help </span>  -->
-															</div>
-														</div>
-													</div>
-												</div>
 												<!--/span-->
 												<!-- <div class="row"> -->
-													<div class="col-md-10">
-														<div class="form-actions mt-5 mr-10">
-															<button type="submit" name="submit" class="btn btn-primary ">Tambah Data</button>
-														</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="control-label mb-10">Pengirim</label>
+														<input type="text" name="pengirim" id="pengirim" class="form-control">
 													</div>
-													<!--/span-->
 												</div>
-
-										</form>
+											</div>
 									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label mb-10">Nama barang</label>
+												<select name="nama_barang" id="nama_barang" class="form-control select2">
+													@foreach($barang as $brg)
+													<option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
+													@endforeach
+												</select>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label mb-10">Penerima</label>
+												<input type="text" name="penerima" id="penerima" class="form-control">
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label mb-10">Kondisi</label>
+														<input type="text" id="kondisi" name="kondisi" class="form-control">
+														<!-- <span class="help-block"> This is inline help </span>  -->
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--/span-->
+										<!-- <div class="row"> -->
+										<div class="col-md-10">
+											<div class="form-actions mt-5 mr-10">
+												<button type="submit" name="submit" class="btn btn-primary ">Tambah Data</button>
+											</div>
+										</div>
+										<!--/span-->
+									</div>
+
+									</form>
 								</div>
 							</div>
 						</div>
@@ -140,9 +140,10 @@
 				</div>
 			</div>
 		</div>
-		<!-- /Row -->
-		<!-- /Row -->
-		<!-- /Main Content -->
 	</div>
-	<!-- /#wrapper -->
-	@endsection
+	<!-- /Row -->
+	<!-- /Row -->
+	<!-- /Main Content -->
+</div>
+<!-- /#wrapper -->
+@endsection
