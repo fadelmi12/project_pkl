@@ -109,12 +109,13 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('pengajuan/editRetur/{id_pengajuan}', [PengajuanController::class, 'editRetur']);
     Route::post('/updateRetur', 'App\Http\Controllers\PengajuanController@updateRetur')->name('updateRetur');
     Route::delete('deleteretur/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@deleteretur');
-        //----------------------------------- confirm//reject ---------------------------------------------------
+    //----------------------------------- confirm//reject ---------------------------------------------------
     Route::post('Confirm/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Confirm');
-    Route::post('Reject/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Reject'); 
+    Route::post('Reject/{id_pengajuan}', 'App\Http\Controllers\PengajuanController@Reject');
 
     //PEMBELIAN
-    Route::get('pembelian/addpembelian/{noPO}', [PembelianController::class, 'addpembelian']);
+    Route::get('pembelian', 'App\Http\Controllers\PembelianController@pembelian');
+    Route::get('pembelian/addpembelian', 'App\Http\Controllers\PembelianController@addpembelian');
 
     // PEMINJAMAN
     Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');
