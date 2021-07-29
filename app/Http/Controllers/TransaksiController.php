@@ -32,13 +32,14 @@ class TransaksiController extends Controller
             'no_transaksi' => $request->no_transaksi,
             'jns_transaksi' => $request->jns_transaksi,
             'tgl_transaksi' => $request->tgl_transaksi,
-            'jml' => $request->jml,
+            'jumlah' => $request->jumlah,
+            'kondisi' => $request->kondisi,
             'nama_supplier' => $request->nama_supplier,
             'pengirim' => $request->pengirim,
             'nama_barang' => $request->nama_barang,
             'penerima' => $request->penerima,
         ]);
-        return redirect('transaksi/brgmasuk');
+        return redirect('brgmasuk');
     }
 
     public function brgkeluar()
