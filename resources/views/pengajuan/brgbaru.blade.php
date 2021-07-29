@@ -280,8 +280,7 @@
                                                             <td>
                                                             <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
                                                                 @if ($data_baru->status === 6)
-                                                                <a href="pengajuan/editBaru/{{ $data_baru->id_pengajuan }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                                @endif
+                                                                <a href="pembelian/addpembelian/{{ $data_baru->noPO }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>                                                                @endif
                                                         @endif
 <!-------------------------------------------------------------- MARKETING ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "marketing")

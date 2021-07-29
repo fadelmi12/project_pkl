@@ -815,7 +815,7 @@
         }
         </script> -->
 
-
+        @yield('scripts')
 
 </body>
 
