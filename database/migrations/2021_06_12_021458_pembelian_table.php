@@ -15,14 +15,14 @@ class PembelianTable extends Migration
     {
         Schema::create('pembelian', function (Blueprint $table) {
             $table->increments('id_pembelian');
-            $table->string('namaBarang',50);
-            $table->date('tglBeli');
-            $table->string('harga',50);
-            $table->integer('jumlah');
-            $table->string('sisaBayar',50);
-            $table->string('totalBayar',50);
-            $table->string('status',50);
-            $table->string('PICAdmin',50);
+            $table->integer('noPO');
+            $table->string('namaBarang',50)->nullable();
+            $table->date('tglBeli')->nullable();
+            $table->string('harga',50)->nullable();
+            $table->integer('jumlah')->nullable();
+            $table->string('sisaBayar',50)->nullable();
+            $table->string('totalBayar',50)->nullable();
+            $table->string('status',50)->nullable();
             $table->timestamps();
         });
     }
