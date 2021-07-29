@@ -56,19 +56,14 @@ class PengajuanController extends Controller
     }
     public function deletebaru($id_pengajuan)
     {
-        // dd($id_jenis);
-        // dd($id_master);
-        // $data_kategori = Master::find($request->id_master);
         $baru = Pengajuan::where('id_pengajuan', $id_pengajuan)->first();
-        // // dd($barang);
         $baru->delete();
-        // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
 
     public function detailbaru($id_pengajuan)
     {
-        $data_baru = Pengajuan::all()->where('id_pengajuan', $id_pengajuan);
+        $data_baru = Pengajuan::where('id_pengajuan', $id_pengajuan)->first();
         return view('pengajuan/detailbaru', compact('data_baru'));
 
     }

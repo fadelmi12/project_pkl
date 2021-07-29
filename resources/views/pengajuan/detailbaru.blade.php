@@ -28,39 +28,40 @@
 					<table class="table table-hover mb-0">
                         <tr>
                             <th>No PO</th>
-                            <th></th>
+                            <th>{{ $data_baru->noPO }}</th>
 						</tr>
                         <tr>
                             <th>Nama Barang</th>
-                            <th></th>
+                            <th>{{ $data_baru->namaBarang }}</th>
+
 						</tr>
                         <tr>
                             <th>Jenis Barang</th>
-                            <th></th>
+                            <th>{{ $data_baru->jenisBarang }}</th>
 						</tr>
                         <tr>
                             <th>Jumlah Barang</th>
-                            <th>No</th>
+                            <th>{{ $data_baru->jmlBarang }}</th>
 						</tr>
                         <tr>
                             <th>Status</th>
-                            <th>No</th>
+                            <th>{{ $data_baru->status }}</th>
 						</tr>
                         <tr>
                             <th>Keterangan</th>
-                            <th>No</th>
+                            <th>{{ $data_baru->keterangan }}</th>
 						</tr>
                         <tr>
                             <th>PIC Teknisi</th>
-                            <th>No</th>
+                            <th>{{ $data_baru->pic_teknisi }}</th>
 						</tr>
                         <tr>
                             <th>PIC Marketing</th>
-                            <th>No</th>
+                            <th>{{ $data_baru->pic_marketing }}</th>
 						</tr>
                         <tr>
                             <th>PIC Warehouse</th>
-                            <th>No</th>
+                            <th>{{ $data_baru->pic_warehouse }}</th>
 						</tr>
 					</table>
 					</div>

@@ -26,9 +26,4 @@ class Pengajuan extends Model
             ->where('id_pengajuan', $id_pengajuan)
             ->update($data_baru);
     }
-
-    public function detail($id_pengajuan)
-    {
-        return DB::table('pengajuan')->where('id_pengajuan', $id_pengajuan)->first();
-    }
 }
