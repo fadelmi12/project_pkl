@@ -30,7 +30,7 @@
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
                         <p>
-                            <a href="addbaru" class="btn btn-success btn-icon-anim">Tambah baru
+                            <a href="addbaru" class="btn btn-success btn-icon-anim">Tambah Pengajuan
                             </a>
                         </p>
                         <div class="clearfix"></div>
@@ -113,7 +113,7 @@
     </div>
     @endif
 
-    @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin"||auth()->user()->divisi == "marketing")
+    @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin"||auth()->user()->divisi == "marketing"||auth()->user()->divisi == "purchasing")
 <!-- Main Content -->
 <div class="page-wrapper">
         <div class="container-fluid">
@@ -199,15 +199,19 @@
                                                                 Barang telah dibeli dan akan segera dikirim
                                                                 @else
                                                                 Pengajuan diproses Marketing
-                                                            @endif
+                                                                @endif
                                                             </td>
                                                             <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                                 <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
-                                                                <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
+                                                                @if ($data_baru->status >= 3)
+                                                                <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
+                                                                <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
+                                                                @else
+                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button>
+                                                                <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_baru->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-times"></i></button>
+                                                                @endif
                                                         @endif
 <!-------------------------------------------------------------- ADMIN ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "admin")
@@ -238,9 +242,13 @@
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                                 <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
-                                                                <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
+                                                                @if ($data_baru->status >= 5)
+                                                                <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
+                                                                <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
+                                                                @else
+                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button>
+                                                                <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_baru->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-times"></i></button>
+                                                                @endif
                                                         @endif
 <!-------------------------------------------------------------- PURCHASING ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "purchasing")
@@ -249,7 +257,7 @@
                                                             <td>{{ $data_baru->namaBarang}}</td>
                                                             <td>{{ $data_baru->jmlBarang}}</td>
                                                             <td>
-                                                            @if($data_baru->status === 1 )
+                                                                @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
                                                                 @elseif ($data_baru->status === 2 )
                                                                 Pengajuan disetujui Marketing
@@ -270,10 +278,10 @@
                                                             <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
-                                                                <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button></a>
-                                                                <a href="#"> <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-times"></i></button></a>
-                                                                <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" onclick="setEditForm( {{url('deletebaru')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-trash"></i></></button> -->
+                                                            <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                                @if ($data_baru->status === 6)
+                                                                <a href="pengajuan/editBaru/{{ $data_baru->id_pengajuan }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
+                                                                @endif
                                                         @endif
 <!-------------------------------------------------------------- MARKETING ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "marketing")
@@ -303,8 +311,13 @@
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                                 <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button></a>
-                                                                <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_baru->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-times"></i></button></a>
+                                                                @if ($data_baru->status >= 1)
+                                                                <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
+                                                                <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
+                                                                @else
+                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button>
+                                                                <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_baru->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-times"></i></button>
+                                                                @endif
                                                     @endif
                                                     </tr>
                                             @include('pengajuan.confirm')
