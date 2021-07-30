@@ -39,6 +39,14 @@
                                 <label class="control-label mb-10 text-left">Jumlah</label>
                                 <input type="number" id="jumlah_beli" name="jumlah_beli" class="form-control" rows="3"></textarea>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label mb-10 text-left">Jenis transaksi</label>
+                                <select class="form-control">
+                                    <option>Cash</option>
+                                    <option>Transfer</option>
+                                    <option>Hutang</option>
+                                </select>
+                            </div>
 
                             <div class="form-group">
                                 <button class="btn btn-success mr-5" name="submit" type="submit">Simpan</button>
