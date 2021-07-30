@@ -14,8 +14,9 @@ class PembelianController extends Controller
         return view('pembelian/pembelian', compact('pembelian'));
     }
 
-    public function addpembelian()
+    public function addpembelian($noPO)
     {
-        return view('pembelian/addpembelian');
+        $data_pembelian = Pembelian::find($noPO);
+        return view('pembelian/addpembelian', compact('data_pembelian'));
     }
 }

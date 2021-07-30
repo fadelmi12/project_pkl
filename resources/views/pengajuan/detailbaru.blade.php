@@ -6,30 +6,32 @@
     <div class="container-fluid">
 
     <!-- Title -->
-    <div class="row heading-bg">
+    <!-- <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                 <h5 class="txt-dark">Detail Pengajuan Barang Baru</h5>
             </div>
-            <!-- Breadcrumb -->
-            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            
+            <div class="col-lg-11 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="#"><span>Pengajuan</span></a></li>
                     <li class="active"><span>Barang Baru</span></li>
                 </ol>
             </div>
-            <!-- /Breadcrumb -->
-        </div>
+            
+        </div> -->
         <!-- /Title -->
 
-        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 mt-20">
             <div class="panel panel-default card-view">
 				<div class="panel-wrapper collapse in">
 					<div  class="panel-body">
 					    <div class="table-warp">
+                        <h5 class="txt-dark">Detail Pengajuan Barang Baru</h5>
                             <table class="table display">
+                            @foreach ($data_baru as $data_baru)
                                 <tr>
-                                    <th>No PO</th>
-                                    <th> : </th>
+                                    <th width="200px">No PO</th>
+                                    <th width="10px"> : </th>
                                     <th>{{ $data_baru->noPO }}</th>
                                 </tr>
                                 <tr>
@@ -73,6 +75,7 @@
                                     <th> : </th>
                                     <th>{{ $data_baru->pic_warehouse }}</th>
                                 </tr>
+                            @endforeach
                             </table>
                         <div>
                             <a href="/brgbaru"> <button class="btn btn-primary btn-icon-anim btn-square">back<i class="fa-arrow-rotate-left"></i></button></a>
