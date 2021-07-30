@@ -283,7 +283,7 @@
                 @if (auth()->user()->divisi == "purchasing")
                 <li>
                     <a href="/pembelian">
-                        <div class="pull-left"><i class="zmdi zmdi-account mr-20"></i><span class="right-nav-text">Pembelian</span></div>
+                        <div class="pull-left"><i class="zmdi zmdi-money-box mr-20"></i><span class="right-nav-text">Pembelian</span></div>
                         <div class="clearfix"></div>
                     </a>
                 </li>

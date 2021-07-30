@@ -332,8 +332,4 @@
     </div>
 @endif
         <!-- /#wrapper -->
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> 9c82898b19a352bddd5e1e295807fc4598a3d2f0
