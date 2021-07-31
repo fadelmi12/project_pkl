@@ -36,13 +36,18 @@
                                 <form action="{{ url('addbaru2') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                        <label class="control-label mb-10 text-left" for="example-email">Kode Pengajuan<span class="help"> </span></label>
-                                        <input type="text" id="kode_pengajuan" name="kode_pengajuan" class="form-control" placeholder="">
-                                    </div>
-                                    <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Nama pengajuan<span class="help"> </span></label>
                                         <input type="text" id="nama_pengajuan" name="nama_pengajuan" class="form-control" placeholder="">
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left" for="example-email">Kode Pengajuan<span class="help"> </span></label>
+                                        <input type="text" id="kode_pengajuan" name="kode_pengajuan" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="col-md-14" style="text-align:right;">
+                                        <button type="button" onclick="random()" class="btn btn-success ">Acak</button>
+                                    </div>
+
+
                                 </form>
                             </div>
                         </div>
@@ -166,5 +171,18 @@
             var row_id = $(this).attr("id");
             $('#row' + row_id + '').remove();
         });
+    </script>
+
+    <script>
+        function random() {
+            jQuery(document).ready(function($) {
+                $("#random").click(function() {
+                    var number = 1 + Math.floor(Math.random() * 6); //Change the 6 to be the number of random numbers you want to generate. So if you want 100 numbers, change to 100
+                    $("#number").text(number);
+
+                });
+
+            });
+        }
     </script>
     @endsection

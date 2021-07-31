@@ -790,7 +790,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/raphael/raphael.min.js"></script>
     <script src="{{asset('template')}}/vendors/bower_components/morris.js/morris.min.js"></script>
-    <script src="{{asset('template')}}/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    <!-- <script src="{{asset('template')}}/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script> -->
 
     <!-- Switchery JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/switchery/dist/switchery.min.js"></script>
