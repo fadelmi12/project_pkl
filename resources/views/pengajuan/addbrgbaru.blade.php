@@ -41,10 +41,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Kode Pengajuan<span class="help"> </span></label>
-                                        <input type="text" id="kode_pengajuan" name="kode_pengajuan" class="form-control" placeholder="">
+                                        <input type="text" id="kode_pengajuan" readonly="readonly" value="" name="kode_pengajuan" class="form-control" placeholder="">
                                     </div>
                                     <div class="col-md-14" style="text-align:right;">
-                                        <button type="button" onclick="random()" class="btn btn-success ">Acak</button>
+                                        <button type="button" onclick="randomStringToInput(this)" class="btn btn-success ">Acak</button>
                                     </div>
 
 
@@ -162,7 +162,6 @@
             addrow(kode_pengajuan, nama_pengajuan, nama_barang, jumlah, keterangan);
         }
         var i = 0;
-
         function addrow(kode_pengajuan, nama_pengajuan, nama_barang, jumlah, keterangan) {
             i++;
             $('#TabelDinamis').append('<tr id="row' + i + '"><td style="display:none;"><a name="kode_pengajuan[]" id="kode_pengajuan">' + kode_pengajuan + '</a></td><td style="display:none;"><a name="nama_pengajuan[]" id="nama_pengajuan">' + nama_pengajuan + '</a></td><td><a name="nama_barang[]" id="nama_barang">' + nama_barang + '</a></td><td><a name="jumlah[]" id="jumlah">' + jumlah + '</a></td><td><a name="keterangan[]" id="keterangan">' + keterangan + '</a></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
@@ -174,15 +173,26 @@
     </script>
 
     <script>
-        function random() {
-            jQuery(document).ready(function($) {
-                $("#random").click(function() {
-                    var number = 1 + Math.floor(Math.random() * 6); //Change the 6 to be the number of random numbers you want to generate. So if you want 100 numbers, change to 100
-                    $("#number").text(number);
+    function randomStringToInput(clicked_element)
+{
+    var self = $(clicked_element);
+    var random_string = generateRandomString(10);
+    $('input[name=kode_pengajuan]').val(random_string);
+}
 
-                });
+function generateRandomString(string_length)
+{
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var string = '';
 
-            });
-        }
+    for(var i = 0; i <= string_length; i++)
+    {
+        var rand = Math.round(Math.random() * (characters.length - 1));
+        var character = characters.substr(rand, 1);
+        string = string + character;
+    }
+
+    return string;
+}
     </script>
     @endsection
