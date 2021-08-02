@@ -56,7 +56,7 @@
                 </form>
             </div>
 
-        
+
             <div id="mobile_only_nav" class="mobile-only-nav pull-right">
                 <ul class="nav navbar-right top-nav pull-right">
                     <li class="dropdown alert-drp">
@@ -196,7 +196,7 @@
 
         <!-- Left Sidebar Menu -->
         <div class="fixed-sidebar-left">
-            <ul class="nav navbar-nav side-nav nicescroll-bar"> 
+            <ul class="nav navbar-nav side-nav nicescroll-bar">
                 <li class="navigation-header">
                     <span><strong>{{ Auth::user()->name }}</strong></span>
                     <i class="zmdi zmdi-more"></i>
@@ -276,6 +276,14 @@
                 <li>
                     <a href="/peminjaman">
                         <div class="pull-left"><i class="zmdi zmdi-balance-wallet mr-20"></i><span class="right-nav-text">Peminjaman</span></div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                @endif
+                @if (auth()->user()->divisi == "purchasing")
+                <li>
+                    <a href="/pembelian">
+                        <div class="pull-left"><i class="zmdi zmdi-money-box mr-20"></i><span class="right-nav-text">Pembelian</span></div>
                         <div class="clearfix"></div>
                     </a>
                 </li>
@@ -747,7 +755,7 @@
     <!-- JavaScript -->
 
     <!-- jQuery -->
-    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>  
+    <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -782,7 +790,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/raphael/raphael.min.js"></script>
     <script src="{{asset('template')}}/vendors/bower_components/morris.js/morris.min.js"></script>
-    <script src="{{asset('template')}}/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    <!-- <script src="{{asset('template')}}/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script> -->
 
     <!-- Switchery JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/switchery/dist/switchery.min.js"></script>
@@ -806,8 +814,9 @@
             return true;
         }
         </script> -->
-    
 
+        @yield('scripts')
 
 </body>
+
 </html>

@@ -30,26 +30,20 @@ class TransaksiController extends Controller
     public function addmasuk2(Request $request)
     {
 
-
         $kode = strtoupper(substr($request->tgl_transaksi, 0, 10));
         $check = count(TransaksiModel::where('no_transaksi', 'like', "%$kode%")->get()->toArray());
         $angka = sprintf("%03d", (int)$check + 1);
-        $no_transaksi = "TRK-" . $kode . "-" . $angka;
-
-        // $kode = strtoupper(substr("SUPPLIER", 0, 3));
-        // $check = count(SupplierModel::where('kode_supplier', 'like', "%$kode%")->get()->toArray());
-        // $angka = sprintf("%03d", (int)$check + 1);
-        // $kode_supplier = $kode . "" . $angka;
+        $no_transaksi = "TM-" . $kode . "-" . $angka;
 
         TransaksiModel::create([
             'no_transaksi' => $no_transaksi,
-            'jns_transaksi' => $request->jns_transaksi,
             'tgl_transaksi' => $request->tgl_transaksi,
+            'jns_transaksi' => $request->jns_transaksi,
+            'nama_supplier' => $request->nama_supplier,
+            'nama_barang' => $request->nama_barang,
             'jumlah' => $request->jumlah,
             'kondisi' => $request->kondisi,
-            'nama_supplier' => $request->nama_supplier,
             'pengirim' => $request->pengirim,
-            'nama_barang' => $request->nama_barang,
             'penerima' => $request->penerima,
         ]);
         return redirect('brgmasuk');

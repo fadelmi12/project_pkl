@@ -6,64 +6,88 @@
     <div class="container-fluid">
 
     <!-- Title -->
-    <div class="row heading-bg">
+    <!-- <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                 <h5 class="txt-dark">Detail Pengajuan Barang Baru</h5>
             </div>
-            <!-- Breadcrumb -->
-            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            
+            <div class="col-lg-11 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="#"><span>Pengajuan</span></a></li>
                     <li class="active"><span>Barang Baru</span></li>
                 </ol>
             </div>
-            <!-- /Breadcrumb -->
-        </div>
+            
+        </div> -->
         <!-- /Title -->
 
-        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 mt-20">
             <div class="panel panel-default card-view">
 				<div class="panel-wrapper collapse in">
-					<div  class="panel-body row pa-0">
-					<table class="table table-hover mb-0">
-                        <tr>
-                            <th>No PO</th>
-                            <th>{{ $data_baru->noPO }}</th>
-						</tr>
-                        <tr>
-                            <th>Nama Barang</th>
-                            <th>{{ $data_baru->namaBarang }}</th>
+					<div  class="panel-body">
+					    <div class="table-warp">
+                        <h5 class="txt-dark">Detail Pengajuan Barang Baru</h5>
+                            <table class="table display">
+                            @foreach ($data_baru as $data_baru)
+                                <tr>
+                                    <th width="200px">No PO</th>
+                                    <th width="10px"> : </th>
+                                    <th>{{ $data_baru->noPO }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Nama Barang</th>
+                                    <th> : </th>
+                                    <th>{{ $data_baru->namaBarang }}</th>
 
-						</tr>
-                        <tr>
-                            <th>Jenis Barang</th>
-                            <th>{{ $data_baru->jenisBarang }}</th>
-						</tr>
-                        <tr>
-                            <th>Jumlah Barang</th>
-                            <th>{{ $data_baru->jmlBarang }}</th>
-						</tr>
-                        <tr>
-                            <th>Status</th>
-                            <th>{{ $data_baru->status }}</th>
-						</tr>
-                        <tr>
-                            <th>Keterangan</th>
-                            <th>{{ $data_baru->keterangan }}</th>
-						</tr>
-                        <tr>
-                            <th>PIC Teknisi</th>
-                            <th>{{ $data_baru->pic_teknisi }}</th>
-						</tr>
-                        <tr>
-                            <th>PIC Marketing</th>
-                            <th>{{ $data_baru->pic_marketing }}</th>
-						</tr>
-                        <tr>
-                            <th>PIC Warehouse</th>
-                            <th>{{ $data_baru->pic_warehouse }}</th>
-						</tr>
-					</table>
+                                </tr>
+                                <tr>
+                                    <th>Jenis Barang</th>
+                                    <th> : </th>
+                                    <th>{{ $data_baru->jenisBarang }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Jumlah Barang</th>
+                                    <th> : </th>
+                                    <th>{{ $data_baru->jmlBarang }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <th> : </th>
+                                    <th>{{ $data_baru->status }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Keterangan</th>
+                                    <th> : </th>
+                                    <th>{{ $data_baru->keterangan }}</th>
+                                </tr>
+                                <tr>
+                                    <th>PIC Teknisi</th>
+                                    <th> : </th>
+                                    <th>{{ $data_baru->pic_teknisi }}</th>
+                                </tr>
+                                <tr>
+                                    <th>PIC Marketing</th>
+                                    <th> : </th>
+                                    <th>{{ $data_baru->pic_marketing }}</th>
+                                </tr>
+                                <tr>
+                                    <th>PIC Warehouse</th>
+                                    <th> : </th>
+                                    <th>{{ $data_baru->pic_warehouse }}</th>
+                                </tr>
+                            @endforeach
+                            </table>
+                        <div>
+                            <a href="/brgbaru"> <button class="btn btn-primary btn-icon-anim btn-square">back<i class="fa-arrow-rotate-left"></i></button></a>
+                            @if ($data_baru->status >= 1)
+                                <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
+                                <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
+                                @else
+                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button>
+                                <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_baru->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-times"></i></button>
+                            @endif
+                        </div>
+                        </div>
 					</div>
 				</div>
 			</div>

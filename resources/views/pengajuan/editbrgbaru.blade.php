@@ -10,14 +10,14 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">Edit pengajuan baru barang</h5>
+                <h5 class="txt-dark">Tambah data pembelian</h5>
             </div>
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Pengajuan</a></li>
+                    <li><a href="index.html">Pembelian</a></li>
                     <li><a href="#"><span>Barang baru</span></a></li>
-                    <li class="active"><span>edit pengajuan baru barang</span></li>
+                    <li class="active"><span>Tambah data pembelian</span></li>
                 </ol>
             </div>
             <!-- /Breadcrumb -->

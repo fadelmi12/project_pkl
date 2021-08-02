@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Data Transaksi')
+@section('title', 'Data Pembelian')
 @section('content')
 
 <!-- Main Content -->
@@ -8,13 +8,13 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">Data Barang Masuk</h5>
+                <h5 class="txt-dark">Data Pembelian</h5>
             </div>
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
-                    <li><a href="inventory">Transaksi</a></li>
-                    <li class="active"><span>Data Barang MAsuk</span></li>
+                    <!-- <li><a href="inventory"></a></li> -->
+                    <li class="active"><span>Data Pembelian</span></li>
                 </ol>
             </div>
             <!-- /Breadcrumb -->
@@ -25,13 +25,9 @@
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
                         <div class="pull-left">
-                            <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
-                            <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
-                            <a href="brgmasuk/addmasuk" class="btn btn-success float-right col-mr-3"><i class="fa fa succes"></i>
-                                Tambah Data
-                            </a>
-                            <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
+                            <a href="pembelian/addpembelian" class="btn btn-success">Tambah Data</a>
                         </div>
+
                         <div class="clearfix"></div>
                         <div id="myTable1_wrapper" class="dataTables_wrapper">
                             <div class="dataTables_length" id="myTable1_length"><label>Show <select name="myTable1_length" aria-controls="myTable1" class="">
@@ -52,42 +48,36 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>No transaksi</th>
-                                                <th>Supplier</th>
-                                                <th>Jenis transaksi</th>
-                                                <th>Tanggal Transaksi</th>
-                                                <th>Created at</th>
-                                                <!-- <th>Pengirim</th> -->
-                                                <!-- <th>Penerima</th>/ -->
-                                                <!-- <th>Ekspedisi</th> -->
-                                                <!-- <th>Kondisi</th> -->
+                                                <th>No PO</th>
+                                                <th>Nama Barang</th>
+                                                <th>Jumlah</th>
+                                                <th>Harga</th>
+                                                <th>tanggal Beli</th>
+                                                <th>Total bayar</th>
+                                                <th>Status</th>
                                                 <th colspan="3">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            @foreach($transaksi_masuk as $transaksi_masuk)
+                                            @foreach($pembelian as $pembelian)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $transaksi_masuk->no_transaksi}}</td>
-                                                <td>{{ $transaksi_masuk->nama_supplier }}</td>
-                                                <td>{{ $transaksi_masuk->jns_transaksi }}</td>
-                                                <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
-                                                <td>{{ $transaksi_masuk->created_at }}</td>
-                                                <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
-                                                <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->
-                                                <!-- <td>{{ $transaksi_masuk->ekspedisi }}</td> -->
-                                                <!-- <td>{{ $transaksi_masuk->kondisi }}</td> -->
+                                                <td>{{ $pembelian->noPO }}</td>
+                                                <td>{{ $pembelian->namaBarang }}</td>
+                                                <td>{{ $pembelian->jumlah }}</td>
+                                                <td>{{ $pembelian->harga }}</td>
+                                                <td>{{ $pembelian->tglBeli }}</td>
+                                                <td>{{ $pembelian->totalBayar }}</td>
+                                                <td>{{ $pembelian->status }}</td>
                                                 <td>
-                                                    <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
-                                                    <a href="#"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
+                                                <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
+                                                <a href="#"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                     <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#" action="#"><i class="fa fa-trash"></i></button>
-
                                                 </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
-                                        @include('transaksi.editbrgmasuk')
                                     </table>
                                 </div>
                             </div>
@@ -97,7 +87,6 @@
             </div>
         </div>
         <!-- /Row -->
-        @include('transaksi.hapusbrngmasuk')
     </div>
 </div>
 <!-- /Main Content -->
