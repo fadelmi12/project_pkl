@@ -157,18 +157,15 @@
     @section('scripts')
     <script type="text/javascript">
         function ambildata() {
-            var kode_pengajuan = document.getElementById('kode_pengajuan').value;
-            var nama_pengajuan = document.getElementById('nama_pengajuan').value;
             var nama_barang = document.getElementById('nama_barang').value;
             var jumlah = document.getElementById('jumlah').value;
             var keterangan = document.getElementById('keterangan').value;
             addrow(kode_pengajuan, nama_pengajuan, nama_barang, jumlah, keterangan);
         }
         var i = 0;
-
         function addrow(kode_pengajuan, nama_pengajuan, nama_barang, jumlah, keterangan) {
             i++;
-            $('#TabelDinamis').append('<tr id="row' + i + '"><td style="display:none;"><a name="kode_pengajuan[]" id="kode_pengajuan">' + kode_pengajuan + '</a></td><td style="display:none;"><a name="nama_pengajuan[]" id="nama_pengajuan">' + nama_pengajuan + '</a></td><td><a name="nama_barang[]" id="nama_barang">' + nama_barang + '</a></td><td><a name="jumlah[]" id="jumlah">' + jumlah + '</a></td><td><a name="keterangan[]" id="keterangan">' + keterangan + '</a></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
+            $('#TabelDinamis').append('<tr id="row' + i + '"><td style="display:none;"><a name="nama_barangRow" id="nama_barang">' + nama_barang + '</a></td><td><a name="jumlahRow" id="jumlah">' + jumlah + '</a></td><td><a name="keteranganRow" id="keterangan">' + keterangan + '</a></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
         };
         $(document).on('click', '.remove_row', function() {
             var row_id = $(this).attr("id");
