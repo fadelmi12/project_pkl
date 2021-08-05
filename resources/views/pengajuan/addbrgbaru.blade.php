@@ -129,9 +129,9 @@
                                             </thead>
                                             <tbody id="TabelDinamis">
                                                 <tr>
-                                                    <td><a name="nama_barang[]" id="nama_barang"></a></td>
-                                                    <td><a name="jumlah[]" id="jumlah"></a></td>
-                                                    <td><a name="keterangan[]" id="keterangan"></a></td>
+                                                    <td><a name="nama_barangRow" id="nama_barang"></a></td>
+                                                    <td><a name="jumlahRow" id="jumlah"></a></td>
+                                                    <td><a name="keteranganRow" id="keterangan"></a></td>
                                                     <!-- <td><button type="button" class="btn btn-danger btn-small">&times;</button></td> -->
                                                 </tr>
                                             </tbody>
