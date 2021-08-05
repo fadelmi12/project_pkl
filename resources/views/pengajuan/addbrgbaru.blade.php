@@ -157,8 +157,6 @@
     @section('scripts')
     <script type="text/javascript">
         function ambildata() {
-            // var kode_pengajuan = document.getElementById('kode_pengajuan').value;
-            // var nama_pengajuan = document.getElementById('nama_pengajuan').value;
             var nama_barang = document.getElementById('nama_barang').value;
             var jumlah = document.getElementById('jumlah').value;
             var keterangan = document.getElementById('keterangan').value;
@@ -166,7 +164,7 @@
         }
         var i = 0;
 
-        function addrow(kode_pengajuan, nama_pengajuan, nama_barang, jumlah, keterangan) {
+        function addrow(nama_barang, jumlah, keterangan) {
             i++;
             $('#TabelDinamis').append('<tr id="row' + i + '"><td><a name="nama_barangROW" id="nama_barang">' + nama_barang + '</a></td><td><a name="jumlahROW" id="jumlah">' + jumlah + '</a></td><td><a name="keteranganROW" id="keterangan">' + keterangan + '</a></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
         };
