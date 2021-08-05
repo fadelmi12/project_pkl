@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengajuan;
+use App\Models\DetailPengajuan;
 use App\Models\Pembelian;
+use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
@@ -36,7 +37,7 @@ class PengajuanController extends Controller
             ]
         );
 
-        Pembelian::create(
+        DetailPengajuan::create(
             [
                 'kode' => $request->kode_pengajuan,
                 'namaBarang' => $request->nama_barangRow,
@@ -47,6 +48,7 @@ class PengajuanController extends Controller
         );
         return redirect('/brgbaru');
     }
+
     public function editBaru($id_pengajuan)
     {
         $data_baru = Pengajuan::find($id_pengajuan);
@@ -65,14 +67,19 @@ class PengajuanController extends Controller
     }
     public function deletebaru($id_pengajuan)
     {
+        // dd($id_jenis);
+        // dd($id_master);
+        // $data_kategori = Master::find($request->id_master);
         $baru = Pengajuan::where('id_pengajuan', $id_pengajuan)->first();
+        // // dd($barang);
         $baru->delete();
+        // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
 
     public function detailbaru($id_pengajuan)
     {
-        $data_baru = Pengajuan::where('id_pengajuan', $id_pengajuan)->first();
+        $data_baru = Pengajuan::all()->where('id_pengajuan', $id_pengajuan);
         return view('pengajuan/detailbaru', compact('data_baru'));
 
     }
