@@ -29,11 +29,20 @@ class PengajuanController extends Controller
         $baru = 'Baru';
         Pengajuan::create(
             [
-                'namaBarang' => $request->namaBarang,
-                'jmlBarang' => $request->jmlBarang,
-                'keterangan' => $request->keterangan,
+                'judul' => $request->nama_pengajuan,
+                'kode' => $request->kode_pengajuan,
                 'jenisBarang' => $baru,
                 'pic_teknisi' => $user->name
+            ]
+        );
+
+        Pembelian::create(
+            [
+                'kode' => $request->kode_pengajuan,
+                'namaBarang' => $request->nama_barangRow,
+                'jmlBarang' => $request->jumlahRow,
+                'keterangan' => $request->keteranganRow,
+                'jenisBarang' => $baru,
             ]
         );
         return redirect('/brgbaru');

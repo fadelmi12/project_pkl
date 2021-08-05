@@ -15,9 +15,11 @@ class DetailPengajuanTable extends Migration
     {
         Schema::create('detail_pengajuan', function (Blueprint $table) {
             $table->increments('id_detailPengajuan');
+            $table->string('kode',50);
             $table->integer('noPO')->nullable();
             $table->string('namaBarang',50);
             $table->integer('jmlBarang');
+            $table->string('jenisBarang',50);
             $table->string('keterangan',50)->nullable();
             $table->timestamps();
         });
