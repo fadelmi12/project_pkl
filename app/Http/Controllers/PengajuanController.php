@@ -45,6 +45,8 @@ class PengajuanController extends Controller
                 'jenisBarang' => $baru,
             ]
         );
+        return redirect('/brgbaru');
+    }
     public function editBaru($id_pengajuan)
     {
         $data_baru = Pengajuan::find($id_pengajuan);
