@@ -29,15 +29,22 @@ class PengajuanController extends Controller
         $baru = 'Baru';
         Pengajuan::create(
             [
-                'namaBarang' => $request->namaBarang,
-                'jmlBarang' => $request->jmlBarang,
-                'keterangan' => $request->keterangan,
+                'judul' => $request->nama_pengajuan,
+                'kode' => $request->kode_pengajuan,
                 'jenisBarang' => $baru,
                 'pic_teknisi' => $user->name
             ]
         );
-        return redirect('/brgbaru');
-    }
+
+        Pembelian::create(
+            [
+                'kode' => $request->kode_pengajuan,
+                'namaBarang' => $request->nama_barangRow,
+                'jmlBarang' => $request->jumlahRow,
+                'keterangan' => $request->keteranganRow,
+                'jenisBarang' => $baru,
+            ]
+        );
     public function editBaru($id_pengajuan)
     {
         $data_baru = Pengajuan::find($id_pengajuan);
