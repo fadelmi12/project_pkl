@@ -48,7 +48,7 @@
                                         <input type="text" class="form-control" name="nama_barang" id="nama_barang">
                                         @if ($errors->has('nama_barang'))
                                         <div class="tulisan">{{$errors->first('nama_barang')}}</div>
-                                        @endif
+                                        @endif 
                                     </div>
 
                                     <div class="form-group">

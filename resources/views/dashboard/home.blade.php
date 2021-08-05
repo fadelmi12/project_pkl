@@ -68,7 +68,7 @@
                                 // Optional; add a title and set the width and height of the chart
                                 var options = {
                                     'title': 'Data Barang',
-                                    'width': 600,
+                                    'width': 550,
                                     'height': 400
                                 };
 
@@ -114,7 +114,7 @@
                         </div> -->
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="panel panel-default card-view">
                 <div class="panel-wrapper collapse in">
                     <div class="panel-body sm-data-box-1">
@@ -229,7 +229,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- /Row -->
 </div>
