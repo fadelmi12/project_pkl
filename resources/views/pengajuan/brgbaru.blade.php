@@ -164,7 +164,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Nama Barang</th>
+                                                    <th>Nama Pengajuan</th>
                                                     <th>Jumlah</th>
                                                     <th>Status</th>
                                                     <th>Keterangan</th>
@@ -180,8 +180,8 @@
                                                     @if (auth()->user()->divisi == "warehouse")
                                                         @if($data_baru->status >=2 )
                                                             <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->namaBarang}}</td>
-                                                            <td>{{ $data_baru->jmlBarang}}</td>
+                                                            <td>{{ $data_baru->judul}}</td>
+                                                            <td>{{ $data_baru->jumlah}}</td>
                                                             <td>
                                                                 @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing

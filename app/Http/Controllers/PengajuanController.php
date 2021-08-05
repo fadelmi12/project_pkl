@@ -26,27 +26,22 @@ class PengajuanController extends Controller
 
     public function addbaru2(Request $request)
     {
-        $user = Auth::user();
-        $baru = 'Baru';
-        Pengajuan::create(
-            [
-                'judul' => $request->nama_pengajuan,
-                'kode' => $request->kode_pengajuan,
-                'jenisBarang' => $baru,
-                'pic_teknisi' => $user->name
-            ]
-        );
+        // Print_r($request->nama_barang[1]);
+        // exit;
+        $jumlah_data = count($request->nama_barang);
+        for ($i = 0; $i < $jumlah_data; $i++) {
 
-        DetailPengajuan::create(
-            [
-                'kode' => $request->kode_pengajuan,
-                'namaBarang' => $request->nama_barangRow,
-                'jmlBarang' => $request->jumlahRow,
-                'keterangan' => $request->keteranganRow,
-                'jenisBarang' => $baru,
-            ]
-        );
-        return redirect('/brgbaru');
+            Pengajuan::create(
+                [
+                    'kode' => $request->kode_pengajuan[$i],
+                    'judul' => $request->nama_pengajuan[$i],
+                    'namaBarang' => $request->nama_barang[$i],
+                    'jumlah' => $request->jumlah[$i],
+                    'keterangan' => $request->keterangan[$i]
+                ]
+            );
+        }
+            return redirect('/brgbaru');
     }
 
     public function editBaru($id_pengajuan)
@@ -81,7 +76,6 @@ class PengajuanController extends Controller
     {
         $data_baru = Pengajuan::all()->where('id_pengajuan', $id_pengajuan);
         return view('pengajuan/detailbaru', compact('data_baru'));
-
     }
 
     //-----------------------------------------retur---------------------------------------------------------------//    
@@ -139,69 +133,65 @@ class PengajuanController extends Controller
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
-    
-//-----------------------------------------confirm/reject---------------------------------------------------------------//
+
+    //-----------------------------------------confirm/reject---------------------------------------------------------------//
 
     public function Reject(Request $request)
     {
         $user = Auth::user();
-        if ($user->divisi == "marketing"){
+        if ($user->divisi == "marketing") {
             Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
                 ->update([
                     'pic_marketing' => $user->name,
                     'status' => '1'
                 ]);
-        }
-        elseif ($user->divisi == "warehouse"){
+        } elseif ($user->divisi == "warehouse") {
             Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
                 ->update([
                     'pic_warehouse' => $user->name,
                     'status' => '3'
                 ]);
-        }
-        elseif ($user->divisi == "admin"){
+        } elseif ($user->divisi == "admin") {
             Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
                 ->update([
                     'pic_admin' => $user->name,
                     'status' => '5'
                 ]);
         }
-        
+
         return back()->with('success', "Data telah diperbarui");
     }
 
     public function Confirm(Request $request)
     {
         $user = Auth::user();
-        if ($user->divisi == "marketing"){
+        if ($user->divisi == "marketing") {
             Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
                 ->update([
                     'noPO' => $request->edit_noPO,
                     'pic_marketing' => $user->name,
                     'status' => '2'
                 ]);
-        }
-        elseif ($user->divisi == "warehouse"){
+        } elseif ($user->divisi == "warehouse") {
             Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
                 ->update([
                     'pic_warehouse' => $user->name,
                     'status' => '4'
                 ]);
-        }
-        elseif ($user->divisi == "admin"){
+        } elseif ($user->divisi == "admin") {
             Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
                 ->update([
                     'pic_admin' => $user->name,
                     'status' => '6'
                 ]);
             Pembelian::create(
-            [
-                'noPO' => $request->po 
-            ]
+                [
+                    'noPO' => $request->po
+                ]
 
-        );
+            );
         }
-        
+
         return back()->with('success', "Data telah diperbarui");
     }
 }
