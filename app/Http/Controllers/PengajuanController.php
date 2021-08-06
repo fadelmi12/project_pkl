@@ -31,13 +31,12 @@ class PengajuanController extends Controller
         $jumlah_data = count($request->nama_barang);
         for ($i = 0; $i < $jumlah_data; $i++) {
 
-            Pengajuan::create(
+            DetailPengajuan::create(
                 [
-                    'kode' => $request->kode_pengajuan[$i],
-                    'judul' => $request->nama_pengajuan[$i],
                     'namaBarang' => $request->nama_barang[$i],
-                    'jumlah' => $request->jumlah[$i],
-                    'keterangan' => $request->keterangan[$i]
+                    'jmlBarang' => $request->jumlah[$i],
+                    'keterangan' => $request->keterangan[$i],
+                    'jenisBarang' => 'Baru'
                 ]
             );
         }
