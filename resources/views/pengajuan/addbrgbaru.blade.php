@@ -133,8 +133,6 @@
     @section('scripts')
     <script type="text/javascript">
         function ambildata() {
-            var nama_pengajuan = document.getElementById('nama_pengajuan').value;
-            var kode_pengajuan = document.getElementById('kode_pengajuan').value;
             var nama_barang = document.getElementById('nama_barang').value;
             var jumlah = document.getElementById('jumlah').value;
             var keterangan = document.getElementById('keterangan').value;
@@ -144,7 +142,7 @@
 
         function addrow(nama_pengajuan, kode_pengajuan, nama_barang, jumlah, keterangan) {
             i++;
-            $('#TabelDinamis').append('<tr id="row' + i + '"><td style="display:none;"><input type="text"  name="nama_pengajuan[]" id="nama_pengajuan" value="'+nama_pengajuan+'"></td><td style="display:none;"><input type="text" name="kode_pengajuan[]" id="kode_pengajuan" value="'+kode_pengajuan+'"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="'+nama_barang+'"></td><td><input type="text" style="outline:none;border:0;" name="jumlah[]" id="jumlah" value="'+jumlah+'"></td><td><input type="text" style="outline:none;border:0;" name="keterangan[]" id="keterangan" value="'+keterangan+'"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
+            $('#TabelDinamis').append('<tr id="row' + i + '"><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="'+nama_barang+'"></td><td><input type="text" style="outline:none;border:0;" name="jumlah[]" id="jumlah" value="'+jumlah+'"></td><td><input type="text" style="outline:none;border:0;" name="keterangan[]" id="keterangan" value="'+keterangan+'"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
         };
         $(document).on('click', '.remove_row', function() {
             var row_id = $(this).attr("id");
