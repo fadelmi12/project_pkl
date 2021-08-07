@@ -33,8 +33,8 @@
                     <div class="panel-wrapper collapse in ">
                         <div class="panel-body">
                             <div class="form-wrap mt-3">
-                                <!-- <form action="{{ url('addbaru2') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf -->
+                                <form action="{{ url('addbaru2') }}" id="form1" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                 <div class="form-group">
                                     <label class="control-label mb-10 text-left" for="example-email">Nama pengajuan<span class="help"> </span></label>
                                     <input type="text" id="nama_pengajuan" name="nama_pengajuan" class="form-control" placeholder="">
@@ -68,7 +68,7 @@
 
                                 </div>
 
-                                <!-- </form> -->
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
-                            <form action="{{ url('addbaru2') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('addbaru2') }}" id="form2" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="">
                                     <div class="col">
@@ -111,11 +111,9 @@
                                                     <td><button type="button" class="btn btn-danger btn-small">&times;</button></td>
                                                 </tr> -->
                                             </tbody>
-
                                         </table>
-
                                         <div class="col-md-12" style="text-align:right;">
-                                            <button type="submit" name="submit" class="btn btn-primary ">Simpan</button>
+                                            <button type="button" onclick="submitForm()" class="btn btn-primary ">Simpan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -148,6 +146,11 @@
             var row_id = $(this).attr("id");
             $('#row' + row_id + '').remove();
         });
+
+        submitForm =function submitForm(){
+            document.getElementById("form1").submit();
+            document.getElementById("form2").submit();
+}
     </script>
 
     <script>
