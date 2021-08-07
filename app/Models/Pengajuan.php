@@ -11,7 +11,7 @@ class Pengajuan extends Model
     use HasFactory;
     protected $table = "pengajuan";
     protected $primaryKey = "id_pengajuan";
-    protected $fillable = ['id_pengajuan','kode', 'noPO','judul','namaBarang', 'jumlah', 'keterangan', 'status', 'pic_teknisi'
+    protected $fillable = ['id_pengajuan','kode', 'noPO','judul', 'status','jenisBarang', 'pic_teknisi'
                             , 'pic_marketing','pic_warehouse','created_at'];
                             
 
