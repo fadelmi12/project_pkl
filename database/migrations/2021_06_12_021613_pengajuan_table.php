@@ -19,6 +19,7 @@ class PengajuanTable extends Migration
             $table->integer('noPO')->nullable();
             $table->string('judul',50);
             $table->integer('status')->nullable();
+            $table->string('jenisBarang',50);
             $table->string('pic_teknisi',50)->nullable();
             $table->string('pic_marketing',50)->nullable();
             $table->string('pic_warehouse',50)->nullable();
