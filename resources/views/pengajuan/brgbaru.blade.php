@@ -54,10 +54,8 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Barang</th>
-                                                <th>Jumlah</th>
+                                                <th>Nama Pengajuan</th>
                                                 <th>Status</th>
-                                                <th>Keterangan</th>
                                                 <th>Tanggal pengajuan</th>
                                                 <th>Aksi</th>
                                             </tr>
@@ -67,8 +65,7 @@
                                             @foreach ($data_baru as $data_baru)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $data_baru->namaBarang}}</td>
-                                                <td>{{ $data_baru->jmlBarang}}</td>
+                                                <td>{{ $data_baru->judul}}</td>
                                                 <td>
                                                     @if($data_baru->status === 1 )
                                                         Pengajuan ditolak Marketing
@@ -88,7 +85,6 @@
                                                         Pengajuan diproses Marketing
                                                     @endif
                                                 </td>
-                                                <td>{{ $data_baru->keterangan}}</td>
                                                 <td>{{ $data_baru->created_at}}</td>
                                                 <td>
                                                 @if ($data_baru->status >= 1)
@@ -164,10 +160,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
+                                                    <th>No</th>
                                                     <th>Nama Pengajuan</th>
-                                                    <th>Jumlah</th>
                                                     <th>Status</th>
-                                                    <th>Keterangan</th>
                                                     <th>Tanggal pengajuan</th>
                                                     <th>Aksi</th>
                                                 </tr>
@@ -181,7 +176,6 @@
                                                         @if($data_baru->status >=2 )
                                                             <td>{{ $no++ }}</td>
                                                             <td>{{ $data_baru->judul}}</td>
-                                                            <td>{{ $data_baru->jumlah}}</td>
                                                             <td>
                                                                 @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
@@ -201,7 +195,6 @@
                                                                 Pengajuan diproses Marketing
                                                                 @endif
                                                             </td>
-                                                            <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                                 <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
@@ -217,8 +210,7 @@
                                                     @elseif (auth()->user()->divisi == "admin")
                                                         @if ($data_baru->status >= 4 )
                                                         <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->namaBarang}}</td>
-                                                            <td>{{ $data_baru->jmlBarang}}</td>
+                                                            <td>{{ $data_baru->judul}}</td>
                                                             <td>
                                                                 @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
@@ -238,7 +230,6 @@
                                                                 Pengajuan diproses Marketing
                                                                 @endif
                                                             </td>
-                                                            <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                                 <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
@@ -254,8 +245,7 @@
                                                     @elseif (auth()->user()->divisi == "purchasing")
                                                         @if ($data_baru->status >= 6 )
                                                             <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->namaBarang}}</td>
-                                                            <td>{{ $data_baru->jmlBarang}}</td>
+                                                            <td>{{ $data_baru->judul}}</td>
                                                             <td>
                                                                 @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
@@ -275,7 +265,6 @@
                                                                 Pengajuan diproses Marketing
                                                                 @endif
                                                             </td>
-                                                            <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                             <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
@@ -285,8 +274,7 @@
 <!-------------------------------------------------------------- MARKETING ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "marketing")
                                                             <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->namaBarang}}</td>
-                                                            <td>{{ $data_baru->jmlBarang}}</td>
+                                                            <td>{{ $data_baru->judul}}</td>
                                                             <td>
                                                             @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
@@ -306,7 +294,6 @@
                                                                 Pengajuan diproses Marketing
                                                                 @endif
                                                             </td>
-                                                            <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                                 <a href="/pengajuan/detailbaru/{{$data_baru->id_pengajuan}}"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
