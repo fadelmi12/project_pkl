@@ -39,9 +39,19 @@
                                         <label class="control-label mb-10 text-left" for="example-email">Nama pengajuan<span class="help"> </span></label>
                                         <input type="text" id="nama_pengajuan" name="nama_pengajuan" class="form-control" placeholder="">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label mb-10 text-left" for="example-email">Kode Pengajuan<span class="help"> </span></label>
-                                        <input type="text" id="kode_pengajuan" readonly="readonly" value="" name="kode_pengajuan" class="form-control" placeholder="">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <label class="control-label mb-10 text-left" for="example-email">Kode Pengajuan<span class="help"> </span></label>
+                                                <input type="text" id="kode_pengajuan" readonly="readonly" value="" name="kode_pengajuan" class="form-control" placeholder="">
+                                                <!-- <button type="button" onclick="randomStringToInput(this)" class="btn btn-success ">Acak Kode</button> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mt-30">
+                                            <div class="form-group">
+                                                <button type="button" onclick="randomStringToInput(this)" class="btn btn-success">Acak Kode</button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -63,7 +73,7 @@
                                         <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group" style="text-align:right;">
-                                        <button type="button" onclick="randomStringToInput(this)" class="btn btn-success ">Acak Kode</button>
+                                        <!-- <button type="button" onclick="randomStringToInput(this)" class="btn btn-success ">Acak Kode</button> -->
                                         <button type="button" onclick="ambildata()" class="btn btn-primary ">Tambah Data</button>
                                     </div>
 
