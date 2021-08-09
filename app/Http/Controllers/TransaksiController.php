@@ -35,17 +35,21 @@ class TransaksiController extends Controller
         $angka = sprintf("%03d", (int)$check + 1);
         $no_transaksi = "TM-" . $kode . "-" . $angka;
 
-        TransaksiModel::create([
-            'no_transaksi' => $no_transaksi,
-            'tgl_transaksi' => $request->tgl_transaksi,
-            'jns_transaksi' => $request->jns_transaksi,
-            'nama_supplier' => $request->nama_supplier,
-            'nama_barang' => $request->nama_barang,
-            'jumlah' => $request->jumlah,
-            'kondisi' => $request->kondisi,
-            'pengirim' => $request->pengirim,
-            'penerima' => $request->penerima,
-        ]);
+        $jumlah_data = count($request->nama_barang);
+        for ($i = 0; $i < $jumlah_data; $i++) {
+
+            TransaksiModel::create([
+                'no_transaksi' => $no_transaksi,
+                'tgl_transaksi' => $request->tgl_transaksi[$i],
+                'jns_transaksi' => $request->jns_transaksi[$i],
+                'nama_supplier' => $request->nama_supplier[$i],
+                'nama_barang' => $request->nama_barang[$i],
+                'jumlah' => $request->jumlah[$i],
+                'kondisi' => $request->kondisi[$i],
+                'pengirim' => $request->pengirim[$i],
+                'penerima' => $request->penerima[$i],
+            ]);
+        }
         return redirect('brgmasuk');
     }
 
