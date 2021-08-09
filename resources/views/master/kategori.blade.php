@@ -32,23 +32,13 @@
                             </a>
                         </p>
                         <div class="clearfix"></div>
-                        <div id="myTable1_wrapper" class="dataTables_wrapper">
-                            <div class="dataTables_length" id="myTable1_length"><label>Show <select name="myTable1_length" aria-controls="myTable1" class="">
-                                        <option value="10">10</option>
-                                        <option value="25">25</option>
-                                        <option value="50">50</option>
-                                        <option value="100">100</option>
-                                    </select> entries</label></div>
-                            <div id="myTable1_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="myTable1"></label></div>
-                            <table id="myTable1" class="table table-hover display dataTable dtr-inline" role="grid" aria-describedby="myTable1_info" style="width: 1253px;">
-                        </div>
                     </div>
 
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="table-wrap">
                                 <div class="">
-                                    <table id="myTable1" class="table table table-bordered">
+                                    <table id="datable_1" class="table table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>NO</th>

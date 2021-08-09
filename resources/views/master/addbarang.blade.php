@@ -39,7 +39,7 @@
                                         <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
                                         <select name="kode_kategori" id="kode_kategori" class="form-control select2">
                                             @foreach($kategori as $ktg) 
-                                            <option value="{{ $ktg->kode_kategori }}">{{ $ktg->kode_kategori }}</option>
+                                            <option value="{{ $ktg->kode_kategori }}">{{ $ktg->kode_kategori }} | {{ $ktg->kategori }} </option>
                                             @endforeach
                                         </select> 
                                     </div>
@@ -76,8 +76,8 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Status</label>
                                         <select name="status" id="status" class="form-control select2">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
+                                            <option value="aktif">Aktif</option>
+                                            <option value="nonaktif">NonAktif</option>
                                         </select>
                                     </div>
                                     <div class="form-group-justified">
