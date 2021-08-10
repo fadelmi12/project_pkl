@@ -27,7 +27,7 @@ class TransaksiController extends Controller
         return view('transaksi/addmasukbaru', compact('supplier', 'barang', 'transaksi_masuk'));
     }
 
-    public function addmasuk2(Request $request)
+    public function addmasukbaru2(Request $request)
     {
 
         $kode = strtoupper(substr($request->tgl_transaksi, 0, 10));
@@ -35,20 +35,42 @@ class TransaksiController extends Controller
         $angka = sprintf("%03d", (int)$check + 1);
         $no_transaksi = "TM-" . $kode . "-" . $angka;
 
-        $jumlah_data = count($request->nama_barang);
-        for ($i = 0; $i < $jumlah_data; $i++) {
+        // $jumlah_data = count($request->nama_barang);
+        // for ($i = 0; $i < $jumlah_data; $i++) {
 
-            TransaksiModel::create([
-                'no_transaksi' => $no_transaksi,
-                'tgl_transaksi' => $request->tgl_transaksi[$i],
-                'jns_transaksi' => $request->jns_transaksi[$i],
-                'nama_supplier' => $request->nama_supplier[$i],
+        //     TransaksiModel::create([
+        //         'no_transaksi' => $no_transaksi,
+        //         'tgl_transaksi' => $request->tgl_transaksi[$i],
+        //         'jns_transaksi' => $request->jns_transaksi[$i],
+        //         'nama_supplier' => $request->nama_supplier[$i],
+        //         'nama_barang' => $request->nama_barang[$i],
+        //         'jumlah' => $request->jumlah[$i],
+        //         'kondisi' => $request->kondisi[$i],
+        //         'pengirim' => $request->pengirim[$i],
+        //         'penerima' => $request->penerima[$i],
+        //     ]);
+        // }
+
+        TransaksiModel::create(
+            [
+                'tgl_transaksi' => $request->tgl_transaksi,
                 'nama_barang' => $request->nama_barang[$i],
+                'nama_supplier' => $request->nama_supplier[$i],
                 'jumlah' => $request->jumlah[$i],
-                'kondisi' => $request->kondisi[$i],
                 'pengirim' => $request->pengirim[$i],
                 'penerima' => $request->penerima[$i],
-            ]);
+            ]
+        );
+        $jumlah_data = count($request->nama_barang);
+        for ($i = 0; $i < $jumlah_data; $i++) {
+            DetailTrkMasuk::create(
+                [
+                    'tgl_transaksi' => $request->tgl_transaksi,
+                    'nama_barang' => $request->nama_barang[$i],
+                    'nama_supplier' => $request->nama_supplier[$i],
+                    'jumlah' => $request->jumlah[$i],
+                ]
+            );
         }
         return redirect('brgmasuk');
     }

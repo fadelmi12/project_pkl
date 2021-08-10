@@ -4,4 +4,5 @@
 4. php artisan key:generate
 5. php artisan migrate:fresh --seed
 test
-yo iso yo section
+
+yo iso yo bar cepet 🥇:D hehehehe

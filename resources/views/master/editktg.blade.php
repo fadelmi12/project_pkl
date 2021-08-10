@@ -42,16 +42,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Nama<span class="help"> Kategori</span></label>
-                                        <input type="text" class="form-control" value="{{ $data_kategori->kategori }}" name="edit_kategori">
+                                        <input type="text" class="form-control" value="{{ $data_kategori->kategori }}" name="edit_kategori" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Keterangan</label>
                                         <input type="text" class="form-control" value="{{ $data_kategori->keterangan }}" name="edit_keterangan">
                                     </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary">Simpan</button>
-                                        <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                        </button>
+                                    <div class="form-group" style="text-align:right;">
+                                        <button class="btn btn-success">Simpan</button>
+                                        <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                        </button> -->
                                     </div>
                             </div>
                             </form>
