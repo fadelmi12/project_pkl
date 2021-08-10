@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PO;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,9 +25,16 @@ class PoController extends Controller
     public function addpo2(Request $request)
     {
         $user = Auth::user();
+        $now = Carbon::now();
+        $thnBln= $now->year . $now->month;
+
+        $check = count(PO::where('no_PO')->get()->toArray());
+        $angka = sprintf("%03d", (int)$check + 1);
+        $noPO = $thnBln . "" . $angka;
+
         PO::create(
             [
-                'no_PO' => $request->noPO,
+                'no_PO' => $noPO,
                 'namaBarang' => $request->namaBarang,
                 'jumlah' => $request->jumlah,
                 'keterangan' => $request->keterangan,
