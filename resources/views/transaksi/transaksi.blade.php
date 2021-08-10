@@ -29,12 +29,7 @@
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
                         <div class="pull-left">
-                            <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
-                            <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
-                            <a href="brgmasuk/addmasuk" class="btn btn-success float-right col-mr-3"><i class="fa fa succes"></i>
-                                Tambah Data
-                            </a>
-                            <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
+
                         </div>
                         <div class="clearfix"></div>
                         <div id="myTable1_wrapper" class="dataTables_wrapper">

@@ -19,7 +19,7 @@
                 <ol class="breadcrumb">
                     <!-- <li><a href="index.html">master data</a></li> -->
                     <li><a href="#"><span>transaksi</span></a></li>
-                    <li class="active"><span>tambah data</span></li>
+                    <li class="active"><span>barang masuk retur</span></li>
                 </ol>
             </div>
             <!-- /Breadcrumb -->
@@ -46,12 +46,12 @@
                                                             <input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control">
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-md-6">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label class="control-label mb-10">Jenis Transaksi</label>
-                                                            <input type="text" id="jns_transaksi" name="jns_transaksi" class="form-control">
+                                                            <label class="control-label mb-10">No PO</label>
+                                                            <input type="text" id="po" name="po" class="form-control">
                                                         </div>
-                                                    </div> -->
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                             </div>
@@ -59,12 +59,13 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label mb-10">Supplier</label>
-                                                        <select name="nama_supplier" id="nama_supplier" class="form-control select2">
+                                                        <label class="control-label mb-10">Instansi</label>
+                                                        <!-- <select name="nama_supplier" id="nama_supplier" class="form-control select2">
                                                             @foreach($supplier as $sup)
                                                             <option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
                                                             @endforeach
-                                                        </select>
+                                                        </select> -->
+                                                        <input type="text" id="instansi" name="instansi" class="form-control">
                                                     </div>
 
                                                 </div>
@@ -85,37 +86,26 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label mb-10">Jumlah Masuk</label>
-                                                        <input type="number" class="form-control" name="jumlah" id="jumlah">
+                                                        <label class="control-label mb-10">Kondisi</label>
+                                                        <input type="text" id="kondisi" name="kondisi" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                                 <!-- <div class="row"> -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label mb-10">Kondisi</label>
-                                                        <input type="text" id="kondisi" name="kondisi" class="form-control">
+                                                        <label class="control-label mb-10">Penerima</label>
+                                                        <input type="text" name="penerima" id="penerima" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label mb-10">Pengirim</label>
-                                                <input type="text" name="pengirim" id="pengirim" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label mb-10">Penerima</label>
-                                                <input type="text" name="penerima" id="penerima" class="form-control">
-                                            </div>
-                                        </div>
+
                                         <!--/span-->
                                         <!-- <div class="row"> -->
                                         <div class="col-md-12" style="text-align:right;">
-                                            <button type="button" onclick="ambildata()" class="btn btn-success ">Tambah Data</button>
+                                            <button type="button" onclick="ambildata()" class="btn btn-primary ">Tambah Data</button>
                                         </div>
                                         <!--/span-->
                                     </div>
@@ -147,10 +137,10 @@
                                         <table class="table table-bordered align-items-center">
                                             <thead class="thead-light">
                                                 <tr>
-                                                    <th>Tanggal transaksi</th>
-                                                    <th>Supplier</th>
+                                                    <th>No PO</th>
+                                                    <th>Instansi</th>
                                                     <th>Nama barang</th>
-                                                    <th>Jumlah</th>
+                                                    <th>Kondisi</th>
                                                     <th>Remove</th>
                                                 </tr>
                                             </thead>
@@ -166,7 +156,7 @@
                                         </table>
 
                                         <div class="col-md-12" style="text-align:right;">
-                                            <button type="submit" name="submit" onclick="submitForm()" class="btn btn-primary ">Simpan</button>
+                                            <button type="submit" name="submit" onclick="submitForm()" class="btn btn-success ">Simpan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -188,20 +178,18 @@
 <script type="text/javascript">
     function ambildata() {
         var tgl_transaksi = document.getElementById('tgl_transaksi').value;
-        var jns_transaksi = document.getElementById('jns_transaksi').value;
-        var nama_supplier = document.getElementById('nama_supplier').value;
+        var po = document.getElementById('po').value;
+        var instansi = document.getElementById('instansi').value;
         var nama_barang = document.getElementById('nama_barang').value;
-        var jumlah = document.getElementById('jumlah').value;
-        var kondisi = document.getElementById('kondisi').value;
-        var pengirim = document.getElementById('pengirim').value;
         var penerima = document.getElementById('penerima').value;
-        addrow(tgl_transaksi, jns_transaksi, nama_supplier, nama_barang, jumlah, kondisi, pengirim, penerima);
+        var kondisi = document.getElementById('kondisi').value;
+        addrow(tgl_transaksi, po, instansi, nama_barang, penerima, kondisi);
     }
     var i = 0;
 
-    function addrow(tgl_transaksi, jns_transaksi, nama_supplier, nama_barang, jumlah, kondisi, pengirim, penerima) {
+    function addrow(tgl_transaksi, po, instansi, nama_barang, penerima, kondisi) {
         i++;
-        $('#TabelDinamis').append('<tr id="row' + i + '"><td><input type="text" style="outline:none;border:0;" readonly name="tgl_transaksi[]" id="tgl_transaksi" value="' + tgl_transaksi + '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="jns_transaksi[]" id="jns_transaksi" value="' + jns_transaksi + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_supplier[]" id="nama_supplier" value="' + nama_supplier + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="' + nama_barang + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="jumlah[]" id="jumlah" value="' + jumlah + '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="kondisi[]" id="kondisi" value="' + kondisi + '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="pengirim[]" id="pengirim" value="' + pengirim + '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="penerima[]" id="penerima" value="' + penerima + '"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
+        $('#TabelDinamis').append('<tr id="row' + i + '"><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="tgl_transaksi[]" id="tgl_transaksi" value="' + tgl_transaksi + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="po[]" id="po" value="' + po + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="instansi[]" id="instansi" value="' + instansi + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="' + nama_barang + '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="penerima[]" id="penerima" value="' + penerima + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="kondisi[]" id="kondisi" value="' + kondisi + '"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
     };
     $(document).on('click', '.remove_row', function() {
         var row_id = $(this).attr("id");

@@ -38,17 +38,17 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
                                         <select name="kode_kategori" id="kode_kategori" class="form-control select2">
-                                            @foreach($kategori as $ktg) 
+                                            @foreach($kategori as $ktg)
                                             <option value="{{ $ktg->kode_kategori }}">{{ $ktg->kode_kategori }} | {{ $ktg->kategori }} </option>
                                             @endforeach
-                                        </select> 
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
                                         <input type="text" class="form-control" name="nama_barang" id="nama_barang">
                                         @if ($errors->has('nama_barang'))
                                         <div class="tulisan">{{$errors->first('nama_barang')}}</div>
-                                        @endif 
+                                        @endif
                                     </div>
 
                                     <div class="form-group">
@@ -80,12 +80,12 @@
                                             <option value="nonaktif">NonAktif</option>
                                         </select>
                                     </div>
-                                    <div class="form-group-justified">
+                                    <div class="form-group" style="text-align:right;">
                                         <button class="btn btn-success mr-5" name="submit" type="submit">
                                             Simpan
                                         </button>
-                                        <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                        </button>
+                                        <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                        </button> -->
                                     </div>
                             </div>
                             </form>

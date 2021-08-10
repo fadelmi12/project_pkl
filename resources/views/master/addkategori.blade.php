@@ -47,13 +47,13 @@
                                         <label class="control-label mb-10 text-left">Keterangan</label>
                                         <input type="passtextword" class="form-control" id="keterangan" name="keterangan" value="">
                                         @error('keterangan')
-                                            <div class="tulisan">{{$message}}</div>
+                                        <div class="tulisan">{{$message}}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary">Simpan</button>
-                                        <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                        </button>
+                                    <div class="form-group" style=" text-align:right;">
+                                        <button class="btn btn-success">Simpan</button>
+                                        <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                        </button> -->
                                     </div>
                             </div>
                             </form>

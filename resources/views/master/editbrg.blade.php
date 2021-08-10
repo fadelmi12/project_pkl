@@ -105,10 +105,10 @@
                                                     <option value="nonaktif">NonAktif</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <button class="btn btn-primary">Simpan</button>
-                                                <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                                </button>
+                                            <div class="form-group" style="text-align:right;">
+                                                <button class="btn btn-success">Simpan</button>
+                                                <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                                </button> -->
                                             </div>
                                         </form>
                                     </div>
