@@ -1,45 +1,87 @@
-<div class="modal fade" id="editpinjam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h5 class="modal-title" id="exampleModalLabel1">Edit</h5>
+@extends('layout.master')
+@section('title', 'Data Peminjaman')
+@section('content')
+
+<!-- Main Content -->
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <!-- Title -->
+        <div class="row heading-bg">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h5 class="txt-dark">edit data Peminjaman</h5>
             </div>
-            <div class="modal-body">
-                <!-- <h6 class="mb-15">Apakah anda yakin mengubah status</h6> -->
-                <form>
-                    <div class="form-group">
-                        <label class="control-label mb-10 text-left">Nama</label>
-                        <input type="text" class="form-control" value="">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label mb-10 text-left">Nama barang</label>
-                        <input type="text" class="form-control" value="">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label mb-10 text-left">Jumlah</label>
-                        <input type="number" class="form-control" value="">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label mb-10 text-left">Tanggal Pinjam</label>
-                        <input type="date" class="form-control" value="">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label mb-10 text-left">Tanggal Kembali</label>
-                        <input type="date" class="form-control" value="">
-                    </div>
-                    <div class="form-group mt-30 mb-30">
-                        <label class="control-label mb-10 text-left">Status</label>
-                        <select class="form-control">
-                            <option>Pinjam</option>
-                            <option>Dikembalikan</option>
-                        </select>
-                    </div>
-                </form>
+            <!-- Breadcrumb -->
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Data Peminjaman</a></li>
+                    <li class="active"><span>edit Peminjaman</span></li>
+                </ol>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
+            <!-- /Breadcrumb -->
+        </div>
+        <!-- /Title -->
+
+        <!-- Row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default card-view ">
+                    <!-- <div class="panel-heading">
+                                <div class="clearfix"></div>
+                            </div> -->
+                    <div class="panel-wrapper collapse in ">
+                        <div class="panel-body">
+                            <div class="form-wrap mt-3">
+                                <form action="{{ url('updatePinjam') }}" method="post" role="form" autocomplete="off">
+                                    {{ csrf_field() }}
+                                    <div class="form-group">
+                                        <input type="hidden" value="{{ $peminjaman->id_peminjaman }}" name="edit_id_pinjam">
+                                        <label class="control-label mb-10 text-left">Nama<span class="help"> </span></label>
+                                        <input type="text" class="form-control" value="{{ $peminjaman->nama }}" name="edit_nama">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left">Nama<span class="help"> Barang</span></label>
+                                        <input type="text" class="form-control" value="{{ $peminjaman->barang }}" name="edit_nama_barang" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left">Jumlah</label>
+                                        <input type="text" class="form-control" value="{{ $peminjaman->jumlah }}" name="edit_jumlah">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left">Keterangan</label>
+                                        <input type="text" class="form-control" value="{{ $peminjaman->keterangan }}" name="edit_keterangan">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left">Tanggal Pinjam</label>
+                                        <input type="date" class="form-control" value="{{ $peminjaman->tglPinjam }}" name="edit_tgl_pinjam">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left">Tanggal Kembali</label>
+                                        <input type="date" class="form-control" value="{{ $peminjaman->tglKembali }}" name="edit_tgl_kembali">
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label class="control-label mb-10 text-left">Status</label>
+                                        <select name="edit_status" value="{{ $peminjaman->status }}" class="form-control select2">
+                                            <option value="pinjam">Pinjam</option>
+                                            <option value="dikembalikan">Dikembalikan</option>
+                                        </select>
+                                    </div> -->
+                                    <div class="form-group" style="text-align:right;">
+                                        <button class="btn btn-success">Simpan</button>
+                                        <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                        </button> -->
+                                    </div>
+                            </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <!-- /Row -->
+    <!-- /Main Content -->
+</div>
+<!-- /#wrapper -->
+@endsection
