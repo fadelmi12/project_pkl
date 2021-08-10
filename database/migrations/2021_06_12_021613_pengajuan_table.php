@@ -17,7 +17,7 @@ class PengajuanTable extends Migration
             $table->increments('id_pengajuan');
             $table->string('kode',50)->nullable();
             $table->integer('noPO')->nullable();
-            $table->string('judul',50);
+            $table->string('judul',50)->nullable();
             $table->integer('status')->nullable();
             $table->string('jenisBarang',50);
             $table->string('pic_teknisi',50)->nullable();
