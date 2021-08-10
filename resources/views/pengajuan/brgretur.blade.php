@@ -96,7 +96,7 @@
                                                     <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" action=" {{url('deletebaru', $data_retur->id_pengajuan) }}"><i class="fa fa-trash"></i></></button>
                                                 @endif
                                             </tr>
-                                            @include('pengajuan.hapusbrgbaru')
+                                            @include('pengajuan.hapusbrgretur')
                                             @endforeach
                                         </tbody>
                                 </div>
@@ -118,13 +118,13 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark">Data Pengajuan Barang Baru</h5>
+                    <h5 class="txt-dark">Data Pengajuan Barang Retur</h5>
                 </div>
                 <!-- Breadcrumb -->
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="#"><span>Pengajuan</span></a></li>
-                        <li class="active"><span>Barang Baru</span></li>
+                        <li class="active"><span>Barang Retur</span></li>
                     </ol>
                 </div>
                 <!-- /Breadcrumb -->
@@ -137,7 +137,7 @@
                     <div class="panel panel-default card-view">
                         <div class="panel-heading">
                             <p>
-                                <a href="addbaru" class="btn btn-success btn-icon-anim">Tambah baru
+                                <a href="addretur" class="btn btn-success btn-icon-anim">Tambah baru
                                 </a>
                             </p>
                             <div class="clearfix"></div>
@@ -309,7 +309,7 @@
                                                     </tr>
                                             @include('pengajuan.confirm')
                                             @include('pengajuan.reject')
-                                            @include('pengajuan.hapusbrgbaru')
+                                            @include('pengajuan.hapusbrgretur')
                                             @endforeach
                                         </tbody>
                                 </div>

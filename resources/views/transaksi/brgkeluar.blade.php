@@ -23,7 +23,7 @@
         </div>
         <!-- Row -->
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 mt-10">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
                         <div class="pull-left">

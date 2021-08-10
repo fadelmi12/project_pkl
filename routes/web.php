@@ -79,12 +79,14 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     // TRANSAKSI
     // Route::get('brgmasuk', 'App\Http\Controllers\TransaksiController@addmasukbaru');
     Route::get('/addmasukbaru', 'App\Http\Controllers\TransaksiController@addmasukbaru');
-    Route::post('/addmasuk2', 'App\Http\Controllers\TransaksiController@addmasuk2')->name('addmasuk2');
+    Route::post('/addmasuk2', 'App\Http\Controllers\TransaksiController@addmasukbaru2')->name('addmasuk2');
+    Route::post('/addmasukretur2', 'App\Http\Controllers\TransaksiController@addmasukretur2')->name('addmasukretur2');
     // Route::resource('post', 'App\Http\Controllers\TransaksiController@destroy');
     Route::get('/addmasukretur', 'App\Http\Controllers\TransaksiController@addmasukretur');
     Route::get('brgkeluar', 'App\Http\Controllers\TransaksiController@brgkeluar');
     Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addkeluar');
     Route::get('transaksi', 'App\Http\Controllers\TransaksiController@transaksi');
+
 
     // SUPPLIER
     Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier')->name('supplier');
@@ -131,7 +133,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::post('/updatePinjam', 'App\Http\Controllers\PeminjamanController@updatePinjam')->name('updatePinjam');
 
     // PO
-    Route::get('purchasing', 'App\Http\Controllers\PoController@index');
+    Route::get('po', 'App\Http\Controllers\PoController@index');
     Route::get('addpo', 'App\Http\Controllers\PoController@addpo');
     Route::post('/addpo2', 'App\Http\Controllers\PoController@addpo2')->name('addpo2');
 

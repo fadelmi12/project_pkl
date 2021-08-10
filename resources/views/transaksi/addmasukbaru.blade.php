@@ -29,7 +29,7 @@
 		<!-- Row -->
 
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 mt-10">
 				<div class="panel panel-default card-view">
 					<div class="panel-wrapper collapse in">
 						<div class="panel-body">
@@ -43,7 +43,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Tanggal Transaksi</label>
-															<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control">
+															<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control" value="<?php echo date("d-m-Y"); ?>">
 														</div>
 													</div>
 													<div class="col-md-6">
@@ -119,7 +119,7 @@
 	</div>
 	<div class="">
 		<!-- Basic Table -->
-		<div class="col-sm-14">
+		<div class="col-sm-12">
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
 					<div class="pull-left">
