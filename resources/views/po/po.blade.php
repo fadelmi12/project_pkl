@@ -27,7 +27,7 @@
                         <div class="pull-left">
                             <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
                             <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
-                            <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addpo"> Tambah Data</button>
+                            <a href="addpo"> <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#addpo"> Tambah Data</button> </a>
                             <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
                         </div>
 
@@ -50,15 +50,13 @@
                                     <table id="myTable1" class="table table-bordered display  pb-30">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <th>no</th>
                                                 <th>No PO</th>
-                                                <th>Tanggal buat</th>
+                                                <th>Nama Barang</th>
+                                                <th>Jumlah</th>
                                                 <th>Created at</th>
-                                                <th>PIC Marketing</th>
-                                                <th>Instansi</th>
+                                                <th>Keterangan</th>
                                                 <th>Status</th>
-                                                <th>Tanggal instalasi</th>
-                                                <th>PIC Teknisi</th>
                                                 <th colspan="3">Aksi</th>
                                             </tr>
                                         </thead>
@@ -73,28 +71,28 @@
                                             </tr>
                                         </tfoot> -->
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>PO001</td>
-                                                <td>2011/04/25</td>
-                                                <td>2011/04/25</td>
-                                                <td>dinar</td>
-                                                <td>sometext</td>
-                                                <td>baru/proses/pending/instalasi</td>
-                                                <td>2011/04/25</td>
-                                                <td>lala</td>
-                                                <td>
-                                                    <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#detail"><i class="fa fa-edit"></i></button>
-                                                    <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpinjam"><i class="fa fa-pencil"></i></button>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspinjam"></i></button>
-                                                    @include('peminjaman.edit')
-                                                    <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
-                                                </td>
-                                                @include('peminjaman.hapus')
-                                            </tr>
+                                            <?php $no = 1; ?>
+                                            @foreach ($data_po as $data_po)
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $data_po->no_po}}</td>
+                                                    <td>{{ $data_po->namaBarang}}</td>
+                                                    <td>{{ $data_po->jumlah}}</td>
+                                                    <td>{{ $data_po->created_at}}</td>
+                                                    <td>{{ $data_po->keterangan}}</td>
+                                                    <td>{{ $data_po->status}}</td>
+                                                    <td>
+                                                        <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#detail"><i class="fa fa-edit"></i></button>
+                                                        <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpinjam"><i class="fa fa-pencil"></i></button>
+                                                        <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspinjam"></i></button>
+                                                        @include('peminjaman.edit')
+                                                        <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
+                                                    </td>
+                                                    @include('peminjaman.hapus')
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
-
                                     @include('peminjaman.addpinjam')
                                 </div>
                             </div>
