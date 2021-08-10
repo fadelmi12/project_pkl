@@ -12,19 +12,19 @@ use Symfony\Component\VarDumper\Cloner\Data;
 class TransaksiController extends Controller
 {
 
-    public function brgmasuk()
-    {
-        $transaksi_masuk = TransaksiModel::all();
-        return view('transaksi/brgmasuk', compact('transaksi_masuk'));
-    }
+    // public function brgmasuk()
+    // {
+    //     $transaksi_masuk = TransaksiModel::all();
+    //     return view('transaksi/addmasukbaru', compact('transaksi_masuk'));
+    // }
 
 
-    public function addmasuk()
+    public function addmasukbaru()
     {
         $supplier = SupplierModel::all();
-        $barang = Master::all();
-        // $transaksi_masuk = TransaksiModel::all();
-        return view('transaksi/addmasuk', compact('supplier', 'barang'));
+        $barang = Master::where([['status', 'aktif']])->get();
+        $transaksi_masuk = TransaksiModel::all();
+        return view('transaksi/addmasukbaru', compact('supplier', 'barang', 'transaksi_masuk'));
     }
 
     public function addmasuk2(Request $request)
@@ -53,6 +53,14 @@ class TransaksiController extends Controller
         return redirect('brgmasuk');
     }
 
+    public function addmasukretur()
+    {
+        $supplier = SupplierModel::all();
+        $barang = Master::all();
+        $transaksi_masuk = TransaksiModel::all();
+        return view('transaksi/addmasukretur', compact('supplier', 'barang', 'transaksi_masuk'));
+    }
+
     public function brgkeluar()
     {
         return view('transaksi/brgkeluar');
@@ -60,5 +68,11 @@ class TransaksiController extends Controller
     public function addkeluar()
     {
         return view('transaksi/addkeluar');
+    }
+
+    public function transaksi()
+    {
+        $transaksi_masuk = TransaksiModel::all();
+        return view('transaksi/transaksi', compact('transaksi_masuk'));
     }
 }

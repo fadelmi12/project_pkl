@@ -236,10 +236,13 @@
                     </a>
                     <ul id="ecom_dr" class="collapse collapse-level-1">
                         <li>
-                            <a href="/brgmasuk">Barang masuk</a>
+                            <a href="/addmasukbaru">Barang masuk</a>
                         </li>
                         <li>
                             <a href="/brgkeluar">Barang keluar</a>
+                        </li>
+                        <li>
+                            <a href="/transaksi">Data transaksi</a>
                         </li>
 
                     </ul>
@@ -762,6 +765,7 @@
 
     <!-- Data table JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="{{asset('template')}}/dist/js/dataTables-data.js"></script>
 
     <!-- Slimscroll JavaScript -->
     <script src="{{asset('template')}}/dist/js/jquery.slimscroll.js"></script>
@@ -815,7 +819,7 @@
         }
         </script> -->
 
-        @yield('scripts')
+    @yield('scripts')
 
 </body>
 

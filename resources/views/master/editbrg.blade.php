@@ -65,7 +65,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Nama barang <span class="help"> </span></label>
-                                                <input type="text" value="{{ $brg->nama_barang }}" class="form-control" name="edit_nama_barang">
+                                                <input type="text" value="{{ $brg->nama_barang }}" class="form-control" name="edit_nama_barang" readonly>
                                                 @if ($errors->has('nama_barang'))
                                                 <div class="alert alert-danger">{{$errors->first('nama_barang')}}</div>
                                                 @endif
@@ -85,24 +85,24 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Stok</label>
                                                 <input type="text" class="form-control" name="edit_stok" value="{{ $brg->stok }}">
-                                                @if ($errors->has('stok'))
+                                                <!-- @if ($errors->has('stok'))
                                                 <div class="alert alert-danger">{{$errors->first('stok')}}</div>
-                                                @endif
+                                                @endif -->
                                             </div>
                                             <div class="form-group mb-30">
                                                 <label class="control-label mb-10 text-left">File upload</label>
                                                 <input type="file" id="gambar" name="gambar">
                                                 <h10>(Kosongkan jika tidak ingin diubah)</h10><br>
-                                                @if($brg->gambar)
+                                                <!-- @if($brg->gambar)
                                                 <img src="{{ url('img/logo') }}/{{ $brg->gambar }}" style="width: 150px; height: 150px;">
-                                                @endif
+                                                @endif -->
                                                 <input type="hidden" class="form-control-file" id="hidden_gambar" name="hidden_gambar" value="{{ $brg->gambar }}">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Status</label>
                                                 <select name="edit_status" value="{{ $brg->status }}" class="form-control select2">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
+                                                    <option value="aktif">Aktif</option>
+                                                    <option value="nonaktif">NonAktif</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

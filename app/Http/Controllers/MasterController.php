@@ -39,14 +39,14 @@ class MasterController extends Controller
     {
         $rules = [
             'nama_barang' => 'required',
-            'stok' => 'required',
-            'gambar' => 'required',
+            // 'stok' => 'required',
+            // 'gambar' => 'required',
         ];
 
         $messages = [
             'nama_barang.required' => 'nama barang tidak boleh kosong',
-            'stok.required' => 'stok tidak boleh kosong',
-            'gambar.required' => 'gambar tidak boleh kosong',
+            // 'stok.required' => 'stok tidak boleh kosong',
+            // 'gambar.required' => 'gambar tidak boleh kosong',
         ];
         $this->validate($request, $rules, $messages);
 
