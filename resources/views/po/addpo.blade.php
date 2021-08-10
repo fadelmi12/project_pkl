@@ -34,20 +34,20 @@
                             <div class="form-wrap mt-3">
                                 <form action="{{ url('addpo2') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+                                    <!-- <div class="form-group">
+                                        <label class="control-label mb-10 text-left" for="example-email">Nomor PO Barang</label>
+                                        <input type="text" id="noPO" name="noPO" class="form-control" readonly>
+                                    </div> -->
                                     <div class="form-group">
-                                        <label class="control-label mb-10 text-left" for="example-email">Nomor PO Barang<span class="help"> </span></label>
-                                        <input type="text" id="noPO" name="noPO" class="form-control" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label mb-10 text-left" for="example-email">Nama Barang<span class="help"> </span></label>
+                                        <label class="control-label mb-10 text-left" for="example-email">Nama Barang</label>
                                         <input type="text" id="namaBarang" name="namaBarang" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label mb-10 text-left" for="example-email">Jumlah Barang<span class="help"> </span></label>
+                                        <label class="control-label mb-10 text-left" for="example-email">Jumlah Barang</label>
                                         <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
+                                        <label class="control-label mb-10 text-left" for="example-email">Keterangan </label>
                                         <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">

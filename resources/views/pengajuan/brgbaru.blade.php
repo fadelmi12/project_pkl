@@ -12,11 +12,7 @@
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                 <h5 class="txt-dark">Data Pengajuan Barang Rekomendasi</h5>
-<<<<<<< HEAD
             </div> 
-=======
-            </div>
->>>>>>> 2ad1ad296c5ed5b06579ed364abc79febb9f27f1
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
@@ -116,13 +112,13 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark">Data Pengajuan Barang Retur</h5>
+                    <h5 class="txt-dark">Data Pengajuan Barang Rekomendasi</h5>
                 </div>
                 <!-- Breadcrumb -->
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="#"><span>Pengajuan</span></a></li>
-                        <li class="active"><span>Barang Retur</span></li>
+                        <li class="active"><span>Barang Rekomendasi</span></li>
                     </ol>
                 </div>
                 <!-- /Breadcrumb -->
@@ -135,7 +131,7 @@
                     <div class="panel panel-default card-view">
                         <div class="panel-heading">
                             <p>
-                                <a href="addretur" class="btn btn-success btn-icon-anim">Tambah baru
+                                <a href="addbaru" class="btn btn-success btn-icon-anim">Tambah baru
                                 </a>
                             </p>
                             <div class="clearfix"></div>

@@ -127,7 +127,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('peminjaman/addpinjam', 'App\Http\Controllers\PeminjamanController@addpinjam');
 
     // PO
-    Route::get('purchasing', 'App\Http\Controllers\PoController@index');
+    Route::get('po', 'App\Http\Controllers\PoController@index');
     Route::get('addpo', 'App\Http\Controllers\PoController@addpo');
     Route::post('/addpo2', 'App\Http\Controllers\PoController@addpo2')->name('addpo2');
 

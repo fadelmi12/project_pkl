@@ -75,7 +75,7 @@
                                             @foreach ($data_po as $data_po)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{ $data_po->no_po}}</td>
+                                                    <td>{{ $data_po->no_PO}}</td>
                                                     <td>{{ $data_po->namaBarang}}</td>
                                                     <td>{{ $data_po->jumlah}}</td>
                                                     <td>{{ $data_po->created_at}}</td>
