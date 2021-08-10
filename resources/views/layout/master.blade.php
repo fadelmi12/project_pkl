@@ -790,6 +790,7 @@
 
     <!-- ChartJS JavaScript -->
     <script src="{{asset('template')}}/vendors/chart.js/Chart.min.js"></script>
+    <script src="{{asset('template')}}/dist/js/morris-data.js"></script>
 
     <!-- Morris Charts JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/raphael/raphael.min.js"></script>
