@@ -26,31 +26,18 @@ class PengajuanController extends Controller
 
     public function addbaru2(Request $request)
     {
-        // Print_r($request->nama_barang[1]);
-        // exit;
-        $user = Auth::user();
-        
+        $retur = 'Retur';
         Pengajuan::create(
             [
-                'kode' => $request->kode_pengajuan,
-                'judul' => $request->nama_pengajuan,
-                'jenisBarang' => 'Baru',
-                'pic_teknisi' => $user->name
-                ]
-            );
-        $jumlah_data = count($request->nama_barang);
-        for ($i = 0; $i < $jumlah_data; $i++) {
-            DetailPengajuan::create(
-                [
-                    'kode' => $request->kode_pengajuan,
-                    'namaBarang' => $request->nama_barang[$i],
-                    'jmlBarang' => $request->jumlah[$i],
-                    'keterangan' => $request->keterangan[$i],
-                    'jenisBarang' => 'Baru'
-                ]
-                );
-        }
-            return redirect('/brgbaru');
+                'noPO' => $request->noPO,
+                'namaBarang' => $request->namaBarang,
+                'namaBarang' => $request->namaBarang,
+                'jmlBarang' => $request->jmlBarang,
+                'keterangan' => $request->keterangan,
+                'jenisBarang' => $retur
+            ]
+        );
+        return redirect('/brgbaru');
     }
 
     public function editBaru($id_pengajuan)
@@ -81,17 +68,20 @@ class PengajuanController extends Controller
         return back()->with('success', "Data telah terhapus");
     }
 
-    public function detailbaru($id_pengajuan)
+    public function detailbaru($kode)
     {
-        $data_baru = Pengajuan::all()->where('id_pengajuan', $id_pengajuan);
-        return view('pengajuan/detailbaru', compact('data_baru'));
+        $data_detail = DetailPengajuan::all()->where('kode', $kode);
+        return view('pengajuan/detailbaru', compact('data_detail'));
+
+        $pengajuan = Pengajuan::all()->where('kode', $kode);
+        return view('pengajuan/detailbaru', compact('pengajuan'));
     }
 
     //-----------------------------------------retur---------------------------------------------------------------//    
     public function tabelRetur(Request $request)
     {
-        $data_baru = Pengajuan::all()->where('jenisBarang', '', 'Retur');
-        return view('pengajuan/brgretur', compact('data_baru'));
+        $data_retur = Pengajuan::all()->where('jenisBarang', '', 'Retur');
+        return view('pengajuan/brgretur', compact('data_retur'));
     }
 
     public function addretur()
@@ -101,18 +91,29 @@ class PengajuanController extends Controller
 
     public function addretur2(Request $request)
     {
-        $retur = 'Retur';
+        $user = Auth::user();
+                
         Pengajuan::create(
             [
-                'noPO' => $request->noPO,
-                'namaBarang' => $request->namaBarang,
-                'namaBarang' => $request->namaBarang,
-                'jmlBarang' => $request->jmlBarang,
-                'keterangan' => $request->keterangan,
-                'jenisBarang' => $retur
-            ]
-        );
-        return redirect('/brgretur');
+                'kode' => $request->kode_pengajuan,
+                'judul' => $request->nama_pengajuan,
+                'jenisBarang' => 'Baru',
+                'pic_teknisi' => $user->name
+                ]
+            );
+        $jumlah_data = count($request->nama_barang);
+        for ($i = 0; $i < $jumlah_data; $i++) {
+            DetailPengajuan::create(
+                [
+                    'kode' => $request->kode_pengajuan,
+                    'namaBarang' => $request->nama_barang[$i],
+                    'jmlBarang' => $request->jumlah[$i],
+                    'keterangan' => $request->keterangan[$i],
+                    'jenisBarang' => 'Baru'
+                ]
+                );
+        }
+            return redirect('/brgretur');
     }
     public function editRetur($id_pengajuan)
     {
@@ -141,6 +142,15 @@ class PengajuanController extends Controller
         $baru->delete();
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
+    }
+
+    public function detailretur($kode)
+    {
+        $data_detail = DetailPengajuan::all()->where('kode', $kode);
+        return view('pengajuan/detailbaru', compact('data_detail'));
+
+        $pengajuan = Pengajuan::all()->where('kode', $kode);
+        return view('pengajuan/detailbaru', compact('pengajuan'));
     }
 
     //-----------------------------------------confirm/reject---------------------------------------------------------------//

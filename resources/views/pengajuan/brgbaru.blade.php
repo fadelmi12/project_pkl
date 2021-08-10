@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Data Pengajuan')
+@section('title', 'Data Barang Rekomendasi')
 @section('content')
 
 @if (auth()->user()->divisi == "teknisi")
@@ -11,13 +11,13 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">Data Pengajuan Barang Baru</h5>
-            </div>
+                <h5 class="txt-dark">Data Pengajuan Barang Rekomendasi</h5>
+            </div> 
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="#"><span>Pengajuan</span></a></li>
-                    <li class="active"><span>Barang Baru</span></li>
+                    <li class="active"><span>Barang Rekomendasi</span></li>
                 </ol>
             </div>
             <!-- /Breadcrumb -->
@@ -53,9 +53,12 @@
                                     <table id="myTable1" class="table table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Nama Pengajuan</th>
+                                                <th>#</th>
+                                                <th>No PO Barang</th>
+                                                <th>Nama Barang</th>
+                                                <th>Jumlah</th>
                                                 <th>Status</th>
+                                                <th>Keterangan</th>
                                                 <th>Tanggal pengajuan</th>
                                                 <th>Aksi</th>
                                             </tr>
@@ -65,7 +68,9 @@
                                             @foreach ($data_baru as $data_baru)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $data_baru->judul}}</td>
+                                                <td>{{ $data_baru->noPO}}</td>
+                                                <td>{{ $data_baru->namaBarang}}</td>
+                                                <td>{{ $data_baru->jmlBarang}}</td>
                                                 <td>
                                                     @if($data_baru->status === 1 )
                                                         Pengajuan ditolak Marketing
@@ -85,6 +90,7 @@
                                                         Pengajuan diproses Marketing
                                                     @endif
                                                 </td>
+                                                <td>{{ $data_baru->keterangan}}</td>
                                                 <td>{{ $data_baru->created_at}}</td>
                                                 <td>
                                                 @if ($data_baru->status >= 1)
@@ -109,7 +115,7 @@
     </div>
     @endif
 
-    @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin"||auth()->user()->divisi == "marketing"||auth()->user()->divisi == "purchasing")
+    @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin"||auth()->user()->divisi == "marketing")
 <!-- Main Content -->
 <div class="page-wrapper">
         <div class="container-fluid">
@@ -117,13 +123,13 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark">Data Pengajuan Barang Baru</h5>
+                    <h5 class="txt-dark">Data Pengajuan Barang Retur</h5>
                 </div>
                 <!-- Breadcrumb -->
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="#"><span>Pengajuan</span></a></li>
-                        <li class="active"><span>Barang Baru</span></li>
+                        <li class="active"><span>Barang Retur</span></li>
                     </ol>
                 </div>
                 <!-- /Breadcrumb -->
@@ -136,7 +142,7 @@
                     <div class="panel panel-default card-view">
                         <div class="panel-heading">
                             <p>
-                                <a href="addbaru" class="btn btn-success btn-icon-anim">Tambah baru
+                                <a href="addretur" class="btn btn-success btn-icon-anim">Tambah baru
                                 </a>
                             </p>
                             <div class="clearfix"></div>
@@ -160,9 +166,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>No</th>
-                                                    <th>Nama Pengajuan</th>
+                                                    <th>Nama Barang</th>
+                                                    <th>Jumlah</th>
                                                     <th>Status</th>
+                                                    <th>Keterangan</th>
                                                     <th>Tanggal pengajuan</th>
                                                     <th>Aksi</th>
                                                 </tr>
@@ -175,7 +182,9 @@
                                                     @if (auth()->user()->divisi == "warehouse")
                                                         @if($data_baru->status >=2 )
                                                             <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->judul}}</td>
+                                                            <td>{{ $data_baru->noPO}}</td>
+                                                            <td>{{ $data_baru->namaBarang}}</td>
+                                                            <td>{{ $data_baru->jmlBarang}}</td>
                                                             <td>
                                                                 @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
@@ -195,6 +204,7 @@
                                                                 Pengajuan diproses Marketing
                                                                 @endif
                                                             </td>
+                                                            <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                                 <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
@@ -209,8 +219,10 @@
 <!-------------------------------------------------------------- ADMIN ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "admin")
                                                         @if ($data_baru->status >= 4 )
-                                                        <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->judul}}</td>
+                                                            <td>{{ $no++ }}</td>
+                                                            <td>{{ $data_baru->noPO}}</td>
+                                                            <td>{{ $data_baru->namaBarang}}</td>
+                                                            <td>{{ $data_baru->jmlBarang}}</td>
                                                             <td>
                                                                 @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
@@ -230,22 +242,18 @@
                                                                 Pengajuan diproses Marketing
                                                                 @endif
                                                             </td>
+                                                            <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                                 <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                @if ($data_baru->status >= 5)
-                                                                <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
-                                                                <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
-                                                                @else
-                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button>
-                                                                <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_baru->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-times"></i></button>
-                                                                @endif
                                                         @endif
 <!-------------------------------------------------------------- PURCHASING ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "purchasing")
                                                         @if ($data_baru->status >= 6 )
                                                             <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->judul}}</td>
+                                                            <td>{{ $data_baru->noPO}}</td>
+                                                            <td>{{ $data_baru->namaBarang}}</td>
+                                                            <td>{{ $data_baru->jmlBarang}}</td>
                                                             <td>
                                                                 @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
@@ -265,16 +273,17 @@
                                                                 Pengajuan diproses Marketing
                                                                 @endif
                                                             </td>
+                                                            <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
                                                             <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                                @if ($data_baru->status === 6)
-                                                                <a href="pembelian/addpembelian/{{ $data_baru->noPO }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>                                                                @endif
                                                         @endif
 <!-------------------------------------------------------------- MARKETING ------------------------------------------------------------>
                                                     @elseif (auth()->user()->divisi == "marketing")
                                                             <td>{{ $no++ }}</td>
-                                                            <td>{{ $data_baru->judul}}</td>
+                                                            <td>{{ $data_baru->noPO}}</td>
+                                                            <td>{{ $data_baru->namaBarang}}</td>
+                                                            <td>{{ $data_baru->jmlBarang}}</td>
                                                             <td>
                                                             @if($data_baru->status === 1 )
                                                                 Pengajuan ditolak Marketing
@@ -294,14 +303,15 @@
                                                                 Pengajuan diproses Marketing
                                                                 @endif
                                                             </td>
+                                                            <td>{{ $data_baru->keterangan}}</td>
                                                             <td>{{ $data_baru->created_at}}</td>
                                                             <td>
-                                                                <a href="/pengajuan/detailbaru/{{$data_baru->id_pengajuan}}"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                                <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
                                                                 @if ($data_baru->status >= 1)
                                                                 <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
                                                                 <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
                                                                 @else
-                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button>
+                                                                <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirmRetur{{ $data_baru->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-check"></i></button>
                                                                 <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_baru->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_baru->id_pengajuan }})"><i class="fa fa-times"></i></button>
                                                                 @endif
                                                     @endif
