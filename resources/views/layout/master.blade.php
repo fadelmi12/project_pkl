@@ -293,7 +293,7 @@
                 @endif
                 @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "marketing"||auth()->user()->divisi == "purchasing" ||auth()->user()->divisi == "admin" ||auth()->user()->divisi == "office")
                 <li>
-                    <a href="/purchasing">
+                    <a href="/po">
                         <div class="pull-left"><i class="zmdi zmdi-shopping-cart mr-20"></i><span class="right-nav-text">Purchase Order</span></div>
                         <div class="clearfix"></div>
                     </a>
@@ -790,6 +790,7 @@
 
     <!-- ChartJS JavaScript -->
     <script src="{{asset('template')}}/vendors/chart.js/Chart.min.js"></script>
+    <script src="{{asset('template')}}/dist/js/morris-data.js"></script>
 
     <!-- Morris Charts JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/raphael/raphael.min.js"></script>

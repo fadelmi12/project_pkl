@@ -28,9 +28,15 @@ class PoController extends Controller
         $now = Carbon::now();
         $thnBln= $now->year . $now->month;
 
-        $check = count(PO::where('no_PO')->get()->toArray());
+        // $kode = strtoupper(substr($request->nama_barang, 0, 3));
+        $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
         $angka = sprintf("%03d", (int)$check + 1);
         $noPO = $thnBln . "" . $angka;
+
+
+        // $check = count(PO::where('no_PO')->get()->toArray());
+        // $angka = sprintf("%03d", (int)$check + 1);
+        // $noPO = $thnBln . "" . $angka;
 
         PO::create(
             [
@@ -41,6 +47,6 @@ class PoController extends Controller
                 'pic_marketing' => $user->name
             ]
         );
-        return redirect('po/po');
+        return redirect('/po');
     }
 }

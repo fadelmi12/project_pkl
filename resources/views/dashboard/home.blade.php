@@ -11,11 +11,14 @@
         </div>
         <!-- Row -->
         <div class="row">
-            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-10">
                 <div class="panel panel-default card-view panel-refresh">
-                    <div class="refresh-container">
-                        <div class="la-anim-1"></div>
-                    </div>
+                <div class="panel-heading">
+						<div class="pull-left">
+							<h6 class="panel-title txt-dark">Data Barang</h6>
+						</div>
+						<div class="clearfix"></div>
+					</div>
 
                     <!--  <div class="panel-heading">
                             <div class="pull-left">
@@ -61,13 +64,13 @@
 
                             // Optional; add a title and set the width and height of the chart
                             var options = {
-                                'title': 'Data Barang',
+                                'title': '',
                                 'width': 550,
                                 'height': 400
                             };
                                 // Optional; add a title and set the width and height of the chart
                                 var options = {
-                                    'title': 'Data Barang',
+                                    'title': '',
                                     'width': 550,
                                     'height': 400
                                 };
@@ -78,42 +81,29 @@
                         }
                     </script>
                 </div>
-                <!-- <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                        <div>
-                        <canvas id="chart_6" height="191"></canvas>
-                        </div>
-                        <hr class="light-grey-hr row mt-10 mb-15" />
-                        <div class="label-chatrs">
-                        <div class="">
-                            <span class="clabels clabels-lg inline-block bg-blue mr-10 pull-left"></span>
-                            <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">44.46% organic</span><span class="block txt-grey">356 visits</span></span>
-                            <div id="sparkline_1" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
-                            <div class="clearfix"></div>
-                        </div>
-                        </div>
-                        <hr class="light-grey-hr row mt-10 mb-15" />
-                        <div class="label-chatrs">
-                        <div class="">
-                            <span class="clabels clabels-lg inline-block bg-green mr-10 pull-left"></span>
-                            <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">5.54% Refrral</span><span class="block txt-grey">36 visits</span></span>
-                            <div id="sparkline_2" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
-                            <div class="clearfix"></div>
-                        </div>
-                        </div>
-                        <hr class="light-grey-hr row mt-10 mb-15" />
-                        <div class="label-chatrs">
-                        <div class="">
-                            <span class="clabels clabels-lg inline-block bg-yellow mr-10 pull-left"></span>
-                            <span class="clabels-text font-12 inline-block txt-dark capitalize-font pull-left"><span class="block font-15 weight-500 mb-5">50% Other</span><span class="block txt-grey">245 visits</span></span>
-                            <div id="sparkline_3" class="pull-right" style="width: 100px; overflow: hidden; margin: 0px auto;"></div>
-                            <div class="clearfix"></div>
-                        </div>
-                        </div>
-                        </div>
-                        </div> -->
+                
             </div>
+            <div class="col-lg-6">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h6 class="panel-title txt-dark">Data Pengajuan</h6>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body">
+							<div id="morris_bar_chart" class="morris-chart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
+        <div class="row">
+				   
+			
+		</div>
+                
         <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="panel panel-default card-view">
                 <div class="panel-wrapper collapse in">
