@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class PO extends Model
 {
     use HasFactory;
+    protected $table = "purchase_order";
+    protected $primaryKey = "id_PO";
+    protected $fillable = ['id_PO','no_PO','namaBarang', 'jumlah','intansi','status'
+                            ,'pic_marketing','pic_warehouse','pic_admin','pic_purchasing','keterangan','created_at'];
+
+
+    public function detail_pengajuan()
+    {
+        return $this->hasMany(detail_pengajuan::class);
+    }
 }
+
