@@ -7,6 +7,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\PoController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -126,6 +128,8 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
 
     // PO
     Route::get('purchasing', 'App\Http\Controllers\PoController@index');
+    Route::get('addpo', 'App\Http\Controllers\PoController@addpo');
+    Route::post('/addpo2', 'App\Http\Controllers\PoController@addpo2')->name('addpo2');
 
     // ADMINISTRASI
     Route::get('administrator', 'App\Http\Controllers\AdministratorController@users');
