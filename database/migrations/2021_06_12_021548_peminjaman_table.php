@@ -21,6 +21,7 @@ class PeminjamanTable extends Migration
             $table->date('tglPinjam');
             $table->date('tglKembali');
             $table->string('keterangan',50);
+            $table->string('status',50);
             $table->timestamps();
         });
     }
