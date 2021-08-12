@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Data Supplier')
+@section('title', 'Data Peminjaman')
 @section('content')
 
 <!-- Main Content -->

@@ -74,7 +74,7 @@
                                                 <td>{{ $transaksi_masuk->no_transaksi}}</td>
                                                 <td>{{ $transaksi_masuk->nama_supplier }}</td>
                                                 <td>{{ $transaksi_masuk->jns_transaksi }}</td>
-                                                <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
+                                                <td>{{ $transaksi_masuk->tgl_transaksi->format('d/m/y')}}</td>
                                                 <td>{{ $transaksi_masuk->created_at }}</td>
                                                 <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->

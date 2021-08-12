@@ -21,7 +21,7 @@ class MasterDataTable extends Migration
             $table->string('jenis_barang');
             $table->integer('stok');
             $table->string('gambar');
-            $table->integer('status');
+            $table->string('status');
             $table->timestamps();
         });
     }

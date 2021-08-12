@@ -8,15 +8,9 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-<<<<<<< HEAD
                 <h5 class="txt-dark">Data Transaksi</h5><br>
                 <a href="transaksi/transaksi_masuk_baru" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> MASUK</a>
                 <a href="transaksi/transaksi_masuk_retur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> KELUAR</a>
-=======
-                <h5 class="txt-dark">Data Barang Masuk</h5><br>
-                <a href="#" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> MASUK</a>
-                <a href="#" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> KELUAR</a>
->>>>>>> 70f993b39382ccfb02f8ca0b9be3a2c7e40f3180
             </div>
 
 
@@ -30,7 +24,6 @@
             <!-- /Breadcrumb -->
         </div>
         <!-- Row -->
-<<<<<<< HEAD
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
@@ -44,7 +37,6 @@
                             <div class="table-wrap">
                                 <div class="table-responsive">
                                     <table id="datable_1" class="table table-bordered display pb-30">
-=======
         <div class="col-lg-12 col-sm-12 mt-10">
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
@@ -107,7 +99,6 @@
                                 <!-- BARANG RETUR -->
                                 <div  id="masuk_retur" class="tab-pane fade" role="tabpanel">
                                 <table id="data_table1" class="table table-bordered display  pb-30">
->>>>>>> 70f993b39382ccfb02f8ca0b9be3a2c7e40f3180
                                         <thead>
                                             <tr>
                                                 <th>#</th>
