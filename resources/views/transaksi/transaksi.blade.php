@@ -24,7 +24,7 @@
             <!-- /Breadcrumb -->
         </div>
         <!-- Row -->
-        <div class="col-lg-12 col-sm-12 mt-10">
+        <div class="col-lg-12 col-md-12 mt-10">
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
 					<div class="pull-left">
