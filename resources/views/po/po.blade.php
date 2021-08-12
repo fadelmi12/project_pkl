@@ -94,7 +94,6 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    @include('peminjaman.addpinjam')
                                 </div>
                             </div>
                         </div>
@@ -212,12 +211,10 @@
                                                         <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                     </td>
                                                 @endif
-                                                @include('peminjaman.hapus')
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    @include('peminjaman.addpinjam')
                                 </div>
                             </div>
                         </div>
