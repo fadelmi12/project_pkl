@@ -136,6 +136,9 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('po', 'App\Http\Controllers\PoController@index');
     Route::get('addpo', 'App\Http\Controllers\PoController@addpo');
     Route::post('/addpo2', 'App\Http\Controllers\PoController@addpo2')->name('addpo2');
+    Route::post('editpo/{id_PO}', 'App\Http\Controllers\PoController@editpo');
+    Route::post('confirm/{id_PO}', 'App\Http\Controllers\PoController@confirm');
+    Route::post('reject/{id_PO}', 'App\Http\Controllers\PoController@reject');
 
     // ADMINISTRASI
     Route::get('administrator', 'App\Http\Controllers\AdministratorController@users');
