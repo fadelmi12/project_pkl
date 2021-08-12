@@ -103,14 +103,14 @@
                                         </thead>
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            @foreach($transaksi_masuk as $transaksi_masuk)
+                                            @foreach($transaksi_retur as $transaksi_retur)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $transaksi_masuk->no_transaksi}}</td>
-                                                <td>{{ $transaksi_masuk->nama_supplier }}</td>
-                                                <td>{{ $transaksi_masuk->jns_transaksi }}</td>
-                                                <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
-                                                <td>{{ $transaksi_masuk->created_at }}</td>
+                                                <td>{{ $transaksi_retur->no_transaksi}}</td>
+                                                <td>{{ $transaksi_retur->nama_supplier }}</td>
+                                                <td>{{ $transaksi_retur->jns_transaksi }}</td>
+                                                <td>{{ $transaksi_retur->tgl_transaksi}}</td>
+                                                <td>{{ $transaksi_retur->created_at }}</td>
                                                 <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->ekspedisi }}</td> -->
