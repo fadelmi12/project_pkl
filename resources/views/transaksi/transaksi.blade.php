@@ -8,15 +8,9 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-<<<<<<< HEAD
-                <h5 class="txt-dark">Data Transaksi</h5><br>
-                <a href="transaksi/transaksi_masuk_baru" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> MASUK</a>
-                <a href="transaksi/transaksi_masuk_retur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> KELUAR</a>
-=======
                 <h5 class="txt-dark">Data Barang Masuk</h5><br>
                 <a href="#" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> MASUK</a>
                 <a href="#" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> KELUAR</a>
->>>>>>> 70f993b39382ccfb02f8ca0b9be3a2c7e40f3180
             </div>
 
 
@@ -30,22 +24,7 @@
             <!-- /Breadcrumb -->
         </div>
         <!-- Row -->
-<<<<<<< HEAD
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-
-                    </div>
-                    <div class="clearfix"></div>
-
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                            <div class="table-wrap">
-                                <div class="table-responsive">
-                                    <table id="datable_1" class="table table-bordered display pb-30">
-=======
-        <div class="col-lg-12 col-sm-12 mt-10">
+        <div class="col-lg-12 col-md-12 mt-10">
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
 					<div class="pull-left">
@@ -107,24 +86,35 @@
                                 <!-- BARANG RETUR -->
                                 <div  id="masuk_retur" class="tab-pane fade" role="tabpanel">
                                 <table id="data_table1" class="table table-bordered display  pb-30">
->>>>>>> 70f993b39382ccfb02f8ca0b9be3a2c7e40f3180
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>No transaksi</th>
-                                                <th>Tanggal Transaksi</th>
                                                 <th>Supplier</th>
-                                                <th>Aksi</th>
+                                                <th>Jenis transaksi</th>
+                                                <th>Tanggal Transaksi</th>
+                                                <th>Created at</th>
+                                                <!-- <th>Pengirim</th> -->
+                                                <!-- <th>Penerima</th>/ -->
+                                                <!-- <th>Ekspedisi</th> -->
+                                                <!-- <th>Kondisi</th> -->
+                                                <th colspan="3">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            @foreach($transaksi_masuk as $transaksi_masuk)
+                                            @foreach($transaksi_retur as $transaksi_retur)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $transaksi_masuk->no_transaksi}}</td>
-                                                <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
-                                                <td>{{ $transaksi_masuk->nama_supplier }}</td>
+                                                <td>{{ $transaksi_retur->no_transaksi}}</td>
+                                                <td>{{ $transaksi_retur->nama_supplier }}</td>
+                                                <td>{{ $transaksi_retur->jns_transaksi }}</td>
+                                                <td>{{ $transaksi_retur->tgl_transaksi}}</td>
+                                                <td>{{ $transaksi_retur->created_at }}</td>
+                                                <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
+                                                <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->
+                                                <!-- <td>{{ $transaksi_masuk->ekspedisi }}</td> -->
+                                                <!-- <td>{{ $transaksi_masuk->kondisi }}</td> -->
                                                 <td>
                                                     <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
                                                     <a href="#"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
@@ -134,6 +124,7 @@
                                             </tr>
                                             @endforeach
                                         </tbody>
+                                        @include('transaksi.editbrgmasuk')
                                     </table>
 								</div>
 								
