@@ -36,7 +36,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12">
                                     <div class="form-wrap">
-                                        <form action="{{ url('addmasuk2') }}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ url('addmasukretur2') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
                                                 <div class="row">
@@ -130,7 +130,7 @@
                     </div>
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
-                            <form action="{{ url('addmasuk2') }}" id="form2" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('addmasukretur2') }}" id="form2" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="">
                                     <div classs="col">
@@ -156,7 +156,7 @@
                                         </table>
 
                                         <div class="col-md-12" style="text-align:right;">
-                                            <button type="submit" name="submit" onclick="submitForm()" class="btn btn-success ">Simpan</button>
+                                            <button type="submit" name="submit"  class="btn btn-success ">Simpan</button>
                                         </div>
                                     </div>
                                 </div>

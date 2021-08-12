@@ -63,9 +63,9 @@
                                                 </td>
                                                 <td style="text-align:center;">
                                                     @if($brg->status == 'aktif')
-                                                    <button class="btn btn-primary">Aktif</button>
+                                                    <button class="btn btn-primary btn-sm  btn-rounded">Aktif</button>
                                                     @else
-                                                    <button class="btn btn-danger">Non Aktif</button>
+                                                    <button class="btn btn-danger btn-sm  btn-rounded">Non Aktif</button>
                                                     @endif
                                                 </td>
                                                 <td>
