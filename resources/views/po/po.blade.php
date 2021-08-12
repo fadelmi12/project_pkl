@@ -86,15 +86,12 @@
                                                         <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#detail"><i class="fa fa-edit"></i></button>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpinjam"><i class="fa fa-pencil"></i></button>
                                                         <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspinjam"></i></button>
-                                                        @include('peminjaman.edit')
                                                         <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                     </td>
-                                                    @include('peminjaman.hapus')
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    @include('peminjaman.addpinjam')
                                 </div>
                             </div>
                         </div>
@@ -191,7 +188,6 @@
                                                         <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#detail"><i class="fa fa-edit"></i></button>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpinjam"><i class="fa fa-pencil"></i></button>
                                                         <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspinjam"></i></button>
-                                                        @include('peminjaman.edit')
                                                         <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                     </td>
                                                      @endif
@@ -208,16 +204,13 @@
                                                         <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#detail"><i class="fa fa-edit"></i></button>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpinjam"><i class="fa fa-pencil"></i></button>
                                                         <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspinjam"></i></button>
-                                                        @include('peminjaman.edit')
                                                         <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
                                                     </td>
                                                 @endif
-                                                @include('peminjaman.hapus')
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    @include('peminjaman.addpinjam')
                                 </div>
                             </div>
                         </div>
