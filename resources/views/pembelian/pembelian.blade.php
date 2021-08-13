@@ -63,7 +63,7 @@
                                             @foreach($pembelian as $pembelian)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $pembelian->noPO }}</td>
+                                                <td>{{ $pembelian->no_PO }}</td>
                                                 <td>{{ $pembelian->namaBarang }}</td>
                                                 <td>{{ $pembelian->jumlah }}</td>
                                                 <td>{{ $pembelian->harga }}</td>

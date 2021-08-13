@@ -11,7 +11,7 @@ class PO extends Model
     protected $table = "purchase_order";
     protected $primaryKey = "id_PO";
     protected $fillable = ['id_PO','no_PO','namaBarang', 'jumlah','intansi','status'
-                            ,'pic_marketing','pic_warehouse','pic_admin','pic_purchasing','keterangan','created_at'];
+                            ,'pic_marketing','pic_warehouse','pic_admin','keterangan','created_at'];
 
 
     public function detail_pengajuan()

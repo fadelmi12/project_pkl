@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembelian;
 use App\Models\PO;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class PoController extends Controller
     public function index()
     {
         $data_po = PO::all();
-        return view('po/po', compact('data_po'));
+        return view('po\po', compact('data_po'));
     }
 
     //
@@ -43,5 +44,62 @@ class PoController extends Controller
             ]
         );
         return redirect('/po');
+    }
+    public function editpo(Request $request)
+    {
+
+        PO::where('id_PO', $request->edit_id_po)
+        ->update([
+            'namaBarang' => $request->namaBarang,
+            'jumlah' => $request->jumlah,
+            'keterangan' => $request->keterangan
+        ]);
+        return back()->with('success', "Data telah diperbarui");
+    }
+    public function confirm(Request $request)
+    {
+        $user = Auth::user();
+        if ($user->divisi == "warehouse") {
+            PO::where('id_PO', $request->edit_id_po)
+            ->update([
+                'status' => '2',
+                'pic_warehouse' => $user->name
+            ]);
+        } elseif ($user->divisi == "admin") {
+            PO::where('id_PO', $request->edit_id_po)
+            ->update([
+                'status' => '4',
+                'pic_admin' => $user->name
+            ]);
+            Pembelian::create(
+                [
+                'no_PO' => $request->no_PO,
+                'namaBarang' => $request->namaBarang,
+                'jumlah' => $request->jumlah
+                ]
+            );
+        }
+        return back()->with('success', "Data telah disetujui");
+    }
+
+    public function reject(Request $request)
+    {
+        $user = Auth::user();
+        if ($user->divisi == "warehouse") {
+            PO::where('id_PO', $request->edit_id_po)
+            ->update([
+                'status' => '1',
+                'keterangan'=> $request->keterangan,
+                'pic_warehouse' => $user
+            ]);
+        } elseif ($user->divisi == "admin") {
+            PO::where('id_PO', $request->edit_id_po)
+            ->update([
+                'status' => '3',
+                'keterangan'=> $request->keterangan,
+                'pic_warehouse' => $user
+            ]);
+        }
+        return back()->with('success', "Data telah ditolak");
     }
 }
