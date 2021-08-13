@@ -14,6 +14,9 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input class="form-control" type="hidden" value="{{ $data_po->id_PO }}" name="edit_id_po">
+                        <input class="form-control" type="hidden" value="{{ $data_po->no_PO }}" name="no_PO">
+                        <input class="form-control" type="hidden" value="{{ $data_po->namaBarang }}" name="namaBarang">
+                        <input class="form-control" type="hidden" value="{{ $data_po->jumlah }}" name="jumlah">
                     </div>
                 </div>
 
