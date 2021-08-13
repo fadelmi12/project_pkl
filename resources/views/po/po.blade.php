@@ -175,7 +175,7 @@
                                             @foreach ($data_po as $data_po)
                                                 <tr>
                                                 @if (auth()->user()->divisi == "admin")
-                                                    @if($data_baru->status >=1 )
+                                                    @if($data_po->status >=1 )
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $data_po->no_PO}}</td>
                                                     <td>{{ $data_po->namaBarang}}</td>
