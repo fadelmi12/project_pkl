@@ -33,11 +33,6 @@ class PoController extends Controller
         $angka = sprintf("%03d", (int)$check + 1);
         $noPO = $thnBln . "" . $angka;
 
-
-        // $check = count(PO::where('no_PO')->get()->toArray());
-        // $angka = sprintf("%03d", (int)$check + 1);
-        // $noPO = $thnBln . "" . $angka;
-
         PO::create(
             [
                 'no_PO' => $noPO,
