@@ -60,6 +60,15 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(60),
             ]);
         $purchasing->save();
+        
+        $administrator = User::create([
+            'name' => 'administrator',
+            'email' => 'administrator@administrator.com',
+            'divisi' => 'administrator',
+            'password' => bcrypt('123456'),
+            'remember_token' => Str::random(60),
+            ]);
+        $administrator->save();
 
         $office = User::create([
             'name' => 'office',
