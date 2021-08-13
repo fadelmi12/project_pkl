@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Administrator;
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -45,10 +46,20 @@ class AdministratorController extends Controller
         Administrator::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->password),
             'divisi' => $request->divisi
         ]);
         return redirect('administrator');
+    }
+
+    public function log()
+    {
+        $log = Log::all();
+        return view('administrator/log', compact('log'));
+    }
+    public function activitylog()
+    {
+
     }
 
 }
