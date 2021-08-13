@@ -24,7 +24,6 @@ class PurchaseOrderTable extends Migration
             $table->string('pic_marketing',50)->nullable();
             $table->string('pic_warehouse',50)->nullable();
             $table->string('pic_admin',50)->nullable();
-            $table->string('pic_purchasing',50)->nullable();
             $table->timestamps();
         });
     }

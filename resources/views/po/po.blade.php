@@ -35,21 +35,21 @@
                         <div class="clearfix"></div>
                         <div id="myTable1_wrapper" class="dataTables_wrapper">
                             <div class="dataTables_length" id="myTable1_length"><label>Show <select name="myTable1_length" aria-controls="myTable1" class="">
-                                        <option value="10">10</option>
+                                <option value="10">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
                                         <option value="100">100</option>
                                     </select> entries</label></div>
-                            <div id="myTable1_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="myTable1"></label></div>
-                            <table id="myTable1" class="table table-hover display dataTable dtr-inline" role="grid" aria-describedby="myTable1_info" style="width: 1253px;">
-                        </div>
-                    </div>
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                            <div class="table-wrap">
-                                <div class="">
-                                    <table id="myTable1" class="table table-bordered display  pb-30">
-                                        <thead>
+                                    <div id="myTable1_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="myTable1"></label></div>
+                                    <table id="myTable1" class="table table-hover display dataTable dtr-inline" role="grid" aria-describedby="myTable1_info" style="width: 1253px;">
+                                    </div>
+                                </div>
+                                <div class="panel-wrapper collapse in">
+                                    <div class="panel-body">
+                                        <div class="table-wrap">
+                                            <div class="">
+                                                <table id="myTable1" class="table table-bordered display  pb-30">
+                                                    <thead>
                                             <tr>
                                                 <th>no</th>
                                                 <th>No PO</th>
@@ -71,9 +71,9 @@
                                                 <th>Salary</th>
                                             </tr>
                                         </tfoot> -->
+                                        @foreach ($data_po as $data_po)
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            @foreach ($data_po as $data_po)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $data_po->no_PO}}</td>
@@ -83,30 +83,28 @@
                                                     <td>{{ $data_po->keterangan}}</td>
                                                     <td>{{ $data_po->status}}</td>
                                                     <td>
-                                                        <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#detail"><i class="fa fa-edit"></i></button>
-                                                        <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpinjam"><i class="fa fa-pencil"></i></button>
-                                                        <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspinjam"></i></button>
-                                                        @include('peminjaman.edit')
-                                                        <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
+                                                        <button class="btn btn-primary btn-icon-anim btn-square "data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
+                                                        <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                     </td>
-                                                    @include('peminjaman.hapus')
+                                                    @include('po.editpo')
+                                                    @include('po.detail')
                                                 </tr>
+                                            </tbody>
                                             @endforeach
-                                        </tbody>
-                                    </table>
-                                    @include('peminjaman.addpinjam')
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- /Row -->
         </div>
-        <!-- /Row -->
     </div>
-</div>
-@endif
-
+    @endif
+    
 @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin")
 
 <!-- Main Content -->
@@ -115,7 +113,7 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">Data Purchasing</h5>
+                <h5 class="txt-dark">Data Purchase Order</h5>
             </div>
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
@@ -179,7 +177,7 @@
                                             @foreach ($data_po as $data_po)
                                                 <tr>
                                                 @if (auth()->user()->divisi == "admin")
-                                                    @if($data_baru->status >=1 )
+                                                    @if($data_po->status >=1 )
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $data_po->no_PO}}</td>
                                                     <td>{{ $data_po->namaBarang}}</td>
@@ -188,14 +186,12 @@
                                                     <td>{{ $data_po->keterangan}}</td>
                                                     <td>{{ $data_po->status}}</td>
                                                     <td>
-                                                        <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#detail"><i class="fa fa-edit"></i></button>
-                                                        <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpinjam"><i class="fa fa-pencil"></i></button>
-                                                        <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspinjam"></i></button>
-                                                        @include('peminjaman.edit')
-                                                        <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
+                                                        <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                        <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
+                                                        <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_po->id_PO }}" action="( {{url('confirm')}}/{{ $data_po->id_PO }})"><i class="fa fa-check"></i></button>
+                                                        <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_po->id_PO }}" action="( {{url('reject')}}/{{ $data_po->id_PO }})"><i class="fa fa-times"></i></button>
                                                     </td>
-                                                     @endif
-                                               
+                                                    @endif
                                                 @elseif (auth()->user()->divisi == "warehouse")
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $data_po->no_PO}}</td>
@@ -205,19 +201,19 @@
                                                     <td>{{ $data_po->keterangan}}</td>
                                                     <td>{{ $data_po->status}}</td>
                                                     <td>
-                                                        <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#detail"><i class="fa fa-edit"></i></button>
-                                                        <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpinjam"><i class="fa fa-pencil"></i></button>
-                                                        <button class="btn btn-danger btn-icon-anim btn-square"><i class="fa fa-trash" data-toggle="modal" data-target="#hapuspinjam"></i></button>
-                                                        @include('peminjaman.edit')
-                                                        <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
+                                                        <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                        <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
+                                                        <button class="btn btn-success btn-icon-anim btn-square"data-toggle="modal" data-target="#confirm{{ $data_po->id_PO }}" action="( {{url('confirm')}}/{{ $data_po->id_PO }})"><i class="fa fa-check"></i></button>
+                                                        <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_po->id_PO }}" action="( {{url('reject')}}/{{ $data_po->id_PO }})"><i class="fa fa-times"></i></button>
                                                     </td>
                                                 @endif
-                                                @include('peminjaman.hapus')
+                                                @include('po.editpo')
+                                                @include('po.confirm')
+                                                @include('po.reject')
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    @include('peminjaman.addpinjam')
                                 </div>
                             </div>
                         </div>
