@@ -7,7 +7,7 @@
     <div class="container-fluid pt-25">
         <div class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h5 class="txt-light">Selamat datang, <strong>{{ Auth::user()->name }}</strong></h5>
+            <h5 class="txt-light">Selamat datang, <strong>{{ Auth::user()->name }}</strong>, anda sebagai <strong>{{ Auth::user()->divisi }}</strong> </h5>
         </div>
         <!-- Row -->
         <div class="row">

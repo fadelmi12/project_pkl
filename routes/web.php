@@ -87,6 +87,8 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addkeluar');
     Route::get('transaksi', 'App\Http\Controllers\TransaksiController@transaksi');
 
+    Route::get('/transaksi', 'App\Http\Controllers\TransaksiController@transaksi');
+    Route::get('/transaksikeluar', 'App\Http\Controllers\TransaksiController@transaksikeluar');
 
     // SUPPLIER
     Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier')->name('supplier');
