@@ -15,7 +15,7 @@ class PembelianTable extends Migration
     {
         Schema::create('pembelian', function (Blueprint $table) {
             $table->increments('id_pembelian');
-            $table->integer('noPO');
+            $table->integer('no_PO');
             $table->string('namaBarang',50)->nullable();
             $table->date('tglBeli')->nullable();
             $table->string('harga',50)->nullable();
