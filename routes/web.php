@@ -38,7 +38,7 @@ Route::post('postlogin', [AuthController::class, 'postlogin'])->name('postlogin'
 Route::get('register', [AuthController::class, 'showFormRegister'])->name('register');
 Route::post('register', [AuthController::class, 'register']);
 
-Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,admin,purchasing'], function () {
+Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,admin,purchasing,administrator'], function () {
 
     Route::get('dashboard/home', [HomeController::class, 'index'])->name('home');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
@@ -144,7 +144,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
 
     // ADMINISTRASI
     Route::get('administrator', 'App\Http\Controllers\AdministratorController@users');
-    //Route::get('administrator', 'App\Http\Controllers\AdministratorController@index');
+    Route::get('log', 'App\Http\Controllers\AdministratorController@log');
     Route::get('administrator/addadmin', 'App\Http\Controllers\AdministratorController@addadmin');
     Route::post('/addadmin2', 'App\Http\Controllers\AdministratorController@addadmin2')->name('addadmin2');
 });
