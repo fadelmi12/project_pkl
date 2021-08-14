@@ -285,13 +285,26 @@
                 @endif
                 @if (auth()->user()->divisi == "purchasing")
                 <li>
-                    <a href="/pembelian">
-                        <div class="pull-left"><i class="zmdi zmdi-money-box mr-20"></i><span class="right-nav-text">Pembelian</span></div>
+                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#pembelian">
+                        <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pembelian</span></div>
+                        <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
                         <div class="clearfix"></div>
                     </a>
+                    <ul id="pembelian" class="collapse collapse-level-1">
+                        <li>
+                            <a href="/purchase">Purchase Order</a>
+                        </li>
+                        <li>
+                            <a href="#">Invoice</a>
+                        </li>
+                    </ul>
+                    <!-- <a href="/pembelian">
+                        <div class="pull-left"><i class="zmdi zmdi-money-box mr-20"></i><span class="right-nav-text">Pembelian</span></div>
+                        <div class="clearfix"></div>
+                    </a> -->
                 </li>
                 @endif
-                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "marketing"||auth()->user()->divisi == "purchasing" ||auth()->user()->divisi == "admin" ||auth()->user()->divisi == "office")
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "marketing"||auth()->user()->divisi == "admin" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="/po">
                         <div class="pull-left"><i class="zmdi zmdi-shopping-cart mr-20"></i><span class="right-nav-text">Purchase Order</span></div>
