@@ -8,7 +8,7 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">Data Barang Masuk</h5><br>
+                <h5 class="txt-dark">Data Barang keluar</h5><br>
                 <a href="/transaksi" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> MASUK</a>
                 <a href="/transaksikeluar" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> KELUAR</a>
             </div>
@@ -18,7 +18,7 @@
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="inventory">Transaksi</a></li>
-                    <li class="active"><span>Data Barang Masuk</span></li>
+                    <li class="active"><span>Data Barang Keluar</span></li>
                 </ol>
             </div>
             <!-- /Breadcrumb -->
@@ -28,7 +28,7 @@
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
 					<div class="pull-left">
-						<h6 class="panel-title txt-dark">Barang Masuk</h6>
+						<h6 class="panel-title txt-dark">Barang Keluar</h6>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -128,7 +128,6 @@
                                             </tr>
                                             @endforeach
                                         </tbody>
-                                        @include('transaksi.editbrgmasuk')
                                     </table>
 								</div>
 								
@@ -140,7 +139,6 @@
 		</div>
         
         <!-- /Row -->
-        @include('transaksi.hapusbrngmasuk')
     </div>
 </div>
 <!-- /Main Content -->

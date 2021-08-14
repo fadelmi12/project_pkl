@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -20,14 +21,14 @@ class AuthController extends Controller
         }
         return view('login');
     }
-  
+
     public function postlogin(Request $request)
     {
         $rules = [
             'email'                 => 'required|email',
             'password'              => 'required|string'
         ];
-  
+
         $messages = [
             'email.required'        => 'Email wajib diisi',
             'email.email'           => 'Email tidak valid',
@@ -47,10 +48,19 @@ class AuthController extends Controller
         ];
   
         // Auth::attempt($data);
-  
         if(Auth::attempt($request->only('email','password'))){
+            $user = Auth::user();
+            Log::create(
+                [
+                    'deskripsi' => 'Login',
+                    'email' => $user->email,
+                    'divisi' => $user->divisi,
+                    'name' => $user->name,
+                    'status' => '1',
+                    'ip'=> $user->$request->ip()
+                    ]
+                );
             return redirect('/home');
-  
         } else { // false
   
             //Login Fail
@@ -105,8 +115,20 @@ class AuthController extends Controller
         }
     }
   
-    public function logout()
+    public function logout(Request $request)
     {
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Logout',
+            'status' => '1',
+            'ip'=> $user->$request->ip()
+
+            ]
+        );
         Auth::logout(); // menghapus session yang aktif
         return redirect()->route('login');
     }

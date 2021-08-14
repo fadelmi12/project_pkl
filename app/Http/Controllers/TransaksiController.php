@@ -26,6 +26,7 @@ class TransaksiController extends Controller
         $transaksi_masuk = TransaksiModel::all();
         return view('transaksi/addmasukbaru', compact('supplier', 'barang', 'transaksi_masuk'));
     }
+    
 
     public function addmasukbaru2(Request $request)
     {
