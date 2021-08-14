@@ -57,7 +57,7 @@ class AuthController extends Controller
                     'divisi' => $user->divisi,
                     'name' => $user->name,
                     'status' => '1',
-                    'ip'=> $user->$request->ip()
+                    'ip'=> $request->ip()
                     ]
                 );
             return redirect('/home');
@@ -125,7 +125,7 @@ class AuthController extends Controller
             'divisi' => $user->divisi,
             'deskripsi' => 'Logout',
             'status' => '1',
-            'ip'=> $user->$request->ip()
+            'ip'=> $request->ip()
 
             ]
         );
