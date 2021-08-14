@@ -19,19 +19,27 @@
             <!-- /Breadcrumb -->
         </div>
         <!-- Row -->
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-                        
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                            <div class="table-wrap">
-                                <div class="table-responsive">
-                                    <table id="datable_1" class="table table-bordered display pb-30">
-                                        <thead>
+        <div class="col-lg-12 col-md-12 mt-10">
+			<div class="panel panel-default card-view">
+				<div class="panel-heading">
+					<div class="pull-left">
+						<h6 class="panel-title txt-dark">Log Aktivitas</h6>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="panel-wrapper collapse in">
+					<div class="panel-body">
+						<div  class="tab-struct custom-tab-1 ">
+							<ul role="tablist" class="nav nav-tabs" id="myTabs_7">
+								<li class="active" role="presentation"><a aria-expanded="true"  data-toggle="tab" role="tab" id="home_tab_7" href="#admin">Log Aktivity</a></li>
+								<li role="presentation" class=""><a  data-toggle="tab" id="profile_tab_7" role="tab" href="#admin2" aria-expanded="false">Aksi</a></li>
+								
+							</ul>
+                            <!-- BARANG -->
+							<div class="tab-content" id="myTabContent_7">
+								<div  id="admin" class="tab-pane fade active in" role="tabpanel">
+								<table id="data_table1" class="table table-bordered display  pb-30">
+                                <thead>
                                             <tr>
                                                 <th>Nama </th>
                                                 <th>Email</th>
@@ -52,15 +60,39 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-
                                 </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+								
+                                <!-- BARANG RETUR -->
+                                <div  id="admin2" class="tab-pane fade" role="tabpanel">
+                                    <table id="data_table1" class="table table-bordered display  pb-30">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama </th>
+                                                <th>Email</th>
+                                                <th>Divisi</th>
+                                                <th>Deskripsi</th>
+                                                <th>Waktu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr>    
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
             </div>
-        </div>
+		</div>
     </div>
     <!-- /Row -->
 </div>
