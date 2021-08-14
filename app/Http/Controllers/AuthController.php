@@ -56,6 +56,8 @@ class AuthController extends Controller
                     'email' => $user->email,
                     'divisi' => $user->divisi,
                     'name' => $user->name,
+                    'status' => '1',
+                    'ip'=> $user->$request->ip()
                     ]
                 );
             return redirect('/home');
@@ -113,7 +115,7 @@ class AuthController extends Controller
         }
     }
   
-    public function logout()
+    public function logout(Request $request)
     {
         $user = Auth::user();
         Log::create(
@@ -122,6 +124,9 @@ class AuthController extends Controller
             'email' => $user->email,
             'divisi' => $user->divisi,
             'deskripsi' => 'Logout',
+            'status' => '1',
+            'ip'=> $user->$request->ip()
+
             ]
         );
         Auth::logout(); // menghapus session yang aktif
