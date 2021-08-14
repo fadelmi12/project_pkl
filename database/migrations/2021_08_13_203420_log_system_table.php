@@ -19,6 +19,8 @@ class LogSystemTable extends Migration
             $table->string('email');
             $table->string('deskripsi');
             $table->string('divisi');
+            $table->string('ip')->nullable();
+            $table->integer('status');
             $table->timestamps();
         });
     }
