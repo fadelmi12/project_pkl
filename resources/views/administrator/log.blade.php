@@ -31,7 +31,7 @@
 					<div class="panel-body">
 						<div  class="tab-struct custom-tab-1 ">
 							<ul role="tablist" class="nav nav-tabs" id="myTabs_7">
-								<li class="active" role="presentation"><a aria-expanded="true"  data-toggle="tab" role="tab" id="home_tab_7" href="#admin">Log Aktivity</a></li>
+								<li class="active" role="presentation"><a aria-expanded="true"  data-toggle="tab" role="tab" id="home_tab_7" href="#admin">Login & Logout</a></li>
 								<li role="presentation" class=""><a  data-toggle="tab" id="profile_tab_7" role="tab" href="#admin2" aria-expanded="false">Aksi</a></li>
 								
 							</ul>
