@@ -54,8 +54,9 @@ class AdministratorController extends Controller
 
     public function log()
     {
-        $log = Log::all();
-        return view('administrator/log', compact('log'));
+        $log = Log::all()->where('status', '=', '1');
+        $log2 = Log::all()->where('status', '=', '2');
+        return view('administrator/log', compact('log','log2'));
     }
     public function activitylog()
     {
