@@ -40,8 +40,5 @@ class PembelianController extends Controller
         return view('pembelian/purchase', compact('purchase'));
     }
 
-    public function addinvoice()
-    {
-       
-    }
+  
 }
