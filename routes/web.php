@@ -124,8 +124,9 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
 
     //PEMBELIAN
     Route::get('pembelian', 'App\Http\Controllers\PembelianController@pembelian');
-    Route::get('pembelian/addpembelian/{noPO}', [PembelianController::class, 'addpembelian']);
+    Route::get('/addinvoice/{id_pembelian}','App\Http\Controllers\PembelianController@addinvoice');
     Route::get('purchase', 'App\Http\Controllers\PembelianController@purchase');
+    Route::post('addpembelian2', 'App\Http\Controllers\PembelianController@addpembelian2');
 
 
     // PEMINJAMAN
