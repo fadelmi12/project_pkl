@@ -25,4 +25,9 @@ class PembelianController extends Controller
         $purchase = Pembelian::all();
         return view('pembelian/purchase', compact('purchase'));
     }
+
+    public function addinvoice()
+    {
+       
+    }
 }
