@@ -71,26 +71,27 @@
                                                 <th>Salary</th>
                                             </tr>
                                         </tfoot> -->
-                                        @foreach ($data_po as $data_po)
+                                       
                                         <tbody>
-                                            <?php $no = 1; ?>
+                                        <?php $no = 1; ?>
+                                        @foreach ($data_po as $data_po)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{ $data_po->no_PO}}</td>
+                                                    <td>{{ $data_po->no_PO}}</td> 
                                                     <td>{{ $data_po->namaBarang}}</td>
                                                     <td>{{ $data_po->jumlah}}</td>
-                                                    <td>{{ $data_po->created_at}}</td>
+                                                    <td>{{ $data_po->created_at->format('d-m-y H:i:s')}}</td>
                                                     <td>{{ $data_po->keterangan}}</td>
                                                     <td>{{ $data_po->status}}</td>
                                                     <td>
                                                         <button class="btn btn-primary btn-icon-anim btn-square "data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                     </td>
-                                                    @include('po.editpo')
-                                                    @include('po.detail')
                                                 </tr>
-                                            </tbody>
-                                            @endforeach
+                                                @include('po.editpo')
+                                                <!-- @include('po.detail') -->
+                                        @endforeach
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>
