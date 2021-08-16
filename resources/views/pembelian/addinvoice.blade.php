@@ -1,7 +1,8 @@
 @extends('layout.master')
 @section('title', 'Invoice')
 @section('content')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
 <!-- Main Content -->
 <div class="page-wrapper">
     <div class="container-fluid">
@@ -16,42 +17,48 @@
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
-                        <form action="{{ url('addPembelian') }}" method="post" enctype="multipart/form-data">
-                            @csrf
-
+                        <form action="{{ url('addpembelian2') }}" method="post" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <input type="hidden" id="id_pengajuan" name="id_pengajuan" class="form-control" placeholder="" readonly value = "{{ $data_pembelian->id_pembelian }}" >
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left" for="example-email">No PO <span class="help"> </span></label>
-                                <input type="text" id="noPO" name="noPO" class="form-control" placeholder="">
+                                <input type="text" id="no_PO" name="no_PO" class="form-control" placeholder="" readonly value = "{{ $data_pembelian->no_PO }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label mb-10 text-left" for="example-email">Nama barang <span class="help"> </span></label>
+                                <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="" readonly value="{{ $data_pembelian->namaBarang }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label mb-10 text-left">Jumlah</label>
+                                <input type="number" id="jumlah" name="jumlah" class="form-control" rows="3" readonly value="{{ $data_pembelian->jumlah }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label mb-10 text-left">Harga jual</label>
+                                <input type="number" id="harga_jual" name="harga_jual" class="form-control a2" value="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label mb-10 text-left">Total Bayar</label>
+                                <input type="number" id="harga_beli" name="harga_beli" class="form-control b2" value="">
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left">Tanggal beli<span class="help"> </span></label>
                                 <input type="date" id="tgl_beli" name="tgl_beli" class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
-                                <label class="control-label mb-10 text-left" for="example-email">Nama barang <span class="help"> </span></label>
-                                <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label mb-10 text-left">Harga beli</label>
-                                <input type="text" id="harga_beli" name="harga_beli" class="form-control" value="">
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label mb-10 text-left">Jumlah</label>
-                                <input type="number" id="jumlah_beli" name="jumlah_beli" class="form-control" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label mb-10 text-left">Jenis transaksi</label>
-                                <select class="form-control">
-                                    <option>Cash</option>
-                                    <option>Transfer</option>
-                                    <option>Hutang</option>
+                                <select class="form-control" id="jenisTransaksi" name="jenisTransaksi">
+                                    <option value="cash">Cash</option>
+                                    <option value="transfer">Transfer</option>
+                                    <option value="hutang">Hutang</option>
                                 </select>
                             </div>
-
+                            <div class="form-group" id="total" name="total" style="display: none;" >
+                                <label class="control-label mb-10 text-left"> Total Hutang</label>
+                                <input type="text"  class="form-control c2"  id="amount" >
+                            </div>
                             <div class="form-group">
                                 <button class="btn btn-success mr-5" name="submit" type="submit">Simpan</button>
-                                <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                </button>
+                                <button class="btn btn-danger  " name="reset" type="reset">Batal</button>
                             </div>
                         </form>
                     </div>
@@ -62,4 +69,23 @@
         <!-- /Main Content -->
     </div>
     <!-- /#wrapper -->
+    <script>
+    $('select[name=jenisTransaksi]').on('change', function() {
+    if (this.value == 'hutang') {
+        $("#total").show();
+    } else {
+        $("#total").hide();
+    }
+        });
+
+    
+    $(document).ready(function() {
+    $(".a2, .b2").on("keydown keyup", function(event) {
+    var jual = $("#harga_jual");
+    var beli = $("#harga_beli");
+    $("#amount").val(Number(jual.val()) - Number(beli.val()));
+    });
+    });
+    </script>
+
     @endsection
