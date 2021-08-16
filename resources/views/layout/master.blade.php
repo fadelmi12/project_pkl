@@ -295,7 +295,7 @@
                             <a href="/purchase">Purchase Order</a>
                         </li>
                         <li>
-                            <a href="#">Invoice</a>
+                            <a href="/pembelian">Invoice</a>
                         </li>
                     </ul>
                     <!-- <a href="/pembelian">
