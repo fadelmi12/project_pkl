@@ -85,13 +85,16 @@
                                                     <td>
                                                         <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
+                                                        @include('po.detail')
                                                     </td>
                                                     @include('po.editpo')
-                                                    @include('po.detail')
+                                                   
                                                 </tr>
                                             </tbody>
+                                            
                                             @endforeach
                                         </table>
+                                        
                                     </div>
                                 </div>
                             </div>
