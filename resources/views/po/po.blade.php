@@ -179,11 +179,14 @@
                                                         <td>{{ $data_po->keterangan}}</td>
                                                         <td>{{ $data_po->status}}</td>
                                                         <td>
-                                                            <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                            <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#confirm{{ $data_po->id_PO }}" action="( {{url('confirm')}}/{{ $data_po->id_PO }})"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_po->id_PO }}" action="( {{url('reject')}}/{{ $data_po->id_PO }})"><i class="fa fa-times"></i></button>
+                                                            
+                                                        @include('po.detail')
                                                         </td>
+                                                        
                                                         @endif
                                                         @elseif (auth()->user()->divisi == "warehouse")
                                                         <td>{{ $no++ }}</td>
@@ -194,10 +197,11 @@
                                                         <td>{{ $data_po->keterangan}}</td>
                                                         <td>{{ $data_po->status}}</td>
                                                         <td>
-                                                            <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                        <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#confirm{{ $data_po->id_PO }}" action="( {{url('confirm')}}/{{ $data_po->id_PO }})"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_po->id_PO }}" action="( {{url('reject')}}/{{ $data_po->id_PO }})"><i class="fa fa-times"></i></button>
+                                                            @include('po.detail')
                                                         </td>
                                                         @endif
                                                         @include('po.editpo')
