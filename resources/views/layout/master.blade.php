@@ -776,6 +776,7 @@
         <!-- /Main Content -->
 
     </div>
+    
     <!-- /#wrapper -->
 
     <!-- JavaScript -->
