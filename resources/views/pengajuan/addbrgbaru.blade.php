@@ -39,7 +39,7 @@
                                         <label class="control-label mb-10 text-left" for="example-email">Nomor PO Barang<span class="help"> </span></label>
                                         <input type="text" id="noPO" name="noPO" class="form-control" placeholder="">
                                     </div> -->
-                                    
+
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Nama Barang<span class="help"> </span></label>
                                         <input type="text" id="namaBarang" name="namaBarang" class="form-control" placeholder="">
@@ -52,10 +52,10 @@
                                         <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
                                         <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
                                     </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary">Simpan</button>
-                                        <button class="btn btn-danger  " name="reset" type="reset">Batal
-                                        </button>
+                                    <div class="form-group" style="text-align:right;">
+                                        <button class="btn btn-success">Simpan</button>
+                                        <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal
+                                        </button> -->
                                     </div>
                                 </form>
 

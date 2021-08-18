@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DetailPengajuan;
+use App\Models\Log;
 use App\Models\Pembelian;
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
@@ -37,6 +38,19 @@ class PengajuanController extends Controller
                 'jenisBarang' => $retur
             ]
         );
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Create Pengajuan Rekomendasi',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         return redirect('/brgbaru');
     }
 
@@ -54,9 +68,22 @@ class PengajuanController extends Controller
                 'jmlBarang' => $request->edit_jumlah,
                 'keterangan' => $request->edit_keterangan
             ]);
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Update Pengajuan Rekomendasi',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         return redirect('/brgbaru');
     }
-    public function deletebaru($id_pengajuan)
+    public function deletebaru($id_pengajuan, Request $request)
     {
         // dd($id_jenis);
         // dd($id_master);
@@ -64,6 +91,19 @@ class PengajuanController extends Controller
         $baru = Pengajuan::where('id_pengajuan', $id_pengajuan)->first();
         // // dd($barang);
         $baru->delete();
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Delete Pengajuan Rekomendasi',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
@@ -92,15 +132,15 @@ class PengajuanController extends Controller
     public function addretur2(Request $request)
     {
         $user = Auth::user();
-                
+
         Pengajuan::create(
             [
                 'kode' => $request->kode_pengajuan,
                 'judul' => $request->nama_pengajuan,
                 'jenisBarang' => 'Baru',
                 'pic_teknisi' => $user->name
-                ]
-            );
+            ]
+        );
         $jumlah_data = count($request->nama_barang);
         for ($i = 0; $i < $jumlah_data; $i++) {
             DetailPengajuan::create(
@@ -111,9 +151,22 @@ class PengajuanController extends Controller
                     'keterangan' => $request->keterangan[$i],
                     'jenisBarang' => 'Baru'
                 ]
-                );
+            );
+
+            $user = Auth::user();
+            Log::create(
+                [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'divisi' => $user->divisi,
+                    'deskripsi' => 'Create Pengajuan Barang Retur',
+                    'status' => '2',
+                    'ip' => $request->ip()
+
+                ]
+            );
         }
-            return redirect('/brgretur');
+        return redirect('/brgretur');
     }
     public function editRetur($id_pengajuan)
     {
@@ -130,9 +183,22 @@ class PengajuanController extends Controller
                 'jmlBarang' => $request->edit_jumlah,
                 'keterangan' => $request->edit_keterangan
             ]);
+
+            $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Update Pengajuan Barang Retur',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         return redirect('/brgretur');
     }
-    public function deleteretur($id_pengajuan)
+    public function deleteretur($id_pengajuan, Request $request)
     {
         // dd($id_jenis);
         // dd($id_master);
@@ -140,6 +206,19 @@ class PengajuanController extends Controller
         $baru = Pengajuan::where('id_pengajuan', $id_pengajuan)->first();
         // // dd($barang);
         $baru->delete();
+
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Delete Pengajuan Barang Retur',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
@@ -176,6 +255,19 @@ class PengajuanController extends Controller
                     'pic_admin' => $user->name,
                     'status' => '5'
                 ]);
+
+                $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Reject Pengajuan',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         }
 
         return back()->with('success', "Data telah diperbarui");
@@ -209,6 +301,19 @@ class PengajuanController extends Controller
                 ]
 
             );
+
+            $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Confirm Pengajuan Retur',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         }
 
         return back()->with('success', "Data telah diperbarui");
