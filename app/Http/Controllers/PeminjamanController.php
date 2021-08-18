@@ -21,6 +21,23 @@ class PeminjamanController extends Controller
 
     public function addpinjam2(Request $request)
     {
+        $rules = [
+            'nama' => 'required',
+            'nama_barang' => 'required',
+            'jumlah' => 'required',
+            'keterangan' => 'required',
+            'tgl_pinjam' => 'required',
+        ];
+
+        $messages = [
+            'nama.required' => '*Nama tidak boleh kosong',
+            'nama_barang.required' => '*Nama barang tidak boleh kosong',
+            'jumlah.required' => '*Jumlah tidak boleh kosong',
+            'keterangan.required' => '*Keterangan tidak boleh kosong',
+            'tgl_pinjam.required' => '*Tgl pinjam tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
+
         Peminjaman::create([
             'nama'          => $request->nama,
             'barang'   => $request->nama_barang,
@@ -41,6 +58,7 @@ class PeminjamanController extends Controller
 
     public function updatePinjam(Request $request)
     {
+
         if ($request->edit_tgl_kembali) {
             $status = 'dikembalikan';
         } else {

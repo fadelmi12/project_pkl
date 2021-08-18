@@ -28,7 +28,7 @@ class PoController extends Controller
     {
         $user = Auth::user();
         $now = Carbon::now();
-        $thnBln= $now->year . $now->month;
+        $thnBln = $now->year . $now->month;
 
         // $kode = strtoupper(substr($request->nama_barang, 0, 3));
         $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
@@ -48,12 +48,12 @@ class PoController extends Controller
         $user = Auth::user();
         Log::create(
             [
-            'name' => $user->name,
-            'email' => $user->email,
-            'divisi' => $user->divisi,
-            'deskripsi' => 'Create PO',
-            'status' => '2',
-            'ip'=> $request->ip()
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Create PO',
+                'status' => '2',
+                'ip' => $request->ip()
 
             ]
         );
@@ -63,21 +63,21 @@ class PoController extends Controller
     {
 
         PO::where('id_PO', $request->edit_id_po)
-        ->update([
-            'namaBarang' => $request->namaBarang,
-            'jumlah' => $request->jumlah,
-            'keterangan' => $request->keterangan
-        ]);
+            ->update([
+                'namaBarang' => $request->namaBarang,
+                'jumlah' => $request->jumlah,
+                'keterangan' => $request->keterangan
+            ]);
 
         $user = Auth::user();
         Log::create(
             [
-            'name' => $user->name,
-            'email' => $user->email,
-            'divisi' => $user->divisi,
-            'deskripsi' => 'Update PO',
-            'status' => '2',
-            'ip'=> $request->ip()
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Update PO',
+                'status' => '2',
+                'ip' => $request->ip()
 
             ]
         );
@@ -88,36 +88,49 @@ class PoController extends Controller
         $user = Auth::user();
         if ($user->divisi == "warehouse") {
             PO::where('id_PO', $request->edit_id_po)
-            ->update([
-                'status' => '2',
-                'pic_warehouse' => $user->name
-            ]);
+                ->update([
+                    'status' => '2',
+                    'pic_warehouse' => $user->name
+                ]);
+            $user = Auth::user();
+            Log::create(
+                [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'divisi' => $user->divisi,
+                    'deskripsi' => 'Confirm PO',
+                    'status' => '2',
+                    'ip' => $request->ip()
+                ]
+            );
+
         } elseif ($user->divisi == "admin") {
             PO::where('id_PO', $request->edit_id_po)
-            ->update([
-                'status' => '4',
-                'pic_admin' => $user->name
-            ]);
+                ->update([
+                    'status' => '4',
+                    'pic_admin' => $user->name
+                ]);
             Pembelian::create(
                 [
-                'no_PO' => $request->no_PO,
-                'namaBarang' => $request->namaBarang,
-                'jumlah' => $request->jumlah
+                    'no_PO' => $request->no_PO,
+                    'namaBarang' => $request->namaBarang,
+                    'jumlah' => $request->jumlah,
+                    'status' => 'pending'
                 ]
             );
 
             $user = Auth::user();
-        Log::create(
-            [
-            'name' => $user->name,
-            'email' => $user->email,
-            'divisi' => $user->divisi,
-            'deskripsi' => 'Confirm PO',
-            'status' => '2',
-            'ip'=> $request->ip()
+            Log::create(
+                [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'divisi' => $user->divisi,
+                    'deskripsi' => 'Confirm PO',
+                    'status' => '2',
+                    'ip' => $request->ip()
 
-            ]
-        );
+                ]
+            );
         }
         return back()->with('success', "Data telah disetujui");
     }
@@ -127,31 +140,43 @@ class PoController extends Controller
         $user = Auth::user();
         if ($user->divisi == "warehouse") {
             PO::where('id_PO', $request->edit_id_po)
-            ->update([
-                'status' => '1',
-                'keterangan'=> $request->keterangan,
-                'pic_warehouse' => $user
-            ]);
+                ->update([
+                    'status' => '1',
+                    'keterangan' => $request->keterangan,
+                    'pic_warehouse' => $user
+                ]);
+            $user = Auth::user();
+            Log::create(
+                [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'divisi' => $user->divisi,
+                    'deskripsi' => 'Reject PO',
+                    'status' => '2',
+                    'ip' => $request->ip()
+
+                ]
+            );
         } elseif ($user->divisi == "admin") {
             PO::where('id_PO', $request->edit_id_po)
-            ->update([
-                'status' => '3',
-                'keterangan'=> $request->keterangan,
-                'pic_warehouse' => $user
-            ]);
+                ->update([
+                    'status' => '3',
+                    'keterangan' => $request->keterangan,
+                    'pic_warehouse' => $user
+                ]);
 
             $user = Auth::user();
-        Log::create(
-            [
-            'name' => $user->name,
-            'email' => $user->email,
-            'divisi' => $user->divisi,
-            'deskripsi' => 'Reject PO',
-            'status' => '2',
-            'ip'=> $request->ip()
+            Log::create(
+                [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'divisi' => $user->divisi,
+                    'deskripsi' => 'Reject PO',
+                    'status' => '2',
+                    'ip' => $request->ip()
 
-            ]
-        );
+                ]
+            );
         }
         return back()->with('success', "Data telah ditolak");
     }

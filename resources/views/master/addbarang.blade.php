@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Stok</label>
-                                        <input type="text" class="form-control" name="stok" id="stok">
+                                        <input type="number" class="form-control" name="stok" id="stok">
                                         @if ($errors->has('stok'))
                                         <div class="tulisan">{{$errors->first('stok')}}</div>
                                         @endif

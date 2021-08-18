@@ -58,7 +58,8 @@
                                                 <td>{{ $data_kategori->keterangan }}</td>
                                                 <td>
                                                     <a href="/kategori/editKategori/{{ $data_kategori->id_kategori }}"class="text-inverse pr-10" title="Edit" data-toggle="tooltip"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square text-inverse pr-5" title="Hapus" data-toggle="modal tooltip" data-target="#hapusktg{{ $data_kategori->id_kategori }}" action="( {{url('deletekategori')}}/{{ $data_kategori->id_kategori }})"><i class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square " data-toggle="modal" data-target="#hapusktg{{ $data_kategori->id_kategori }}" action="( {{url('deletekategori')}}/{{ $data_kategori->id_kategori }})"><i class="fa fa-trash"></i></button>
+
                                                 </td>
                                             </tr>
                                             @include('master.hapusktg')
