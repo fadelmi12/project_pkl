@@ -38,7 +38,7 @@ Route::post('postlogin', [AuthController::class, 'postlogin'])->name('postlogin'
 Route::get('register', [AuthController::class, 'showFormRegister'])->name('register');
 Route::post('register', [AuthController::class, 'register']);
 
-Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,admin,purchasing'], function () {
+Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,admin,purchasing,administrator'], function () {
 
     Route::get('dashboard/home', [HomeController::class, 'index'])->name('home');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
@@ -87,6 +87,8 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('brgkeluar/addkeluar', 'App\Http\Controllers\TransaksiController@addkeluar');
     Route::get('transaksi', 'App\Http\Controllers\TransaksiController@transaksi');
 
+    Route::get('/transaksi', 'App\Http\Controllers\TransaksiController@transaksi');
+    Route::get('/transaksikeluar', 'App\Http\Controllers\TransaksiController@transaksikeluar');
 
     // SUPPLIER
     Route::get('supplier', 'App\Http\Controllers\SupplierController@supplier')->name('supplier');
@@ -122,7 +124,10 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
 
     //PEMBELIAN
     Route::get('pembelian', 'App\Http\Controllers\PembelianController@pembelian');
-    Route::get('pembelian/addpembelian/{noPO}', [PembelianController::class, 'addpembelian']);
+    Route::get('/addinvoice/{id_pembelian}','App\Http\Controllers\PembelianController@addinvoice');
+    Route::get('purchase', 'App\Http\Controllers\PembelianController@purchase');
+    Route::post('addpembelian2', 'App\Http\Controllers\PembelianController@addpembelian2');
+
 
     // PEMINJAMAN
     Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@peminjaman');
@@ -136,10 +141,13 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('po', 'App\Http\Controllers\PoController@index');
     Route::get('addpo', 'App\Http\Controllers\PoController@addpo');
     Route::post('/addpo2', 'App\Http\Controllers\PoController@addpo2')->name('addpo2');
+    Route::post('editpo/{id_PO}', 'App\Http\Controllers\PoController@editpo');
+    Route::post('confirm/{id_PO}', 'App\Http\Controllers\PoController@confirm');
+    Route::post('reject/{id_PO}', 'App\Http\Controllers\PoController@reject');
 
     // ADMINISTRASI
     Route::get('administrator', 'App\Http\Controllers\AdministratorController@users');
-    //Route::get('administrator', 'App\Http\Controllers\AdministratorController@index');
+    Route::get('log', 'App\Http\Controllers\AdministratorController@log');
     Route::get('administrator/addadmin', 'App\Http\Controllers\AdministratorController@addadmin');
     Route::post('/addadmin2', 'App\Http\Controllers\AdministratorController@addadmin2')->name('addadmin2');
 });

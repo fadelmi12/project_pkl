@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Data Pembelian')
+@section('title', 'Purchase Order')
 @section('content')
 
 <!-- Main Content -->
@@ -8,13 +8,13 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">Data Pembelian</h5>
+                <h5 class="txt-dark">Purchase Order</h5>
             </div>
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <!-- <li><a href="inventory"></a></li> -->
-                    <li class="active"><span>Data Pembelian</span></li>
+                    <!-- <li class="active"><span>Data Pembelian</span></li> -->
                 </ol>
             </div>
             <!-- /Breadcrumb -->
@@ -51,29 +51,21 @@
                                                 <th>No PO</th>
                                                 <th>Nama Barang</th>
                                                 <th>Jumlah</th>
-                                                <th>Harga</th>
-                                                <th>tanggal Beli</th>
-                                                <th>Total bayar</th>
-                                                <th>Status</th>
                                                 <th colspan="3">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            @foreach($pembelian as $pembelian)
+                                            @foreach($purchase as $purchase)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $pembelian->no_PO }}</td>
-                                                <td>{{ $pembelian->namaBarang }}</td>
-                                                <td>{{ $pembelian->jumlah }}</td>
-                                                <td>{{ $pembelian->harga }}</td>
-                                                <td>{{ $pembelian->tglBeli }}</td>
-                                                <td>{{ $pembelian->totalBayar }}</td>
-                                                <td>{{ $pembelian->status }}</td>
+                                                <td>{{ $purchase->no_PO }}</td>
+                                                <td>{{ $purchase->namaBarang }}</td>
+                                                <td>{{ $purchase->jumlah }}</td>
                                                 <td>
-                                                <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
-                                                <a href="#"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#" action="#"><i class="fa fa-trash"></i></button>
+                                                <!-- <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a> -->
+                                                <a href="addinvoice/{{ $purchase->id_pembelian }}"><button class="btn btn-primary btn-icon-anim">Tambah Invoice </button></a>
+                                                <!-- <i class="fa fa-edit"></i> <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#" action="#"><i class="fa fa-trash"></i></button> -->
                                                 </td>
                                             </tr>
                                             @endforeach

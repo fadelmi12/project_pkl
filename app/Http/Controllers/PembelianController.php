@@ -10,13 +10,33 @@ class PembelianController extends Controller
     //
     public function pembelian()
     {
-        $pembelian = Pembelian::all();
+        $pembelian = Pembelian::all()->where('status','!=','');
         return view('pembelian/pembelian', compact('pembelian'));
     }
 
-    public function addpembelian($noPO)
+    public function addinvoice($id_pembelian)
     {
-        $data_pembelian = Pembelian::find($noPO);
-        return view('pembelian/addpembelian', compact('data_pembelian'));
+        $data_pembelian = Pembelian::find($id_pembelian);
+        return view('pembelian/addinvoice', compact('data_pembelian'));
+    }
+
+    public function addpembelian2(Request $request)
+    {
+        Pembelian::where('id_pembelian', $request->id_pembelian)
+        ->update([
+            'tglBeli' => $request->tgl_beli,
+            'harga' => $request->harga_jual,
+            'totalBayar' => $request->harga_beli,
+            'status' => $request->jenisTransaksi,
+            'sisaBayar' => $request->amount,
+
+        ]);
+        return back()->with('success', "Data telah diupdate");
+    }
+
+    public function purchase()
+    {
+        $purchase = Pembelian::all();
+        return view('pembelian/purchase', compact('purchase'));
     }
 }
