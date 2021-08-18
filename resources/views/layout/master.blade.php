@@ -264,9 +264,11 @@
                         <div class="clearfix"></div>
                     </a>
                     <ul id="pengajuan" class="collapse collapse-level-1">
+                    @if (auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing")
                         <li>
-                            <a href="/brgbaru">Barang baru</a>
+                            <a href="/brgbaru">Barang rekomendasi</a>
                         </li>
+                        @endif
                         @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing")
                         <li>
                             <a href="/brgretur">Barang retur</a>

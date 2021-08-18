@@ -9,7 +9,7 @@ class Master extends Model
 {
     use HasFactory;
 
-    protected $table = "master_data";
+    protected $table = "master_data"; 
     protected $primaryKey = "id_master";
 
     protected $fillable = ['id_master', 'kode_barang', 'nama_barang', 'jenis_barang', 'stok', 'gambar','status'];

@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Jenis;
 use App\Models\kategori;
+use App\Models\Log;
 use App\Models\Master;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class MasterController extends Controller
@@ -71,6 +73,19 @@ class MasterController extends Controller
             'gambar' => $namaFile,
             'status' => $request->status
         ]);
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Create Data Barang',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         return redirect('databrg');
     }
 
@@ -126,17 +141,43 @@ class MasterController extends Controller
                     'stok' => $request->edit_stok,
                     'status' => $request->edit_status
                 ]);
+
+            $user = Auth::user();
+            Log::create(
+                [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'divisi' => $user->divisi,
+                    'deskripsi' => 'Update Data Barang',
+                    'status' => '2',
+                    'ip' => $request->ip()
+
+                ]
+            );
         }
         return redirect('databrg');
 
         // return redirect()->back();
     }
 
-    public function deletebarang($id_master)
+    public function deletebarang($id_master, Request $request)
     {
         $brg = Master::where('id_master', $id_master)->first();
         // // dd($barang);
         $brg->delete();
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Delete Data Barang',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         // //mengirim data_brg ke view
         return back()->with('success', "Data telah terhapus");
     }
@@ -177,6 +218,19 @@ class MasterController extends Controller
             'kategori' => $request->kategori,
             'keterangan' => $request->keterangan
         ]);
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Create Data Kategori',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         return redirect('kategori');
     }
 
@@ -208,12 +262,25 @@ class MasterController extends Controller
                 'kategori' => $request->edit_kategori,
                 'keterangan' => $request->edit_keterangan
             ]);
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Update Data Kategori',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         return redirect('kategori');
 
         return redirect()->back();
     }
 
-    public function deletekategori($id_kategori)
+    public function deletekategori($id_kategori, Request $request)
     {
         // dd($id_jenis);
         // dd($id_master);
@@ -221,6 +288,19 @@ class MasterController extends Controller
         $kategori = Kategori::where('id_kategori', $id_kategori)->first();
         // // dd($barang);
         $kategori->delete();
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Delete Data Kategori',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }
@@ -256,6 +336,19 @@ class MasterController extends Controller
             'jenis_barang' => $request->jenis_barang,
             'keterangan' => $request->keterangan
         ]);
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Create Jenis Barang',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         return redirect('jenis');
     }
 
@@ -285,17 +378,43 @@ class MasterController extends Controller
                 'jenis_barang' => $request->edit_jenis,
                 'keterangan' => $request->edit_keterangan
             ]);
+
+        $user = Auth::user();
+        Log::create(
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Update Jenis Barang',
+                'status' => '2',
+                'ip' => $request->ip()
+
+            ]
+        );
         return redirect('jenis');
 
         return redirect()->back();
     }
 
-    public function deletejenis($id_jenis)
+    public function deletejenis($id_jenis, Request $request)
     {
         // dd($id_jenis);
         $jenis = Jenis::where('id_jenis', $id_jenis)->first();
         // // dd($barang);
         $jenis->delete();
+
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Delete Jenis Barang',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         // //mengirim data_ktg ke view
         return back()->with('success', "Data telah terhapus");
     }

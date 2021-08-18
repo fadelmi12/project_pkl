@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Pembelian;
 use App\Models\PO;
 use Carbon\Carbon;
@@ -43,6 +44,19 @@ class PoController extends Controller
                 'pic_marketing' => $user->name
             ]
         );
+
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Create PO',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         return redirect('/po');
     }
     public function editpo(Request $request)
@@ -54,6 +68,19 @@ class PoController extends Controller
             'jumlah' => $request->jumlah,
             'keterangan' => $request->keterangan
         ]);
+
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Update PO',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         return back()->with('success', "Data telah diperbarui");
     }
     public function confirm(Request $request)
@@ -78,6 +105,19 @@ class PoController extends Controller
                 'jumlah' => $request->jumlah
                 ]
             );
+
+            $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Confirm PO',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         }
         return back()->with('success', "Data telah disetujui");
     }
@@ -99,6 +139,19 @@ class PoController extends Controller
                 'keterangan'=> $request->keterangan,
                 'pic_warehouse' => $user
             ]);
+
+            $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Reject PO',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         }
         return back()->with('success', "Data telah ditolak");
     }
