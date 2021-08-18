@@ -62,26 +62,41 @@
                                                 <div class="form-group">
                                                     <label class="control-label mb-10 text-left" for="example-email">Nama Supplier <span class="help"> </span></label>
                                                     <input type="text" value="{{ $data_supplier->nama_supplier }}" name="edit_nama" class="form-control" placeholder="">
+                                                    @if ($errors->has('nama_supplier'))
+                                                    <div class="alert alert-danger">{{$errors->first('nama_supplier')}}</div>
+                                                    @endif
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label mb-10 text-left" for="example-email">Email Supplier <span class="help"> </span></label>
                                                     <input type="email" value="{{ $data_supplier->email_supplier }}" name="edit_email" class="form-control" placeholder="">
+                                                    @if ($errors->has('email_supplier'))
+                                                    <div class="alert alert-danger">{{$errors->first('email_supplier')}}</div>
+                                                    @endif
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label mb-10 text-left">Alamat</label>
                                                     <textarea type="text" name="edit_alamat" class="form-control" rows="3">{{ $data_supplier->alamat_supplier }}</textarea>
+                                                    @if ($errors->has('alamat_supplier'))
+                                                    <div class="alert alert-danger">{{$errors->first('alamat_supplier')}}</div>
+                                                    @endif
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label mb-10 text-left" for="example-email">PIC Supplier <span class="help"> </span></label>
                                                     <input type="text" value="{{ $data_supplier->pic_supplier }}" name="edit_pic" class="form-control" placeholder="">
+                                                    @if ($errors->has('pic_supplier'))
+                                                    <div class="alert alert-danger">{{$errors->first('pic_supplier')}}</div>
+                                                    @endif
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label mb-10 text-left" for="example-email">No HP Supplier <span class="help"> </span></label>
                                                     <input type="number" value="{{ $data_supplier->telp_supplier }}" name="edit_no" class="form-control" placeholder="">
+                                                    @if ($errors->has('telp_supplier'))
+                                                    <div class="alert alert-danger">{{$errors->first('telp_supplier')}}</div>
+                                                    @endif
                                                 </div>
-                                                <div class="form-group">
-                                                    <button class="btn btn-primary">Simpan</button>
-                                                    <button class="btn btn-danger" name="reset" type="reset">Batal
+                                                <div class="form-group" style="text-align: right;">
+                                                    <button class="btn btn-success">Simpan</button>
+                                                    <!-- <button class="btn btn-danger" name="reset" type="reset">Batal -->
                                                     </button>
                                                 </div>
                                         </form>

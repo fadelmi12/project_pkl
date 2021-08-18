@@ -30,6 +30,24 @@ class SupplierController extends Controller
 
     public function updateSup(Request $request)
     {
+
+        $rules = [
+            'nama_supplier' => 'required',
+            'email_supplier' => 'required',
+            'pic_supplier' => 'required',
+            'alamat_supplier' => 'required',
+            'telp_supplier' => 'required',
+        ];
+
+        $messages = [
+            'nama_supplier.required' => '*Nama supplier tidak boleh kosong',
+            'email_supplier.required' => '*Email tidak boleh kosong',
+            'pic_supplier.required' => '*PIC tidak boleh kosong',
+            'alamat_supplier.required' => '*Alamat tidak boleh kosong',
+            'telp_supplier.required' => '*No telp tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
+        
         SupplierModel::where('id_supplier', $request->edit_id_sup)
             ->update([
                 'kode_supplier' => $request->edit_kode,
@@ -59,6 +77,23 @@ class SupplierController extends Controller
 
     public function addSupplier(Request $request)
     {
+        $rules = [
+            'nama_supplier' => 'required',
+            'email_supplier' => 'required',
+            'pic_supplier' => 'required',
+            'alamat_supplier' => 'required',
+            'telp_supplier' => 'required',
+        ];
+
+        $messages = [
+            'nama_supplier.required' => '*Nama supplier tidak boleh kosong',
+            'email_supplier.required' => '*Email tidak boleh kosong',
+            'pic_supplier.required' => '*PIC tidak boleh kosong',
+            'alamat_supplier.required' => '*Alamat tidak boleh kosong',
+            'telp_supplier.required' => '*No telp tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
+
         //Kode supp
         $kode = strtoupper(substr("SUPPLIER", 0, 3));
         $check = count(SupplierModel::where('kode_supplier', 'like', "%$kode%")->get()->toArray());
@@ -93,9 +128,7 @@ class SupplierController extends Controller
 
     public function deletesupplier($id_supplier, Request $request)
     {
-        // dd($id_jenis);
-        // dd($id_master);
-        // $data_kategori = Master::find($request->id_master);
+        
         $data_supplier = SupplierModel::where('id_supplier', $id_supplier)->first();
         // // dd($barang);
         $data_supplier->delete();
