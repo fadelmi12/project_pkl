@@ -61,38 +61,50 @@
                                                     <th colspan="3">Aksi</th>
                                                 </tr>
                                             </thead>
-                                            <!-- <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot> -->
-                                            @foreach ($data_po as $data_po)
                                             <tbody>
-                                                <?php $no = 1; ?>
+                                            <?php $no = 1; ?>
+                                            @foreach ($data_po as $data_po)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{ $data_po->no_PO}}</td>
+                                                    <td>{{ $data_po->no_PO}}</td> 
                                                     <td>{{ $data_po->namaBarang}}</td>
                                                     <td>{{ $data_po->jumlah}}</td>
-                                                    <td>{{ $data_po->created_at}}</td>
+                                                    <td>{{ $data_po->created_at->format('d-m-y H:i:s')}}</td>
                                                     <td>{{ $data_po->keterangan}}</td>
-                                                    <td>{{ $data_po->status}}</td>
+                                                    <td>
+                                                        @if($data_po->status === 1 )
+                                                            Purchase Order ditolak Warehouse
+                                                            @elseif ($data_po->status === 2 )
+                                                            Purchase Order disetujui Warehouse
+                                                            @elseif ($data_po->status === 3 )
+                                                            Purchase Order ditolak Admin
+                                                            @elseif ($data_po->status === 4 )
+                                                            Purchase Order disetujui Admin dan dalam proses pembelian
+                                                            @elseif ($data_po->status === 5 )
+                                                            Barang sudah dibeli
+                                                            @else
+                                                            Purchase Order diproses Marketing
+                                                        @endif
+                                                    </td>
                                                     <td>
                                                         <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
+                                                        @include('po.detail')
                                                     </td>
                                                     @include('po.editpo')
+<<<<<<< HEAD
 
+=======
+                                                   
+>>>>>>> a44da42ff7209214b2b130ccbcc367d1a528183a
                                                 </tr>
                                                 @include('po.detail')
                                             </tbody>
+                                            
                                             @endforeach
+                                            </tbody>
                                         </table>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -168,20 +180,37 @@
                                                     @foreach ($data_po as $data_po)
                                                     <tr>
                                                         @if (auth()->user()->divisi == "admin")
-                                                        @if($data_po->status >=1 )
+                                                        @if($data_po->status >=2 )
                                                         <td>{{ $no++ }}</td>
                                                         <td>{{ $data_po->no_PO}}</td>
                                                         <td>{{ $data_po->namaBarang}}</td>
                                                         <td>{{ $data_po->jumlah}}</td>
                                                         <td>{{ $data_po->created_at}}</td>
                                                         <td>{{ $data_po->keterangan}}</td>
-                                                        <td>{{ $data_po->status}}</td>
                                                         <td>
-                                                            <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                            @if($data_po->status === 1 )
+                                                                Purchase Order ditolak Warehouse
+                                                                @elseif ($data_po->status === 2 )
+                                                                Purchase Order disetujui Warehouse
+                                                                @elseif ($data_po->status === 3 )
+                                                                Purchase Order ditolak Admin
+                                                                @elseif ($data_po->status === 4 )
+                                                                Purchase Order disetujui Admin dan dalam proses pembelian
+                                                                @elseif ($data_po->status === 5 )
+                                                                Barang sudah dibeli
+                                                                @else
+                                                                Purchase Order diproses Marketing
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#confirm{{ $data_po->id_PO }}" action="( {{url('confirm')}}/{{ $data_po->id_PO }})"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_po->id_PO }}" action="( {{url('reject')}}/{{ $data_po->id_PO }})"><i class="fa fa-times"></i></button>
+                                                            
+                                                        @include('po.detail')
                                                         </td>
+                                                        
                                                         @endif
                                                         @elseif (auth()->user()->divisi == "warehouse")
                                                         <td>{{ $no++ }}</td>
@@ -190,12 +219,27 @@
                                                         <td>{{ $data_po->jumlah}}</td>
                                                         <td>{{ $data_po->created_at}}</td>
                                                         <td>{{ $data_po->keterangan}}</td>
-                                                        <td>{{ $data_po->status}}</td>
                                                         <td>
-                                                            <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                            @if($data_po->status === 1 )
+                                                                Purchase Order ditolak Warehouse
+                                                                @elseif ($data_po->status === 2 )
+                                                                Purchase Order disetujui Warehouse
+                                                                @elseif ($data_po->status === 3 )
+                                                                Purchase Order ditolak Admin
+                                                                @elseif ($data_po->status === 4 )
+                                                                Purchase Order disetujui Admin dan dalam proses pembelian
+                                                                @elseif ($data_po->status === 5 )
+                                                                Barang sudah dibeli
+                                                                @else
+                                                                Purchase Order diproses Marketing
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                        <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#confirm{{ $data_po->id_PO }}" action="( {{url('confirm')}}/{{ $data_po->id_PO }})"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_po->id_PO }}" action="( {{url('reject')}}/{{ $data_po->id_PO }})"><i class="fa fa-times"></i></button>
+                                                            @include('po.detail')
                                                         </td>
                                                         @endif
                                                         @include('po.editpo')

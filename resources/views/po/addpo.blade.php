@@ -41,14 +41,23 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Nama Barang</label>
                                         <input type="text" id="namaBarang" name="namaBarang" class="form-control" placeholder="">
+                                        @if ($errors->has('namaBarang'))
+                                        <div class="tulisan">{{$errors->first('namaBarang')}}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Jumlah Barang</label>
                                         <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="">
+                                        @if ($errors->has('jumlah'))
+                                        <div class="tulisan">{{$errors->first('jumlah')}}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Keterangan </label>
-                                        <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
+                                        <textarea type="text" id="keterangan" name="keterangan" class="form-control"></textarea>
+                                        @if ($errors->has('keterangan'))
+                                        <div class="tulisan">{{$errors->first('keterangan')}}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group" style="text-align:right;">
                                         <button class="btn btn-success">Simpan</button>
