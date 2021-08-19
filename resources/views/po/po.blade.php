@@ -92,11 +92,8 @@
                                                         @include('po.detail')
                                                     </td>
                                                     @include('po.editpo')
-<<<<<<< HEAD
 
-=======
                                                    
->>>>>>> a44da42ff7209214b2b130ccbcc367d1a528183a
                                                 </tr>
                                                 @include('po.detail')
                                             </tbody>
@@ -162,7 +159,7 @@
                                                         <th>Created at</th>
                                                         <th>Keterangan</th>
                                                         <th>Status</th>
-                                                        <th colspan="3">Aksi</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <!-- <tfoot>
