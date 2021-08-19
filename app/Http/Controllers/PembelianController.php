@@ -61,10 +61,7 @@ class PembelianController extends Controller
         $purchase = PO::all()->where('status','=','4');
         return view('pembelian/purchase', compact('purchase'));
     }
-<<<<<<< HEAD
-
   
-=======
     public function lunas(Request $request)
     {
         Pembelian::where('id_pembelian',$request->id_pembelian)
@@ -73,5 +70,4 @@ class PembelianController extends Controller
                         ]);
         return back()->with('success', "data telah dilunasi");
     }
->>>>>>> 9b48ad7bced0049d5d64d164449fe77943c3a4c0
 }
