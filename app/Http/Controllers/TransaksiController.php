@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Master;
 use App\Models\SupplierModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Models\TransaksiModel;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\VarDumper\Cloner\Data;
 
 class TransaksiController extends Controller
@@ -31,26 +33,6 @@ class TransaksiController extends Controller
     public function addmasukbaru2(Request $request)
     {
 
-        // $kode = strtoupper(substr($request->tgl_transaksi, 0, 10));
-        // $check = count(TransaksiModel::where('no_transaksi', 'like', "%$kode%")->get()->toArray());
-        // $angka = sprintf("%03d", (int)$check + 1);
-        // $no_transaksi = "TM-" . $kode . "-" . $angka;
-
-        // $jumlah_data = count($request->nama_barang);
-        // for ($i = 0; $i < $jumlah_data; $i++) {
-
-        //     TransaksiModel::create([
-        //         'no_transaksi' => $no_transaksi,
-        //         'tgl_transaksi' => $request->tgl_transaksi[$i],
-        //         'jns_transaksi' => $request->jns_transaksi[$i],
-        //         'nama_supplier' => $request->nama_supplier[$i],
-        //         'nama_barang' => $request->nama_barang[$i],
-        //         'jumlah' => $request->jumlah[$i],
-        //         'kondisi' => $request->kondisi[$i],
-        //         'pengirim' => $request->pengirim[$i],
-        //         'penerima' => $request->penerima[$i],
-        //     ]);
-        // }
         $jumlah_data = count($request->nama_barang);
         for ($i = 0; $i < $jumlah_data; $i++) {
         TransaksiModel::create(
@@ -62,6 +44,17 @@ class TransaksiController extends Controller
                 'pengirim' => $request->pengirim[$i],
                 'penerima' => $request->penerima[$i],
                 'jenisBarang' => 'Baru'
+            ]
+        );
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Create Masuk Baru',
+            'status' => '2',
+            'ip'=> $request->ip()
             ]
         );
     }
@@ -82,6 +75,19 @@ class TransaksiController extends Controller
                 'kondisi' => $request->kondisi[$i],
                 'penerima' => $request->penerima[$i],
                 'jenisBarang' => 'Retur'
+            ]
+        );
+
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Create Masuk Retur',
+            'status' => '2',
+            'ip'=> $request->ip()
+
             ]
         );
     }

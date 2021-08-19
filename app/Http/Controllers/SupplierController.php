@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\SupplierModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SupplierController extends Controller
 {
@@ -37,6 +39,19 @@ class SupplierController extends Controller
                 'pic_supplier' => $request->edit_pic,
                 'telp_supplier' => $request->edit_no
             ]);
+
+            $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Update Supplier',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         return redirect('supplier');
 
         return redirect()->back();
@@ -59,11 +74,24 @@ class SupplierController extends Controller
             'telp_supplier'     =>  $request->telp_supplier
 
         ]);
+
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Create Supplier',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         return redirect('supplier');
         // return view('master/addjenis');
     }
 
-    public function deletesupplier($id_supplier)
+    public function deletesupplier($id_supplier, Request $request)
     {
         // dd($id_jenis);
         // dd($id_master);
@@ -72,6 +100,20 @@ class SupplierController extends Controller
         // // dd($barang);
         $data_supplier->delete();
         // //mengirim data_ktg ke view
+
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Delete Supplier',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
+
         return back()->with('success', "Data telah terhapus");
     }
 }
