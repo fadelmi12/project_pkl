@@ -26,49 +26,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-                        <p>
-                            <a href="jenis/addjenis" class="btn btn-success">Tambah baru
-                            </a>
-                        </p>
-                        {{-- @if(Session::has('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ Session('success') }}
-                    </div>
-                    @endif --}}
-                    <div class="clearfix"></div>
-                    
-
-                <div class="panel-wrapper collapse in">
-                    <div class="panel-body">
-                        <div class="table-wrap">
-                            <div class="">
-                                <table id="datable_1" class="table table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>NO</th>
-                                            <th>Jenis barang</th>
-                                            <th>Keterangan</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $no = 1; ?>
-                                        @foreach ($data_jenis as $data_jenis)
-                                        <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $data_jenis->jenis_barang }}</td>
-                                            <td>{{ $data_jenis->keterangan }}</td>
-                                            <td>
-                                                <a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns{{ $data_jenis->id_jenis }}" action="( {{url('deletejenis')}}/{{ $data_jenis->id_jenis }})"><i class="fa fa-trash"></i></button>
-
-                                            </td>
-                                        </tr>
-                                        @include('master.hapusjenis')
-                                        @endforeach
-                                    </tbody>
-                                </table>
                     
                     @if(auth()->user()->divisi != "office")
                         <div class="panel-heading">
