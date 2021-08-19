@@ -63,13 +63,7 @@
                                                         @elseif ($data_retur->status === 3 )
                                                         Pengajuan ditolak Warehouse
                                                         @elseif ($data_retur->status === 4 )
-                                                        Pengajuan disetujui Warehouse
-                                                        @elseif ($data_retur->status === 5 )
-                                                        Pengajuan ditolak Admin
-                                                        @elseif ($data_retur->status === 6 )
-                                                        Pengajuan disetujui Admin dan dalam proses pembelian
-                                                        @elseif ($data_retur->status === 7 )
-                                                        Barang telah dibeli dan akan segera dikirim
+                                                        Pengajuan disetujui Warehouse dan segera dikirim
                                                         @else
                                                         Pengajuan diproses Marketing
                                                         @endif
@@ -78,10 +72,10 @@
                                                     <td>
                                                         <a href="/pengajuan/detailretur/{{$data_retur->kode}}"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
                                                         @if ($data_retur->status >= 1)
-                                                        <a> <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-edit"></i></button></a>
+                                                        <!-- <a> <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-edit"></i></button></a> -->
                                                         <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-trash"></i></></button>
                                                         @else
-                                                        <a href="pengajuan/editBaru/{{ $data_retur->id_pengajuan }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
+                                                        <!-- <a href="pengajuan/editBaru/{{ $data_retur->id_pengajuan }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a> -->
                                                         <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbaru" action=" {{url('deletebaru', $data_retur->id_pengajuan) }}"><i class="fa fa-trash"></i></></button>
                                                         @endif
                                                 </tr>
@@ -99,7 +93,7 @@
         </div>
         @endif
 
-        @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "admin"||auth()->user()->divisi == "marketing"||auth()->user()->divisi == "purchasing")
+        @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "marketing")
         <!-- Main Content -->
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -138,7 +132,6 @@
                                             <table id="datable_1" class="table table table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
                                                         <th>No</th>
                                                         <th>Nama Pengajuan</th>
                                                         <th>Status</th>
@@ -163,20 +156,14 @@
                                                             @elseif ($data_retur->status === 3 )
                                                             Pengajuan ditolak Warehouse
                                                             @elseif ($data_retur->status === 4 )
-                                                            Pengajuan disetujui Warehouse
-                                                            @elseif ($data_retur->status === 5 )
-                                                            Pengajuan ditolak Admin
-                                                            @elseif ($data_retur->status === 6 )
-                                                            Pengajuan disetujui Admin dan dalam proses pembelian
-                                                            @elseif ($data_retur->status === 7 )
-                                                            Barang telah dibeli dan akan segera dikirim
+                                                            Pengajuan disetujui Warehouse dan segera dikirim
                                                             @else
                                                             Pengajuan diproses Marketing
                                                             @endif
                                                         </td>
                                                         <td>{{ $data_retur->created_at}}</td>
                                                         <td>
-                                                            <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                            <!-- <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a> -->
                                                             @if ($data_retur->status >= 3)
                                                             <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
@@ -184,71 +171,6 @@
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#confirm{{ $data_retur->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_retur->id_pengajuan }})"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_retur->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_retur->id_pengajuan }})"><i class="fa fa-times"></i></button>
                                                             @endif
-                                                            @endif
-                                                            <!-------------------------------------------------------------- ADMIN ------------------------------------------------------------>
-                                                            @elseif (auth()->user()->divisi == "admin")
-                                                            @if ($data_retur->status >= 4 )
-                                                        <td>{{ $no++ }}</td>
-                                                        <td>{{ $data_retur->judul}}</td>
-                                                        <td>
-                                                            @if($data_retur->status === 1 )
-                                                            Pengajuan ditolak Marketing
-                                                            @elseif ($data_retur->status === 2 )
-                                                            Pengajuan disetujui Marketing
-                                                            @elseif ($data_retur->status === 3 )
-                                                            Pengajuan ditolak Warehouse
-                                                            @elseif ($data_retur->status === 4 )
-                                                            Pengajuan disetujui Warehouse
-                                                            @elseif ($data_retur->status === 5 )
-                                                            Pengajuan ditolak Admin
-                                                            @elseif ($data_retur->status === 6 )
-                                                            Pengajuan disetujui Admin dan dalam proses pembelian
-                                                            @elseif ($data_retur->status === 7 )
-                                                            Barang telah dibeli dan akan segera dikirim
-                                                            @else
-                                                            Pengajuan diproses Marketing
-                                                            @endif
-                                                        </td>
-                                                        <td>{{ $data_retur->created_at}}</td>
-                                                        <td>
-                                                            <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                            @if ($data_retur->status >= 5)
-                                                            <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
-                                                            @else
-                                                            <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#confirm{{ $data_retur->id_pengajuan }}" action="( {{url('Confirm')}}/{{ $data_retur->id_pengajuan }})"><i class="fa fa-check"></i></button>
-                                                            <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_retur->id_pengajuan }}" action="( {{url('Reject')}}/{{ $data_retur->id_pengajuan }})"><i class="fa fa-times"></i></button>
-                                                            @endif
-                                                            @endif
-                                                            <!-------------------------------------------------------------- PURCHASING ------------------------------------------------------------>
-                                                            @elseif (auth()->user()->divisi == "purchasing")
-                                                            @if ($data_retur->status >= 6 )
-                                                        <td>{{ $no++ }}</td>
-                                                        <td>{{ $data_retur->judul}}</td>
-                                                        <td>
-                                                            @if($data_retur->status === 1 )
-                                                            Pengajuan ditolak Marketing
-                                                            @elseif ($data_retur->status === 2 )
-                                                            Pengajuan disetujui Marketing
-                                                            @elseif ($data_retur->status === 3 )
-                                                            Pengajuan ditolak Warehouse
-                                                            @elseif ($data_retur->status === 4 )
-                                                            Pengajuan disetujui Warehouse
-                                                            @elseif ($data_retur->status === 5 )
-                                                            Pengajuan ditolak Admin
-                                                            @elseif ($data_retur->status === 6 )
-                                                            Pengajuan disetujui Admin dan dalam proses pembelian
-                                                            @elseif ($data_retur->status === 7 )
-                                                            Barang telah dibeli dan akan segera dikirim
-                                                            @else
-                                                            Pengajuan diproses Marketing
-                                                            @endif
-                                                        </td>
-                                                        <td>{{ $data_retur->created_at}}</td>
-                                                        <td>
-                                                            <a href="#"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
-                                                            @if ($data_retur->status === 6)
-                                                            <a href="pembelian/addpembelian/{{ $data_retur->noPO }}"> <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a> @endif
                                                             @endif
                                                             <!-------------------------------------------------------------- MARKETING ------------------------------------------------------------>
                                                             @elseif (auth()->user()->divisi == "marketing")
@@ -262,20 +184,14 @@
                                                             @elseif ($data_retur->status === 3 )
                                                             Pengajuan ditolak Warehouse
                                                             @elseif ($data_retur->status === 4 )
-                                                            Pengajuan disetujui Warehouse
-                                                            @elseif ($data_retur->status === 5 )
-                                                            Pengajuan ditolak Admin
-                                                            @elseif ($data_retur->status === 6 )
-                                                            Pengajuan disetujui Admin dan dalam proses pembelian
-                                                            @elseif ($data_retur->status === 7 )
-                                                            Barang telah dibeli dan akan segera dikirim
+                                                            Pengajuan disetujui Warehouse dan segera dikirim
                                                             @else
                                                             Pengajuan diproses Marketing
-                                                            @endif
+                                                            @endif  
                                                         </td>
                                                         <td>{{ $data_retur->created_at}}</td>
                                                         <td>
-                                                            <a href="/pengajuan/detailretur/{{$data_retur->id_pengajuan}}"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
+                                                            <!-- <a href="/pengajuan/detailretur/{{$data_retur->id_pengajuan}}"> <button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a> -->
                                                             @if ($data_retur->status >= 1)
                                                             <button class="btn btn-success btn-icon-anim btn-square" disabled><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" disabled><i class="fa fa-times"></i></button>
