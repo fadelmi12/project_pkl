@@ -53,6 +53,7 @@ class PembelianController extends Controller
 
             ]
         );
+        // return view('pembelian/purchase');
         return back()->with('success', "Data telah dibuat");
     }
 

@@ -60,9 +60,9 @@
                                 <label class="control-label mb-10 text-left"> Total Hutang</label>
                                 <input type="text"  class="form-control c2"  id="amount" name="amount" readonly>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="text-align: right;">
                                 <button class="btn btn-success mr-5" name="submit" type="submit">Simpan</button>
-                                <button class="btn btn-danger  " name="reset" type="reset">Batal</button>
+                                <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal</button> -->
                             </div>
                         </form>
                     </div>

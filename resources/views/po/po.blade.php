@@ -95,7 +95,7 @@
 
                                                    
                                                 </tr>
-                                                @include('po.detail')
+                                                
                                             </tbody>
                                             
                                             @endforeach

@@ -44,7 +44,7 @@
                         <div class="panel-body">
                             <div class="table-wrap">
                                 <div class="">
-                                    <table id="myTable1" class="table table-bordered display  pb-30">
+                                    <table id="myTable1" class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
