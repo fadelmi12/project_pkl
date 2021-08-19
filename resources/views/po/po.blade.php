@@ -87,8 +87,9 @@
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                     </td>
                                                     @include('po.editpo')
-                                                    @include('po.detail')
+
                                                 </tr>
+                                                @include('po.detail')
                                             </tbody>
                                             @endforeach
                                         </table>
