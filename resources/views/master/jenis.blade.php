@@ -26,7 +26,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
-<<<<<<< HEAD
                     <div class="panel-heading">
                         <p>
                             <a href="jenis/addjenis" class="btn btn-success">Tambah baru
@@ -70,7 +69,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-=======
                     
                     @if(auth()->user()->divisi != "office")
                         <div class="panel-heading">
@@ -118,7 +116,6 @@
                                         </tbody>
                                     </table>
                                 </div>
->>>>>>> 4fd39e155f4d699af9bef6cce8b5ad0a2a209fc5
                             </div>
                         </div>
                     </div>
