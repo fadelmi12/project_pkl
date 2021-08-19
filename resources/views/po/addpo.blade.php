@@ -38,6 +38,11 @@
                                         <label class="control-label mb-10 text-left" for="example-email">Nomor PO Barang</label>
                                         <input type="text" id="noPO" name="noPO" class="form-control" readonly>
                                     </div> -->
+                                    @foreach ((array)$noPO as $noPO)
+                                    <div class="form-group">
+                                        <label class="control-label mb-10 text-left" for="example-email">No Purchase Order</label>
+                                        <input type="text" id="noPO" name="noPO" value="{{ $noPO }}" class="form-control" placeholder="" readonly>
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Nama Barang</label>
                                         <input type="text" id="namaBarang" name="namaBarang" class="form-control" placeholder="">
@@ -64,6 +69,7 @@
                                         <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal
                                         </button> -->
                                     </div>
+                                    @endforeach
                                 </form>
 
                             </div>
