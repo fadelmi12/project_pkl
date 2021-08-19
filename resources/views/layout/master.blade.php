@@ -235,20 +235,23 @@
                         <div class="clearfix"></div>
                     </a>
                     <ul id="ecom_dr" class="collapse collapse-level-1">
+                        @if(auth()->user()->divisi != "office")
                         <li>
                             <a href="/addmasukbaru">Barang masuk</a>
                         </li>
                         <li>
                             <a href="/brgkeluar">Barang keluar</a>
                         </li>
+                        @endif
                         <li>
                             <a href="/transaksi">Data transaksi</a>
                         </li>
+                        
 
                     </ul>
                 </li>
                 @endif
-                @if (auth()->user()->divisi == "warehouse")
+                @if (auth()->user()->divisi == "warehouse" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="/supplier">
                         <div class="pull-left"><i class="zmdi zmdi-accounts-alt mr-20"></i><span class="right-nav-text">Data supplier</span></div>
@@ -256,7 +259,7 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "admin"||auth()->user()->divisi == "purchasing")
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "admin"||auth()->user()->divisi == "purchasing" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuan">
                         <div class="pull-left"><i class="zmdi zmdi-collection-text mr-20"></i><span class="right-nav-text">Pengajuan</span></div>
@@ -264,12 +267,12 @@
                         <div class="clearfix"></div>
                     </a>
                     <ul id="pengajuan" class="collapse collapse-level-1">
-                    @if (auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing")
+                    @if (auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "office")
                         <li>
                             <a href="/brgbaru">Barang rekomendasi</a>
                         </li>
                         @endif
-                        @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing")
+                        @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "office")
                         <li>
                             <a href="/brgretur">Barang retur</a>
                         </li>
@@ -277,7 +280,7 @@
                     </ul>
                 </li>
                 @endif
-                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi")
+                @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="/peminjaman">
                         <div class="pull-left"><i class="zmdi zmdi-balance-wallet mr-20"></i><span class="right-nav-text">Peminjaman</span></div>
@@ -285,7 +288,7 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->divisi == "purchasing")
+                @if (auth()->user()->divisi == "purchasing" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#pembelian">
                         <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pembelian</span></div>
@@ -314,7 +317,7 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->divisi == "administrator")
+                @if (auth()->user()->divisi == "administrator" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="/administrator">
                         <div class="pull-left"><i class="zmdi zmdi-account mr-20"></i><span class="right-nav-text">User</span></div>
@@ -322,7 +325,7 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->divisi == "administrator")
+                @if (auth()->user()->divisi == "administrator" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="/log">
                         <div class="pull-left"><i class="zmdi zmdi-search-in-file mr-20"></i><span class="right-nav-text">Log Sistem</span></div>
