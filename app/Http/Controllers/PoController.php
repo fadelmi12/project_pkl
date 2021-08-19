@@ -21,19 +21,19 @@ class PoController extends Controller
     //
     public function addpo()
     {
-        return view('po/addpo');
+        $now = Carbon::now();
+        $thnBln = $now->year . $now->month;
+    
+        // $kode = strtoupper(substr($request->nama_barang, 0, 3));
+        $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
+        $angka = sprintf("%03d", (int)$check + 1);
+        $noPO = $thnBln . "" . $angka;
+        return view('po/addpo', compact('noPO'));
     }
 
     public function addpo2(Request $request)
     {
         $user = Auth::user();
-        $now = Carbon::now();
-        $thnBln = $now->year . $now->month;
-
-        // $kode = strtoupper(substr($request->nama_barang, 0, 3));
-        $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
-        $noPO = $thnBln . "" . $angka;
 
         $rules = [
             'namaBarang' => 'required',
@@ -50,7 +50,7 @@ class PoController extends Controller
 
         PO::create(
             [
-                'no_PO' => $noPO,
+                'no_PO' => $request->noPO,
                 'namaBarang' => $request->namaBarang,
                 'jumlah' => $request->jumlah,
                 'keterangan' => $request->keterangan,
