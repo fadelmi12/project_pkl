@@ -35,6 +35,19 @@ class PoController extends Controller
         $angka = sprintf("%03d", (int)$check + 1);
         $noPO = $thnBln . "" . $angka;
 
+        $rules = [
+            'namaBarang' => 'required',
+            'jumlah' => 'required',
+            'keterangan' => 'required',
+        ];
+
+        $messages = [
+            'namaBarang.required' => '*Nama barang tidak boleh kosong',
+            'jumlah.required' => '*Jumlah barang tidak boleh kosong',
+            'keterangan.required' => '*Keterangan tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
+
         PO::create(
             [
                 'no_PO' => $noPO,
@@ -110,14 +123,6 @@ class PoController extends Controller
                     'status' => '4',
                     'pic_admin' => $user->name
                 ]);
-            Pembelian::create(
-                [
-                    'no_PO' => $request->no_PO,
-                    'namaBarang' => $request->namaBarang,
-                    'jumlah' => $request->jumlah,
-                    'status' => 'pending'
-                ]
-            );
 
             $user = Auth::user();
             Log::create(
@@ -158,12 +163,12 @@ class PoController extends Controller
                 ]
             );
         } elseif ($user->divisi == "admin") {
-            PO::where('id_PO', $request->edit_id_po)
-                ->update([
-                    'status' => '3',
-                    'keterangan' => $request->keterangan,
-                    'pic_warehouse' => $user
-                ]);
+                PO::where('id_PO', $request->edit_id_po)
+                    ->update([
+                        'status' => '3',
+                        'keterangan' => $request->keterangan,
+                        'pic_warehouse' => $user
+                    ]);
 
             $user = Auth::user();
             Log::create(

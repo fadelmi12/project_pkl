@@ -19,10 +19,10 @@
                     <div class="panel-heading">
                         <form action="{{ url('addpembelian2') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                            <input type="hidden" id="id_pengajuan" name="id_pengajuan" class="form-control" placeholder="" readonly value = "{{ $data_pembelian->id_pembelian }}" >
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left" for="example-email">No PO <span class="help"> </span></label>
                                 <input type="text" id="no_PO" name="no_PO" class="form-control" placeholder="" readonly value = "{{ $data_pembelian->no_PO }}">
+                                <input type="hidden" id="id_PO" name="id_PO" class="form-control" placeholder="" readonly value = "{{ $data_pembelian->id_PO }}" >
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left" for="example-email">Nama barang <span class="help"> </span></label>
@@ -33,12 +33,12 @@
                                 <input type="number" id="jumlah" name="jumlah" class="form-control" rows="3" readonly value="{{ $data_pembelian->jumlah }}">
                             </div>
                             <div class="form-group">
-                                <label class="control-label mb-10 text-left">Harga jual</label>
-                                <input type="number" id="harga_jual" name="harga_jual" class="form-control a2" value="">
+                                <label class="control-label mb-10 text-left" for="example-email">Supplier <span class="help"> </span></label>
+                                <input type="text" id="supplier" name="supplier" class="form-control" placeholder="" >
                             </div>
                             <div class="form-group">
-                                <label class="control-label mb-10 text-left">Total Bayar</label>
-                                <input type="number" id="harga_beli" name="harga_beli" class="form-control b2" value="">
+                                <label class="control-label mb-10 text-left">Total Harga</label>
+                                <input type="number" id="harga_jual" name="harga_jual" class="form-control a2" value="">
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left">Tanggal beli<span class="help"> </span></label>
@@ -52,9 +52,13 @@
                                     <option value="hutang">Hutang</option>
                                 </select>
                             </div>
+                            <div class="form-group" id="total2" name="total" style="display: none;" >
+                                <label class="control-label mb-10 text-left">Total Bayar</label>
+                                <input type="number" id="harga_beli" name="harga_beli" class="form-control b2" value="">
+                            </div>
                             <div class="form-group" id="total" name="total" style="display: none;" >
                                 <label class="control-label mb-10 text-left"> Total Hutang</label>
-                                <input type="text"  class="form-control c2"  id="amount" >
+                                <input type="text"  class="form-control c2"  id="amount" name="amount" readonly>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-success mr-5" name="submit" type="submit">Simpan</button>
@@ -73,8 +77,10 @@
     $('select[name=jenisTransaksi]').on('change', function() {
     if (this.value == 'hutang') {
         $("#total").show();
+        $("#total2").show();
     } else {
         $("#total").hide();
+        $("#total2").show();
     }
         });
 
