@@ -23,16 +23,19 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-                        <div class="pull-left">
-                            <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
-                            <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->
-                            <a href="databrg/addbarang" class="btn btn-success"> Tambah Data</a>
-
-                            <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
+                    
+                    @if(auth()->user()->divisi != "office")
+                        <div class="panel-heading">
+                            <div class="pull-left">
+                                <!-- <h6 class="panel-title txt-dark">DataTable</h6> -->
+                                <!-- <button data-toggle="modal" data-target="#myModal" class="btn btn-success col-mr-2" >Tambah Barang</button> -->                               
+                                <a href="databrg/addbarang" class="btn btn-success"> Tambah Data</a>
+                                <!-- <button class="btn btn-primary btn-sm btn-icon mb-3"><i class="fa fa-plus fa-sm"></i> Tambah Data</button> -->
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"></div>
-                    </div>
+                    @endif
+
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="table-wrap">
@@ -46,7 +49,9 @@
                                                 <th>Stok</th>
                                                 <th>Gambar</th>
                                                 <th>Status</th>
+                                                @if(auth()->user()->divisi != "office")
                                                 <th>Aksi</th>
+                                                @endif
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -68,11 +73,13 @@
                                                     <button class="btn btn-danger btn-sm  btn-rounded">Non Aktif</button>
                                                     @endif
                                                 </td>
+                                                @if(auth()->user()->divisi != "office")
                                                 <td>
                                                     <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
                                                     <a href="/databrg/editBarang/{{ $brg->id_master }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                     <!-- <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusbrg{{ $brg->id_master }}" action="( {{url('deletebarang')}}/{{ $brg->id_master }})"><i class="fa fa-trash"></i></button> -->
                                                 </td>
+                                                @endif
                                             </tr>
                                             @include('master.hapusbrg')
                                             @endforeach
