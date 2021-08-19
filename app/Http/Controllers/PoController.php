@@ -35,6 +35,19 @@ class PoController extends Controller
         $angka = sprintf("%03d", (int)$check + 1);
         $noPO = $thnBln . "" . $angka;
 
+        $rules = [
+            'namaBarang' => 'required',
+            'jumlah' => 'required',
+            'keterangan' => 'required',
+        ];
+
+        $messages = [
+            'namaBarang.required' => '*Nama barang tidak boleh kosong',
+            'jumlah.required' => '*Jumlah barang tidak boleh kosong',
+            'keterangan.required' => '*Keterangan tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
+
         PO::create(
             [
                 'no_PO' => $noPO,
