@@ -43,10 +43,9 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Nama Barang<span class="help"> </span></label>
                                         <input type="text" id="namaBarang" name="namaBarang" class="form-control" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label mb-10 text-left" for="example-email">Jumlah Barang<span class="help"> </span></label>
-                                        <input type="number" id="jmlBarang" name="jmlBarang" class="form-control" placeholder="">
+                                        @error('namaBarang')
+                                        <div class="tulisan">{{$message}}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>
