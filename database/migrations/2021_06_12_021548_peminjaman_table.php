@@ -18,10 +18,9 @@ class PeminjamanTable extends Migration
             $table->string('nama',50);
             $table->string('barang',50);
             $table->integer('jumlah');
-            $table->date('tglPinjam');
             $table->date('tglKembali')->nullable();
             $table->string('keterangan',50);
-            $table->string('status',50);
+            $table->string('status',50)->nullable();
             $table->timestamps();
         });
     }
