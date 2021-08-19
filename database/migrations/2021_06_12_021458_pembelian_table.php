@@ -20,6 +20,7 @@ class PembelianTable extends Migration
             $table->date('tglBeli')->nullable();
             $table->string('harga',50)->nullable();
             $table->integer('jumlah')->nullable();
+            $table->string('supplier')->nullable();
             $table->string('sisaBayar',50)->nullable();
             $table->string('totalBayar',50)->nullable();
             $table->string('status',50)->nullable();
