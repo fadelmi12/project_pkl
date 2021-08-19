@@ -128,6 +128,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('purchase', 'App\Http\Controllers\PembelianController@purchase');
     Route::post('addpembelian2', 'App\Http\Controllers\PembelianController@addpembelian2');
     Route::post('lunas/{id_pembelian}', 'App\Http\Controllers\PembelianController@lunas');
+    
 
 
 
@@ -138,6 +139,8 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('/peminjaman/editpinjam/{id_peminjaman}', [App\Http\Controllers\PeminjamanController::class, 'editpinjam']);
     // Route::get('peminjaman/editpinjam/{id_peminjaman}', [PeminjamanController::class, 'editpinjam']);
     Route::post('/updatePinjam', 'App\Http\Controllers\PeminjamanController@updatePinjam')->name('updatePinjam');
+    Route::delete('deletepinjam/{id_peminjaman}', 'App\Http\Controllers\PeminjamanController@deletepinjam');
+
 
     // PO
     Route::get('po', 'App\Http\Controllers\PoController@index');
