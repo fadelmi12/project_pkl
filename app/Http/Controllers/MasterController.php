@@ -41,14 +41,10 @@ class MasterController extends Controller
     {
         $rules = [
             'nama_barang' => 'required',
-            // 'stok' => 'required',
-            // 'gambar' => 'required',
         ];
 
         $messages = [
-            'nama_barang.required' => 'nama barang tidak boleh kosong',
-            // 'stok.required' => 'stok tidak boleh kosong',
-            // 'gambar.required' => 'gambar tidak boleh kosong',
+            'nama_barang.required' => '*Nama barang tidak boleh kosong',
         ];
         $this->validate($request, $rules, $messages);
 
@@ -103,12 +99,12 @@ class MasterController extends Controller
     {
         $rules = [
             'edit_nama_barang' => 'required',
-            'edit_stok' => 'required'
+            // 'edit_stok' => 'required'
         ];
 
         $messages = [
-            'edit_nama_barang.required' => 'nama barang tidak boleh kosong',
-            'edit_stok.required' => 'stok tidak boleh kosong'
+            'edit_nama_barang.required' => 'Nama barang tidak boleh kosong',
+            // 'edit_stok.required' => 'Stok tidak boleh kosong'
 
         ];
         $this->validate($request, $rules, $messages);
@@ -131,6 +127,7 @@ class MasterController extends Controller
                     'status' => $request->edit_status
                 ]);
         } else {
+
             Master::where('id_master', $request->edit_id_brg)
                 ->update([
                     'kode_kategori' => $request->edit_kode_kategori,
@@ -202,7 +199,7 @@ class MasterController extends Controller
         ];
 
         $messages = [
-            'kategori.required' => '*kategori tidak boleh kosong',
+            'kategori.required' => '*nama kategori tidak boleh kosong',
             'keterangan.required' => '*keterangan tidak boleh kosong',
 
         ];
@@ -249,8 +246,8 @@ class MasterController extends Controller
         ];
 
         $messages = [
-            'edit_kategori.required' => '*kategori tidak boleh kosong',
-            'edit_keterangan.required' => '*keterangan tidak boleh kosong',
+            'edit_kategori.required' => '*Nama kategori tidak boleh kosong',
+            'edit_keterangan.required' => '*Keterangan tidak boleh kosong',
 
         ];
         $this->validate($request, $rules, $messages);
@@ -326,8 +323,8 @@ class MasterController extends Controller
         ];
 
         $messages = [
-            'jenis_barang.required' => 'Jenis Barang tidak boleh kosong',
-            'keterangan.required' => 'Keterangan tidak boleh kosong',
+            'jenis_barang.required' => '*Jenis Barang tidak boleh kosong',
+            'keterangan.required' => '*Keterangan tidak boleh kosong',
 
         ];
         $this->validate($request, $rules, $messages);
@@ -406,12 +403,12 @@ class MasterController extends Controller
         $user = Auth::user();
         Log::create(
             [
-            'name' => $user->name,
-            'email' => $user->email,
-            'divisi' => $user->divisi,
-            'deskripsi' => 'Delete Jenis Barang',
-            'status' => '2',
-            'ip'=> $request->ip()
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Delete Jenis Barang',
+                'status' => '2',
+                'ip' => $request->ip()
 
             ]
         );

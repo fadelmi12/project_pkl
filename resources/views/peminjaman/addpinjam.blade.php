@@ -22,22 +22,37 @@
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left" for="example-email">Nama <span class="help"> </span></label>
                                 <input type="text" id="nama" name="nama" class="form-control" placeholder="">
+                                @error('nama')
+                                <div class="tulisan">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left" for="example-email">Nama barang <span class="help"> </span></label>
                                 <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="">
+                                @error('nama_barang')
+                                <div class="tulisan">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left">Jumlah</label>
                                 <input type="number" id="jumlah" name="jumlah" class="form-control" value="">
+                                @error('jumlah')
+                                <div class="tulisan">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left">Keterangan</label>
                                 <input type="text" id="keterangan" name="keterangan" class="form-control" value="">
+                                @error('keterangan')
+                                <div class="tulisan">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left"> Tanggal Pinjam <span class="help"> </span></label>
                                 <input type="date" id="tgl_pinjam" name="tgl_pinjam" class="form-control" placeholder="">
+                                @error('tgl_pinjam')
+                                <div class="tulisan">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- <div class="form-group">
                                 <label class="control-label mb-10 text-left"> Tanggal Kembali <span class="help"> </span></label>

@@ -64,7 +64,7 @@
                                                 <td>{{ $purchase->jumlah }}</td>
                                                 <td>
                                                 <!-- <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a> -->
-                                                <a href="addinvoice/{{ $purchase->id_pembelian }}"><button class="btn btn-primary btn-icon-anim">Tambah Invoice </button></a>
+                                                <a href="addinvoice/{{ $purchase->id_PO }}"><button class="btn btn-primary btn-icon-anim">Tambah Invoice </button></a>
                                                 <!-- <i class="fa fa-edit"></i> <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#" action="#"><i class="fa fa-trash"></i></button> -->
                                                 </td>
                                             </tr>
