@@ -259,7 +259,7 @@
                 @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "admin"||auth()->user()->divisi == "purchasing")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuan">
-                        <div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Pengajuan</span></div>
+                        <div class="pull-left"><i class="zmdi zmdi-collection-text mr-20"></i><span class="right-nav-text">Pengajuan</span></div>
                         <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
                         <div class="clearfix"></div>
                     </a>
