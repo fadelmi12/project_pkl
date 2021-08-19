@@ -267,12 +267,12 @@
                         <div class="clearfix"></div>
                     </a>
                     <ul id="pengajuan" class="collapse collapse-level-1">
-                    @if (auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "office")
+                    @if (auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "office" ||auth()->user()->divisi == "purchasing" )
                         <li>
                             <a href="/brgbaru">Barang rekomendasi</a>
                         </li>
                         @endif
-                        @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "office")
+                        @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "office" ||auth()->user()->divisi == "purchasing" )
                         <li>
                             <a href="/brgretur">Barang retur</a>
                         </li>
