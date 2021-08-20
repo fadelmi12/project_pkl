@@ -22,6 +22,8 @@ class UsersSeeder extends Seeder
             'divisi' => 'teknisi',
             'password' => bcrypt('123456'),
             'remember_token' => Str::random(60),
+            'status' => 'Aktif',
+
             ]);
         $teknisi->save();
 
@@ -31,6 +33,7 @@ class UsersSeeder extends Seeder
             'divisi' => 'warehouse',
             'password' => bcrypt('123456'),
             'remember_token' => Str::random(60),
+            'status' => 'Aktif',
             ]);
         $warehouse->save();
 
@@ -40,6 +43,8 @@ class UsersSeeder extends Seeder
             'divisi' => 'marketing',
             'password' => bcrypt('123456'),
             'remember_token' => Str::random(60),
+            'status' => 'Aktif',
+
             ]);
         $marketing->save();
 
@@ -49,6 +54,8 @@ class UsersSeeder extends Seeder
             'divisi' => 'admin',
             'password' => bcrypt('123456'),
             'remember_token' => Str::random(60),
+            'status' => 'Aktif',
+
             ]);
         $admin->save();
 
@@ -58,6 +65,8 @@ class UsersSeeder extends Seeder
             'divisi' => 'purchasing',
             'password' => bcrypt('123456'),
             'remember_token' => Str::random(60),
+            'status' => 'Aktif',
+
             ]);
         $purchasing->save();
         
@@ -67,6 +76,8 @@ class UsersSeeder extends Seeder
             'divisi' => 'administrator',
             'password' => bcrypt('123456'),
             'remember_token' => Str::random(60),
+            'status' => 'Aktif',
+
             ]);
         $administrator->save();
 
@@ -76,6 +87,8 @@ class UsersSeeder extends Seeder
             'divisi' => 'office',
             'password' => bcrypt('123456'),
             'remember_token' => Str::random(60),
+            'status' => 'Aktif',
+
             ]);
         $office->save();
     }
