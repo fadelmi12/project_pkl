@@ -13,6 +13,9 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+    <!-- select2 CSS -->
+    <link href="{{asset('template')}}/vendors/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+
     <!-- Morris Charts CSS -->
     <link href="{{asset('template')}}/vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css" />
 
@@ -246,7 +249,7 @@
                         <li>
                             <a href="/transaksi">Data transaksi</a>
                         </li>
-                        
+
 
                     </ul>
                 </li>
@@ -267,7 +270,7 @@
                         <div class="clearfix"></div>
                     </a>
                     <ul id="pengajuan" class="collapse collapse-level-1">
-                    @if (auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "office" ||auth()->user()->divisi == "purchasing" )
+                        @if (auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "office" ||auth()->user()->divisi == "purchasing" )
                         <li>
                             <a href="/brgbaru">Barang rekomendasi</a>
                         </li>
@@ -779,10 +782,13 @@
         <!-- /Main Content -->
 
     </div>
-    
+
     <!-- /#wrapper -->
 
     <!-- JavaScript -->
+
+    <!-- Select2 JavaScript -->
+    <script src="{{asset('template')}}/vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
 
     <!-- jQuery -->
     <script src="{{asset('template')}}/vendors/bower_components/jquery/dist/jquery.min.js"></script>
@@ -792,7 +798,7 @@
 
     <!-- Data table JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-	<script src="{{asset('template')}}/dist/js/dataTables-data.js"></script>
+    <script src="{{asset('template')}}/dist/js/dataTables-data.js"></script>
 
     <!-- Slimscroll JavaScript -->
     <script src="{{asset('template')}}/dist/js/jquery.slimscroll.js"></script>
