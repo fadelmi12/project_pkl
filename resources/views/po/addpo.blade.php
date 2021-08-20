@@ -60,9 +60,6 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left" for="example-email">Keterangan </label>
                                         <textarea type="text" id="keterangan" name="keterangan" class="form-control"></textarea>
-                                        @if ($errors->has('keterangan'))
-                                        <div class="tulisan">{{$errors->first('keterangan')}}</div>
-                                        @endif
                                     </div>
                                     <div class="form-group" style="text-align:right;">
                                         <button class="btn btn-success">Simpan</button>
