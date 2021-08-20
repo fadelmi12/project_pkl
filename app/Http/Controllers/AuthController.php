@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -46,7 +47,6 @@ class AuthController extends Controller
             'email'     => $request->input('email'),
             'password'  => $request->input('password'),
         ];
-  
         // Auth::attempt($data);
         if(Auth::attempt($request->only('email','password'))){
             $user = Auth::user();
@@ -60,6 +60,12 @@ class AuthController extends Controller
                     'ip'=> $request->ip()
                     ]
                 );
+            $date = Carbon::now();
+            User::where('email', $user->email)
+                ->update([
+                    'lastLogin' => $date->toDateTimeString(),
+                    'lastIP' => $request->ip()
+                ]);
             return redirect('/home');
         } else { // false
   
@@ -129,6 +135,12 @@ class AuthController extends Controller
 
             ]
         );
+        $date = Carbon::now();
+            User::where('email', $user->email)
+                ->update([
+                    'lastLogout' => $date->toDateTimeString(),
+                    'lastIP' => $request->ip()
+                ]);
         Auth::logout(); // menghapus session yang aktif
         return redirect()->route('login');
     }
