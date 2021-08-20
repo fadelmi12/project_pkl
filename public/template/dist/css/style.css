@@ -3239,7 +3239,7 @@ a#toggle_mobile_nav {
   display: inline-block;
   font-family: 'Poppins', sans-serif;
   color: #212121;
-  font-size: 21px;
+  font-size: 15px;
   text-transform: capitalize;
   opacity: 1;
   visibility: visible;
@@ -8236,7 +8236,7 @@ ul.inbox-nav li a:hover, ul.inbox-nav li.active a, ul.inbox-nav li a:focus {
 }
 .sp-logo-wrap .brand-img {
   position: relative;
-  top: 2px;
+  top: 1px;
 }
 .sp-logo-wrap .brand-text {
   color: #212121;

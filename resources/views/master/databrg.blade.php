@@ -41,6 +41,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Kode Barang </th>
+                                                <th>Kode Kategori </th>
                                                 <th>Nama Barang</th>
                                                 <th>Jenis</th>
                                                 <th>Stok</th>
@@ -53,6 +54,7 @@
                                             @foreach ($barang as $brg)
                                             <tr>
                                                 <td>{{$brg->kode_barang}}</td>
+                                                <td>{{$brg->kode_kategori}}</td>
                                                 <td>{{$brg->nama_barang}}</td>
                                                 <td>{{$brg->jenis_barang}}</td>
                                                 <td>{{$brg->stok}}</td>

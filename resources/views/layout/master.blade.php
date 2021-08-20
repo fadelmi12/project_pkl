@@ -23,6 +23,15 @@
 
     <!-- Custom CSS -->
     <link href="{{asset('template')}}/dist/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- select2 CSS -->
+	<link href="{{asset('template')}}/vendors/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+    <!-- bootstrap-tagsinput CSS -->
+	<link href="vendors/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
+		
 </head>
 
 <body>
@@ -39,7 +48,7 @@
                     <div class="logo-wrap">
                         <a href="index.html">
                             <img class="brand-img" src="{{asset('template')}}/dist/img/nakulasadewa.png" alt="brand" />
-                            <span class="brand-text">Inventory</span>
+                            <span class="brand-text">Inventory Sistem</span>
                         </a>
                     </div>
                 </div>
@@ -819,6 +828,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/raphael/raphael.min.js"></script>
     <script src="{{asset('template')}}/vendors/bower_components/morris.js/morris.min.js"></script>
+    
     <!-- <script src="{{asset('template')}}/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script> -->
 
     <!-- Switchery JavaScript -->
@@ -828,21 +838,12 @@
     <script src="{{asset('template')}}/dist/js/init.js"></script>
     <script src="{{asset('template')}}/dist/js/dashboard-data.js"></script>
 
-    <!-- <script>
-        function InvalidMsg(textbox) {
-            
-            if (textbox.value == '') {
-                textbox.setCustomValidity('Jenis Tidak Boleh Kosong');
-            }
-            else if(textbox.validity.typeMismatch){
-                textbox.setCustomValidity('please enter a valid email address');
-            }
-            else {
-                textbox.setCustomValidity(''); 
-            }
-            return true;
-        }
-        </script> -->
+    <!-- Select2 JavaScript -->
+	<script src="{{asset('template')}}/vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- Bootstrap Select JavaScript -->
+	<script src="{{asset('template')}}/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
     @yield('scripts')
 

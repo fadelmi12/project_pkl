@@ -97,19 +97,46 @@ $(function() {
 		Morris.Bar({
 			element: 'morris_bar_chart',
 			data: [{
-				device: 'Lutpi',
+				device: 'Januari',
 				geekbench: 700
 			}, {
-				device: 'Laila',
+				device: 'Februari',
 				geekbench: 500
 			}, {
-				device: 'Dinar',
+				device: 'Maret',
 				geekbench: 550
 			}, {
-				device: 'Rianno',
+				device: 'April',
 				geekbench: 600
 			}, {
-				device: 'Hadafi',
+				device: 'Maret',
+				geekbench: 655
+			}, {
+				device: 'April',
+				geekbench: 655
+			}, {
+				device: 'Mei',
+				geekbench: 655
+			}, {
+				device: 'Juni',
+				geekbench: 655
+			}, {
+				device: 'Juli',
+				geekbench: 655
+			}, {
+				device: 'Agustus',
+				geekbench: 655
+			}, {
+				device: 'September',
+				geekbench: 655
+			}, {
+				device: 'Oktober',
+				geekbench: 655
+			}, {
+				device: 'November',
+				geekbench: 655
+			}, {
+				device: 'Desember ',
 				geekbench: 655
 			}],
 			xkey: 'device',
