@@ -40,6 +40,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left" for="example-email">Nama pengajuan<span class="help"> </span></label>
                                                 <input type="text" id="nama_pengajuan" name="nama_pengajuan" class="form-control" placeholder="">
+                                                @error('nama_pengajuan')
+                                                <div class="tulisan">{{$message}}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -96,16 +99,11 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody id="TabelDinamis">
-                                                                        <!-- <tr>
-                                                    <td><a name="nama_pengajuan[]" id="nama_pengajuan"></a></td>
-                                                    <td><a name="kode_pengajuan[]" id="kode_pengajuan"></a></td>
-                                                    <td><input type="text" name="nama_barang[]" id="nama_barang"  value=" "></td>
-                                                    <td><input type="text" name="jumlah[]" id="jumlah" value=" "></td>
-                                                    <td><input type="text" name="keterangan[]" id="keterangan" value=" "></td>
-                                                    <td><button type="button" class="btn btn-danger btn-small">&times;</button></td>
-                                                </tr> -->
-                                                                    </tbody>
-                                                                </table>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    @error('TabelDinamis')
+                                                                    <div class="tulisan">{{$message}}</div>
+                                                                    @enderror
                                                                 <div class="col-md-12" style="text-align:right;">
                                                                     <button type="button" onclick="submitForm()" class="btn btn-primary ">Simpan</button>
                                                                 </div>
