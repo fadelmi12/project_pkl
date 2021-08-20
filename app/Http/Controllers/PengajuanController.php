@@ -145,6 +145,17 @@ class PengajuanController extends Controller
     {
         $user = Auth::user();
 
+        $rules = [
+            'nama_pengajuan' => 'required',
+            'TabelDinamis' => 'required'
+        ];
+
+        $messages = [
+            'nama_pengajuan.required' => '*Nama pengajuan tidak boleh kosong',
+            'TabelDinamis.required' => '*Data tidak boleh kosong'
+        ];
+        $this->validate($request, $rules, $messages);
+
         Pengajuan::create(
             [
                 'kode' => $request->kode_pengajuan,
@@ -161,7 +172,7 @@ class PengajuanController extends Controller
                     'namaBarang' => $request->nama_barang[$i],
                     'jmlBarang' => $request->jumlah[$i],
                     'keterangan' => $request->keterangan[$i],
-                    'jenisBarang' => 'Baru'
+                    'jenisBarang' => 'Retur'
                 ]
             );
 

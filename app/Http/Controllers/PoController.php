@@ -38,13 +38,11 @@ class PoController extends Controller
         $rules = [
             'namaBarang' => 'required',
             'jumlah' => 'required',
-            'keterangan' => 'required',
         ];
 
         $messages = [
             'namaBarang.required' => '*Nama barang tidak boleh kosong',
             'jumlah.required' => '*Jumlah barang tidak boleh kosong',
-            'keterangan.required' => '*Keterangan tidak boleh kosong',
         ];
         $this->validate($request, $rules, $messages);
 
@@ -74,7 +72,16 @@ class PoController extends Controller
     }
     public function editpo(Request $request)
     {
+        $rules = [
+            'namaBarang' => 'required',
+            'jumlah' => 'required',
+        ];
 
+        $messages = [
+            'namaBarang.required' => '*Nama barang tidak boleh kosong',
+            'jumlah.required' => '*Jumlah barang tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
         PO::where('id_PO', $request->edit_id_po)
             ->update([
                 'namaBarang' => $request->namaBarang,
@@ -148,7 +155,7 @@ class PoController extends Controller
                 ->update([
                     'status' => '1',
                     'keterangan' => $request->keterangan,
-                    'pic_warehouse' => $user
+                    'pic_warehouse' => $user->name
                 ]);
             $user = Auth::user();
             Log::create(
@@ -167,7 +174,7 @@ class PoController extends Controller
                     ->update([
                         'status' => '3',
                         'keterangan' => $request->keterangan,
-                        'pic_warehouse' => $user
+                        'pic_warehouse' => $user->name
                     ]);
 
             $user = Auth::user();

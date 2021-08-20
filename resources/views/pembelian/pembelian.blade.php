@@ -90,7 +90,7 @@
                                                 <td> Rp {{number_format ($hutang->sisaBayar, 0, ',', '.') }}</td>
                                                 <td>{{ $hutang->tglBeli}}</td>
                                                 <td>
-                                                    <button class="btn btn-primary btn-icon-anim" data-toggle="modal" data-target="#lunas{{ $hutang->id_pembelian }}">Pelunasan</button>
+                                                    <button class="btn btn-primary btn-icon-anim" data-toggle="modal" data-target="#lunas{{ $hutang->id_pembelian }}">Lunasi</button>
                                                 </td>
                                                 @include('pembelian.lunas')
                                             </tr>

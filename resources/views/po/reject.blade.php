@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <input class="form-control" type="hidden" value="{{ $data_po->id_PO }}" name="edit_id_po">
                         <label class="control-label mb-10"> Masukan keterangan <span class="help"> </span></label>
-                        <input class="form-control" type="text" id="keterangan"  name="keterangan">
+                        <input class="form-control" type="text" id="keterangan"  name="keterangan" value="{{ $data_po->keterangan }}">
                     </div>
                 </div>
 

@@ -26,6 +26,19 @@ class PembelianController extends Controller
 
     public function addpembelian2(Request $request)
     {
+        $rules = [
+            'supplier' => 'required',
+            'harga_jual' => 'required',
+            'tgl_beli' => 'required',
+
+        ];
+
+        $messages = [
+            'supplier.required' => '*Supplier barang tidak boleh kosong',
+            'harga_jual.required' => '*Harga barang tidak boleh kosong',
+            'tgl_beli.required' => '*Tanggal Beli barang tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
         Pembelian::create([
             'no_PO' => $request->no_PO,
             'namaBarang' => $request->nama_barang,
@@ -47,14 +60,14 @@ class PembelianController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'divisi' => $user->divisi,
-            'deskripsi' => '',
+            'deskripsi' => 'Create Invoice',
             'status' => '2',
             'ip'=> $request->ip()
 
             ]
         );
         // return view('pembelian/purchase');
-        return back()->with('success', "Data telah dibuat");
+        return redirect('/pembelian');
     }
 
     public function purchase()
@@ -69,6 +82,18 @@ class PembelianController extends Controller
                         ->update([
                             'status'=> $request->status
                         ]);
+        $user = Auth::user();
+        Log::create(
+            [
+            'name' => $user->name,
+            'email' => $user->email,
+            'divisi' => $user->divisi,
+            'deskripsi' => 'Edit Pelunasan',
+            'status' => '2',
+            'ip'=> $request->ip()
+
+            ]
+        );
         return back()->with('success', "data telah dilunasi");
     }
 }
