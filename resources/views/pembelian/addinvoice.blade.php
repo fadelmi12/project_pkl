@@ -35,14 +35,23 @@
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left" for="example-email">Supplier <span class="help"> </span></label>
                                 <input type="text" id="supplier" name="supplier" class="form-control" placeholder="" >
+                                @if ($errors->has('supplier'))
+                                    <div class="tulisan">{{$errors->first('supplier')}}</div>
+                                    @endif
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left">Total Harga</label>
                                 <input type="number" id="harga_jual" name="harga_jual" class="form-control a2" value="">
+                                @if ($errors->has('harga_jual'))
+                                    <div class="tulisan">{{$errors->first('harga_jual')}}</div>
+                                    @endif
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left">Tanggal beli<span class="help"> </span></label>
                                 <input type="date" id="tgl_beli" name="tgl_beli" class="form-control" placeholder="">
+                                @if ($errors->has('tgl_beli'))
+                                    <div class="tulisan">{{$errors->first('tgl_beli')}}</div>
+                                    @endif
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left">Jenis transaksi</label>
@@ -60,9 +69,9 @@
                                 <label class="control-label mb-10 text-left"> Total Hutang</label>
                                 <input type="text"  class="form-control c2"  id="amount" name="amount" readonly>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="text-align: right;">
                                 <button class="btn btn-success mr-5" name="submit" type="submit">Simpan</button>
-                                <button class="btn btn-danger  " name="reset" type="reset">Batal</button>
+                                <!-- <button class="btn btn-danger  " name="reset" type="reset">Batal</button> -->
                             </div>
                         </form>
                     </div>

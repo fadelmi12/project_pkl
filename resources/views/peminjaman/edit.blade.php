@@ -35,11 +35,7 @@
                                 <form action="{{ url('updatePinjam') }}" method="post" role="form" autocomplete="off">
                                     {{ csrf_field() }}
                                     <div class="form-group">
-                                        <input type="hidden" value="{{ $peminjaman->id_peminjaman }}" name="edit_id_pinjam">
-                                        <label class="control-label mb-10 text-left">Nama<span class="help"> </span></label>
-                                        <input type="text" class="form-control" value="{{ $peminjaman->nama }}" name="edit_nama">
-                                    </div>
-                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" value="{{ $peminjaman->id_peminjaman }}" name="edit_id_pinjam" > 
                                         <label class="control-label mb-10 text-left">Nama<span class="help"> Barang</span></label>
                                         <input type="text" class="form-control" value="{{ $peminjaman->barang }}" name="edit_nama_barang" >
                                     </div>
@@ -50,10 +46,6 @@
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Keterangan</label>
                                         <input type="text" class="form-control" value="{{ $peminjaman->keterangan }}" name="edit_keterangan">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label mb-10 text-left">Tanggal Pinjam</label>
-                                        <input type="date" class="form-control" value="{{ $peminjaman->tglPinjam }}" name="edit_tgl_pinjam">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Tanggal Kembali</label>

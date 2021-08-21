@@ -24,14 +24,16 @@
 
         <!-- Row -->
         <div class="row">
-            <div class="col-sm-14">
+            <div class="col-sm-12">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
+                        
+                        @if(auth()->user()->divisi != "office")
                         <p>
                             <a href="supplier/addsupplier" class="btn btn-success"> Tambah Data</a>
 
                         </p>
-                        <div class="clearfix"></div>
+                        @endif
 
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
@@ -47,8 +49,9 @@
                                                     <th>Alamat supplier</th>
                                                     <th>PIC supplier</th>
                                                     <th>No HP supplier</th>
+                                                    @if(auth()->user()->divisi != "office")
                                                     <th>Aksi</th>
-
+                                                    @endif
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -62,11 +65,12 @@
                                                     <td>{{ $data_supplier->alamat_supplier }}</td>
                                                     <td>{{ $data_supplier->pic_supplier }}</td>
                                                     <td>{{ $data_supplier->telp_supplier }}</td>
+                                                    @if(auth()->user()->divisi != "office")
                                                     <td>
                                                         <a href="/supplier/editSup/{{ $data_supplier->id_supplier }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                         <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapussup{{ $data_supplier->id_supplier }}" action="( {{url('deletesupplier')}}/{{ $data_supplier->id_supplier }})"><i class="fa fa-trash"></i></button>
-
                                                     </td>
+                                                    @endif
                                                 </tr>
                                                 @include('supplier.hapus')
                                                 @endforeach

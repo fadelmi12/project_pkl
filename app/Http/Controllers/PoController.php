@@ -21,36 +21,34 @@ class PoController extends Controller
     //
     public function addpo()
     {
-        return view('po/addpo');
+        $now = Carbon::now();
+        $thnBln = $now->year . $now->month;
+    
+        // $kode = strtoupper(substr($request->nama_barang, 0, 3));
+        $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
+        $angka = sprintf("%03d", (int)$check + 1);
+        $noPO = $thnBln . "" . $angka;
+        return view('po/addpo', compact('noPO'));
     }
 
     public function addpo2(Request $request)
     {
         $user = Auth::user();
-        $now = Carbon::now();
-        $thnBln = $now->year . $now->month;
-
-        // $kode = strtoupper(substr($request->nama_barang, 0, 3));
-        $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
-        $noPO = $thnBln . "" . $angka;
 
         $rules = [
             'namaBarang' => 'required',
             'jumlah' => 'required',
-            'keterangan' => 'required',
         ];
 
         $messages = [
             'namaBarang.required' => '*Nama barang tidak boleh kosong',
             'jumlah.required' => '*Jumlah barang tidak boleh kosong',
-            'keterangan.required' => '*Keterangan tidak boleh kosong',
         ];
         $this->validate($request, $rules, $messages);
 
         PO::create(
             [
-                'no_PO' => $noPO,
+                'no_PO' => $request->noPO,
                 'namaBarang' => $request->namaBarang,
                 'jumlah' => $request->jumlah,
                 'keterangan' => $request->keterangan,
@@ -74,7 +72,16 @@ class PoController extends Controller
     }
     public function editpo(Request $request)
     {
+        $rules = [
+            'namaBarang' => 'required',
+            'jumlah' => 'required',
+        ];
 
+        $messages = [
+            'namaBarang.required' => '*Nama barang tidak boleh kosong',
+            'jumlah.required' => '*Jumlah barang tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
         PO::where('id_PO', $request->edit_id_po)
             ->update([
                 'namaBarang' => $request->namaBarang,
@@ -148,7 +155,7 @@ class PoController extends Controller
                 ->update([
                     'status' => '1',
                     'keterangan' => $request->keterangan,
-                    'pic_warehouse' => $user
+                    'pic_warehouse' => $user->name
                 ]);
             $user = Auth::user();
             Log::create(
@@ -167,7 +174,7 @@ class PoController extends Controller
                     ->update([
                         'status' => '3',
                         'keterangan' => $request->keterangan,
-                        'pic_warehouse' => $user
+                        'pic_warehouse' => $user->name
                     ]);
 
             $user = Auth::user();

@@ -40,11 +40,10 @@
                                         <div class="form-group">
                                             <input type="hidden" value="{{ $data_baru->id_pengajuan }}" name="edit_id_pengajuan">
                                             <label class="control-label mb-10 text-left" for="example-email">Nama Barang <span class="help"> </span></label>
-                                            <input type="text" value="{{ $data_baru->namaBarang }}" name="edit_nama" class="form-control" placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label mb-10 text-left" for="example-email">Jumlah Barang <span class="help"> </span></label>
-                                            <input type="text" value="{{ $data_baru->jmlBarang }}" name="edit_jumlah" class="form-control" placeholder="">
+                                            <input type="text" value="{{ $data_baru->judul }}" name="edit_nama" class="form-control" placeholder="">
+                                            @error('edit_nama')
+                                            <div class="tulisan">{{$message}}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label mb-10 text-left" for="example-email">Keterangan <span class="help"> </span></label>

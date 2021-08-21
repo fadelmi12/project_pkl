@@ -48,8 +48,8 @@
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<label class="control-label mb-10">Nama barang</label>
-															<select name="nama_barang" id="nama_barang" class="form-control select2">
+															<label class="mr-sm-2" for="inlineFormCustomSelect">Nama barang</label>
+															<select name="nama_barang" id="nama_barang" class="form-control">
 																@foreach($barang as $brg)
 																<option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
 																@endforeach
@@ -196,5 +196,7 @@
 		var row_id = $(this).attr("id");
 		$('#row' + row_id + '').remove();
 	});
+
+		$('#nama_barang').select2();
 </script>
 @endsection

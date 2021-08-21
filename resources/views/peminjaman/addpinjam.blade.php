@@ -18,14 +18,6 @@
                     <div class="panel-heading">
                         <form action="{{ url('addpinjam2') }}" method="post" enctype="multipart/form-data">
                             @csrf
-
-                            <div class="form-group">
-                                <label class="control-label mb-10 text-left" for="example-email">Nama <span class="help"> </span></label>
-                                <input type="text" id="nama" name="nama" class="form-control" placeholder="">
-                                @error('nama')
-                                <div class="tulisan">{{$message}}</div>
-                                @enderror
-                            </div>
                             <div class="form-group">
                                 <label class="control-label mb-10 text-left" for="example-email">Nama barang <span class="help"> </span></label>
                                 <input type="text" id="nama_barang" name="nama_barang" class="form-control" placeholder="">
@@ -48,8 +40,8 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="control-label mb-10 text-left"> Tanggal Pinjam <span class="help"> </span></label>
-                                <input type="date" id="tgl_pinjam" name="tgl_pinjam" class="form-control" placeholder="">
+                                <label class="control-label mb-10 text-left"> Tanggal Kembali <span class="help"> </span></label>
+                                <input type="date" id="tgl_kembali" name="tgl_kembali" class="form-control" placeholder="">
                                 @error('tgl_pinjam')
                                 <div class="tulisan">{{$message}}</div>
                                 @enderror

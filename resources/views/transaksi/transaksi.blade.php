@@ -8,20 +8,9 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-<<<<<<< HEAD
-                <h5 class="txt-dark">Data Transaksi</h5><br>
-                <a href="transaksi/transaksi_masuk_baru" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> MASUK</a>
-                <a href="transaksi/transaksi_masuk_retur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> KELUAR</a>
-=======
                 <h5 class="txt-dark">Data Barang Masuk</h5><br>
-<<<<<<< HEAD
-                <a href="#" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> MASUK</a>
-                <a href="#" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> KELUAR</a>
->>>>>>> a1dc93dc38628a73d5a3549f64ea430dd4aba47d
-=======
                 <a href="/transaksi" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> MASUK</a>
                 <a href="/transaksikeluar" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> KELUAR</a>
->>>>>>> 12198fd21f31b88df1bac8f1b6acfee3e43dedbf
             </div>
 
 
@@ -35,24 +24,7 @@
             <!-- /Breadcrumb -->
         </div>
         <!-- Row -->
-<<<<<<< HEAD
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-
-                    </div>
-                    <div class="clearfix"></div>
-
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                            <div class="table-wrap">
-                                <div class="table-responsive">
-                                    <table id="datable_1" class="table table-bordered display pb-30">
-        <div class="col-lg-12 col-sm-12 mt-10">
-=======
         <div class="col-lg-12 col-md-12 mt-10">
->>>>>>> a1dc93dc38628a73d5a3549f64ea430dd4aba47d
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
 					<div class="pull-left">

@@ -48,41 +48,89 @@ class MasterController extends Controller
         ];
         $this->validate($request, $rules, $messages);
 
-        // dd($request);
-        $barang = Master::all();
-        $kategori = kategori::all();
-        $jenis = Jenis::all();
-        $namaFile = time() . '.' . $request->gambar->extension();
-        $request->gambar->move(public_path('img/logo'), $namaFile);
+        if ($request->gambar) {
+            $namaFile = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('img/logo'), $namaFile);
 
-        $kode = strtoupper(substr($request->nama_barang, 0, 3));
-        $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
-        $kode_barang = $kode . "" . $angka;
+            $kode = strtoupper(substr($request->nama_barang, 0, 3));
+            $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
+            $angka = sprintf("%03d", (int)$check + 1);
+            $kode_barang = $kode . "" . $angka;
 
-        Master::insert([
-            'kode_kategori' => $request->kode_kategori,
-            'nama_barang' => $request->nama_barang,
-            'kode_barang' => $kode_barang,
-            'jenis_barang' => $request->jenis_barang,
-            'stok' => $request->stok,
-            'gambar' => $namaFile,
-            'status' => $request->status
-        ]);
+            Master::create([
+                'kode_kategori' => $request->kode,
+                'nama_barang' => $request->nama_barang,
+                'kode_barang' => $kode_barang,
+                'jenis_barang' => $request->jenis_barang,
+                'stok' => $request->stok,
+                'gambar' => $namaFile,
+                'status' => $request->status
+            ]);
+        } else {
 
-        $user = Auth::user();
-        Log::create(
-            [
-                'name' => $user->name,
-                'email' => $user->email,
-                'divisi' => $user->divisi,
-                'deskripsi' => 'Create Data Barang',
-                'status' => '2',
-                'ip' => $request->ip()
+            $kode = strtoupper(substr($request->nama_barang, 0, 3));
+            $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
+            $angka = sprintf("%03d", (int)$check + 1);
+            $kode_barang = $kode . "" . $angka;
 
-            ]
-        );
+            Master::create([
+                'kode_kategori' => $request->kode,
+                'nama_barang' => $request->nama_barang,
+                'kode_barang' => $kode_barang,
+                'jenis_barang' => $request->jenis_barang,
+                'status' => $request->status
+            ]);
+
+            $user = Auth::user();
+            Log::create(
+                [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'divisi' => $user->divisi,
+                    'deskripsi' => 'Update Data Barang',
+                    'status' => '2',
+                    'ip' => $request->ip()
+
+                ]
+            );
+        }
         return redirect('databrg');
+
+        // dd($request);
+        // $barang = Master::all();
+        // $kategori = kategori::all();
+        // $jenis = Jenis::all();
+        // $namaFile = time() . '.' . $request->gambar->extension();
+        // $request->gambar->move(public_path('img/logo'), $namaFile);
+
+        // $kode = strtoupper(substr($request->nama_barang, 0, 3));
+        // $check = count(Master::where('kode_barang', 'like', "%$kode%")->get()->toArray());
+        // $angka = sprintf("%03d", (int)$check + 1);
+        // $kode_barang = $kode . "" . $angka;
+
+        // Master::create([
+        //     'kode_kategori' => $request->kode,
+        //     'nama_barang' => $request->nama_barang,
+        //     'kode_barang' => $kode_barang,
+        //     'jenis_barang' => $request->jenis_barang,
+        //     'stok' => $request->stok,
+        //     'gambar' => $namaFile,
+        //     'status' => $request->status
+        // ]);
+
+        // $user = Auth::user();
+        // Log::create(
+        //     [
+        //         'name' => $user->name,
+        //         'email' => $user->email,
+        //         'divisi' => $user->divisi,
+        //         'deskripsi' => 'Create Data Barang',
+        //         'status' => '2',
+        //         'ip' => $request->ip()
+
+        //     ]
+        // );
+        // return redirect('databrg');
     }
 
     public function editBarang($id_master)

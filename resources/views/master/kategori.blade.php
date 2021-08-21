@@ -26,6 +26,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
+                    @if(auth()->user()->divisi != "office")
                     <div class="panel-heading">
                         <p>
                             <a href="kategori/addkategori" class="btn btn-success">Tambah baru
@@ -33,6 +34,7 @@
                         </p>
                         <div class="clearfix"></div>
                     </div>
+                    @endif
 
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
@@ -45,7 +47,9 @@
                                                 <th>Kode kategori</th>
                                                 <th>Kategori</th>
                                                 <th>Keterangan</th>
+                                                @if(auth()->user()->divisi != "office")
                                                 <th>Aksi</th>
+                                                @endif
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -56,11 +60,12 @@
                                                 <td>{{ $data_kategori->kode_kategori }}</td>
                                                 <td>{{ $data_kategori->kategori }}</td>
                                                 <td>{{ $data_kategori->keterangan }}</td>
+                                                @if(auth()->user()->divisi != "office")
                                                 <td>
                                                     <a href="/kategori/editKategori/{{ $data_kategori->id_kategori }}"class="text-inverse pr-10" title="Edit" data-toggle="tooltip"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                     <button class="btn btn-danger btn-icon-anim btn-square " data-toggle="modal" data-target="#hapusktg{{ $data_kategori->id_kategori }}" action="( {{url('deletekategori')}}/{{ $data_kategori->id_kategori }})"><i class="fa fa-trash"></i></button>
-
                                                 </td>
+                                                @endif
                                             </tr>
                                             @include('master.hapusktg')
                                             @endforeach

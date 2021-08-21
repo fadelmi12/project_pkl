@@ -40,14 +40,13 @@
                                         <table id="datable_1" class="table table-bordered display pb-30">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
+                                                    <th>No</th>
                                                     <th>Nama</th>
                                                     <th>Nama barang</th>
                                                     <th>Jumlah</th>
                                                     <th>Keterangan</th>
                                                     <th>Tanggal Pinjam</th>
                                                     <th>Tanggal kembali</th>
-                                                    <th>Status</th>
                                                     <th>Aksi</th>
 
                                                 </tr>
@@ -61,20 +60,13 @@
                                                     <td>{{ $peminjaman->barang }}</td>
                                                     <td>{{ $peminjaman->jumlah }}</td>
                                                     <td>{{ $peminjaman->keterangan }}</td>
-                                                    <td>{{ $peminjaman->tglPinjam }}</td>
+                                                    <td>{{ $peminjaman->created_at }}</td>
                                                     <td>{{ $peminjaman->tglKembali }}</td>
-                                                    <td style="text-align:center;">
-                                                        @if($peminjaman->status == 'pinjam')
-                                                        <button class="btn btn-primary btn-sm btn-rounded">Pinjam</button>
-                                                        @else
-                                                        <button class="btn btn-success btn-sm btn-rounded">Dikembalikan</button>
-                                                        @endif
-                                                    </td>
                                                     <td>
                                                         <a href="/peminjaman/editpinjam/{{ $peminjaman->id_peminjaman }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                        <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#" action="#"><i class="fa fa-trash"></i></button>
-
+                                                        <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapus{{ $peminjaman->id_peminjaman }}"><i class="fa fa-trash"></i></button>
                                                     </td>
+                                                    @include('peminjaman.hapus')
                                                 </tr>
                                                 @endforeach
                                             </tbody>

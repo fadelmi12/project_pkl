@@ -49,7 +49,7 @@
                                                 <th>#</th>
                                                 <th>Nama</th>
                                                 <th>Email</th>
-                                                <th>Level</th>
+                                                <th>Divisi</th>
                                                 <th>last login</th>
                                                 <th>last login IP</th>
                                                 <th>Status</th>
@@ -65,8 +65,8 @@
                                                 <td>{{ $users->name }}</td>
                                                 <td>{{ $users->email }}</td>
                                                 <td>{{ $users->divisi }}</td>
-                                                <td>-</td>
-                                                <td>-</td>
+                                                <td>{{ $users->lastLogin }}</td>
+                                                <td>{{ $users->lastIP }}</td>
                                                 <td>
                                                     <!-- <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button> -->
                                                     <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#exampleModal"> Aktif</button>

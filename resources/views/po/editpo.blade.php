@@ -20,10 +20,16 @@
                     <div class="form-group">
                         <label class="control-label mb-10"> Nama Barang <span class="help"> </span></label>
                         <input class="form-control" type="text" id="namaBarang" value="{{ $data_po->namaBarang }}" name="namaBarang" >
+                        @if ($errors->has('namaBarang'))
+                        <div class="tulisan">{{$errors->first('namaBarang')}}</div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10"> Jumlah Barang <span class="help"> </span></label>
                         <input class="form-control" type="number" id="jumlah" value="{{ $data_po->jumlah }}" name="jumlah" >
+                        @if ($errors->has('jumlah'))
+                        <div class="tulisan">{{$errors->first('jumlah')}}</div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label class="control-label mb-10"> Keterangan <span class="help"> </span></label>

@@ -26,31 +26,19 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-                        <p>
-                            <a href="jenis/addjenis" class="btn btn-success">Tambah baru
-                            </a>
-                        </p>
-                        {{-- @if(Session::has('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ Session('success') }}
-                    </div>
-                    @endif --}}
-                    <div class="clearfix">
-
-                    </div>
-                    <!-- <div id="myTable1_wrapper" class="dataTables_wrapper">
-                        <div class="dataTables_length" id="myTable1_length"><label>Show <select name="myTable1_length" aria-controls="myTable1" class="">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select> entries</label></div>
-                        <div id="myTable1_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="myTable1"></label></div>
-                        <table id="myTable1" class="table table-hover display dataTable dtr-inline" role="grid" aria-describedby="myTable1_info" style="width: 1253px;">
-                    </div>
-                </div> -->
-
+                    
+                    @if(auth()->user()->divisi != "office")
+                        <div class="panel-heading">
+                            <p>
+                                <a href="jenis/addjenis" class="btn btn-success">Tambah baru</a>
+                            </p>
+                            @if(Session::has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ Session('success') }}
+                                </div>
+                            @endif 
+                        </div> 
+                    @endif
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="table-wrap">
@@ -61,7 +49,9 @@
                                                 <th>NO</th>
                                                 <th>Jenis barang</th>
                                                 <th>Keterangan</th>
+                                                @if(auth()->user()->divisi != "office")
                                                 <th>Aksi</th>
+                                                @endif
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -71,11 +61,12 @@
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $data_jenis->jenis_barang }}</td>
                                                 <td>{{ $data_jenis->keterangan }}</td>
+                                                @if(auth()->user()->divisi != "office")
                                                 <td>
                                                     <a href="/jenis/editJenis/{{ $data_jenis->id_jenis }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                     <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapusjns{{ $data_jenis->id_jenis }}" action="( {{url('deletejenis')}}/{{ $data_jenis->id_jenis }})"><i class="fa fa-trash"></i></button>
-
                                                 </td>
+                                                @endif
                                             </tr>
                                             @include('master.hapusjenis')
                                             @endforeach
@@ -87,9 +78,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Modal -->
-
-            <!-- /Main Content -->
         </div>
-        @endsection
+
+        <!-- Modal -->
+
+        <!-- /Main Content -->
+    </div>
+    @endsection

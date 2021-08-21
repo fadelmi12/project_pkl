@@ -27,15 +27,20 @@ class PengajuanController extends Controller
 
     public function addbaru2(Request $request)
     {
-        $retur = 'Retur';
+        $rules = [
+            'namaBarang' => 'required',
+        ];
+
+        $messages = [
+            'namaBarang.required' => '*Nama barang tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
+        $baru = 'Baru';
         Pengajuan::create(
             [
-                'noPO' => $request->noPO,
-                'namaBarang' => $request->namaBarang,
-                'namaBarang' => $request->namaBarang,
-                'jmlBarang' => $request->jmlBarang,
+                'judul' => $request->namaBarang,
                 'keterangan' => $request->keterangan,
-                'jenisBarang' => $retur
+                'jenisBarang' => $baru
             ]
         );
 
@@ -62,10 +67,17 @@ class PengajuanController extends Controller
 
     public function updateBaru(Request $request)
     {
+        $rules = [
+            'edit_nama' => 'required',
+        ];
+
+        $messages = [
+            'edit_nama.required' => '*Nama barang tidak boleh kosong',
+        ];
+        $this->validate($request, $rules, $messages);
         Pengajuan::where('id_pengajuan', $request->edit_id_pengajuan)
             ->update([
-                'namaBarang' => $request->edit_nama,
-                'jmlBarang' => $request->edit_jumlah,
+                'judul' => $request->edit_nama,
                 'keterangan' => $request->edit_keterangan
             ]);
 
@@ -133,6 +145,17 @@ class PengajuanController extends Controller
     {
         $user = Auth::user();
 
+        $rules = [
+            'nama_pengajuan' => 'required',
+            'TabelDinamis' => 'required'
+        ];
+
+        $messages = [
+            'nama_pengajuan.required' => '*Nama pengajuan tidak boleh kosong',
+            'TabelDinamis.required' => '*Data tidak boleh kosong'
+        ];
+        $this->validate($request, $rules, $messages);
+
         Pengajuan::create(
             [
                 'kode' => $request->kode_pengajuan,
@@ -149,7 +172,7 @@ class PengajuanController extends Controller
                     'namaBarang' => $request->nama_barang[$i],
                     'jmlBarang' => $request->jumlah[$i],
                     'keterangan' => $request->keterangan[$i],
-                    'jenisBarang' => 'Baru'
+                    'jenisBarang' => 'Retur'
                 ]
             );
 
@@ -255,6 +278,7 @@ class PengajuanController extends Controller
                     'pic_admin' => $user->name,
                     'status' => '5'
                 ]);
+            }
 
                 $user = Auth::user();
         Log::create(
@@ -268,7 +292,6 @@ class PengajuanController extends Controller
 
             ]
         );
-        }
 
         return back()->with('success', "Data telah diperbarui");
     }
@@ -302,6 +325,7 @@ class PengajuanController extends Controller
 
             );
 
+        }
             $user = Auth::user();
         Log::create(
             [
@@ -314,7 +338,6 @@ class PengajuanController extends Controller
 
             ]
         );
-        }
 
         return back()->with('success', "Data telah diperbarui");
     }
