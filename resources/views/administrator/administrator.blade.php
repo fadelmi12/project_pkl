@@ -69,13 +69,21 @@
                                                 <td>{{ $users->lastIP }}</td>
                                                 <td>
                                                     <!-- <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button> -->
-                                                    <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#exampleModal"> Aktif</button>
+                                                    <!-- <button class="btn btn-success btn-icon-anim" data-toggle="modal" data-target="#exampleModal"> Aktif</button> -->
+                                                    @if($users->status == 'Aktif')
+                                                    <button class="btn btn-success btn-sm  btn-rounded" data-toggle="modal" data-target="#exampleModal">Aktif</button>
+                                                    @else
+                                                    <button class="btn btn-danger btn-sm  btn-rounded" data-toggle="modal" data-target="#exampleModal">Non Aktif</button>
+                                                    @endif
                                                     @include('administrator.status')
                                                 </td>
                                                 <td>
                                                     <!-- <button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-info"></i></button> -->
+                                                   
                                                     <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#edit"><i class=" fa fa-pencil"></i></button>
+                                                   
                                                     <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#hapus"><i class=" fa fa-trash"></i></button>
+                                                    
                                                     @include('administrator.edit')
 
                                                     <!-- <div class="btn btn-round btn-danger btn-sm btn-icon"><i class="fa fa-trash"></i></div> -->
