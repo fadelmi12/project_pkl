@@ -18,9 +18,8 @@ class MasterDataTable extends Migration
             $table->string('kode_kategori');
             $table->string('nama_barang');
             $table->string('kode_barang');
-            $table->string('jenis_barang');
-            $table->integer('stok');
-            $table->string('gambar');
+            $table->integer('stok')->nullable()->default(0);
+            $table->string('gambar')->nullable()->default('no_image.png');
             $table->string('status');
             $table->timestamps();
         });

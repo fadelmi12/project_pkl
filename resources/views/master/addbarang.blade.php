@@ -36,10 +36,10 @@
                                 <form action="{{ url('addbarang2') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                        <label class="control-label mb-10 text-left">Kode<span class="help"> Kategori</span></label>
-                                        <select name="kode_kategori" id="kode_kategori" class="form-control select2">
+                                        <label class="control-label mb-10 text-left">Kategori</label>
+                                        <select name="kode" id="kode" class="form-control select2">
                                             @foreach($kategori as $ktg)
-                                            <option value="{{ $ktg->kode_kategori }}">{{ $ktg->kode_kategori }} | {{ $ktg->kategori }} </option>
+												<option value="{{ $ktg->kode_kategori}}">{{ $ktg->kategori }} | {{ $ktg->kode_kategori }}</option>
                                             @endforeach
                                         </select>
                                     </div>
