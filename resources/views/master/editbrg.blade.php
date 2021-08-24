@@ -74,14 +74,7 @@
                                                 <label class="control-label mb-10 text-left">Kode Barang</label>
                                                 <input type="text" value="{{ $brg->kode_barang }}" class="form-control" name="edit_kode_barang" readonly>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="control-label mb-10 text-left">Jenis</label>
-                                                <select name="edit_jenis_barang" value="{{ $brg->jenis_barang }}" class="form-control select2">
-                                                    @foreach($jenis as $jen)
-                                                    <option value="{{ $jen->jenis_barang }}">{{ $jen->jenis_barang }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
+                                            
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Stok</label>
                                                 <input type="text" class="form-control" name="edit_stok" value="{{ $brg->stok }}">

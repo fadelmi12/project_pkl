@@ -45,7 +45,7 @@
                                             <tr>
                                                 <th>Kode Barang </th>
                                                 <th>Nama Barang</th>
-                                                <th>Jenis</th>
+                                                <!-- <th>Jenis</th> -->
                                                 <th>Stok</th>
                                                 <th>Gambar</th>
                                                 <th>Status</th>
@@ -59,7 +59,7 @@
                                             <tr>
                                                 <td>{{$brg->kode_barang}}</td>
                                                 <td>{{$brg->nama_barang}}</td>
-                                                <td>{{$brg->jenis_barang}}</td>
+                                                <!-- <td>{{$brg->jenis_barang}}</td> -->
                                                 <td>{{$brg->stok}}</td>
                                                 <td>
                                                     @if($brg->gambar)

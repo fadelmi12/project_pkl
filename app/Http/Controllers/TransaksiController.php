@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Log;
 use App\Models\Master;
 use App\Models\SupplierModel;
+use App\Models\TransaksiKeluar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Models\TransaksiModel;
@@ -32,41 +33,38 @@ class TransaksiController extends Controller
 
     public function addmasukbaru2(Request $request)
     {
-
-        $jumlah_data = count($request->nama_barang);
+        $jumlah_data = count($request->tgl_transaksi);
         for ($i = 0; $i < $jumlah_data; $i++) {
-        TransaksiModel::create(
-            [
-                'tgl_transaksi' => $request->tgl_transaksi[$i],
-                'nama_barang' => $request->nama_barang[$i],
-                'nama_supplier' => $request->nama_supplier[$i],
-                'jumlah' => $request->jumlah[$i],
-                'pengirim' => $request->pengirim[$i],
-                'penerima' => $request->penerima[$i],
-                'jenisBarang' => 'Baru'
-            ]
-        );
-        $user = Auth::user();
-        Log::create(
-            [
-            'name' => $user->name,
-            'email' => $user->email,
-            'divisi' => $user->divisi,
-            'deskripsi' => 'Create Masuk Baru',
-            'status' => '2',
-            'ip'=> $request->ip()
-            ]
-        );
-    }
+            TransaksiModel::Insert(
+                [
+                    'tgl_transaksi' => $request->tgl_transaksi[$i],
+                    'nama_barang' => $request->nama_barang[$i],
+                    'nama_supplier' => $request->nama_supplier[$i],
+                    'jumlah' => $request->jumlah[$i],
+                    'pengirim' => $request->pengirim[$i],
+                    'penerima' => $request->penerima[$i],
+                    // 'jenisBarang' => 'Baru'
+                ]);
+            $user = Auth::user();
+            Log::create(
+                [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Create Masuk Baru',
+                'status' => '2',
+                'ip'=> $request->ip()
+            ]);
+        };
 
         return redirect('/transaksi');
     }
     
     public function addmasukretur2(Request $request)
     {
-        $jumlah_data = count($request->nama_barang);
+        $jumlah_data = count($request->tgl_transaksi);
         for ($i = 0; $i < $jumlah_data; $i++) {
-        TransaksiModel::create(
+        TransaksiModel::Insert(
             [
                 'tgl_transaksi' => $request->tgl_transaksi[$i],
                 'po' => $request->po[$i],
@@ -74,7 +72,7 @@ class TransaksiController extends Controller
                 'instansi' => $request->instansi[$i],
                 'kondisi' => $request->kondisi[$i],
                 'penerima' => $request->penerima[$i],
-                'jenisBarang' => 'Retur'
+                // 'jenisBarang' => 'Retur'
             ]
         );
 
@@ -113,8 +111,15 @@ class TransaksiController extends Controller
 
     public function transaksi()
     {
-        $transaksi_masuk = TransaksiModel::all()->where('jenisBarang', '', 'Baru');
-        $transaksi_retur = TransaksiModel::all()->where('jenisBarang', '', 'Retur');
+        $transaksi_masuk = TransaksiModel::all()->where('supplier','!=', '');
+        $transaksi_retur = TransaksiModel::all()->where('instansi','!=', '');
         return view('transaksi/transaksi', compact('transaksi_masuk','transaksi_retur' ));
     }
+    public function transaksikeluar()
+    {
+        $transaksi_masuk = TransaksiKeluar::all();
+        $transaksi_retur = TransaksiKeluar::all();
+        return view('transaksi/transaksikeluar', compact('transaksi_masuk','transaksi_retur' ));
+    }
+
 }

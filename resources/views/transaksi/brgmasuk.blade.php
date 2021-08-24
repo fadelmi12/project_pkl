@@ -57,7 +57,7 @@
                                                 <th>No transaksi</th>
                                                 <th>Supplier</th>
                                                 <th>Jenis transaksi</th>
-                                                <th>Tanggal Transaksi</th>
+                                                <th>Tanggal terima</th>
                                                 <th>Created at</th>
                                                 <!-- <th>Pengirim</th> -->
                                                 <!-- <th>Penerima</th>/ -->

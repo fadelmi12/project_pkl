@@ -42,7 +42,7 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label class="control-label mb-10">Tanggal Transaksi</label>
+															<label class="control-label mb-10">Tanggal terima</label>
 															<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control" value="<?php echo date("d-m-Y"); ?>">
 														</div>
 													</div>
@@ -136,7 +136,7 @@
 									<table class="table table-bordered align-items-center">
 										<thead class="thead-light">
 											<tr>
-												<th>Tanggal transaksi</th>
+												<th>Tanggal terima</th>
 												<th>Supplier</th>
 												<th>Nama barang</th>
 												<th>Jumlah</th>

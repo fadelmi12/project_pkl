@@ -25,16 +25,16 @@ class MasterController extends Controller
     public function barang()
     {
         $barang = Master::all();
-        $jenis = Jenis::all();
-        return view('master/databrg', compact('barang', 'jenis'));
+        // $jenis = Jenis::all();
+        return view('master/databrg', compact('barang',));
     }
 
     public function addbarang()
     {
         $barang = Master::all();
         $kategori = kategori::all();
-        $jenis = Jenis::all();
-        return view('master/addbarang', compact('barang', 'jenis', 'kategori'));
+        // $jenis = Jenis::all();
+        return view('master/addbarang', compact('barang', 'kategori'));
     }
 
     public function addbarang2(Request $request)
@@ -51,7 +51,7 @@ class MasterController extends Controller
         // dd($request);
         $barang = Master::all();
         $kategori = kategori::all();
-        $jenis = Jenis::all();
+        // $jenis = Jenis::all();
         $namaFile = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('img/logo'), $namaFile);
 
@@ -64,7 +64,7 @@ class MasterController extends Controller
             'kode_kategori' => $request->kode_kategori,
             'nama_barang' => $request->nama_barang,
             'kode_barang' => $kode_barang,
-            'jenis_barang' => $request->jenis_barang,
+            // 'jenis_barang' => $request->jenis_barang,
             'stok' => $request->stok,
             'gambar' => $namaFile,
             'status' => $request->status
@@ -91,8 +91,8 @@ class MasterController extends Controller
         $brg = Master::find($id_master);
         // $barang = Master::all();
         $kategori = kategori::all();
-        $jenis = Jenis::all();
-        return view('master/editbrg', compact('brg', 'kategori', 'jenis'));
+        // $jenis = Jenis::all();
+        return view('master/editbrg', compact('brg', 'kategori'));
     }
 
     public function updateBarang(Request $request)
@@ -120,7 +120,7 @@ class MasterController extends Controller
                     'kode_kategori' => $request->edit_kode_kategori,
                     'nama_barang' => $request->edit_nama_barang,
                     'kode_barang' => $request->edit_kode_barang,
-                    'jenis_barang' => $request->edit_jenis_barang,
+                    // 'jenis_barang' => $request->edit_jenis_barang,
                     'kode_kategori' => $request->edit_kode_kategori,
                     'stok' => $request->edit_stok,
                     'gambar' => $namaFile,
@@ -133,7 +133,7 @@ class MasterController extends Controller
                     'kode_kategori' => $request->edit_kode_kategori,
                     'nama_barang' => $request->edit_nama_barang,
                     'kode_barang' => $request->edit_kode_barang,
-                    'jenis_barang' => $request->edit_jenis_barang,
+                    // 'jenis_barang' => $request->edit_jenis_barang,
                     'kode_kategori' => $request->edit_kode_kategori,
                     'stok' => $request->edit_stok,
                     'status' => $request->edit_status
