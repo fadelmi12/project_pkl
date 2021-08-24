@@ -25,7 +25,7 @@ class TransaksiMasukTable extends Migration
             $table->string('instansi', 50)->nullable();
             $table->string('pengirim', 50)->nullable();
             $table->string('penerima', 50)->nullable();
-            $table->string('jenisBarang', 50);
+            // $table->string('jenisBarang', 50);
             // $table->string('ekspedisi',50);
             $table->timestamps();
         });

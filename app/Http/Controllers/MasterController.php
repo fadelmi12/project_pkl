@@ -61,7 +61,7 @@ class MasterController extends Controller
                 'kode_kategori' => $request->kode,
                 'nama_barang' => $request->nama_barang,
                 'kode_barang' => $kode_barang,
-                'jenis_barang' => $request->jenis_barang,
+                // 'jenis_barang' => $request->jenis_barang,
                 'stok' => $request->stok,
                 'gambar' => $namaFile,
                 'status' => $request->status
@@ -77,7 +77,7 @@ class MasterController extends Controller
                 'kode_kategori' => $request->kode,
                 'nama_barang' => $request->nama_barang,
                 'kode_barang' => $kode_barang,
-                'jenis_barang' => $request->jenis_barang,
+                // 'jenis_barang' => $request->jenis_barang,
                 'status' => $request->status
             ]);
 
@@ -168,7 +168,7 @@ class MasterController extends Controller
                     'kode_kategori' => $request->edit_kode_kategori,
                     'nama_barang' => $request->edit_nama_barang,
                     'kode_barang' => $request->edit_kode_barang,
-                    'jenis_barang' => $request->edit_jenis_barang,
+                    // 'jenis_barang' => $request->edit_jenis_barang,
                     'kode_kategori' => $request->edit_kode_kategori,
                     'stok' => $request->edit_stok,
                     'gambar' => $namaFile,
@@ -181,7 +181,7 @@ class MasterController extends Controller
                     'kode_kategori' => $request->edit_kode_kategori,
                     'nama_barang' => $request->edit_nama_barang,
                     'kode_barang' => $request->edit_kode_barang,
-                    'jenis_barang' => $request->edit_jenis_barang,
+                    // 'jenis_barang' => $request->edit_jenis_barang,
                     'kode_kategori' => $request->edit_kode_kategori,
                     'stok' => $request->edit_stok,
                     'status' => $request->edit_status

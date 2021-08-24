@@ -51,14 +51,14 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label class="control-label mb-10 text-left">Jenis</label>
                                         <select name="jenis_barang" id="jenis_barang" class="form-control select2">
                                             @foreach($jenis as $jen)
                                             <option value="{{ $jen->jenis_barang }}">{{ $jen->jenis_barang }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label class="control-label mb-10 text-left">Stok</label>
                                         <input type="number" class="form-control" name="stok" id="stok">

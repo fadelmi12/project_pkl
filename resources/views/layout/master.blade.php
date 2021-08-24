@@ -233,9 +233,9 @@
                         <li>
                             <a href="/kategori">Data kategori</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="/jenis">Jenis barang</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 @endif

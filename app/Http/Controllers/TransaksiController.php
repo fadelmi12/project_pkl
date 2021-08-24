@@ -33,9 +33,9 @@ class TransaksiController extends Controller
     public function addmasukbaru2(Request $request)
     {
 
-        $jumlah_data = count($request->nama_barang);
+        $jumlah_data = count($request->tgl_tarnsaksi);
         for ($i = 0; $i < $jumlah_data; $i++) {
-        TransaksiModel::create(
+        TransaksiModel::insert(
             [
                 'tgl_transaksi' => $request->tgl_transaksi[$i],
                 'nama_barang' => $request->nama_barang[$i],
@@ -43,7 +43,7 @@ class TransaksiController extends Controller
                 'jumlah' => $request->jumlah[$i],
                 'pengirim' => $request->pengirim[$i],
                 'penerima' => $request->penerima[$i],
-                'jenisBarang' => 'Baru'
+                // 'jenisBarang' => 'Baru'
             ]
         );
         $user = Auth::user();
@@ -113,7 +113,7 @@ class TransaksiController extends Controller
 
     public function transaksi()
     {
-        $transaksi_masuk = TransaksiModel::all()->where('jenisBarang', '', 'Baru');
+        $transaksi_masuk = TransaksiModel::all();
         $transaksi_retur = TransaksiModel::all()->where('jenisBarang', '', 'Retur');
         return view('transaksi/transaksi', compact('transaksi_masuk','transaksi_retur' ));
     }
