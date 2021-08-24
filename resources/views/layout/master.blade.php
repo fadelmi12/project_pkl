@@ -256,7 +256,16 @@
                         </li>
                         @endif
                         <li>
-                            <a href="/transaksi">Data transaksi</a>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#transaksi">Data Transaksi<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+                            
+                            <ul id="transaksi" class="collapse collapse-level-2" >
+								<li>
+									<a href="/transaksi">Transaksi Masuk</a>
+								</li>
+								<li>
+									<a href="/transaksikeluar">Transaksi Keluar</a>
+								</li>
+							</ul>
                         </li>
 
 
