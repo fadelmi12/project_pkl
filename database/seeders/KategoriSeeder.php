@@ -16,7 +16,11 @@ class KategoriSeeder extends Seeder
     {
         $Kategori = Kategori::create([
             'kode_kategori' => '123',
+<<<<<<< HEAD
             'kategori' => 'pc',
+=======
+            'kategori' => 'hardware',
+>>>>>>> 2e552bdf15f4cd1a17d0d17c87daa4d10fb024f0
             'keterangan' => 'baru',
             
             ]);

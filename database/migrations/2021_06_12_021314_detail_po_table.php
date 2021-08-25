@@ -16,10 +16,11 @@ class DetailPoTable extends Migration
         Schema::create('detail_po', function (Blueprint $table) {
             $table->increments('id_po');
             $table->string('no_PO',50);
-            $table->string('kode_barang',50);
+            $table->string('nama_barang');
             $table->integer('kategori');
-            $table->integer('jml_barang');
+            $table->integer('jumlah');
             $table->integer('status');
+            $table->integer('instansi');
             $table->timestamps();
         });
     }

@@ -16,10 +16,8 @@ class PurchaseOrderTable extends Migration
         Schema::create('purchase_order', function (Blueprint $table) {
             $table->increments('id_PO');
             $table->integer('no_PO')->nullable();
-            $table->string('namaBarang',50)->nullable();
-            $table->integer('jumlah')->nullable();
             $table->string('instansi',50)->nullable();
-            $table->string('keterangan',50)->nullable();
+            $table->date('tgl_instalasi')->nullable();
             $table->integer('status')->nullable();
             $table->string('pic_marketing',50)->nullable();
             $table->string('pic_warehouse',50)->nullable();
