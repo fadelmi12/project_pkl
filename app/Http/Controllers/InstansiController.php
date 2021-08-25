@@ -135,25 +135,28 @@ class InstansiController extends Controller
     {
         
         $data_instansi = Instansi::where('id_instansi', $id_instansi)->first();
-        // // dd($barang);
-        $data_instansi->delete();
-        // //mengirim data_ktg ke view
+        // dd($data_instansi);
+        if ($data_instansi != null) {
+            $data_instansi->delete();
+            // //mengirim data_ktg ke view
 
-        $user = Auth::user();
-        Log::create(
-            [
-            'name' => $user->name,
-            'email' => $user->email,
-            'divisi' => $user->divisi,
-            'deskripsi' => 'Delete Instansi',
-            'status' => '2',
-            'ip'=> $request->ip()
+            $user = Auth::user();
+            Log::create(
+                [
+                'name' => $user->name,
+                'email' => $user->email,
+                'divisi' => $user->divisi,
+                'deskripsi' => 'Delete Instansi',
+                'status' => '2',
+                'ip'=> $request->ip()
 
-            ]
-        );
+                ]
+            );
 
-        return back()->with('success', "Data telah terhapus");
+            return back()->with('success', "Data telah terhapus");
+        }
+        return back()->with('success', "Wrong ID");
     }
-
+   
 
 }
