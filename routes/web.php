@@ -155,4 +155,14 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::get('log', 'App\Http\Controllers\AdministratorController@log');
     Route::get('administrator/addadmin', 'App\Http\Controllers\AdministratorController@addadmin');
     Route::post('/addadmin2', 'App\Http\Controllers\AdministratorController@addadmin2')->name('addadmin2');
+
+    
+    // Instansi
+    Route::get('instansi', 'App\Http\Controllers\InstansiController@instansiview');
+    Route::get('instansi', 'App\Http\Controllers\InstansiController@instansi')->name('instansi');
+    Route::post('/addInstansi', 'App\Http\Controllers\InstansiController@addInstansi')->name('addInstansi');
+    Route::get('instansi/addinstansi', 'App\Http\Controllers\InstansiController@add');
+    Route::get('instansi/editInstansi/{id_instansi}','App\Http\Controllers\InstansiController@editInstansi');
+    Route::post('/updateInstansi', 'App\Http\Controllers\InstansiController@updateInstansi')->name('updateInstansi');
+    Route::delete('deleteinstansi/{id_instansi}', 'App\Http\Controllers\InstansiController@deleteinstansi');
 });
