@@ -10,7 +10,7 @@ class PO extends Model
     use HasFactory;
     protected $table = "purchase_order";
     protected $primaryKey = "id_PO";
-    protected $fillable = ['id_PO','no_PO','namaBarang', 'jumlah','intansi','status'
+    protected $fillable = ['id_PO','no_PO', 'tgl_pemasangan','instansi','status'
                             ,'pic_marketing','pic_warehouse','pic_admin','keterangan','created_at'];
 
 
