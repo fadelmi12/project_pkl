@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailPO;
 use App\Models\Log;
 use App\Models\Pembelian;
 use App\Models\PO;
@@ -28,7 +29,9 @@ class PoController extends Controller
         $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
         $angka = sprintf("%03d", (int)$check + 1);
         $noPO = $thnBln . "" . $angka;
-        return view('po/addpo', compact('noPO'));
+        $tanggal =  $now->year."-". $now->month. "-".$now->day;
+        // dd($tanggal);
+        return view('po/addpo', compact('noPO','tanggal'));
     }
 
     public function addpo2(Request $request)
@@ -36,22 +39,30 @@ class PoController extends Controller
         $user = Auth::user();
 
         $rules = [
-            'namaBarang' => 'required',
-            'jumlah' => 'required',
+            'TabelDinamis' => 'required'
         ];
 
         $messages = [
-            'namaBarang.required' => '*Nama barang tidak boleh kosong',
-            'jumlah.required' => '*Jumlah barang tidak boleh kosong',
+            'TabelDinamis.required' => '*Data tidak boleh kosong'
         ];
         $this->validate($request, $rules, $messages);
 
+        $jumlah_data = count($request->noPO);
+        for ($i = 0; $i < $jumlah_data; $i++) {
+            DetailPO::create(
+                [
+                    'no_PO' => $request->noPO[$i],
+                    'nama_barang' => $request->nama_barang[$i],
+                    'jumlah' => $request->jumlah[$i],
+                    'keterangan' => $request->keterangan[$i],
+                ]);
+        }
+
         PO::create(
             [
-                'no_PO' => $request->noPO,
-                'namaBarang' => $request->namaBarang,
-                'jumlah' => $request->jumlah,
-                'keterangan' => $request->keterangan,
+                'no_PO' => $request->no_PO,
+                'instansi' => $request->instansi,
+                'tgl_pemasangan' => $request->tgl_transaksi,
                 'pic_marketing' => $user->name
             ]
         );
