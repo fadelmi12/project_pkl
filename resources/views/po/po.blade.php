@@ -53,11 +53,10 @@
                                                 <tr>
                                                     <th>no</th>
                                                     <th>No PO</th>
-                                                    <th>Nama Barang</th>
-                                                    <th>Jumlah</th>
-                                                    <th>Created at</th>
-                                                    <th>Keterangan</th>
+                                                    <th>Instansi</th>
+                                                    <th>Tanggal Pemasangan</th>
                                                     <th>Status</th>
+                                                    <th>Tanggal Pembuatan PO</th>
                                                     <th colspan="3">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -67,10 +66,8 @@
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $data_po->no_PO}}</td> 
-                                                    <td>{{ $data_po->namaBarang}}</td>
-                                                    <td>{{ $data_po->jumlah}}</td>
-                                                    <td>{{ $data_po->created_at->format('d-m-y H:i:s')}}</td>
-                                                    <td>{{ $data_po->keterangan}}</td>
+                                                    <td>{{ $data_po->instansi}}</td>
+                                                    <td>{{ $data_po->tgl_pemasangan}}</td>
                                                     <td>
                                                         @if($data_po->status === 1 )
                                                             Purchase Order ditolak Warehouse
@@ -86,6 +83,7 @@
                                                             Purchase Order diproses Marketing
                                                         @endif
                                                     </td>
+                                                    <td>{{ $data_po->created_at->format('d-m-y H:i:s')}}</td>
                                                     <td>
                                                         <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
