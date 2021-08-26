@@ -85,7 +85,7 @@
                                                     </td>
                                                     <td>{{ $data_po->created_at->format('d-m-y H:i:s')}}</td>
                                                     <td>
-                                                    <a href="po/detail/{{ $data_po->id_po }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
+                                                    <a href="po/detail/{{ $data_po->id_PO }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                         
                                                     </td>
