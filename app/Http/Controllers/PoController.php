@@ -54,7 +54,9 @@ class PoController extends Controller
                     'no_PO' => $request->noPO[$i],
                     'nama_barang' => $request->nama_barang[$i],
                     'jumlah' => $request->jumlah[$i],
-                    'keterangan' => $request->keterangan[$i],
+                    'rate' => $request->rate[$i],
+                    'amount' => $request->amount[$i],
+                    'keterangan_barang' => $request->keterangan[$i],
                 ]
             );
         }
@@ -206,12 +208,8 @@ class PoController extends Controller
 
     public function detailpo($no_PO)
     {
-        $data_po = DetailPO::all()->where('no_PO', $no_PO);
-        return view('po/detail', compact('data_po'));
-
-        // $data_po = [
-        //     'id_po' => $this->DetailPO->detailpo($id_po),
-        // ];
-        // return view('po/detail', compact('data_po'));
+        $data_detail = DetailPO::find($no_PO);
+        $data_po = PO::find($no_PO);
+        return view('po/detail', compact('data_po','data_po'));
     }
 }
