@@ -197,17 +197,21 @@ class PoController extends Controller
                     'deskripsi' => 'Reject PO',
                     'status' => '2',
                     'ip' => $request->ip()
+
                 ]
             );
         }
         return back()->with('success', "Data telah ditolak");
     }
 
-    public function detailpo($id_PO)
+    public function detailpo($no_PO)
     {
-        $data_po = [
-            'po' => $this->DetailPO->detailpo($id_PO),
-        ];
+        $data_po = DetailPO::all()->where('no_PO', $no_PO);
         return view('po/detail', compact('data_po'));
+
+        // $data_po = [
+        //     'id_po' => $this->DetailPO->detailpo($id_po),
+        // ];
+        // return view('po/detail', compact('data_po'));
     }
 }
