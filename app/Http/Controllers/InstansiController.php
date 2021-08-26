@@ -86,24 +86,6 @@ class InstansiController extends Controller
     public function updateInstansi(Request $request)
     {
 
-        $rules = [
-            'nama_instansi' => 'required',
-            'email_instansi' => 'required',
-            'pic_instansi' => 'required',
-            'alamat_instansi' => 'required',
-            'telp_instansi' => 'required',
-        ];
-
-        $messages = [
-            'nama_instansi.required' => '*Nama instansi tidak boleh kosong',
-            'email_instansi.required' => '*Email tidak boleh kosong',
-            'pic_instansi.required' => '*PIC tidak boleh kosong',
-            'alamat_instansi.required' => '*Alamat tidak boleh kosong',
-            'telp_instansi.required' => '*No telp tidak boleh kosong',
-        ];
-
-        $this->validate($request, $rules, $messages);
-        
         Instansi::where('id_instansi', $request->edit_id_ins)
             ->update([
                 'kode_instansi' => $request->edit_kode,
@@ -126,7 +108,7 @@ class InstansiController extends Controller
 
             ]
         );
-        return redirect('Instansi');
+        return redirect('instansi');
 
         return redirect()->back();
     }
