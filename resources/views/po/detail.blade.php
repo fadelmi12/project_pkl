@@ -53,9 +53,9 @@
                                         <table>
                                             <tr>
                                                 <div class="row">
-                                                    <td> Jl Candi Mendut Utara 1 No. 11 <br>
+                                                    <td class="txt-dark"> Jl Candi Mendut Utara 1 No. 11 <br>
                                                         Kel. Mojolangu Kec. Lowokwaru Malang - Jawa Timur<br>
-                                                        Phone :  <br> Email : </td>
+                                                        Phone : <br> Email : </td>
                                                 </div>
                                             </tr>
                                         </table>
@@ -69,7 +69,7 @@
                                                         </div>
                                                         <tr>
                                                             <div class="">
-                                                                <td>BP. BRILLI ANTHONY<br>
+                                                                <td class="txt-dark">BP. BRILLI ANTHONY<br>
                                                                     RSDU LERIK</td>
                                                             </div>
                                                         </tr>
@@ -85,7 +85,7 @@
                                                         </div>
                                                         <tr>
                                                             <div class="">
-                                                                <td> Number : <br>
+                                                                <td class="txt-dark"> Number :  <br>
                                                                     Date : <br>
                                                                     Note : </td>
                                                             </div>
@@ -119,19 +119,47 @@
                                                     <td>#</td>
                                                     <td>#</td>
                                                 </tr>
-                                            </tbody>
-                                            </tbody>
-                                        </table>
+                                                <tr class="txt-dark">
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>Total</td>
+                                                    <td>#</td>
+                                                </tr>
                                     </div>
+                                    <tr class="txt-dark">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>PPn 10%</td>
+                                        <td>#</td>
+                                    </tr>
+                                    <tr class="txt-dark">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>PPh 2.5%</td>
+                                        <td>#</td>
+                                    </tr>
+                                    <tr class="txt-dark">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Balance Due</td>
+                                        <td>#</td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                        <!-- /Row -->
-                        <!-- Row -->
-
                     </div>
                     <!-- /Row -->
-                    <!-- /Main Content -->
+                    <!-- Row -->
+
                 </div>
-                <!-- /#wrapper -->
-                @endsection
+                <!-- /Row -->
+                <!-- /Main Content -->
+    </div>
+    <!-- /#wrapper -->
+    @endsection
