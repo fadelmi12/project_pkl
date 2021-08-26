@@ -280,6 +280,14 @@
                     </a>
                 </li>
                 @endif
+                @if (auth()->user()->divisi == "warehouse" ||auth()->user()->divisi == "marketing")
+                <li>
+                    <a href="/instansi">
+                        <div class="pull-left"><i class="zmdi zmdi-accounts-alt mr-20"></i><span class="right-nav-text">Data instansi</span></div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                @endif
                 @if (auth()->user()->divisi == "warehouse"||auth()->user()->divisi == "teknisi"||auth()->user()->divisi == "marketing" ||auth()->user()->divisi == "admin"||auth()->user()->divisi == "purchasing" ||auth()->user()->divisi == "office")
                 <li>
                     <a href="javascript:void(0);" data-toggle="collapse" data-target="#pengajuan">

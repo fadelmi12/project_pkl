@@ -42,9 +42,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama</th>
-                                                    <th>Nama barang</th>
-                                                    <th>Jumlah</th>
-                                                    <th>Keterangan</th>
+                                                    <th>kebutuhan</th>
                                                     <th>Tanggal Pinjam</th>
                                                     <th>Tanggal kembali</th>
                                                     <th>Aksi</th>
@@ -56,10 +54,8 @@
                                                 @foreach($peminjaman as $peminjaman)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{ $peminjaman->nama }}</td>
-                                                    <td>{{ $peminjaman->barang }}</td>
-                                                    <td>{{ $peminjaman->jumlah }}</td>
-                                                    <td>{{ $peminjaman->keterangan }}</td>
+                                                    <td>{{ $peminjaman->pic_teknisi }}</td>
+                                                    <td>{{ $peminjaman->kebutuhan }}</td>
                                                     <td>{{ $peminjaman->created_at }}</td>
                                                     <td>{{ $peminjaman->tglKembali }}</td>
                                                     <td>

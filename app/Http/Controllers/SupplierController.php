@@ -30,8 +30,6 @@ class SupplierController extends Controller
 
     public function updateSup(Request $request)
     {
-
-        
         SupplierModel::where('id_supplier', $request->edit_id_sup)
             ->update([
                 'kode_supplier' => $request->edit_kode,
