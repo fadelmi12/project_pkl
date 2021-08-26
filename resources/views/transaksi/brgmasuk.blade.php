@@ -16,7 +16,7 @@
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="inventory">Transaksi</a></li>
-                    <li class="active"><span>Data Barang MAsuk</span></li>
+                    <li class="active"><span>Data Barang Masuk</span></li>
                 </ol>
             </div>
             <!-- /Breadcrumb -->

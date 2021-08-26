@@ -20,6 +20,12 @@ class TransaksiController extends Controller
     //     $transaksi_masuk = TransaksiModel::all();
     //     return view('transaksi/addmasukbaru', compact('transaksi_masuk'));
     // }
+    public function transaksi()
+    {
+        $transaksi_masuk = TransaksiModel::all();
+        $transaksi_retur = TransaksiModel::all()->where('jenisBarang', '', 'Retur');
+        return view('transaksi/transaksi', compact('transaksi_masuk','transaksi_retur' ));
+    }
 
 
     public function addmasukbaru()
@@ -109,12 +115,7 @@ class TransaksiController extends Controller
         return view('transaksi/addkeluar');
     }
 
-    public function transaksi()
-    {
-        $transaksi_masuk = TransaksiModel::all();
-        $transaksi_retur = TransaksiModel::all()->where('jenisBarang', '', 'Retur');
-        return view('transaksi/transaksi', compact('transaksi_masuk','transaksi_retur' ));
-    }
+    
     public function transaksikeluar()
     {
         $transaksi_masuk = TransaksiKeluar::all();

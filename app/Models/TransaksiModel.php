@@ -11,7 +11,6 @@ class TransaksiModel extends Model
     use HasFactory;
 
     protected $table = "transaksi_masuk";
-    protected $dates = "tgl_transaksi";
     protected $primaryKey = "id_transaksi";
 
     protected $fillable = [
