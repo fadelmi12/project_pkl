@@ -15,12 +15,12 @@ class PeminjamanTable extends Migration
     {
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->increments('id_peminjaman');
-            $table->string('nama',50);
-            $table->string('barang',50);
-            $table->integer('jumlah');
+            $table->integer('no_peminjaman');
+            $table->string('kebutuhan',50);
+            $table->string('pic_teknisi',50);
+            $table->string('pic_warehouse',50)->nullable();
+            $table->integer('status')->nullable();
             $table->date('tglKembali')->nullable();
-            $table->string('keterangan',50);
-            $table->string('status',50)->nullable();
             $table->timestamps();
         });
     }
