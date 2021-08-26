@@ -41,6 +41,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left" for="example-email">Kebutuhan<span class="help"> </span></label>
                                                 <input type="text" id="kebutuhan" name="kebutuhan" class="form-control" placeholder="">
+                                                @foreach ((array)$angka as $angka)
+                                                <input type="hidden" id="noPeminjaman" name="noPeminjaman" class="form-control" placeholder="" value = "{{$angka}}">
+                                                @endforeach 
                                                 @error('kebutuhan')
                                                     <div class="tulisan">{{$message}}</div>
                                                 @enderror
@@ -51,6 +54,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Nama barang</label>
                                                 <input type="text" class="form-control" name="nama_barang" id="nama_barang">
+                                                @foreach ((array)$angka as $angka)
+                                                <input type="hidden" id="no_peminjaman" name="no_peminjaman" class="form-control" placeholder="" value = "{{$angka}}">
+                                                @endforeach 
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -94,9 +100,9 @@
                                                                     <tbody id="TabelDinamis">
                                                                     </tbody>
                                                                 </table>
-                                                                <!-- @error('TabelDinamis')
+                                                                @error('TabelDinamis')
                                                                 <div class="tulisan">{{$message}}</div>
-                                                                @enderror -->
+                                                                @enderror
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -126,19 +132,21 @@
     @section('scripts')
     <script type="text/javascript">
         function ambildata() {
+            var no_peminjaman = document.getElementById('no_peminjaman').value;
             var nama_barang = document.getElementById('nama_barang').value;
             var jumlah = document.getElementById('jumlah').value;
             var keterangan = document.getElementById('keterangan').value;
-            addrow(nama_barang, jumlah, keterangan);
+            addrow(no_peminjaman,nama_barang, jumlah, keterangan);
         }
         var i = 0;
 
-        function addrow(nama_barang, jumlah, keterangan) {
+        function addrow(no_peminjaman,nama_barang, jumlah, keterangan) {
             i++;
-            $('#TabelDinamis').append('<tr id="row' + i + '"><td><label type="text" style="outline:none;border:0;" readonly value="' + i +
+            $('#TabelDinamis').append('<tr id="row' + i + '"><td><input type="text" style="outline:none;border:0;" readonly value="' + i +
                                                             '"><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="' + nama_barang + 
                                                             '"></td><td><input type="text" style="outline:none;border:0;" name="jumlah[]" id="jumlah" value="' + jumlah + 
                                                             '"></td><td><input type="text" style="outline:none;border:0;" name="keterangan[]" id="keterangan" value="' + keterangan + 
+                                                            '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" name="no_peminjaman[]" id="no_peminjaman" value="' + no_peminjaman + 
                                                             '"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
         };
         $(document).on('click', '.remove_row', function() {
