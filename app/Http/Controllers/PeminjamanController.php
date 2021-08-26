@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DetailPeminjaman;
 use App\Models\Log;
 use App\Models\Peminjaman;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,21 +20,25 @@ class PeminjamanController extends Controller
 
     public function addpinjam()
     {
-        return view('peminjaman/addpinjam');
+        $now = Carbon::now();
+        $thnBln = $now->year . $now->month;
+        $check = count(Peminjaman::where('no_peminjaman', 'like', "%$thnBln%")->get()->toArray());
+        $angka = sprintf("%03d", (int)$check + 1);
+        return view('peminjaman/addpinjam', compact('angka'));
     }
 
     public function addpinjam2(Request $request)
     {
-        $rules = [
-            'TabelDinamis' => 'required',
-            'kebutuhan' => 'required',
-        ];
+        // $rules = [
+        //     'TabelDinamis' => 'required',
+        //     'kebutuhan' => 'required',
+        // ];
 
-        $messages = [
-            'TabelDinamis.required' => '*Data tidak boleh kosong',
-            'kebutuhan.required' => '*Kebutuhan tidak boleh kosong',
-        ];
-        $this->validate($request, $rules, $messages);
+        // $messages = [
+        //     'TabelDinamis.required' => '*Data tidak boleh kosong',
+        //     'kebutuhan.required' => '*Kebutuhan tidak boleh kosong',
+        // ];
+        // $this->validate($request, $rules, $messages);
         $user = Auth::user();
 
         $jumlah_data = count($request->nama_barang);
@@ -42,12 +47,14 @@ class PeminjamanController extends Controller
                 [
                     'nama_barang' => $request->nama_barang[$i],
                     'jumlah' => $request->jumlah[$i],
+                    'no_peminjaman' => $request->no_peminjaman[$i],
                     'keterangan' => $request->keterangan[$i],
                 ]);
         }
 
         Peminjaman::create([
             'pic_teknisi' => $user->name,
+            'no_peminjaman' => $request->noPeminjaman,
             'kebutuhan'   => $request->kebutuhan,
         ]);
         $user = Auth::user();
