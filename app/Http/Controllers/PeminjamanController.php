@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailPeminjaman;
 use App\Models\Log;
 use App\Models\Peminjaman;
 use Illuminate\Http\Request;
@@ -24,26 +25,30 @@ class PeminjamanController extends Controller
     public function addpinjam2(Request $request)
     {
         $rules = [
-            'nama_barang' => 'required',
-            'jumlah' => 'required',
-            'keterangan' => 'required',
-            'tgl_kembali' => 'required',
+            'TabelDinamis' => 'required',
+            'kebutuhan' => 'required',
         ];
 
         $messages = [
-            'nama_barang.required' => '*Nama barang tidak boleh kosong',
-            'jumlah.required' => '*Jumlah tidak boleh kosong',
-            'keterangan.required' => '*Keterangan tidak boleh kosong',
-            'tgl_kembali.required' => '*Tanggal kembali tidak boleh kosong',
+            'TabelDinamis.required' => '*Data tidak boleh kosong',
+            'kebutuhan.required' => '*Kebutuhan tidak boleh kosong',
         ];
         $this->validate($request, $rules, $messages);
         $user = Auth::user();
+
+        $jumlah_data = count($request->nama_barang);
+        for ($i = 0; $i < $jumlah_data; $i++) {
+            DetailPeminjaman::create(
+                [
+                    'nama_barang' => $request->nama_barang[$i],
+                    'jumlah' => $request->jumlah[$i],
+                    'keterangan' => $request->keterangan[$i],
+                ]);
+        }
+
         Peminjaman::create([
-            'nama'          => $user->name,
-            'barang'   => $request->nama_barang,
-            'jumlah'        => $request->jumlah,
-            'keterangan'    => $request->keterangan,
-            'tglKembali'    => $request->tgl_kembali,
+            'pic_teknisi' => $user->name,
+            'kebutuhan'   => $request->kebutuhan,
         ]);
         $user = Auth::user();
         Log::create(
