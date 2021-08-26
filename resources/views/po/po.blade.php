@@ -85,9 +85,9 @@
                                                     </td>
                                                     <td>{{ $data_po->created_at->format('d-m-y H:i:s')}}</td>
                                                     <td>
-                                                        <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
+                                                    <a href="po/detail/{{ $data_po->id_po }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                         <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
-                                                        @include('po.detail')
+                                                        
                                                     </td>
                                                     @include('po.editpo')
                                                 </tr>                                                
@@ -195,15 +195,14 @@
                                                         </td>
                                                         <td>
                                                         @if($data_po->status >= 3 )
-                                                            <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
+                                                        <a href="detailpo/"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                         @else
-                                                            <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
+                                                        <a href="detailpo/"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#confirm{{ $data_po->id_PO }}" action="( {{url('confirm')}}/{{ $data_po->id_PO }})"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_po->id_PO }}" action="( {{url('reject')}}/{{ $data_po->id_PO }})"><i class="fa fa-times"></i></button>
                                                         @endif
-                                                        @include('po.detail')
                                                         </td>
                                                         
                                                         @endif
@@ -231,14 +230,14 @@
                                                         </td>
                                                         <td>
                                                         @if($data_po->status >= 1 )
-                                                            <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
+                                                        <a href="detailpo/"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                         @else
-                                                            <button class="btn btn-primary btn-icon-anim btn-square " data-toggle="modal" data-target="#detail{{ $data_po->id_PO }}"><i class="fa fa-info"></i></button>
+                                                        <a href="detailpo/"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
                                                             <button class="btn btn-primary btn-icon-anim btn-square" data-toggle="modal" data-target="#editpo{{ $data_po->id_PO }}"><i class="fa fa-pencil"></i></button>
                                                             <button class="btn btn-success btn-icon-anim btn-square" data-toggle="modal" data-target="#confirm{{ $data_po->id_PO }}" action="( {{url('confirm')}}/{{ $data_po->id_PO }})"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#reject{{ $data_po->id_PO }}" action="( {{url('reject')}}/{{ $data_po->id_PO }})"><i class="fa fa-times"></i></button>
-                                                            @include('po.detail')
+                                                           
                                                         @endif
                                                         </td>
                                                         @endif
