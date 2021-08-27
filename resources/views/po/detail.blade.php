@@ -23,20 +23,7 @@
                 <meta name="author" content="hencework" />
 
                 <!-- Title -->
-                <div class="row heading-bg">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h5 class="txt-dark">Detail Purchase Order</h5>
-                    </div>
-                    <!-- Breadcrumb -->
-                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                        <ol class="breadcrumb">
-                            <!-- <li><a href="index.html">master data</a></li> -->
-                            <li><a href="#"><span>Purchase Order</span></a></li>
-                            <li class="active"><span>Detail Purchase Order</span></li>
-                        </ol>
-                    </div>
-                    <!-- /Breadcrumb -->
-                </div>
+               
                 <!-- /Title -->
 
                 <!-- Row -->
@@ -47,25 +34,40 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="">
-                                            <h4 text-style="left" class="txt-dark">Nakula Sadewa, CV</h4>
-                                        </div>
-                                        <table>
-                                            <tr>
-                                                <div class="row">
-                                                    <td class="txt-dark"> Jl Candi Mendut Utara 1 No. 11 <br>
-                                                        Kel. Mojolangu Kec. Lowokwaru Malang - Jawa Timur<br>
-                                                        Phone : <br> Email : </td>
-                                                </div>
-                                            </tr>
-                                        </table>
-                                        <hr>
                                         <div class="row">
-                                            <div class="col-md-8 ">
+                                        <div class="col-xs-8">
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <h4 text-style="left" class="txt-dark">Nakula Sadewa, CV</h4>
+                                                </div>
+                                                <table>
+                                                    <tr>
+                                                        <div class="row">
+                                                            <td class="txt-dark"> Jl Candi Mendut Utara 1 No. 11 <br>
+                                                                Kel. Mojolangu Kec. Lowokwaru Malang - Jawa Timur<br>
+                                                                Phone : <br> Email : </td>
+                                                        </div>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xs-4">
+                                                <div class="form-group mt-20 ">
+                                                    
+                                                <img  src="{{asset('template')}}/dist/img/ns.jpg">
+                                                </div>
+                                        </div>
+                                        </div>
+                                        <hr>
+                                        
+                                        <div class="row">
+                                            
+                                            <div class="col-xs-8">
                                                 <div class="form-group">
                                                     <table>
                                                         <div class="text-left">
-                                                            <h6 class="txt-dark">TO</h6>
+                                                            <h6 class="txt-dark"><strong>TO</strong></h6>
                                                         </div>
                                                         <tr>
                                                             <div class="">
@@ -77,11 +79,11 @@
 
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-xs-4">
                                                 <div class="form-group">
                                                     <table>
                                                         <div class="text-left">
-                                                            <h6 class="txt-dark">PENAWARAN</h6>
+                                                            <h6 class="txt-dark"><strong>PENAWARAN</strong></h6>
                                                         </div>
                                                         <tr>
                                                             <div class="">
@@ -100,11 +102,12 @@
                                     </div>
                                     <div class="col-md-12">
 
-                                        <table id="myTable1" class="table table-bordered display pb-30">
+                                        <table id="myTable1" class="table table display pb-30">
                                             <thead>
                                                 <tr>
                                                     <th>no</th>
                                                     <th>Deskripsi</th>
+                                                    <th>Keterangan</th>
                                                     <th>Qty</th>
                                                     <th>Rate</th>
                                                     <th>Amount</th>
@@ -118,41 +121,69 @@
                                                     <td>#</td>
                                                     <td>#</td>
                                                     <td>#</td>
+                                                    <td>#</td>
                                                 </tr>
                                                 <tr class="txt-dark">
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td colspan="4"></td>
+                                                    
                                                     <td>Total</td>
                                                     <td>#</td>
                                                 </tr>
                                     </div>
-                                    <tr class="txt-dark">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>PPn 10%</td>
-                                        <td>#</td>
-                                    </tr>
-                                    <tr class="txt-dark">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>PPh 2.5%</td>
-                                        <td>#</td>
-                                    </tr>
-                                    <tr class="txt-dark">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>Balance Due</td>
-                                        <td>#</td>
-                                    </tr>
-                                    </tbody>
-                                    </table>
+                                                <tr class="txt-dark">
+                                                    <td colspan="4"></td>
+                                                    <td>PPn 10%</td>
+                                                    <td>#</td>
+                                                </tr>
+                                                <tr class="txt-dark">
+                                                <td colspan="4"></td>
+                                                    <td>PPh 2.5%</td>
+                                                    <td>#</td>
+                                                </tr>
+                                                <tr class="txt-dark">
+                                                <td colspan="4"></td>
+                                                    <td>Balance Due</td>
+                                                    <td>#</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <table>
+                                            <div class="text-center">
+                                                <h6 class="txt-dark">Malang,26 Agustus 2021</h6>
+                                            </div><br><br><br><br><br>
+                                            <div class="text-center">
+                                                <h6 class="txt-dark">YUDHA PRAYOGO A.</h6>
+                                            </div>
+                                            <hr ">
+                                            <div class="text-center mt-2">
+                                                <h6 class="txt-dark">IT Marketing</h6>
+                                            </div>
+                                            
+                                        </table>
+
+
+                                                </div>
+                                            </div>
+                                </div>
+                                        
                         </div>
+                        <div class="pull-right">
+												<button type="submit" class="btn btn-primary mr-10">
+													Proceed to payment 
+												</button>
+												<button type="button" class="btn btn-success btn-outline btn-icon left-icon" onclick="javascript:window.print();"> 
+													<i class="fa fa-print"></i><span> Print</span> 
+												</button>
+											</div>
+                        
                     </div>
                     <!-- /Row -->
                     <!-- Row -->

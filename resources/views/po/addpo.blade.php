@@ -50,20 +50,41 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left" for="example-email">Instansi<span class="help"> </span></label>
-                                                <input type="text" id="instansi" name="instansi" class="form-control" placeholder="">
+                                                <!-- <input type="text" id="instansi" name="instansi" class="form-control" placeholder=""> -->
+                                                <select name="instansi" id="instansi" class="form-control select2">
+                                                    @foreach($data_instansi as $data_int)
+                                                        <option value="{{ $data_int->nama_instansi}}">{{ $data_int->kode_instansi }} | {{ $data_int->nama_instansi }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+
+                                        <div class="col-md-2 mt-30">
+                                            <div class="form-group">
+                                                
+                                            <button type="submit" class="btn btn-primary "  data-toggle="modal" data-target="#tambahinstansi">Tambah Instansi</button>
+                                               
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label mb-10">Tanggal Pemasangan</label>
 												<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control" >
 											</div>
 										</div>
                                     </div>
+
+                                    
+                                    <div>
                                     <h5 class="active">Data Barang</h5>
+                                    </div>
+                                    <div class="col-md12">
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left">Nama barang</label>
                                                 <input type="text" class="form-control" name="nama_barang" id="nama_barang">
@@ -72,6 +93,7 @@
                                                 <label class="control-label mb-10 text-left" for="example-email">Keterangan<span class="help"> </span></label>
                                                 <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="">
                                             </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label class="control-label mb-10">Quantity</label>
@@ -131,6 +153,7 @@
                                                 <button type="submit" class="btn btn-primary ">Simpan</button>
                                             </div>
                                 </form>
+                                @include('po.tambahinstansi')
                             </div>
                         </div>
                     </div>
