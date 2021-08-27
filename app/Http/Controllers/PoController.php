@@ -208,9 +208,9 @@ class PoController extends Controller
 
     public function detailpo($no_PO)
     {
-        $data_detail = DetailPO::find($no_PO);
-        $data_po = PO::where('no_PO','',$no_PO);
-        // dd($data_po);
+        $data_detail = DetailPO::where('no_PO',$no_PO)->get();
+        $data_po = PO::where('no_PO',$no_PO)-get();
+        // dd($data_detail);
         return view('po/detail', compact('data_po','data_detail'));
     }
 }
