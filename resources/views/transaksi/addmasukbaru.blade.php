@@ -23,9 +23,6 @@
 			</div>
 			<!-- /Breadcrumb -->
 		</div>
-		<!-- /Title -->
-
-		<!-- Row -->
 
 		<div class="row">
 			<div class="col-md-12 mt-10">
@@ -39,157 +36,143 @@
 											@csrf
 											<div class="form-body">
 												<div class="row">
+												@foreach ((array)$no_trans as $no_trans)
 													<div class="col-md-6">
 														<div class="form-group">
-															<label class="control-label mb-10">Tanggal terima</label>
-															<input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control" value="<?php echo date("d-m-Y"); ?>">
+															<label class="control-label mb-10">No Transaksi</label>
+															<input type="hidden" id="no_transaksi" name="no_transaksi" value="{{ $no_trans }}" class="form-control" placeholder="" readonly>
+                                                			<input type="text" id="no_trans" name="no_trans" value="{{ $no_trans }}" class="form-control" placeholder="" readonly>
 														</div>
 													</div>
+												@endforeach
 													<div class="col-md-6">
 														<div class="form-group">
-															<label class="mr-sm-2" for="inlineFormCustomSelect">Nama barang</label>
-															<select name="nama_barang" id="nama_barang" class="form-control">
-																@foreach($barang as $brg)
-																<option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
+															<label class="control-label mb-10">Supplier</label>
+															<select name="nama_supplier" id="nama_supplier" class="form-control select2">
+																@foreach($supplier as $sup)
+																<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
 																@endforeach
 															</select>
 														</div>
-														<!-- <div class="form-group">
-															<label class="control-label mb-10">Jenis Transaksi</label>
-															<input type="text" id="jns_transaksi" name="jns_transaksi" class="form-control">
-														</div> -->
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Pengirim Ekspedisi</label>
+															<input type="text" id="pengirim" name="pengirim" class="form-control">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Penerima</label>
+															<input type="text" id="penerima" name="penerima" class="form-control">
+														</div>
 													</div>
 												</div>
-												<!--/span-->
-											</div>
-											<!-- /Row -->
-											<div class="row">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="control-label mb-10">Supplier</label>
-														<select name="nama_supplier" id="nama_supplier" class="form-control select2">
-															@foreach($supplier as $sup)
-															<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
+												<hr>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															@foreach($barang as $brg)
+															<label class="control-label mb-10">Nama Barang</label>
+															<select name="nama_barang" id="nama_barang" class="form-control">
+																<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }}|{{ $brg->kode_barang }} </option>
+																@endforeach
+															</select>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Jumlah</label>
+															<input type="number" id="jumlah" name="jumlah" class="form-control">
+															@foreach($barang as $brg)
+															<input  id="kode_barang" name="kode_barang" value="{{$brg->kode_barang}}" hidden>
 															@endforeach
-														</select>
+														</div>
 													</div>
-
-												</div>
-												<!--/span-->
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="control-label mb-10">Jumlah Masuk</label>
-														<input type="number" class="form-control" name="jumlah" id="jumlah">
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="control-label mb-10">Keterangan</label>
+															<input type="text" id="keterangan" name="keterangan" class="form-control">
+														</div>
 													</div>
-												</div>
-												<!--/span-->
-											</div>
-											<!-- /Row -->
-											<div class="row">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="control-label mb-10">Pengirim</label>
-														<input type="text" name="pengirim" id="pengirim" class="form-control">
-													</div>
-												</div>
-												<!--/span-->
-												<!-- <div class="row"> -->
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="control-label mb-10">Penerima</label>
-														<input type="text" name="penerima" id="penerima" class="form-control">
-													</div>
-
 												</div>
 											</div>
-									</div>
-									<div class="col-md-14" style="text-align:right;">
-										<button type="button" onclick="ambildata()" class="btn btn-success ">Tambah Data</button>
-									</div>
+											<div class="col-md-14" style="text-align:right;">
+												<button type="button" onclick="ambildata()" class="btn btn-success ">Tambah Data</button>
+											</div>
+											<div class="col-md-12 mt-10">
+												<div class="panel panel-default card-view">
+													<div class="panel-heading">
+														<div class="pull-left">
+															<h6 class="panel-title txt-dark">Barang Masuk</h6>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+													<div class="panel-wrapper collapse in">
+														<div class="panel-body">
+																<div class="">
+																	<div classs="col">
+																		<table class="table table-bordered align-items-center">
+																			<thead class="thead-light">
+																				<tr>
+																					<th>No Transaksi</th>
+																					<th>Nama barang</th>
+																					<th>Jumlah</th>
+																					<th>Keterangan</th>
+																					<th>Remove</th>
+
+																				</tr>
+																			</thead>
+																			<tbody id="TabelDinamis">
+																				<!-- <tr>
+																					<td><a name="tgl_transaksi[]" id="tgl_transaksi"></a></td>
+																					<td><a name="nama_supplier[]" id="nama_supplier"></a></td>
+																					<td><a name="nama_barang[]" id="nama_barang"></a></td>
+																					<td><a name="jumlah[]" id="jumlah"></a></td>
+																					<td><button type="button" class="btn btn-danger btn-small">&times;</button></td>
+																				</tr> -->
+																			</tbody>
+																		</table>
+
+																		<div class="col-md-12" style="text-align:right;">
+																			<button type="submit" class="btn btn-primary ">Simpan</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
 								</div>
-
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
+			</div>
 			</div>
 		</div>
 	</div>
-	<div class="">
-		<!-- Basic Table -->
-		<div class="col-sm-12">
-			<div class="panel panel-default card-view">
-				<div class="panel-heading">
-					<div class="pull-left">
-						<h6 class="panel-title txt-dark">Barang Masuk</h6>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="panel-wrapper collapse in">
-					<div class="panel-body">
-						<form action="{{ url('addmasuk2') }}" id="form2" method="POST" enctype="multipart/form-data">
-							@csrf
-							<div class="">
-								<div classs="col">
-									<table class="table table-bordered align-items-center">
-										<thead class="thead-light">
-											<tr>
-												<th>Tanggal terima</th>
-												<th>Supplier</th>
-												<th>Nama barang</th>
-												<th>Jumlah</th>
-												<th>Remove</th>
-											</tr>
-										</thead>
-										<tbody id="TabelDinamis">
-											<!-- <tr>
-												<td><a name="tgl_transaksi[]" id="tgl_transaksi"></a></td>
-												<td><a name="nama_supplier[]" id="nama_supplier"></a></td>
-												<td><a name="nama_barang[]" id="nama_barang"></a></td>
-												<td><a name="jumlah[]" id="jumlah"></a></td>
-												<td><button type="button" class="btn btn-danger btn-small">&times;</button></td>
-											</tr> -->
-										</tbody>
-									</table>
-
-									<div class="col-md-12" style="text-align:right;">
-										<button type="submit" name="submit" onclick="submitForm()" class="btn btn-primary ">Simpan</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /Basic Table -->
-	</div>
 </div>
-<!-- /Row -->
-<!-- /Row -->
-<!-- /Main Content -->
-</div>
-<!-- /#wrapper -->
 @endsection
 @section('scripts')
 <script type="text/javascript">
 	function ambildata() {
-		var tgl_transaksi = document.getElementById('tgl_transaksi').value;
-		// var jns_transaksi = document.getElementById('jns_transaksi').value;
-		var nama_supplier = document.getElementById('nama_supplier').value;
+		var no_trans = document.getElementById('no_trans').value;
+		var keterangan = document.getElementById('keterangan').value;
 		var nama_barang = document.getElementById('nama_barang').value;
+		var kode_barang = document.getElementById('kode_barang').value;
 		var jumlah = document.getElementById('jumlah').value;
-		// var kondisi = document.getElementById('kondisi').value;
-		var pengirim = document.getElementById('pengirim').value;
-		var penerima = document.getElementById('penerima').value;
-		addrow(tgl_transaksi, nama_supplier, nama_barang, jumlah, pengirim, penerima);
+
+		addrow(no_trans, keterangan, nama_barang, kode_barang, jumlah,);
 	}
 	var i = 0;
 
-	function addrow(tgl_transaksi, nama_supplier, nama_barang, jumlah, pengirim, penerima) {
+	function addrow(no_trans, keterangan, nama_barang, kode_barang, jumlah) {
 		i++;
-		$('#TabelDinamis').append('<tr id="row' + i + '"><td><input type="text" style="outline:none;border:0;" readonly name="tgl_transaksi[]" id="tgl_transaksi" value="' + tgl_transaksi + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_supplier[]" id="nama_supplier" value="' + nama_supplier + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="' + nama_barang + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="jumlah[]" id="jumlah" value="' + jumlah + '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="pengirim[]" id="pengirim" value="' + pengirim + '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="penerima[]" id="penerima" value="' + penerima + '"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
+		$('#TabelDinamis').append('<tr id="row' + i + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="no_trans[]" id="no_trans" value="' + no_trans + 
+													 '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="' + nama_barang + 
+													 '"></td><td style=display:none;"><input type="text" style="outline:none;border:0;"  name="kode_barang[]" id="kode_barang" value="' + kode_barang + 
+														'"></td><td><input type="text" style="outline:none;border:0;" readonly name="jumlah[]" id="jumlah" value="' + jumlah + 
+														'"><td><input type="text" style="outline:none;border:0;" readonly name="keterangan[]" id="keterangan" value="' + keterangan + 
+														'"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
 	};
 	$(document).on('click', '.remove_row', function() {
 		var row_id = $(this).attr("id");

@@ -7,6 +7,7 @@ use App\Models\Log;
 use App\Models\Pembelian;
 use App\Models\PO;
 use Carbon\Carbon;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,16 +23,17 @@ class PoController extends Controller
     //
     public function addpo()
     {
-        $now = Carbon::now();
-        $thnBln = $now->year . $now->month;
+        // $now = Carbon::now();
+        // $thnBln = $now->year . $now->month;
 
-        // $kode = strtoupper(substr($request->nama_barang, 0, 3));
-        $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
-        $noPO = $thnBln . "" . $angka;
-        $tanggal =  $now->year . "-" . $now->month . "-" . $now->day;
-        // dd($tanggal);
-        return view('po/addpo', compact('noPO', 'tanggal'));
+        // // $kode = strtoupper(substr($request->nama_barang, 0, 3));
+        // $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
+        // $angka = sprintf("%03d", (int)$check + 1);
+        // $noPO = $thnBln . "" . $angka;
+        // $tanggal =  $now->year . "-" . $now->month . "-" . $now->day;
+        // // dd($tanggal);
+        $noPO = IdGenerator::generate(['table' => 'purchase_order', 'length' => 8, 'prefix' => date('ym')]);
+        return view('po/addpo', compact('noPO'));
     }
 
     public function addpo2(Request $request)

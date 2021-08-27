@@ -37,8 +37,8 @@
                                         <label class="control-label mb-10 text-left" for="example-email">Nomor PO Barang</label>
                                         <input type="text" id="noPO" name="noPO" class="form-control" readonly>
                                     </div> -->
-                                    @foreach ((array)$noPO as $noPO)
                                     <div class="row">
+                                        @foreach ((array)$noPO as $noPO)
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left" for="example-email">No Purchase Order</label>
