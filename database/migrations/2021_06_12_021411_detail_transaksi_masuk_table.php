@@ -16,6 +16,7 @@ class DetailTransaksiMasukTable extends Migration
         Schema::create('detail_transaksi_masuk', function (Blueprint $table) {
             $table->increments('id_transaksi')->nullable();
             $table->string('no_transaksi',50)->nullable();
+            $table->string('kode_barang',50)->nullable();
             $table->date('tgl_transaksi',50)->nullable();
             $table->string('supplier',50)->nullable();
             $table->string('po',50)->nullable();
