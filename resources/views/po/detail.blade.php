@@ -175,7 +175,13 @@
                                 </div>
                                         
                         </div>
-                        <div class="pull-right">
+                        
+                    </div>
+                    <!-- /Row -->
+                    <!-- Row -->
+
+                </div>
+                <div class="pull-right">
 												<button type="submit" class="btn btn-primary mr-10">
 													Proceed to payment 
 												</button>
@@ -184,11 +190,6 @@
 												</button>
 											</div>
                         
-                    </div>
-                    <!-- /Row -->
-                    <!-- Row -->
-
-                </div>
                 <!-- /Row -->
                 <!-- /Main Content -->
     </div>

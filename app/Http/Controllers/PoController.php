@@ -6,9 +6,11 @@ use App\Models\DetailPO;
 use App\Models\Log;
 use App\Models\Pembelian;
 use App\Models\PO;
+use  App\Models\Instansi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PoController extends Controller
 {
@@ -31,7 +33,9 @@ class PoController extends Controller
         $noPO = $thnBln . "" . $angka;
         $tanggal =  $now->year . "-" . $now->month . "-" . $now->day;
         // dd($tanggal);
-        return view('po/addpo', compact('noPO', 'tanggal'));
+
+        $data_instansi = Instansi::all();
+        return view('po/addpo', compact('noPO', 'tanggal', 'data_instansi'));
     }
 
     public function addpo2(Request $request)
