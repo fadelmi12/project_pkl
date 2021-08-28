@@ -40,12 +40,14 @@
                                             @csrf
                                             <div class="form-body">
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label mb-10">Tanggal Transaksi</label>
-                                                            <input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control">
+                                                   
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label mb-10">No Transaksi</label>
+                                                                <input type="hidden" id="no_transaksi" name="no_transaksi" value="" class="form-control" placeholder="" readonly>
+                                                                <input type="text" id="no_trans" name="no_trans" value="" class="form-control" placeholder="" readonly>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="control-label mb-10">No PO</label>
@@ -70,26 +72,17 @@
 
                                                 </div>
                                                 <!--/span-->
-                                                <div class="col-md-6">
+                                               <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label mb-10">Nama barang</label>
-                                                        <select name="nama_barang" id="nama_barang" class="form-control select2">
-                                                            @foreach($barang as $brg)
-                                                            <option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
-                                                            @endforeach
-                                                        </select>
+                                                        <label class="control-label mb-10">Kondisi</label>
+                                                        <input type="text" id="kondisi" name="kondisi" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--/span-->
                                             </div>
                                             <!-- /Row -->
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label mb-10">Kondisi</label>
-                                                        <input type="text" id="kondisi" name="kondisi" class="form-control">
-                                                    </div>
-                                                </div>
+                                                
                                                 <!--/span-->
                                                 <!-- <div class="row"> -->
                                                 <div class="col-md-6">
@@ -99,6 +92,35 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <hr>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															
+															<label class="control-label mb-10">Nama Barang</label>
+															<select name="nama_barang" id="nama_barang" class="form-control">
+                                                                @foreach($barang as $brg)
+                                                                <option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }}|{{ $brg->kode_barang }} </option>
+																@endforeach
+															</select>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Jumlah</label>
+															<input type="number" id="jumlah" name="jumlah" class="form-control">
+															@foreach($barang as $brg)
+															<input  id="kode_barang" name="kode_barang" value="{{$brg->kode_barang}}" hidden>
+															@endforeach
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="control-label mb-10">Keterangan</label>
+															<input type="text" id="keterangan" name="keterangan" class="form-control">
+														</div>
+													</div>
+												</div>
                                     </div>
                                     <div class="row">
 
