@@ -36,7 +36,7 @@
 											@csrf
 											<div class="form-body">
 												<div class="row">
-												@foreach ((array)$no_trans as $no_trans)
+													@foreach ((array)$no_trans as $no_trans)
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">No Transaksi</label>
@@ -44,18 +44,21 @@
                                                 			<input type="text" id="no_trans" name="no_trans" value="{{ $no_trans }}" class="form-control" placeholder="" readonly>
 														</div>
 													</div>
-												@endforeach
+													@endforeach
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Supplier</label>
-															<select name="nama_supplier" id="nama_supplier" class="form-control select2">
+															<select name="nama_supplier" id="nama_supplier" class="form-control">
 																@foreach($supplier as $sup)
 																<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
 																@endforeach
 															</select>
 														</div>
 													</div>
-													<div class="col-md-6">
+													
+												</div>
+												<div class="row">
+												<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Pengirim Ekspedisi</label>
 															<input type="text" id="pengirim" name="pengirim" class="form-control">
@@ -180,5 +183,6 @@
 	});
 
 		$('#nama_barang').select2();
+		$('#nama_supplier').select2();
 </script>
 @endsection
