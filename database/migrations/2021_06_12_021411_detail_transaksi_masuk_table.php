@@ -14,15 +14,15 @@ class DetailTransaksiMasukTable extends Migration
     public function up()
     {
         Schema::create('detail_transaksi_masuk', function (Blueprint $table) {
-            $table->increments('id_transaksi');
-            $table->string('no_transaksi',50);
-            $table->date('tgl_transaksi',50);
-            $table->string('supplier',50);
-            $table->string('po',50);
-            $table->string('nama_barang',50);
-            $table->string('instansi',50);
-            $table->integer('jumlah');
-            $table->string('kondisi',50);
+            $table->increments('id_transaksi')->nullable();
+            $table->string('no_transaksi',50)->nullable();
+            $table->date('tgl_transaksi',50)->nullable();
+            $table->string('supplier',50)->nullable();
+            $table->string('po',50)->nullable();
+            $table->string('nama_barang',50)->nullable();
+            $table->string('instansi',50)->nullable();
+            $table->integer('jumlah')->nullable();
+            $table->string('kondisi',50)->nullable();
             $table->timestamps();
         });
     }

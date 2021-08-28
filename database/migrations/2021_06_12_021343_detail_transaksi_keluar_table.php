@@ -18,7 +18,7 @@ class DetailTransaksiKeluarTable extends Migration
             $table->string('no_transaksi',50);
             $table->string('kode_barang',50);
             $table->string('keterangan',50);
-            $table->integer('jml_barang');
+            $table->integer('jumlah');
             $table->integer('kategori');
             $table->timestamps();
         });

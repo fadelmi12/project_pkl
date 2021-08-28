@@ -51,9 +51,9 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>No transaksi</th>
-                                                <th>Tanggal Transaksi</th>
-                                                <th>Nama Barang</th>
                                                 <th>Supplier</th>
+                                                <th>Pengirim Ekspedisi</th>
+                                                <th>Penerima</th>
                                                 <!-- <th>Created at</th> -->
                                                 <!-- <th>Pengirim</th> -->
                                                 <!-- <th>Penerima</th>/ -->
@@ -68,9 +68,9 @@
                                             <tr>
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $transaksi_masuk->no_transaksi}}</td>
-                                                <td>{{ $transaksi_masuk->tgl_transaksi}}</td>
-                                                <td>{{ $transaksi_masuk->nama_barang }}</td>
                                                 <td>{{ $transaksi_masuk->nama_supplier }}</td>
+                                                <td>{{ $transaksi_masuk->pengirim}}</td>
+                                                <td>{{ $transaksi_masuk->penerima }}</td>
                                                 <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->ekspedisi }}</td> -->
