@@ -72,11 +72,12 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
-															@foreach($barang as $brg)
+															
 															<label class="control-label mb-10">Nama Barang</label>
-															<select name="nama_barang" id="nama_barang" class="form-control">
-																<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }}|{{ $brg->kode_barang }} </option>
-																@endforeach
+															<select name="nama_barang" id="nama_barang" class="form-control select2">
+															@foreach($barang as $brg)
+																<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }} | {{ $brg->kode_barang }} </option>
+															@endforeach
 															</select>
 														</div>
 													</div>
@@ -179,6 +180,5 @@
 		$('#row' + row_id + '').remove();
 	});
 
-		$('#nama_barang').select2();
 </script>
 @endsection

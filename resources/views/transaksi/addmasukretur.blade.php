@@ -99,18 +99,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    </div>
-                                    <div class="row">
+                                            </div>
+                                                <div class="row">
 
-                                        <!--/span-->
-                                        <!-- <div class="row"> -->
-                                        <div class="col-md-12" style="text-align:right;">
-                                            <button type="button" onclick="ambildata()" class="btn btn-primary ">Tambah Data</button>
-                                        </div>
-                                        <!--/span-->
-                                    </div>
-
-                                    </form>
+                                                    <!--/span-->
+                                                    <!-- <div class="row"> -->
+                                                    <div class="col-md-12" style="text-align:right;">
+                                                        <button type="button" onclick="ambildata()" class="btn btn-primary ">Tambah Data</button>
+                                                    </div>
+                                                    <!--/span-->
+                                                </div>
+                                        </form>
                                 </div>
                             </div>
                         </div>
