@@ -252,7 +252,7 @@
                             <a href="/addmasukbaru">Barang masuk</a>
                         </li>
                         <li>
-                            <a href="/brgkeluar">Barang keluar</a>
+                            <a href="/addkeluarbaru">Barang keluar</a>
                         </li>
                         @endif
                         <li>
