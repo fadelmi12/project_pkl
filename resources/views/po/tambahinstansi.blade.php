@@ -6,7 +6,7 @@
                 <h5 class="modal-title" id="exampleModalLabel1">Tambah Instansi</h5>
             </div>
             <div class="modal-body">
-            <form action="{{ url('addInstansi') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('addInstansi2') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">

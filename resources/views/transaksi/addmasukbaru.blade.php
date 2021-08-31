@@ -50,7 +50,7 @@
 															<label class="control-label mb-10">Supplier</label>
 															<select name="nama_supplier" id="nama_supplier" class="form-control select2">
 																@foreach($supplier as $sup)
-																<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
+																<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} </option>
 																@endforeach
 															</select>
 														</div>
@@ -146,8 +146,12 @@
 												</div>
 											</div>
 										</form>
+									</div>
 								</div>
-			</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

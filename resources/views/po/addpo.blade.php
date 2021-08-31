@@ -65,7 +65,7 @@
                                         <div class="col-md-2 mt-30">
                                             <div class="form-group">
                                                 
-                                            <button type="submit" class="btn btn-primary "  data-toggle="modal" data-target="#tambahinstansi">Tambah Instansi</button>
+                                            <button type="button" class="btn btn-primary "  data-toggle="modal" data-target="#tambahinstansi">Tambah Instansi</button>
                                                
                                             </div>
                                         </div>

@@ -2,193 +2,194 @@
 @section('title', 'Data Transaksi')
 @section('content')
 
-<!-- Main Content -->
 <div class="page-wrapper">
-    <div class="container-fluid">
+	<div class="container-fluid">
 
-        <!-- Title -->
-        <div class="row heading-bg">
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">barang masuk retur</h5><br>
-                <a href="/addmasukbaru" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> BARU</a>
-                <a href="/addmasukretur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> RETUR</a>
+		<!-- Title -->
+		<div class="row heading-bg">
+			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+				<h5 class="txt-dark">barang masuk retur</h5><br>
+				<a href="/addmasukretur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> BARU</a>
+				<a href="/addmasukretur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> RETUR</a>
 
-            </div>
-            <!-- Breadcrumb -->
-            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                <ol class="breadcrumb">
-                    <!-- <li><a href="index.html">master data</a></li> -->
-                    <li><a href="#"><span>transaksi</span></a></li>
-                    <li class="active"><span>barang masuk retur</span></li>
-                </ol>
-            </div>
-            <!-- /Breadcrumb -->
-        </div>
-        <!-- /Title -->
+			</div>
+			<!-- Breadcrumb -->
+			<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+				<ol class="breadcrumb">
+					<li><a href="#"><span>transaksi</span></a></li>
+					<li class="active"><span> barang masuk retur </span></li>
+				</ol>
+			</div>
+			<!-- /Breadcrumb -->
+		</div>
 
-        <!-- Row -->
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default card-view">
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-12 col-xs-12">
-                                    <div class="form-wrap">
-                                        <form action="{{ url('addmasukretur2') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="form-body">
-                                                <div class="row">
-                                                    <div class="col-md-6">
+		<div class="row">
+			<div class="col-md-12 mt-10">
+				<div class="panel panel-default card-view">
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-12 col-xs-12">
+									<div class="form-wrap">
+										<form action="{{ url('addmasukretur2') }}" method="POST" enctype="multipart/form-data">
+											@csrf
+											<div class="form-body">
+												<div class="row">
+												    @foreach ((array)$no_retur as $no_trans)
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">No Transaksi</label>
+															<input type="hidden" id="no_transaksi" name="no_transaksi" value="{{ $no_retur }}" class="form-control" placeholder="" readonly>
+                                                			<input type="text" id="no_retur" name="no_retur" value="{{ $no_retur }}" class="form-control" placeholder="" readonly>
+														</div>
+													</div>
+												    @endforeach
+													<div class="col-md-6">
+                                                        @foreach($noPO as $noPO)
                                                         <div class="form-group">
-                                                            <label class="control-label mb-10">Tanggal Transaksi</label>
-                                                            <input type="date" name="tgl_transaksi" id="tgl_transaksi" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
+                                                            <input type="hidden" id="no_po" name="no_po" value="{{ $noPO->no_PO }}" class="form-control" placeholder="" readonly>
                                                             <label class="control-label mb-10">No PO</label>
-                                                            <input type="text" id="po" name="po" class="form-control">
+                                                            <select name="no_PO" id="no_PO" class="form-control select2">
+                                                                <option value="{{ $noPO->no_PO }}">{{ $noPO->no_PO }}</option>
+                                                            </select>
                                                         </div>
+                                                        @endforeach
                                                     </div>
-                                                </div>
-                                                <!--/span-->
-                                            </div>
-                                            <!-- /Row -->
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label mb-10">Instansi</label>
-                                                        <!-- <select name="nama_supplier" id="nama_supplier" class="form-control select2">
-                                                            @foreach($supplier as $sup)
-                                                            <option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
-                                                            @endforeach
-                                                        </select> -->
-                                                        <input type="text" id="instansi" name="instansi" class="form-control">
-                                                    </div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Pengirim Ekspedisi</label>
+															<input type="text" id="pengirim" name="pengirim" class="form-control">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Penerima</label>
+															<input type="text" id="penerima" name="penerima" class="form-control">
+														</div>
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															
+															<label class="control-label mb-10">Nama Barang</label>
+															<select name="nama_barang" id="nama_barang" class="form-control select2">
+															@foreach($barang as $brg)
+																<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }} | {{ $brg->kode_barang }} </option>
+															@endforeach
+															</select>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Instansi</label>
+															<select name="instansi" id="instansi" class="form-control select2">
+																@foreach($data_instansi as $instansi)
+																<option value="{{ $instansi->nama_instansi }}">{{ $instansi->nama_instansi }} | {{ $instansi->kode_instansi }}</option>
+																@endforeach
+															</select>
+															<!-- <input type="text" id="instansi" name="instansi" class="form-control"> -->
+														</div>
+                                                	</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Jumlah</label>
+															<input type="number" id="jumlah" name="jumlah" class="form-control">
+															@foreach($barang as $brg)
+															<input  id="kode_barang" name="kode_barang" value="{{$brg->kode_barang}}" hidden>
+															@endforeach
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Keterangan</label>
+															<input type="text" id="keterangan" name="keterangan" class="form-control">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-14" style="text-align:right;">
+												<button type="button" onclick="ambildata()" class="btn btn-success ">Tambah Data</button>
+											</div>
+											<div class="col-md-12 mt-10">
+												<div class="panel panel-default card-view">
+													<div class="panel-heading">
+														<div class="pull-left">
+															<h6 class="panel-title txt-dark">Barang Masuk</h6>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+													<div class="panel-wrapper collapse in">
+														<div class="panel-body">
+																<div class="">
+																	<div classs="col">
+																		<table class="table table-bordered align-items-center">
+																			<thead class="thead-light">
+																				<tr>
+																					<th>No Transaksi</th>
+																					<th>Nama barang</th>
+																					<th>Jumlah</th>
+																					<th>Keterangan</th>
+																					<th>Remove</th>
 
-                                                </div>
-                                                <!--/span-->
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label mb-10">Nama barang</label>
-                                                        <select name="nama_barang" id="nama_barang" class="form-control select2">
-                                                            @foreach($barang as $brg)
-                                                            <option value="{{ $brg->nama_barang }}">{{ $brg->kode_barang }} | {{ $brg->nama_barang }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--/span-->
-                                            </div>
-                                            <!-- /Row -->
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label mb-10">Kondisi</label>
-                                                        <input type="text" id="kondisi" name="kondisi" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <!--/span-->
-                                                <!-- <div class="row"> -->
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label mb-10">Penerima</label>
-                                                        <input type="text" name="penerima" id="penerima" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                                <div class="row">
+																				</tr>
+																			</thead>
+																			<tbody id="TabelDinamis">
+																				<!-- <tr>
+																					<td><a name="tgl_transaksi[]" id="tgl_transaksi"></a></td>
+																					<td><a name="nama_supplier[]" id="nama_supplier"></a></td>
+																					<td><a name="nama_barang[]" id="nama_barang"></a></td>
+																					<td><a name="jumlah[]" id="jumlah"></a></td>
+																					<td><button type="button" class="btn btn-danger btn-small">&times;</button></td>
+																				</tr> -->
+																			</tbody>
+																		</table>
 
-                                                    <!--/span-->
-                                                    <!-- <div class="row"> -->
-                                                    <div class="col-md-12" style="text-align:right;">
-                                                        <button type="button" onclick="ambildata()" class="btn btn-primary ">Tambah Data</button>
-                                                    </div>
-                                                    <!--/span-->
-                                                </div>
-                                        </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="">
-            <!-- Basic Table -->
-            <div class="col-sm-14">
-                <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-                        <div class="pull-left">
-                            <h6 class="panel-title txt-dark">Barang Masuk</h6>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                            <form action="{{ url('addmasukretur2') }}" id="form2" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="">
-                                    <div classs="col">
-                                        <table class="table table-bordered align-items-center">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th>No PO</th>
-                                                    <th>Instansi</th>
-                                                    <th>Nama barang</th>
-                                                    <th>Kondisi</th>
-                                                    <th>Remove</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="TabelDinamis">
-                                                <!-- <tr>
-												<td><a name="tgl_transaksi[]" id="tgl_transaksi"></a></td>
-												<td><a name="nama_supplier[]" id="nama_supplier"></a></td>
-												<td><a name="nama_barang[]" id="nama_barang"></a></td>
-												<td><a name="jumlah[]" id="jumlah"></a></td>
-												<td><button type="button" class="btn btn-danger btn-small">&times;</button></td>
-											</tr> -->
-                                            </tbody>
-                                        </table>
-
-                                        <div class="col-md-12" style="text-align:right;">
-                                            <button type="submit" name="submit"  class="btn btn-success ">Simpan</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Basic Table -->
-        </div>
-    </div>
-    <!-- /Row -->
-    <!-- /Row -->
-    <!-- /Main Content -->
+																		<div class="col-md-12" style="text-align:right;">
+																			<button type="submit" class="btn btn-primary ">Simpan</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<!-- /#wrapper -->
 @endsection
 @section('scripts')
 <script type="text/javascript">
     function ambildata() {
-        var tgl_transaksi = document.getElementById('tgl_transaksi').value;
-        var po = document.getElementById('po').value;
-        var instansi = document.getElementById('instansi').value;
+        var no_retur = document.getElementById('no_retur').value;
+        var no_PO = document.getElementById('no_PO').value;
         var nama_barang = document.getElementById('nama_barang').value;
-        var penerima = document.getElementById('penerima').value;
-        var kondisi = document.getElementById('kondisi').value;
-        addrow(tgl_transaksi, po, instansi, nama_barang, penerima, kondisi);
+        var kode_barang = document.getElementById('kode_barang').value;
+        var keterangan = document.getElementById('keterangan').value;
+        var jumlah = document.getElementById('jumlah').value;
+        addrow(no_retur, no_PO, nama_barang, kode_barang, keterangan, jumlah);
     }
     var i = 0;
 
-    function addrow(tgl_transaksi, po, instansi, nama_barang, penerima, kondisi) {
-        i++;
-        $('#TabelDinamis').append('<tr id="row' + i + '"><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="tgl_transaksi[]" id="tgl_transaksi" value="' + tgl_transaksi + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="po[]" id="po" value="' + po + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="instansi[]" id="instansi" value="' + instansi + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="' + nama_barang + '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="penerima[]" id="penerima" value="' + penerima + '"></td><td><input type="text" style="outline:none;border:0;" readonly name="kondisi[]" id="kondisi" value="' + kondisi + '"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
+    function addrow(no_retur, no_PO, nama_barang, kode_barang,keterangan, jumlah) {
+        i++;instansi
+        $('#TabelDinamis').append('<tr id="row' + i + '"><td><input type="text" style="outline:none;border:0;" readonly name="no_retur[]" id="no_retur" value="' + no_retur + 
+                                                        '"></td><td><input type="text" style="outline:none;border:0;" readonly name="no_PO[]" id="no_PO" value="' + no_PO + 
+                                                        '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="' + nama_barang + 
+                                                        '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="kode_barang[]" id="kode_barang" value="' + kode_barang + 
+                                                        '"></td><td><input type="text" style="outline:none;border:0;" readonly name="keterangan[]" id="keterangan" value="' + keterangan + 
+                                                        '"></td><td><input type="text" style="outline:none;border:0;" readonly name="jumlah[]" id="jumlah" value="' + jumlah + 
+                                                        '"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
     };
     $(document).on('click', '.remove_row', function() {
         var row_id = $(this).attr("id");

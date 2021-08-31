@@ -6,10 +6,12 @@ use App\Models\DetailPO;
 use App\Models\Log;
 use App\Models\Pembelian;
 use App\Models\PO;
+use  App\Models\Instansi;
 use Carbon\Carbon;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PoController extends Controller
 {
@@ -32,8 +34,9 @@ class PoController extends Controller
         // $noPO = $thnBln . "" . $angka;
         // $tanggal =  $now->year . "-" . $now->month . "-" . $now->day;
         // // dd($tanggal);
-        $noPO = IdGenerator::generate(['table' => 'purchase_order', 'length' => 8, 'prefix' => date('ym')]);
-        return view('po/addpo', compact('noPO'));
+        $data_instansi = Instansi::all();
+        $noPO = IdGenerator::generate(['table' => 'purchase_order', 'length' => 8, 'prefix' => 'NS-']);
+        return view('po/addpo', compact('noPO', 'data_instansi'));
     }
 
     public function addpo2(Request $request)

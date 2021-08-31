@@ -78,10 +78,11 @@
                                                 <td>
                                                     <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
                                                     <a href="#"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#" action="#"><i class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="hapus" action="#"><i class="fa fa-trash"></i></button>
 
                                                 </td>
                                             </tr>
+                                            @include('transaksi.hapusbrngmasuk')
                                             @endforeach
                                         </tbody>
                                         @include('transaksi.editbrgmasuk')
@@ -93,12 +94,11 @@
                                 <table id="data_table1" class="table table-bordered display  pb-30">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                            <th>#</th>
                                                 <th>No transaksi</th>
-                                                <!-- <th>Supplier</th>
-                                                <th>Jenis transaksi</th> -->
-                                                <th>Tanggal Transaksi</th>
-                                                <th>Nama Barang</th>
+                                                <th>Instansi</th>
+                                                <th>Pengirim Ekspedisi</th>
+                                                <th>Penerima</th>
                                                 <th>Created at</th>
                                                 <!-- <th>Pengirim</th> -->
                                                 <!-- <th>Penerima</th>/ -->
@@ -113,10 +113,11 @@
                                             <tr>
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $transaksi_retur->no_transaksi}}</td>
-                                                <td>{{ $transaksi_retur->tgl_transaksi}}</td>
+                                                <td>{{ $transaksi_retur->instansi}}</td>
                                                 <!-- <td>{{ $transaksi_retur->nama_supplier }}</td> -->
                                                 <!-- <td>{{ $transaksi_retur->jns_transaksi }}</td> -->
-                                                <td>{{ $transaksi_retur->nama_barang }}</td>
+                                                <td>{{ $transaksi_retur->pengirim }}</td>
+                                                <td>{{ $transaksi_retur->penerima }}</td>
                                                 <td>{{ $transaksi_retur->created_at }}</td>
                                                 <!-- <td>{{ $transaksi_masuk->pengirim }}</td> -->
                                                 <!-- <td>{{ $transaksi_masuk->penerima }}</td> -->
@@ -125,10 +126,11 @@
                                                 <td>
                                                     <a href="#"><button class="btn btn-primary btn-icon-anim btn-square"><i class="fa fa-eye"></i></button></a>
                                                     <a href="#"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
-                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="#" action="#"><i class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger btn-icon-anim btn-square" data-toggle="modal" data-target="hapus" action="#"><i class="fa fa-trash"></i></button>
 
                                                 </td>
                                             </tr>
+                                            @include('transaksi.hapusbrngmasuk')
                                             @endforeach
                                         </tbody>
                                         @include('transaksi.editbrgmasuk')
