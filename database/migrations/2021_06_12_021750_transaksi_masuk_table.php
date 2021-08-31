@@ -14,7 +14,7 @@ class TransaksiMasukTable extends Migration
     public function up()
     {
         Schema::create('transaksi_masuk', function (Blueprint $table) {
-            $table->string('id',10)->autoIncrement()->nullable();
+            $table->increments('id',10);
             $table->string('no_transaksi', 50)->nullable();
             $table->date('tgl_transaksi')->nullable();
             $table->string('nama_barang', 50);
