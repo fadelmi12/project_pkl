@@ -1,4 +1,3 @@
-@foreach($transaksi_masuk as $transaksi_masuk)
 <div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
@@ -17,4 +16,3 @@
             </div>
         </div>
     </div>
-@endforeach

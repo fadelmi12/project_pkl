@@ -50,7 +50,7 @@
 															<label class="control-label mb-10">Supplier</label>
 															<select name="nama_supplier" id="nama_supplier" class="form-control">
 																@foreach($supplier as $sup)
-																<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} | {{ $sup->nama_supplier }}</option>
+																<option value="{{ $sup->nama_supplier }}">{{ $sup->kode_supplier }} </option>
 																@endforeach
 															</select>
 														</div>
@@ -75,11 +75,12 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
-															@foreach($barang as $brg)
+															
 															<label class="control-label mb-10">Nama Barang</label>
-															<select name="nama_barang" id="nama_barang" class="form-control">
-																<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }}|{{ $brg->kode_barang }} </option>
-																@endforeach
+															<select name="nama_barang" id="nama_barang" class="form-control select2">
+															@foreach($barang as $brg)
+																<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }} | {{ $brg->kode_barang }} </option>
+															@endforeach
 															</select>
 														</div>
 													</div>
@@ -148,8 +149,12 @@
 												</div>
 											</div>
 										</form>
+									</div>
 								</div>
-			</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
