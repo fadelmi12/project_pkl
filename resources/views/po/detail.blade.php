@@ -142,11 +142,9 @@
                                                         <a href="#" id="username3" style="font-weight:bold" data-type="text" data-pk="1" data-title="Jumlah">{{$detail->jumlah}}</a>
                                                     </td>
                                                     <td>
-                                                        <a href="#" id="username4" style="font-weight:bold" data-type="text" data-pk="1" data-title="Rate">{{$detail->rate}}</a>
+                                                        <a href="#" id="username4" style="font-weight:bold" data-type="text" data-pk="1" data-title="Rate">Rp {{number_format ($detail->rate, 0, ',', '.')}}</a>
                                                     </td>
-                                                    <td>
-                                                        <a href="#" id="username5" style="font-weight:bold" data-type="text" data-pk="1" data-title="Amount">{{$detail->amount}}</a>
-                                                    </td>
+                                                    <td><input type="text" style="outline:none;border:0;" readonly name="amount[]" id="amount" value=""></td>
                                                 </tr>
                                                 @endforeach
                                                 <tr class="txt-dark">

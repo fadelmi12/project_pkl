@@ -15,7 +15,7 @@ class PurchaseOrderTable extends Migration
     {
         Schema::create('purchase_order', function (Blueprint $table) {
             $table->string('id',15)->autoIncrement()->nullable();
-            $table->integer('no_PO')->nullable();
+            $table->string('no_PO')->nullable();
             $table->string('instansi',50);
             $table->date('tgl_pemasangan');
             $table->integer('status')->nullable();
