@@ -42,12 +42,12 @@ class TransaksiController extends Controller
         
         $now = Carbon::now();
         $thnBln = $now->year . $now->month;
-
+        $kode = strtoupper(substr("TRK", 0, 3));
         // $kode = strtoupper(substr($tanggal, 0, 3));
         $check = count(TransaksiModel::where('no_transaksi', 'like', "%$thnBln%")->get()->toArray());
         $angka = sprintf("%03d", (int)$check + 1);
         $noPO = $thnBln . "" . $angka;
-        $no_trans =  $now->year . "-" . $now->month . "-" . $now->day."-". $angka;
+        $no_trans =  $kode.  "-"  .$now->year . $now->month . $angka;
         // dd($tanggal);
 
         return view('transaksi/addmasukbaru', compact('no_trans','supplier', 'barang', 'transaksi_masuk'));
@@ -170,7 +170,7 @@ class TransaksiController extends Controller
     }
     public function addkeluar()
     {
-        return view('transaksi/addkeluar');
+        return view('transaksi/addkeluarbaru');
     }
 
     
@@ -181,5 +181,19 @@ class TransaksiController extends Controller
         return view('transaksi/transaksikeluar', compact('transaksi_masuk','transaksi_retur' ));
     }
 
+
+    public function addkeluarbaru2()
+    {
+        // $supplier = SupplierModel::all();
+        $barang = Master::where([['status', 'aktif']])->get();
+        $transaksi_keluar = TransaksiKeluar::all();
+        // $no_trans = IdGenerator::generate(['table' => 'transaksi_masuk', 'length' => 8, 'prefix' => 'TRK-',date('ym')]);
+        $kode = strtoupper(substr('TRK',0,3));
+        $check = count(TransaksiKeluar::where('no_transaksi', 'like', "%$kode%")->get()->toArray());
+        $angka = sprintf("%03d", (int)$check + 1);
+        $no_trans = $kode . "-" . $angka;
+
+        return view('transaksi/addkeluarbaru', compact('no_trans','supplier', 'barang', 'transaksi_keluar'));
+    }
 }
  
