@@ -27,14 +27,18 @@
     <!-- Custom CSS -->
     <link href="{{asset('template')}}/dist/css/style.css" rel="stylesheet" type="text/css">
 
+    <!-- Editable -->
+
+    <link href="{{asset('template')}}/vendors/editable/bootstrap-editable.css" rel="stylesheet" type="text/css" />
+
     <!-- select2 CSS -->
-	<link href="{{asset('template')}}/vendors/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('template')}}/vendors/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
     <!-- bootstrap-tagsinput CSS -->
-	<link href="vendors/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
-		
+    <link href="vendors/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -256,16 +260,18 @@
                         </li>
                         @endif
                         <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#transaksi">Data Transaksi<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-                            
-                            <ul id="transaksi" class="collapse collapse-level-2" >
-								<li>
-									<a href="/transaksi">Transaksi Masuk</a>
-								</li>
-								<li>
-									<a href="/transaksikeluar">Transaksi Keluar</a>
-								</li>
-							</ul>
+                            <a href="javascript:void(0);" data-toggle="collapse" data-target="#transaksi">Data Transaksi<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+                                <div class="clearfix"></div>
+                            </a>
+
+                            <ul id="transaksi" class="collapse collapse-level-2">
+                                <li>
+                                    <a href="/transaksi">Transaksi Masuk</a>
+                                </li>
+                                <li>
+                                    <a href="/transaksikeluar">Transaksi Keluar</a>
+                                </li>
+                            </ul>
                         </li>
 
 
@@ -834,6 +840,14 @@
     <script src="{{asset('template')}}/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
     <script src="{{asset('template')}}/dist/js/simpleweather-data.js"></script>
 
+    <!-- Editable -->
+    <script src="{{asset('template')}}/vendors/editable/bootstrap-editable.min.js"></script>
+    <script src="{{asset('template')}}/vendors/editable/jquery.xeditable.js"></script>
+
+    <!-- <script src="{{asset('template')}}/vendors/bower_components/editable-table/mindmup-editabletable.js"></script>
+    <script src="{{asset('template')}}/vendors/bower_components/editable-table/numeric-input-example.js"></script>
+    <script src="{{asset('template')}}/dist/js/editable-table-data.js"></script> -->
+
     <!-- Progressbar Animation JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="{{asset('template')}}/vendors/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
@@ -854,7 +868,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="{{asset('template')}}/vendors/bower_components/raphael/raphael.min.js"></script>
     <script src="{{asset('template')}}/vendors/bower_components/morris.js/morris.min.js"></script>
-    
+
     <!-- <script src="{{asset('template')}}/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script> -->
 
     <!-- Switchery JavaScript -->
@@ -865,11 +879,11 @@
     <script src="{{asset('template')}}/dist/js/dashboard-data.js"></script>
 
     <!-- Select2 JavaScript -->
-	<script src="{{asset('template')}}/vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+    <script src="{{asset('template')}}/vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <!-- Bootstrap Select JavaScript -->
-	<script src="{{asset('template')}}/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="{{asset('template')}}/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
     @yield('scripts')
 

@@ -25,32 +25,17 @@ class PoController extends Controller
     //
     public function addpo()
     {
-<<<<<<< HEAD
-        $now = Carbon::now();
-        $thnBln = $now->year . $now->month;
-
-        // $kode = strtoupper(substr($request->nama_barang, 0, 3));
-        $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
-        $angka = sprintf("%03d", (int)$check + 1);
-        $noPO = $thnBln . "" . $angka;
-        $tanggal =  $now->year . "-" . $now->month . "-" . $now->day;
-        // dd($tanggal);
-
-        $data_instansi = Instansi::all();
-        return view('po/addpo', compact('noPO', 'tanggal', 'data_instansi'));
-=======
         // $now = Carbon::now();
         // $thnBln = $now->year . $now->month;
 
-        // // $kode = strtoupper(substr($request->nama_barang, 0, 3));
-        // $check = count(PO::where('no_PO', 'like', "%$thnBln%")->get()->toArray());
-        // $angka = sprintf("%03d", (int)$check + 1);
-        // $noPO = $thnBln . "" . $angka;
-        // $tanggal =  $now->year . "-" . $now->month . "-" . $now->day;
-        // // dd($tanggal);
-        $noPO = IdGenerator::generate(['table' => 'purchase_order', 'length' => 8, 'prefix' => date('ym')]);
-        return view('po/addpo', compact('noPO'));
->>>>>>> 9bc76d37e3d4be390dee462b8ff79df84540a24a
+        $kode = strtoupper(substr("NS", 0, 2));
+        $check = count(PO::where('no_PO', 'like', "%$kode%")->get()->toArray());
+        $angka = sprintf("%04d", (int)$check + 1);
+        $noPO = $kode . "" . $angka;
+        $data_instansi = Instansi::all();
+
+        // $noPO = IdGenerator::generate(['table' => 'purchase_order', 'length' => 8, 'prefix' => date('ym')]);
+        return view('po/addpo', compact('noPO',  'data_instansi'));
     }
 
     public function addpo2(Request $request)
@@ -227,9 +212,9 @@ class PoController extends Controller
 
     public function detailpo($no_PO)
     {
-        $data_detail = DetailPO::where('no_PO',$no_PO)->get();
-        $data_po = PO::where('no_PO',$no_PO)->get();
+        $data_detail = DetailPO::where('no_PO', $no_PO)->get();
+        $data_po = PO::where('no_PO', $no_PO)->get();
         // dd($data_detail);
-        return view('po/detail', compact('data_po','data_detail'));
+        return view('po/detail', compact('data_po', 'data_detail'));
     }
 }
