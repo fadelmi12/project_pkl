@@ -54,7 +54,7 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10 text-left" for="example-email">Instansi<span class="help"> </span></label>
                                                 <!-- <input type="text" id="instansi" name="instansi" class="form-control" placeholder=""> -->
-                                                <select name="instansi" id="instansi" class="form-control select2">
+                                                <select name="instansi" id="instansi" class="form-control">
                                                     @foreach($data_instansi as $data_int)
                                                         <option value="{{ $data_int->nama_instansi}}">{{ $data_int->kode_instansi }} | {{ $data_int->nama_instansi }}</option>
                                                     @endforeach
@@ -240,6 +240,6 @@
 
 
 
-
+        $('#instansi').select2();
         </script>
     @endsection
