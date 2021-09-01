@@ -217,4 +217,12 @@ class PoController extends Controller
         // dd($data_detail);
         return view('po/detail', compact('data_po', 'data_detail'));
     }
+
+    // public function insertCB(Request $request)
+    // {
+    //     $detail = new DetailPO();
+    //     $detail->is_active = $request->has('is_active');
+
+    //     return $detail;
+    // }
 }

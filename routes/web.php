@@ -153,6 +153,7 @@ Route::group(['middleware' => 'auth', 'cekdivisi:teknisi,warehouse,marketing,adm
     Route::post('editpo/{id_PO}', 'App\Http\Controllers\PoController@editpo');
     Route::post('confirm/{id_PO}', 'App\Http\Controllers\PoController@confirm');
     Route::post('reject/{id_PO}', 'App\Http\Controllers\PoController@reject');
+    Route::post('$detail', 'App\Http\Controllers\PoController@insertCB')->name('insertCB');
 
     // ADMINISTRASI
     Route::get('administrator', 'App\Http\Controllers\AdministratorController@users');

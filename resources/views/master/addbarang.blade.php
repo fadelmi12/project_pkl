@@ -50,7 +50,6 @@
                                         <div class="tulisan">{{$errors->first('nama_barang')}}</div>
                                         @endif
                                     </div>
-
                                     <!-- <div class="form-group">
                                         <label class="control-label mb-10 text-left">Jenis</label>
                                         <select name="jenis_barang" id="jenis_barang" class="form-control select2">

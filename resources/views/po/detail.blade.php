@@ -133,7 +133,7 @@
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>
-                                                        <a href="#" id="inline-username" style="font-weight:bold" data-type="text" data-pk="1" data-title="Nama barang">{{$detail->nama_barang}}</a><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
+                                                        <a href="#" id="username" style="font-weight:bold" data-type="text" data-pk="1" data-title="Nama barang">{{$detail->nama_barang}}</a><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
                                                     </td>
                                                     <td>
                                                         <a href="#" id="username2" style="font-weight:bold" data-type="text" data-pk="1" data-title="keterangan">{{$detail->keterangan}}</a>
@@ -215,7 +215,9 @@
     <div class="col-md-12">
         <div class="panel panel-default card-view">
             <div class="panel-heading">
+                <!-- <form method="post"> -->
                 <div class="row">
+
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-xs-8">
@@ -298,25 +300,25 @@
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
+                                <!-- form -->
                                 @foreach ($data_detail as $detail)
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>
-                                        <span style="font-weight:bold">{{$detail->nama_barang}}</span><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
+                                        <a href="#" id="username" style="font-weight:bold" data-type="text" data-pk="1" data-title="Nama barang">{{$detail->nama_barang}}</a><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
                                     </td>
                                     <td>
-                                        <span style="font-weight:bold">{{$detail->keterangan}}</span>
+                                        <a href="#" id="username2" style="font-weight:bold" data-type="text" data-pk="1" data-title="KEterangan">{{$detail->keterangan}}</a>
                                     </td>
                                     <td>
-                                        <span style="font-weight:bold">{{$detail->jumlah}}</span>
+                                        <a href="#" id="username3" style="font-weight:bold" data-type="text" data-pk="1" data-title="Jumlah">{{$detail->jumlah}}</a>
                                     </td>
                                     <td>
-                                        <li class="todo-item">
-                                            <div class="checkbox checkbox-success">
-                                                <input type="checkbox" id="checkbox01" />
-                                                <label for="checkbox01"></label>
+                                            <div class="checkbox checkbox-success}">
+                                                <input type="checkbox" id="is_active" name="status{{$no-1}}" value=""/>
+                                            <label for=" is_active"></label>
                                             </div>
-                                        </li>
+                                        <!-- </form> -->
                                     </td>
                                 </tr>
                                 @endforeach
@@ -344,6 +346,7 @@
                     </tr>
                     </tbody>
                     </table>
+                    <!-- </form> -->
                 </div>
             </div>
             <div class="row">
@@ -368,9 +371,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 <!-- /Row -->
 <!-- Row -->
@@ -378,13 +379,19 @@
 </div>
 @endif
 
-<div class="pull-right hide-from-printer">
-    <!-- <button type="submit" class="btn btn-primary mr-10">
-        Proceed to payment
-    </button> -->
+<div class="pull-right">
+    @if (auth()->user()->divisi == "warehouse")
+    <button type="submit" class="btn btn-primary mr-11">
+        Proses
+    </button>
+    <!-- form tutup -->
+    @endif
+
+    @if (auth()->user()->divisi == "marketing")
     <button type="button" class="btn btn-success btn-icon left-icon" onclick="javascript:window.print();">
         <i class="fa fa-print"></i><span> Print</span>
     </button>
+    @endif
 </div>
 
 <!-- /Row -->

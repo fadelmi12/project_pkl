@@ -172,9 +172,12 @@
     <script>
     $(document).ready(function() {
     $(".a2, .b2").on("keydown keyup", function(event) {
-        var jumlah = $("#jumlah");
-        var rate = $("#rate");
-        $("#amount").val(Number(jumlah.val()) * Number(rate.val()));
+        var jumlah = $("#jumlah").val();
+        var rate = $("#rate").val().split('.').join('');
+        var reverse = (jumlah * rate).toString().split('').reverse().join('');
+        amount = reverse.match(/\d{1,3}/g);
+        amount = amount.join('.').split('').reverse().join('');
+        $("#amount").val(amount);
     });
 });
 </script>
@@ -182,36 +185,36 @@
 @section('scripts')
 <script type="text/javascript">
         /* Tanpa Rupiah */
-        var tanpa_rupiah = document.getElementById('amount');
+        var tanpa_rupiah = document.getElementById('rate');
         tanpa_rupiah.addEventListener('keyup', function(e)
         {
             tanpa_rupiah.value = formatRupiah(this.value);
         });
 
         /* Dengan Rupiah */
-        // var dengan_rupiah = document.getElementById('rate');
-        // dengan_rupiah.addEventListener('keyup', function(e)
-        // {
-        //     dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
-        // });
+        //  var dengan_rupiah = document.getElementById('rate');
+        //  dengan_rupiah.addEventListener('keyup', function(e)
+        //  {
+        // dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+        //  });
 
         /* Fungsi */
-        // function formatRupiah(angka, prefix)
-        // {
-        //     var number_string = angka.replace(/[^,\d]/g, '').toString(),
-        //         split    = number_string.split(','),
-        //         sisa     = split[0].length % 3,
-        //         rupiah     = split[0].substr(0, sisa),
-        //         ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+        function formatRupiah(angka, prefix)
+        {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split    = number_string.split(','),
+                sisa     = split[0].length % 3,
+                rupiah     = split[0].substr(0, sisa),
+                ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
                 
-        //     if (ribuan) {
-        //         separator = sisa ? '.' : '';
-        //         rupiah += separator + ribuan.join('.');
-        //     }
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
             
-        //     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-        //     return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        // };
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        };
         function ambildata() {
             var noPO = document.getElementById('noPO').value;
             var nama_barang = document.getElementById('nama_barang').value;
