@@ -57,7 +57,7 @@
                                                     <th>Tanggal Pemasangan</th>
                                                     <th>Status</th>
                                                     <th>Tanggal Pembuatan PO</th>
-                                                    <th colspan="3">Aksi</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -147,11 +147,10 @@
                                                     <tr>
                                                         <th>no</th>
                                                         <th>No PO</th>
-                                                        <th>Nama Barang</th>
-                                                        <th>Jumlah</th>
-                                                        <th>Created at</th>
-                                                        <th>Keterangan</th>
+                                                        <th>Instansi</th>
+                                                        <th>Tanggal Pemasangan</th>
                                                         <th>Status</th>
+                                                        <th>Tanggal Pembuatan PO</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -173,10 +172,8 @@
                                                         @if($data_po->status >=2 )
                                                         <td>{{ $no++ }}</td>
                                                         <td>{{ $data_po->no_PO}}</td>
-                                                        <td>{{ $data_po->namaBarang}}</td>
-                                                        <td>{{ $data_po->jumlah}}</td>
-                                                        <td>{{ $data_po->created_at}}</td>
-                                                        <td>{{ $data_po->keterangan}}</td>
+                                                        <td>{{ $data_po->instansi}}</td>
+                                                        <td>{{ $data_po->tgl_pemasangan}}</td>
                                                         <td>
                                                             @if($data_po->status === 1 )
                                                             Purchase Order ditolak Warehouse
@@ -192,6 +189,7 @@
                                                             Purchase Order diproses Marketing
                                                             @endif
                                                         </td>
+                                                        <td>{{ $data_po->created_at}}</td>
                                                         <td>
                                                             @if($data_po->status >= 3 )
                                                             <a href="po/detail/{{ $data_po->no_PO }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-edit"></i></button></a>
@@ -208,10 +206,8 @@
                                                         @elseif (auth()->user()->divisi == "warehouse")
                                                         <td>{{ $no++ }}</td>
                                                         <td>{{ $data_po->no_PO}}</td>
-                                                        <td>{{ $data_po->namaBarang}}</td>
-                                                        <td>{{ $data_po->jumlah}}</td>
-                                                        <td>{{ $data_po->created_at}}</td>
-                                                        <td>{{ $data_po->keterangan}}</td>
+                                                        <td>{{ $data_po->instansi}}</td>
+                                                        <td>{{ $data_po->tgl_pemasangan}}</td>
                                                         <td>
                                                             @if($data_po->status === 1 )
                                                             Purchase Order ditolak Warehouse
@@ -227,6 +223,7 @@
                                                             Purchase Order diproses Marketing
                                                             @endif
                                                         </td>
+                                                        <td>{{ $data_po->created_at}}</td>
                                                         <td>
                                                             @if($data_po->status >= 1 )
                                                             <a href="po/detail/{{ $data_po->no_PO }}"><button class="btn btn-success btn-icon-anim btn-square"><i class="fa fa-info"></i></button></a>

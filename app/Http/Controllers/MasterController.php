@@ -457,7 +457,6 @@ class MasterController extends Controller
                 'deskripsi' => 'Delete Jenis Barang',
                 'status' => '2',
                 'ip' => $request->ip()
-
             ]
         );
         // //mengirim data_ktg ke view

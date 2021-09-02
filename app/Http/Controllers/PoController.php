@@ -127,7 +127,7 @@ class PoController extends Controller
         if ($user->divisi == "warehouse") {
             PO::where('id_PO', $request->edit_id_po)
                 ->update([
-                    'status' => '2',
+                    'status' => '$request->is_active',
                     'pic_warehouse' => $user->name
                 ]);
             $user = Auth::user();
@@ -217,4 +217,12 @@ class PoController extends Controller
         // dd($data_detail);
         return view('po/detail', compact('data_po', 'data_detail'));
     }
+
+    // public function insertCB(Request $request)
+    // {
+    //     $detail = new DetailPO();
+    //     $detail->is_active = $request->has('is_active');
+
+    //     return $detail;
+    // }
 }

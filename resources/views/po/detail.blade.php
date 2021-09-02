@@ -133,7 +133,7 @@
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>
-                                                        <a href="#" id="inline-username" style="font-weight:bold" data-type="text" data-pk="1" data-title="Nama barang">{{$detail->nama_barang}}</a><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
+                                                        <a href="#" id="username" style="font-weight:bold" data-type="text" data-pk="1" data-title="Nama barang">{{$detail->nama_barang}}</a><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
                                                     </td>
                                                     <td>
                                                         <a href="#" id="username2" style="font-weight:bold" data-type="text" data-pk="1" data-title="keterangan">{{$detail->keterangan}}</a>
@@ -142,11 +142,9 @@
                                                         <a href="#" id="username3" style="font-weight:bold" data-type="text" data-pk="1" data-title="Jumlah">{{$detail->jumlah}}</a>
                                                     </td>
                                                     <td>
-                                                        <a href="#" id="username4" style="font-weight:bold" data-type="text" data-pk="1" data-title="Rate">{{$detail->rate}}</a>
+                                                        <a href="#" id="username4" style="font-weight:bold" data-type="text" data-pk="1" data-title="Rate">Rp {{number_format ($detail->rate, 0, ',', '.')}}</a>
                                                     </td>
-                                                    <td>
-                                                        <a href="#" id="username5" style="font-weight:bold" data-type="text" data-pk="1" data-title="Amount">{{$detail->amount}}</a>
-                                                    </td>
+                                                    <td><input type="text" style="outline:none;border:0;" readonly name="amount[]" id="amount" value=""></td>
                                                 </tr>
                                                 @endforeach
                                                 <tr class="txt-dark">
@@ -217,7 +215,9 @@
     <div class="col-md-12">
         <div class="panel panel-default card-view">
             <div class="panel-heading">
+                <!-- <form method="post"> -->
                 <div class="row">
+
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-xs-8">
@@ -256,8 +256,7 @@
                                         </div>
                                         <tr>
                                             <div class="">
-                                                <td class="txt-dark">BP. BRILLI ANTHONY<br>
-                                                    RSDU LERIK</td>
+                                                <td class="txt-dark">  </td>
                                             </div>
                                         </tr>
                                     </table>
@@ -272,8 +271,8 @@
                                         </div>
                                         <tr>
                                             <div class="">
-                                                <td class="txt-dark"> Number : <br>
-                                                    Date : <br>
+                                                <td class="txt-dark"> Number :  <br>
+                                                    Date :  <br>
                                                     Note : </td>
                                             </div>
                                         </tr>
@@ -300,36 +299,36 @@
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                @foreach ($data_detail as $detail)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>
-                                        <span style="font-weight:bold">{{$detail->nama_barang}}</span><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
-                                    </td>
-                                    <td>
-                                        <span style="font-weight:bold">{{$detail->keterangan}}</span>
-                                    </td>
-                                    <td>
-                                        <span style="font-weight:bold">{{$detail->jumlah}}</span>
-                                    </td>
-                                    <td>
-                                        <li class="todo-item">
-                                            <div class="checkbox checkbox-success">
-                                                <input type="checkbox" id="checkbox01" />
-                                                <label for="checkbox01"></label>
+                                <form action="{{ url('confirm/{id_PO}') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @foreach ($data_detail as $detail)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>
+                                            <a href="#" id="" style="font-weight:bold" data-type="text" data-pk="1" data-title="Nama barang">{{$detail->nama_barang}}</a><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
+                                        </td>
+                                        <td>
+                                            <a href="#" id="username2" style="font-weight:bold" data-type="text" data-pk="1" data-title="KEterangan">{{$detail->keterangan}}</a>
+                                        </td>
+                                        <td>
+                                            <a href="#" id="" style="font-weight:bold" data-type="text" data-pk="1" data-title="Jumlah">{{$detail->jumlah}}</a>
+                                        </td>
+                                        <td>
+                                            <div class="checkbox checkbox-success}">
+                                                <input type="checkbox" id="is_active" name="status{{$no-1}}" value="2" />
+                                                <label for=" is_active"></label>
                                             </div>
-                                        </li>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                <tr class="txt-dark">
-                                    <td colspan="3"></td>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    <!-- <tr class="txt-dark">
+                                        <td colspan="3"></td>
 
-                                    <td>Total</td>
-                                    <td>#</td>
-                                </tr>
+                                        <td>Total</td>
+                                        <td>#</td>
+                                    </tr> -->
                     </div>
-                    <tr class="txt-dark">
+                    <!-- <tr class="txt-dark">
                         <td colspan="3"></td>
                         <td>PPn 10%</td>
                         <td>#</td>
@@ -343,9 +342,10 @@
                         <td colspan="3"></td>
                         <td>Balance Due</td>
                         <td>#</td>
-                    </tr>
+                    </tr> -->
                     </tbody>
                     </table>
+                    <!-- </form> -->
                 </div>
             </div>
             <div class="row">
@@ -370,9 +370,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 <!-- /Row -->
 <!-- Row -->
@@ -380,13 +378,20 @@
 </div>
 @endif
 
-<div class="pull-right hide-from-printer">
-    <!-- <button type="submit" class="btn btn-primary mr-10">
-        Proceed to payment
-    </button> -->
+<div class="pull-right">
+    @if (auth()->user()->divisi == "warehouse")
+    <button type="submit" class="btn btn-primary mr-10">
+        Proses
+    </button>
+    </form>
+    <!-- form tutup -->
+    @endif
+
+    @if (auth()->user()->divisi == "marketing")
     <button type="button" class="btn btn-success btn-icon left-icon" onclick="javascript:window.print();">
         <i class="fa fa-print"></i><span> Print</span>
     </button>
+    @endif
 </div>
 
 <!-- /Row -->
