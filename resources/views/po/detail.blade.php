@@ -256,8 +256,7 @@
                                         </div>
                                         <tr>
                                             <div class="">
-                                                <td class="txt-dark">BP. BRILLI ANTHONY<br>
-                                                    RSDU LERIK</td>
+                                                <td class="txt-dark">  </td>
                                             </div>
                                         </tr>
                                     </table>
@@ -272,8 +271,8 @@
                                         </div>
                                         <tr>
                                             <div class="">
-                                                <td class="txt-dark"> Number : <br>
-                                                    Date : <br>
+                                                <td class="txt-dark"> Number :  <br>
+                                                    Date :  <br>
                                                     Note : </td>
                                             </div>
                                         </tr>
@@ -300,36 +299,36 @@
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                <!-- form -->
-                                @foreach ($data_detail as $detail)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>
-                                        <a href="#" id="username" style="font-weight:bold" data-type="text" data-pk="1" data-title="Nama barang">{{$detail->nama_barang}}</a><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
-                                    </td>
-                                    <td>
-                                        <a href="#" id="username2" style="font-weight:bold" data-type="text" data-pk="1" data-title="KEterangan">{{$detail->keterangan}}</a>
-                                    </td>
-                                    <td>
-                                        <a href="#" id="username3" style="font-weight:bold" data-type="text" data-pk="1" data-title="Jumlah">{{$detail->jumlah}}</a>
-                                    </td>
-                                    <td>
+                                <form action="{{ url('confirm/{id_PO}') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @foreach ($data_detail as $detail)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>
+                                            <a href="#" id="" style="font-weight:bold" data-type="text" data-pk="1" data-title="Nama barang">{{$detail->nama_barang}}</a><br>&nbsp;&nbsp;- {{$detail->keterangan_barang}}</br>
+                                        </td>
+                                        <td>
+                                            <a href="#" id="username2" style="font-weight:bold" data-type="text" data-pk="1" data-title="KEterangan">{{$detail->keterangan}}</a>
+                                        </td>
+                                        <td>
+                                            <a href="#" id="" style="font-weight:bold" data-type="text" data-pk="1" data-title="Jumlah">{{$detail->jumlah}}</a>
+                                        </td>
+                                        <td>
                                             <div class="checkbox checkbox-success}">
-                                                <input type="checkbox" id="is_active" name="status{{$no-1}}" value=""/>
-                                            <label for=" is_active"></label>
+                                                <input type="checkbox" id="is_active" name="status{{$no-1}}" value="2" />
+                                                <label for=" is_active"></label>
                                             </div>
-                                        <!-- </form> -->
-                                    </td>
-                                </tr>
-                                @endforeach
-                                <tr class="txt-dark">
-                                    <td colspan="3"></td>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    <!-- <tr class="txt-dark">
+                                        <td colspan="3"></td>
 
-                                    <td>Total</td>
-                                    <td>#</td>
-                                </tr>
+                                        <td>Total</td>
+                                        <td>#</td>
+                                    </tr> -->
                     </div>
-                    <tr class="txt-dark">
+                    <!-- <tr class="txt-dark">
                         <td colspan="3"></td>
                         <td>PPn 10%</td>
                         <td>#</td>
@@ -343,7 +342,7 @@
                         <td colspan="3"></td>
                         <td>Balance Due</td>
                         <td>#</td>
-                    </tr>
+                    </tr> -->
                     </tbody>
                     </table>
                     <!-- </form> -->
@@ -381,9 +380,10 @@
 
 <div class="pull-right">
     @if (auth()->user()->divisi == "warehouse")
-    <button type="submit" class="btn btn-primary mr-11">
+    <button type="submit" class="btn btn-primary mr-10">
         Proses
     </button>
+    </form>
     <!-- form tutup -->
     @endif
 

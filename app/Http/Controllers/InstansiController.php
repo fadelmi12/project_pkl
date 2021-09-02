@@ -73,7 +73,8 @@ class InstansiController extends Controller
 
             ]
         );
-        return redirect('instansi');
+        // return redirect('instansi');
+        return back()->with('success', "Data telah terhapus");
         
     }
 

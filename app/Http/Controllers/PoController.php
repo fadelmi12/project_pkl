@@ -127,7 +127,7 @@ class PoController extends Controller
         if ($user->divisi == "warehouse") {
             PO::where('id_PO', $request->edit_id_po)
                 ->update([
-                    'status' => '2',
+                    'status' => '$request->is_active',
                     'pic_warehouse' => $user->name
                 ]);
             $user = Auth::user();
