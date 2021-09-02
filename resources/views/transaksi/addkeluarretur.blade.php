@@ -9,7 +9,7 @@
 		<!-- Title -->
 		<div class="row heading-bg">
 			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-				<h5 class="txt-dark">barang keluar baru</h5><br>
+				<h5 class="txt-dark">barang keluar retur</h5><br>
 				<a href="/addkeluarbaru" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> BARU</a>
 				<a href="/addkeluarretur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> RETUR</a>
 
@@ -18,7 +18,7 @@
 			<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 				<ol class="breadcrumb">
 					<li><a href="#"><span>transaksi</span></a></li>
-					<li class="active"><span> barang keluar baru </span></li>
+					<li class="active"><span> barang keluar retur </span></li>
 				</ol>
 			</div>
 			<!-- /Breadcrumb -->
@@ -35,19 +35,7 @@
                                         <form action="{{ url('addkeluarbaru2') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
-												<div class="row">
-													<div class="col-md-6">
-															<div class="form-group">
-																<label class="control-label mb-10">Jenis Barang</label>
-																<select id="retrieveMarriage" name="retrieveMarriage" onchange=";" class="form-control">
-																	<option value="NO">Barang Instalasi</option>
-																	<option value="YES">Barang Garansi</option>
-																</select>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="row" id=""> 
+                                                <div class="row">
 													@foreach ((array)$no_trans as $no_trans)
 													<div class="col-md-6">
 														<div class="form-group">
@@ -58,30 +46,13 @@
 													</div>
 													@endforeach
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label mb-10">NO SO</label>
-                                                            <select name="instansi" id="instansi" class="form-control">
-                                                            	<option value=""></option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label mb-10">Instansi</label>
-                                                            <select name="instansi" id="instansi" class="form-control">
-                                                            	@foreach($data_instansi as $instansi)
-																<option value="{{ $instansi->nama_instansi }}">{{ $instansi->nama_instansi }} | {{ $instansi->kode_instansi }}</option>
-																@endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-													<div class="col-md-6">
 														<div class="form-group">
-															<label class="control-label mb-10">Penerima</label>
-															<input type="text" id="penerima" name="penerima" class="form-control">
-
+															<label class="control-label mb-10">Supplier</label>
+															<select name="nama_supplier" id="nama_supplier" class="form-control">
+																@foreach($supplier as $sup)
+																<option value="{{ $sup->nama_supplier }}">{{ $sup->nama_supplier }} | {{ $sup->kode_supplier }} </option>
+																@endforeach
+															</select>
 														</div>
 													</div>
                                                 </div>
@@ -92,16 +63,30 @@
 															<input type="text" id="pengirim" name="pengirim" class="form-control">
 														</div>
 													</div>
-													
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Penerima</label>
+															<input type="text" id="penerima" name="penerima" class="form-control">
+
+														</div>
+													</div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label class="control-label mb-10">No PO</label>
+															<label class="control-label mb-10">No SO</label>
                                                             <input type="text" id="no_PO" name="no_PO" class="form-control" placeholder="">
                                                         </div>
 													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Tanggal Transaksi</label>
+                                                            <input type="date" id="no_PO" name="no_PO" class="form-control" placeholder="">
+                                                        </div>
+													</div>
+												</div>
+												<div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="control-label mb-10">Nama Barang</label>
@@ -112,8 +97,6 @@
                                                             </select>
                                                         </div>
                                                     </div>
-												</div>
-												<div class="row">
 													<div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="control-label mb-10">Jumlah</label>
@@ -123,7 +106,9 @@
                                                             
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+												</div>
+												<div class="row">
+													<div class="col-md-12">
                                                         <div class="form-group">
                                                             <label class="control-label mb-10">Keterangan</label>
                                                             <input type="text" id="keterangan" name="keterangan" class="form-control">
@@ -179,11 +164,6 @@
 													</div>
 												</div>
 											</div>
-
-											<!-- BARANG GARANSI -->
-											<div class="row" id="">
-
-											</div>
                                         </form>
                                     </div>
                                 </div>
@@ -227,24 +207,5 @@
 
 		$('#nama_barang').select2();
 		$('#nama_supplier').select2();
-</script>
-<script>
-	var select = document.getElementById('retrieveMarriage');
-	var currentOption = 0;
-
-// Add event listener that listens on when you click "select"
-	select.addEventListener("click", function() {
-    // If one of the other options are selected, then hide it and set it to empty
-    if(currentOption > 0) {
-        document.getElementById('box-' + currentOption).style.display = 'none';
-        document.getElementById('box-' + currentOption).firstChild.value = '';
-    }
-    // Set current option to be current option
-    currentOption = this.selectedIndex;
-    // Set box-N to show
-    document.getElementById('box-' + currentOption).style.display = 'block';
-});
-
-
 </script>
 @endsection

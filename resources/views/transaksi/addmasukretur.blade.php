@@ -9,7 +9,7 @@
 		<div class="row heading-bg">
 			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 				<h5 class="txt-dark">barang masuk retur</h5><br>
-				<a href="/addmasukretur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> BARU</a>
+				<a href="/addmasukbaru" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> BARU</a>
 				<a href="/addmasukretur" class="btn btn-primary btn-icon-anim"><i class="fa fa succes"></i> RETUR</a>
 
 			</div>
@@ -45,16 +45,17 @@
 													</div>
 												    @endforeach
 													<div class="col-md-6">
-                                                        @foreach($noPO as $noPO)
-                                                        <div class="form-group">
-                                                            <input type="hidden" id="no_po" name="no_po" value="{{ $noPO->no_PO }}" class="form-control" placeholder="" readonly>
-                                                            <label class="control-label mb-10">No PO</label>
+														<div class="form-group">
+															<label class="control-label mb-10">No PO</label>
                                                             <select name="no_PO" id="no_PO" class="form-control select2">
-                                                                <option value="{{ $noPO->no_PO }}">{{ $noPO->no_PO }}</option>
-                                                            </select>
+																@foreach($noPO as $noPO)
+																<option value="{{ $noPO->no_PO }}">{{ $noPO->no_PO }}</option>
+																@endforeach
+															</select>
                                                         </div>
-                                                        @endforeach
                                                     </div>
+												</div>
+												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Pengirim Ekspedisi</label>
@@ -67,6 +68,7 @@
 															<input type="text" id="penerima" name="penerima" class="form-control">
 														</div>
 													</div>
+
 												</div>
 												<hr>
 												<div class="row">
@@ -128,6 +130,7 @@
 																			<thead class="thead-light">
 																				<tr>
 																					<th>No Transaksi</th>
+																					<th>No PO</th>
 																					<th>Nama barang</th>
 																					<th>Jumlah</th>
 																					<th>Keterangan</th>
@@ -187,8 +190,8 @@
                                                         '"></td><td><input type="text" style="outline:none;border:0;" readonly name="no_PO[]" id="no_PO" value="' + no_PO + 
                                                         '"></td><td><input type="text" style="outline:none;border:0;" readonly name="nama_barang[]" id="nama_barang" value="' + nama_barang + 
                                                         '"></td><td style="display:none;"><input type="text" style="outline:none;border:0;" readonly name="kode_barang[]" id="kode_barang" value="' + kode_barang + 
-                                                        '"></td><td><input type="text" style="outline:none;border:0;" readonly name="keterangan[]" id="keterangan" value="' + keterangan + 
                                                         '"></td><td><input type="text" style="outline:none;border:0;" readonly name="jumlah[]" id="jumlah" value="' + jumlah + 
+														'"></td><td><input type="text" style="outline:none;border:0;" readonly name="keterangan[]" id="keterangan" value="' + keterangan + 
                                                         '"></td><td><button type="button" id="' + i + '" class="btn btn-danger btn-small remove_row">&times;</button></td></tr>');
     };
     $(document).on('click', '.remove_row', function() {
