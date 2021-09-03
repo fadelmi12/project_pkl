@@ -34,19 +34,21 @@
                                     <div class="form-wrap">
                                         <form action="{{ url('addkeluarbaru2') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
-                                            <div class="form-body">
-												<div class="row">
+                                            <div class="form-body" >
+												<div class="row" >
 													<div class="col-md-6">
 															<div class="form-group">
 																<label class="control-label mb-10">Jenis Barang</label>
-																<select id="retrieveMarriage" name="retrieveMarriage" onchange=";" class="form-control">
+																<select id="jenistransaksi" name="jenistransaksi" onchange=";" class="form-control">
+																	<option value='' disabled selected style='display:none;'>Pilih Jenis Transaksi</option>
 																	<option value="NO">Barang Instalasi</option>
 																	<option value="YES">Barang Garansi</option>
 																</select>
 															</div>
-														</div>
+												</div>
 													</div>
 												</div>
+												<div class="" id="box-1">	
 												<div class="row" id=""> 
 													@foreach ((array)$no_trans as $no_trans)
 													<div class="col-md-6">
@@ -94,42 +96,51 @@
 													</div>
 													
                                                 </div>
-                                                <hr>
-                                                <div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label mb-10">No PO</label>
-                                                            <input type="text" id="no_PO" name="no_PO" class="form-control" placeholder="">
-                                                        </div>
+											</div>
+												<hr>
+												<div id="box-2" style="display:none">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label mb-10">No PO</label>
+																<select name="no_PO" id="no_PO" class="form-control dynamic1" data-dependent="nama_barang">
+																	<option value="">Pilih No PO</option>
+																	@foreach($bar as $ba)
+																		<option value="{{ $ba->no_PO }}">{{ $ba->no_PO }}</option>
+																	@endforeach
+																</select>
+																
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label mb-10">Nama Barang</label>
+																<select name="nama_barang" id="nama_barang" >
+																	{{-- <option value="">Pilih Barang</option> --}}
+																</select>
+															</div>
+															
+														</div>
 													</div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label mb-10">Nama Barang</label>
-                                                            <select name="nama_barang" id="nama_barang" class="form-control">
-																@foreach($barang as $brg)
-																	<option value="{{ $brg->nama_barang }}">{{ $brg->nama_barang }} | {{ $brg->kode_barang }} </option>
-																@endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label mb-10">Jumlah</label>
+																<input type="number" id="jumlah" name="jumlah" class="form-control">
+																
+																<input  id="kode_barang" name="kode_barang" value="" hidden>
+																
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label mb-10">Keterangan</label>
+																<input type="text" id="keterangan" name="keterangan" class="form-control">
+															</div>
+														</div>
+													</div>
 												</div>
-												<div class="row">
-													<div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label mb-10">Jumlah</label>
-                                                            <input type="number" id="jumlah" name="jumlah" class="form-control">
-                                                            
-                                                            <input  id="kode_barang" name="kode_barang" value="" hidden>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label mb-10">Keterangan</label>
-                                                            <input type="text" id="keterangan" name="keterangan" class="form-control">
-                                                        </div>
-                                                    </div>
-												</div>
+                                                
                                             </div>
                                             <div class="col-md-14" style="text-align:right;">
 												<button type="button" onclick="ambildata()" class="btn btn-success ">Tambah Data</button>
@@ -179,11 +190,7 @@
 													</div>
 												</div>
 											</div>
-
-											<!-- BARANG GARANSI -->
-											<div class="row" id="">
-
-											</div>
+											{{ csrf_field() }}
                                         </form>
                                     </div>
                                 </div>
@@ -229,22 +236,45 @@
 		$('#nama_supplier').select2();
 </script>
 <script>
-	var select = document.getElementById('retrieveMarriage');
+	var select = document.getElementById('jenistransaksi');
 	var currentOption = 0;
 
 // Add event listener that listens on when you click "select"
 	select.addEventListener("click", function() {
     // If one of the other options are selected, then hide it and set it to empty
-    if(currentOption > 0) {
-        document.getElementById('box-' + currentOption).style.display = 'none';
-        document.getElementById('box-' + currentOption).firstChild.value = '';
-    }
     // Set current option to be current option
     currentOption = this.selectedIndex;
     // Set box-N to show
-    document.getElementById('box-' + currentOption).style.display = 'block';
+    if(currentOption == 1 ){
+    	document.getElementById('box-1').style.display = 'block';
+      document.getElementById('box-2').style.display = 'block';
+    } else if(currentOption == 2){
+    	document.getElementById('box-1').style.display = 'none';
+		document.getElementById('box-2').style.display = 'block';
+    }
 });
 
 
+</script>
+<script>
+	$('.dynamic1').change(function(){
+		if($(this).val() != ''){
+			var select = $(this).attr("id");
+			var value = $(this).val();
+			console.log(value);
+			var dependent = $(this).data('dependent');
+			var _token = $('input[name="_token"]').val();
+			$.ajax({
+				url: "{{ route('fetch')}}",
+				method: "POST",
+				data: {
+					select: select,value: value,_token:_token,dependent: dependent
+				},
+				success: function(result) {
+					$('#'+dependent).html(result);
+				}
+			});
+		}
+	});
 </script>
 @endsection

@@ -9,6 +9,7 @@ use App\Models\Master;
 use App\Models\SupplierModel;
 use App\Models\TransaksiKeluar;
 use App\Models\PO;
+use App\Models\DetailPO;
 use App\Models\Instansi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -17,6 +18,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\VarDumper\Cloner\Data;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use Illuminate\Support\Facades\DB;
+use PurchaseOrderTable;
 
 class TransaksiController extends Controller
 {
@@ -184,6 +187,7 @@ class TransaksiController extends Controller
         $transaksi_keluar = TransaksiKeluar::all();
         $data_instansi = Instansi::all();
         $barang = Master::where([['status', 'aktif']])->get();
+        $bar = DB::table('detail_PO')->groupBy('no_PO')->get();
          // $no_trans = IdGenerator::generate(['table' => 'transaksi_masuk', 'length' => 8, 'prefix' => 'TRK-',date('ym')]);
         $now = Carbon::now();
         $thnBln = $now->year . $now->month;
@@ -192,7 +196,21 @@ class TransaksiController extends Controller
         $angka = sprintf("%03d", (int)$check + 1);
         $noPO = $thnBln . "" . $angka;
         $no_trans =  $kode.  "-"  .$now->year . $now->month . $angka;
-        return view('transaksi/addkeluarbaru', compact('no_trans','data_instansi', 'barang', 'transaksi_keluar'));
+        return view('transaksi/addkeluarbaru', compact('no_trans','data_instansi', 'barang', 'transaksi_keluar','bar'));
+    }
+
+    public function fetch(Request $request){
+        // dd($request);
+       $select = $request->get('select');
+       $values = $request->get('value');
+       $dependent = $request->get('dependent');
+    //    dd($dependent);
+       $data = DB::table('detail_PO')->where('no_PO', $values)->groupBy('nama_barang')->get();
+       $output = '<option value="">Pilih Barang'.'</option>';
+       foreach ($data as $row) {
+           $output .= '<option value=""'.$row->nama_barang.'">'.$row->nama_barang.'</option>';
+       }
+       echo $output;
     }
 
     public function addkeluarbaru2(Request $request)
